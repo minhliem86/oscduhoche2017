@@ -29,7 +29,7 @@
 				<div class="form-group">
 					<label for="" >Hình đại diện</label>
 					<p>
-						<img src="{!!$promotion->img_avatar!!}" width="150" alt="">
+						<img src="{!!asset('public/upload').$promotion->img_avatar!!}" width="150" alt="">
 						{!!Form::hidden('img-bk',$promotion->img_avatar)!!}
 					</p>
 					{!!Form::file('img')!!}

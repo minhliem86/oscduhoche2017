@@ -3,8 +3,8 @@
 @section('content')
  <section class="content-header">
   <h1>
-    Promotion Page
-    <small>Promotion Page Managment</small>
+    Location Page
+    <small>Location Page Managment</small>
   </h1>
   <!-- <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -17,32 +17,30 @@
 			<div class="box">
 	            <div class="box-header">
 	              <div class="pull-right">
-	              	<a href="{!!route('admin.promotion.create')!!}" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+	              	<a href="{!!route('admin.location.create')!!}" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 					<button class="btn btn-danger btn-xs" id="btn-count">Remove data selected</button>
 	              </div>
 	            </div>
 	            <!-- /.box-header -->
-	            @if($promotion->count() != 0)
+	            @if($location->count() != 0)
 				<div class="box-body">
 
 				  <table id="table-post" class="table table-bordered table-striped">
 				    <thead>
 					    <tr>
 							<th>ID</th>
-							<th data-width="60%">Articles</th>
-							<th>Image</th>
+							<th data-width="60%">Location</th>
 							<th>Action</th>
 						</tr>
 				    </thead>
 				    <tbody>
-					    @foreach($promotion as $item)
-						<tr data-id="{!!$item->id!!}">
+					    @foreach($location as $item)
+						<tr>
 							<td >{!!$item->id!!}</td>
-							<td><b><a href="{!!route('admin.promotion.edit',$item->id)!!}">{!!$item->name!!}</a></b></td>
-							<td><img src="{!!$item->img_avatar!!}" width="100" alt=""></td>
+							<td><b><a href="{!!route('admin.location.edit',$item->id)!!}">{!!$item->title!!}</a></b></td>
 							<td>
-							<a href="{!!route('admin.promotion.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a> 
-							{!!Form::open(array('route'=>array('admin.promotion.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
+							<a href="{!!route('admin.location.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a> 
+							{!!Form::open(array('route'=>array('admin.location.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
 							<button class="btn  btn-danger btn-xs remove-btn" type="button" attrid="{!!$item->id!!}" onclick="confirm_remove(this);"   > Remove </button>
 							{!!Form::close()!!}
 							</td>
@@ -83,20 +81,20 @@
 				"bLengthChange": false,
 				"bFilter" : false,
 			});
+			/*SELECT ROW*/
 			$('#table-post tbody').on('click','tr',function(){
 				$(this).toggleClass('selected');
 			})
-			
+			/*REMOVE SELECTED*/
 			$('#btn-count').click( function () {
 				var data = [];
 				table.rows('.selected').data().each(function(index, e){
-					// console.log(index)[0];
 					data.push(index[0]);
 				});
 				alertify.confirm('You can not undo this action. Are you sure ?', function(e){
 					if(e){
 						$.ajax({
-							'url':"{!!route('admin.promotion.deleteall')!!}",
+							'url':"{!!route('admin.location.deleteall')!!}",
 							'data' : {arr: data,_token:$('meta[name="csrf-token"]').attr('content')},
 							'type': "POST",
 							'success':function(result){

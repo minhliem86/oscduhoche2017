@@ -1,26 +1,26 @@
 <?php namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Promotion;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Notification;
 use App\Http\Requests\ImageRequest;
 
 
-class PromotionController extends Controller {
+class CountryController extends Controller {
 
-	protected $promotion;
+	protected $country;
 
-    protected $upload_folder = 'promotion';
+    protected $upload_folder = 'country';
 
-	public function __construct(Promotion $promotion){
-		$this->promotion = $promotion;
+	public function __construct(Country $country){
+		$this->country = $country;
 	}
 	
 	public function index()
     {
-        $promotion = $this->promotion->select('id','name','img_avatar')->get();
-        return view('Admin::pages.promotion.index')->with(compact('promotion'));
+        $country = $this->country->select('id','name','status','order','img_avatar')->get();
+        return view('Admin::pages.country.index')->with(compact('country'));
     }
 
     /**
@@ -30,7 +30,7 @@ class PromotionController extends Controller {
      */
     public function create()
     {
-        return view('Admin::pages.promotion.create');
+        return view('Admin::pages.country.create');
     }
 
     /**
@@ -39,9 +39,9 @@ class PromotionController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,ImageRequest $imgrequest, Promotion $promotion)
+    public function store(Request $request,ImageRequest $imgrequest, Country $country)
     {
-        $order = $this->promotion->orderBy('order','DESC')->first();
+        $order = $this->country->orderBy('order','DESC')->first();
         count($order) == 0 ?  $current = 1 :  $current = $order->order +1 ;
 
         if($imgrequest->hasFile('img')){
@@ -70,15 +70,13 @@ class PromotionController extends Controller {
         $data = [
             'name'=>$request->name,
             'slug' => \Unicode::make($request->name),
-            'img_avatar' => $img_url,
-            'description' => $request->input('description'),
-            'content' => $request->input('content'),
             'status'=> $request->status,
+            'img_avatar'=> $img_url,
             'order'=>$current
         ];
-        $this->promotion->create($data);
+        $this->country->create($data);
         Notification::success('Created');
-        return  redirect()->route('admin.promotion.index');
+        return  redirect()->route('admin.country.index');
     }
 
     /**
@@ -100,8 +98,8 @@ class PromotionController extends Controller {
      */
     public function edit($id)
     {
-        $promotion = $this->promotion->find($id);
-        return view('Admin::pages.promotion.view')->with(compact('promotion'));
+        $country = $this->country->find($id);
+        return view('Admin::pages.country.view')->with(compact('country'));
     }
 
     /**
@@ -133,18 +131,16 @@ class PromotionController extends Controller {
             $img_url = $request->input('img-bk');
         }
 
-        $promotion = $this->promotion->find($id);
-        $promotion->name = $request->name;
-        $promotion->slug = \Unicode::make($request->name);
-        $promotion->description = $request->input('description');
-        $promotion->content = $request->input('content');
-        $promotion->img_avatar = $img_url;
-        $promotion->status = $request->status;
-        $promotion->order = $request->order;
-        $promotion->save();
+        $country = $this->country->find($id);
+        $country->name = $request->name;
+        $country->slug = \Unicode::make($request->name);
+        $country->img_avatar = $img_url;
+        $country->status = $request->status;
+        $country->order = $request->order;
+        $country->save();
 
         Notification::success('Updated');
-        return  redirect()->route('admin.promotion.index');
+        return  redirect()->route('admin.country.index');
     }
 
     /**
@@ -154,9 +150,9 @@ class PromotionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $this->promotion->destroy($id);
+        $this->country->destroy($id);
         \Notification::success('Remove Successful');
-        return redirect()->route('admin.promotion.index');
+        return redirect()->route('admin.country.index');
     }
 
     public function deleteAll(Request $request){
@@ -165,7 +161,7 @@ class PromotionController extends Controller {
         }else{
             $data = $request->arr;
             if($data){
-                $this->promotion->destroy($data);
+                $this->country->destroy($data);
                 return response()->json(array('msg'=>'ok'));
             }else{
                 return response()->json(array('msg'=>'error'));
@@ -174,12 +170,12 @@ class PromotionController extends Controller {
     }
 
     public function checkRelate(Request $request){
-        $promotion = $this->promotion->find($request->dataid);
-        $count = $promotion->image()->get()->count();
+        $country = $this->country->find($request->dataid);
+        $count = $country->image()->get()->count();
         if($count > 0){
             return response()->json(['msg'=>'yes']);
         }else{
-            $promotion->delete();
+            $country->delete();
             return response()->json(['msg'=>'done']);
         }
     }

@@ -166,7 +166,7 @@ class PromotionController extends Controller {
             $data = $request->arr;
             if($data){
                 $this->promotion->destroy($data);
-                return response()->json(array('msg'=>'ok'));
+                return response()->json(array('msg'=>$data));
             }else{
                 return response()->json(array('msg'=>'error'));
             }
