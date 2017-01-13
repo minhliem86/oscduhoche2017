@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*=================================Reponsive=================================*/
+@media only screen and (max-width: 1200px){
+    .topmenu .navbar-default a{
+        font-size: 12px;
+        padding: 5px 15px;
+    }
+}
+@media only screen and (max-width: 992px){
+    .topmenu .navbar-default a{
+        font-size: 11px;
+        padding: 4px 12px;
+    }
+    .discover .top-box{
+        height: 256px;
+    }
+    .discover .top-box > div:last-child > div{
+        height: 128px;
+    }
+    .discover .box-text{
+        padding: 5%;
+    }
+    .discover .box-text h2{
+        font-size: 20px;
+    }
+    .title-country{
+        font-size: .7em;
+        left: 0.5em;
+    }
+    .btn-dis{
+        font-size:0.6em;
+    }
+}
+@media only screen and (max-width: 768px){
+    .pc{
+        display: none;
+    }
+    .mb{
+        display: block;
+    }
+    .topmenu .navbar-default{
+        position: fixed;
+        right: 0;
+        top: 0;
+        background: #ffcb05;
+        width: 100%;
+        z-index: 9998;
+        box-shadow: 0 0 5px rgba(0,0,0,.8);
+    }
+    .navbar-default .navbar-toggle:focus, 
+    .navbar-default .navbar-toggle:hover{
+        background: #ffcb05;
+    }
+    .navbar-default .navbar-toggle:focus .icon-bar , 
+    .navbar-default .navbar-toggle:hover .icon-bar{
+        background: #2b328c;
+    }
+    .logo-box{
+        margin-top:40px;
+    }
+    .navbar-toggle{
+        background: #2b328c;
+    }
+    .navbar-default .navbar-toggle .icon-bar{
+        background-color:#ffcb05;
+    }
+    .discover .top-box,
+    .discover .top-box > div:last-child > div{
+        height: 100% ;
+        padding: 0;
+    }
+    .discover .top-box > div:first-child > div{
+        padding-right: 0px;
+    }
+    .discover .top-box > div:last-child > div{
+        margin: 5px 0 0 ;
+        height: 180px;
+        overflow: hidden;
+    }
+    .discover .top-box > div:last-child > div:nth-child(1),
+    .discover .top-box > div:last-child > div:nth-child(3n){
+        padding-right: 5px;
+        
+    }
+    .discover .bottom-box > div:not(:last-child){
+        padding-right: 0;
+        margin-bottom: 5px;
+    }
+    .discover .bottom-box > div:last-child{
+        padding-right: 0;
+    }
+    .discover .bottom-box > div{
+        height: 230px;
+        overflow: hidden;
+    }
+    .pro-test{
+        text-align: center;
+    }
+    .pro-test .hr{
+        margin-left: auto;
+    }
+    .pro-text{
+        min-height: auto;
+    }
+    .overlay-img:before,
+    .discover .box-text{
+        top: 0;
+        right: 0;
+    }
+    .bg-destination img{
+        width: 100%;
+    }
+    .box-destination a{
+        display: block;
+    }
+    footer{
+        text-align: center;
+    }
+    footer > div > div > div:not(:last-child){
+        border: none;
+    }
+}
+@media only screen and (max-width: 480px){
+    .pc{
+        display: none;
+    }
+    .mb{
+        display: block;
+    }
+    .discover .top-box > div:last-child > div{
+        height: 110px;
+    }
+    .discover .top-box > div:last-child > div img{
+    }
+    .title-slider{
+        font-size: 12px;
+    }
+    .wellcome,
+    .video,
+    .reg,
+    .pro-test,
+    .discover{
+        margin-top: 30px;
+         padding: 20px 0 30px; 
+    }
+    .reg-box{
+        padding: 0 10px;
+    }
+    .bg-destination img{
+        width: auto;
+    }
+}
+

@@ -2,13 +2,13 @@
 
 @section('content')
 <section class="content-header">
-  <h1>Promotion</h1>
+  <h1>Image</h1>
 </section>
 <section class="content">
 
 	<div class="box">
 		<div class="container-fluid">
-			{!!Form::open(array('route'=>array('admin.promotion.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
+			{!!Form::open(array('route'=>array('admin.image.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
 					<label for="">Hình đại diện ()</label>
 					{!!Form::file('img')!!}
@@ -17,16 +17,8 @@
 					@endif
 				</div>
 				<div class="form-group">
-					<label for="">Tên bài viết</label>
-					{!!Form::text('name',old('name'),array('class'=>'form-control'))!!}
-				</div>
-				<div class="form-group">
-					<label for="">Mô tả</label>
-					{!!Form::textarea('description',old('description'),array('class'=>'form-control','rows'=>3))!!}
-				</div>
-				<div class="form-group">
-					<label for="">Nội dung</label>
-					{!!Form::textarea('content',old('content'),array('class'=>'form-control ckeditor'))!!}
+					<label for="" >Loại (hint: banner)</label>
+					{!!Form::text('type',old('type'),array('class'=>'form-control'))!!}
 				</div>
 
 				<div class="form-margin">

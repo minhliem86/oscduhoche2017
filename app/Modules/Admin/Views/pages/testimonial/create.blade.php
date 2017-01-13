@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="content-header">
-  <h1>Promotion</h1>
+  <h1>Testimonial</h1>
 </section>
 <section class="content">
 
@@ -18,7 +18,11 @@
 				</div>
 				<div class="form-group">
 					<label for="">Tên bài viết</label>
-					{!!Form::text('name',old('name'),array('class'=>'form-control'))!!}
+					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
+				</div>
+				<div class="form-group">
+					<label for="">Tác giả</label>
+					{!!Form::text('author',old('author'),array('class'=>'form-control'))!!}
 				</div>
 				<div class="form-group">
 					<label for="">Mô tả</label>

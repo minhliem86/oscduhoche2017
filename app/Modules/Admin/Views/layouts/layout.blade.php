@@ -78,7 +78,8 @@ desired effect
 	{!!Html::script('public/assets/backend/bootstrap/js/bootstrap.min.js')!!}
 
 	<!-- datepicker -->
-	{!!Html::style('public/assets/backend/plugins/datepicker/bootstrap-datepicker.js')!!}
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<!-- APP -->
 	<!-- {!!Html::script('public/assets/backend/js/app.js')!!} -->
 

@@ -1,26 +1,26 @@
 <?php namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Promotion;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Notification;
 use App\Http\Requests\ImageRequest;
 
 
-class PromotionController extends Controller {
+class ImageController extends Controller {
 
-	protected $promotion;
+	protected $image;
 
-    protected $upload_folder = 'promotion';
+    protected $upload_folder = 'image';
 
-	public function __construct(Promotion $promotion){
-		$this->promotion = $promotion;
-	}
-	
-	public function index()
+    public function __construct(Image $image){
+        $this->image = $image;
+    }
+    
+    public function index()
     {
-        $promotion = $this->promotion->select('id','name','img_avatar')->get();
-        return view('Admin::pages.promotion.index')->with(compact('promotion'));
+        $image = $this->image->select('id','img_url','type')->get();
+        return view('Admin::pages.image.index')->with(compact('image'));
     }
 
     /**
@@ -30,7 +30,7 @@ class PromotionController extends Controller {
      */
     public function create()
     {
-        return view('Admin::pages.promotion.create');
+        return view('Admin::pages.image.create');
     }
 
     /**
@@ -39,9 +39,9 @@ class PromotionController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,ImageRequest $imgrequest, Promotion $promotion)
+    public function store(Request $request,ImageRequest $imgrequest, Image $image)
     {
-        $order = $this->promotion->orderBy('order','DESC')->first();
+        $order = $this->image->orderBy('order','DESC')->first();
         count($order) == 0 ?  $current = 1 :  $current = $order->order +1 ;
 
         if($imgrequest->hasFile('img')){
@@ -50,35 +50,40 @@ class PromotionController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
 
-            // $size = getimagesize($file);
-            // if($size[0] > 620){
-            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
-            // }else{
-            //     $file->move($destinationPath,$filename);
-            // }
+            if($request->input('type') && $request->input('type') == 'banner'){
+                $banner_width = 2000;
+                $banner_height = 400;
+
+                $size = getimagesize($file);
+                if($size[0] > $banner_width){
+                    \Image::make($file->getRealPath())->resize($banner_width,$banner_height)->save($destinationPath.'/'.$filename);
+                }else{
+                    $file->move($destinationPath,$filename);
+                }
+            }else{
+                $file->move($destinationPath,$filename);
+            }
 
             $img_url = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
-            // $img_alt = \GetNameImage::make('\/',$filename);
+            $img_alt = \GetNameImage::make('\/',$filename);
         }else{
             $img_url = asset('public/assets/backend/img/image_thumbnail.gif');
-            // $img_alt = \GetNameImage::make('\/',$img_url);
+            $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
 
         $data = [
-            'name'=>$request->name,
-            'slug' => \Unicode::make($request->name),
-            'img_avatar' => $img_url,
-            'description' => $request->input('description'),
-            'content' => $request->input('content'),
+            'img_url'=>$img_url,
+            'img_alt'=>$img_alt,
+            'type' =>$request->type,
             'status'=> $request->status,
             'order'=>$current
         ];
-        $this->promotion->create($data);
+        $this->image->create($data);
         Notification::success('Created');
-        return  redirect()->route('admin.promotion.index');
+        return  redirect()->route('admin.image.index');
     }
 
     /**
@@ -100,8 +105,8 @@ class PromotionController extends Controller {
      */
     public function edit($id)
     {
-        $promotion = $this->promotion->find($id);
-        return view('Admin::pages.promotion.view')->with(compact('promotion'));
+        $image = $this->image->find($id);
+        return view('Admin::pages.image.view')->with(compact('image'));
     }
 
     /**
@@ -119,32 +124,39 @@ class PromotionController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
 
-            // $size = getimagesize($file);
-            // if($size[0] > 620){
-            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
-            // }else{
-            //     $file->move($destinationPath,$filename);
-            // }
+            if($request->input('type') && $request->input('type') == 'banner'){
+                $banner_width = 2000;
+                $banner_height = 400;
+
+                $size = getimagesize($file);
+                if($size[0] > $banner_width){
+                    \Image::make($file->getRealPath())->resize($banner_width,$banner_height)->save($destinationPath.'/'.$filename);
+                }else{
+                    $file->move($destinationPath,$filename);
+                }
+            }else{
+                $file->move($destinationPath,$filename);
+            }
 
             $img_url = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
+            $img_alt = \GetNameImage::make('\/',$filename);
         }else{
             $img_url = $request->input('img-bk');
+            $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
-        $promotion = $this->promotion->find($id);
-        $promotion->name = $request->name;
-        $promotion->slug = \Unicode::make($request->name);
-        $promotion->description = $request->input('description');
-        $promotion->content = $request->input('content');
-        $promotion->img_avatar = $img_url;
-        $promotion->status = $request->status;
-        $promotion->order = $request->order;
-        $promotion->save();
+        $image = $this->image->find($id);
+        $image->img_url = $img_url;
+        $image->img_alt = $img_alt;
+        $image->type = $request->type;
+        $image->status = $request->status;
+        $image->order = $request->order;
+        $image->save();
 
         Notification::success('Updated');
-        return  redirect()->route('admin.promotion.index');
+        return  redirect()->route('admin.image.index');
     }
 
     /**
@@ -154,9 +166,9 @@ class PromotionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $this->promotion->destroy($id);
+        $this->image->destroy($id);
         \Notification::success('Remove Successful');
-        return redirect()->route('admin.promotion.index');
+        return redirect()->route('admin.image.index');
     }
 
     public function deleteAll(Request $request){
@@ -165,8 +177,8 @@ class PromotionController extends Controller {
         }else{
             $data = $request->arr;
             if($data){
-                $this->promotion->destroy($data);
-                return response()->json(array('msg'=>$data));
+                $this->image->destroy($data);
+                return response()->json(array('msg'=>'ok'));
             }else{
                 return response()->json(array('msg'=>'error'));
             }
@@ -174,12 +186,12 @@ class PromotionController extends Controller {
     }
 
     public function checkRelate(Request $request){
-        $promotion = $this->promotion->find($request->dataid);
-        $count = $promotion->image()->get()->count();
+        $image = $this->image->find($request->dataid);
+        $count = $image->image()->get()->count();
         if($count > 0){
             return response()->json(['msg'=>'yes']);
         }else{
-            $promotion->delete();
+            $image->delete();
             return response()->json(['msg'=>'done']);
         }
     }
