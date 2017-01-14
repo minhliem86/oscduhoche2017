@@ -6,9 +6,9 @@ class Country extends Model {
 
 	public $table = "countries";
 
-	protected $fillable = ['name','slug','status','order','img_avatar'];
+	protected $fillable = ['name','slug','status','order','img_avatar','description'];
 
 	public function tour(){
-		return $this->haveMany('App\Models\Tour','country_id');
+		return $this->hasMany('App\Models\Tour','country_id');
 	}
 }

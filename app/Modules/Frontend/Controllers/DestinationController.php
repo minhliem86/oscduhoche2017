@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Request;
 use App\Models\Country;
 
-class HomeController extends Controller {
+class DestinationController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -23,9 +23,22 @@ class HomeController extends Controller {
 	 * @return void
 	 */
 	
-	public function getIndex(){
+	public $country;
+
+	public function __construct(Country $country){
+		$this->country = $country;
+	}
+
+	public function getDetail($slug=null){
 		// $country_list = Country::list('name','id');
-		return view('Frontend::pages.home');
+		if($slug != null){
+			$country_data = $this->country->select('id','name','description')->where('slug',$slug)->with(['tour'=>function($query){
+				$query->select('id','title','description','age','start','end');
+			}])->first();
+			return view('Frontend::pages.destination',compact('country_data'));
+			
+		}
+		// return view('Frontend::pages.destination');
 	}
 
 }

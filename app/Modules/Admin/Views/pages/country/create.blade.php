@@ -20,6 +20,10 @@
 					<label for="">Quốc gia</label>
 					{!!Form::text('name',old('name'),array('class'=>'form-control'))!!}
 				</div>
+				<div class="form-group">
+					<label for="">Mô tả</label>
+					{!!Form::textarea('description',old('description'),array('class'=>'form-control'))!!}
+				</div>
 				<div class="form-margin">
 					<label for="">Trạng thái</label>
 					<div>

@@ -7,8 +7,8 @@
 /* CSS Document */
 
 *{
-    -webkit-transition: all .15s ease-in-out;
-    transition: all .15s ease-in-out;
+    -webkit-transition: all .12s ease-in-out;
+    transition: all .12s ease-in-out;
 }
 .nopadding{
     padding: 0;
@@ -35,18 +35,16 @@
 .osc-summer{
     color: #2b328c;
 }
-
+.bg-yellow{
+    background: #ffcb05;
+}
 /*================================= Header =================================*/
 header,
-footer {
-    background: #ffcb05;
+footer{
     padding: 20px 35px;
 }
-header{padding:20px 35px 15px;}
-.discover {
-    background: #ffcb05;
-}
 header{
+    padding:20px 35px 15px; 
     margin-bottom: 30px;
 }
 .logo-box{
@@ -66,46 +64,99 @@ header{
     margin-left: 2px;
     color: #000!important;
 }
+.topmenu .dropdown-menu{
+    background-color: #2b328c;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px !important;
+    left: 0;
+}
+.topmenu .dropdown-menu li:not(:last-child){
+    border-bottom: 1px solid #fff;
+}
+.topmenu .dropdown-menu a{
+    color: #fff !important;
+}
+.topmenu .navbar-default a:hover,
+.topmenu .navbar-default .active a{
+    border-radius: 35px !important;
+    background: #2b328c!important;
+}
+.topmenu .navbar-default .active a,
+.topmenu .navbar-default .navbar-nav>.active>a,
+.topmenu .navbar-default .navbar-nav>.open>a,
+.topmenu .navbar-default a:hover{
+    color: #ffcb05 !important;
+}
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.open>a{
+    background-image: -webkit-linear-gradient(top,#2b328c 0,#2b328c 100%);
+    background-image: -o-linear-gradient(top,#2b328c 0,#2b328c 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#2b328c),to(#2b328c));
+    background-image: linear-gradient(to bottom,#2b328c 0,#2b328c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b328c', endColorstr='#2b328c', GradientType=0);
+    border-radius: 35px;
+}
 /*================================= Container =================================*/
 body{
     font-family: 'Gotham Book', sans-serif;
     font-size: 14px;
 }
-h2 ,h4, .btn,
+h2 ,h3, h4, .btn,
 .topmenu .navbar-default a{
     font-family: 'gothamvnubold', sans-serif;
 }
-.navbar-default a{
-    border-radius: 35px;
+.topmenu .navbar-default a{
+    border-radius:35px;
+    font-weight:bold;
 }
-
 h2{
     font-size: 30px;
     font-weight: bold;
     margin: 0;
     text-transform: uppercase;
 }
+h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
 h4{
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 }
 .text-red{
     color: red;
 }
+.text-red-02{
+    color: #F16521;
+}
 /***************** Wellcome *****************/
+/*
 .wellcome,
 .video,
 .reg,
 .pro-test,
-.discover{
+.discover,
+.promotion-content,
+.promotion-bottom
+*/
+article > div section:not(:first-child){
+    margin-top: 30px;
+    padding: 30px 0; 
+    overflow: hidden;
     /*margin-top: 30px;*/
-     padding: 60px 0; 
+/*    padding: 60px 0; */
 }
-
-.hr{
-    width: 65px;
+/*.wellcome{
+    padding-bottom: 0;
+}*/
+hr{
     height: 1px;
     border-color: #2b328c;
+}
+.hr{
+    width: 65px;
 }
 .title-sub,
 .title-slider{
@@ -178,7 +229,7 @@ h4{
     background:transparent;
     border: 1px solid #fff;
     border-radius: 20px;
-    padding: 0.3em 1em 0.2em;
+    padding: 0.4em 1.5em 0.3em;
 }
 .overlay-img:before{
     content: "";
@@ -193,7 +244,7 @@ h4{
     top: 0;
 }
 .discover .box-text{
-    background: #2b328c;
+    background: #7B8490;
     position: absolute;
     top: 0;
     left: 0;
@@ -203,11 +254,12 @@ h4{
     padding: 15% 10%;
 }
 .discover .box-text h2{
-    margin-bottom:30px;
     font-size:25px;
+    margin-bottom:25px;
 }
 .discover .box-text ul{
     padding-left:15px;
+    margin:0;
 }
 .discover .box-text ul li a{
      color: #fff;
@@ -232,14 +284,6 @@ h4{
 }
 .pro-text h4{
     font-size: 18px;
-}
-.pro-text a.btn-read{
-    padding: 5px 15px 5px;
-    line-height: 20px;
-    border-radius:20px;
-    background: #2b328c;
-    color: #ffcb05;
-    font-size: 12px;
 }
 .img-box img{
     width: 100%;
@@ -271,10 +315,10 @@ h4{
     height: 480px;
     overflow: hidden;
     border: 1px solid #2b328c;
-    margin-top: 40px;
+    margin-top: 30px;
 }
-.box-destination:first-child{
-    margin-top: 80px;
+.destination-main > div > div{
+    margin-top: 60px;
 }
 .box-destination .hr{
     margin-left: 0;
@@ -295,14 +339,60 @@ h4{
 .content-destination{
     background: #fff;
     padding-top: 10px;
-    height: 100px;
+    max-height: 100px;
     overflow: hidden;
 }
 .box-active .content-destination,
-.content-destination:hover{
+.box-destination:hover .content-destination{
     background: #ffcb05;
-    height: auto;
+    max-height: 400px;
     padding: 15px 15px 25px;
+}
+.box-destination:hover .bg-destination img{
+    transform: scale(1 , 0.9);
+}
+/*================================= Contact =================================*/
+.contact-footer{
+    margin-top: 40px !important;
+    padding: 75px 35px 55px !important;
+}
+.contact-footer h4,
+.contact-footer p{
+    margin: 0;
+}
+.contact-left h4:first-child{
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.contact-footer .reg-box{
+    padding: 0;
+}
+.contact-left > div{
+    margin: 20px auto;
+}
+.drop-down{
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    margin-left: 10px;
+    background: url(../images/icon-drop.png) no-repeat;
+}
+/*================================= Promotion =================================*/
+.promotion-box {
+    border: 1px solid #2b328c;
+    border-top: none;
+    border-bottom: 7px solid #ffcb05;
+}
+.promotion-bottom{
+    position: relative;
+    background: url(../images/img-promotion-02.png) no-repeat;
+    height: 150px;
+}
+.promotion-bottom h3{
+     margin: 25px 0 10px;
+}
+.promotion-bottom > div > div:last-child{
+    margin-top: 35px;
 }
 /*================================= Footer =================================*/
 footer {
@@ -343,17 +433,21 @@ footer > div > div > div:not(:last-child){
     background: transparent;
     color: #2b328c;
 }
-.btn-dis:hover{
+.btn-dis:hover,
+.btn-read-02:hover{
     background: #2b328c;
     color: #ffcb05;
     border: 1px solid #2b328c;
 }
-.btn-reg{
-    width: 100px;
-    height: 35px;
-    border-radius: 35px;
+.btn-reg,
+.btn-read-02{
+    width: 120px;
+    height: 30px;
+    border-radius: 30px;
     background: #2b328c;
     color: #fff;
+    line-height: 28px;
+    padding: 0;
 }
 .btn-read,
 .content-destination .btn-reg-02,
@@ -365,19 +459,25 @@ footer > div > div > div:not(:last-child){
     color: #ffcb05;
     font-size: 10px;
 }
-.content-destination .btn-reg-02{
+.btn-read{
+    font-size:12px;
+    padding:5px 12px 5px;
+}
+.btn-read-02{
+    height: 25px;
+    line-height: 19px;
+    margin-top: 10px;
+}
+.btn-reg-02{
+    width: 87px;
+    font-size: 12px !important;
+    height: 27px;
+}
+.content-destination .btn-reg-02,
+.btn-read-02{
     background: transparent;
     color: #2b328c;
     border: 1px solid #2b328c;
-}
-.topmenu .navbar-default a:hover,
-.topmenu .navbar-default .active a{
-    border-radius: 35px !important;
-    background: #2b328c!important;
-}
-.topmenu .navbar-default .active a,
-.topmenu .navbar-default a:hover{
-    color: #ffcb05 !important;
 }
 .reg ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #2b328c;
@@ -390,7 +490,7 @@ footer > div > div > div:not(:last-child){
 .reg select{
     color: #2b328c !important;
 }
-.reg .btn-reg{
+.reg-box .btn-reg{
     margin-top: 30px;
 }
 /********************** Slider ********************/

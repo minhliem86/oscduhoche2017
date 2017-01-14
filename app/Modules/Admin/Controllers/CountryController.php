@@ -70,6 +70,7 @@ class CountryController extends Controller {
         $data = [
             'name'=>$request->name,
             'slug' => \Unicode::make($request->name),
+            'description' => $request->description,
             'status'=> $request->status,
             'img_avatar'=> $img_url,
             'order'=>$current
@@ -134,6 +135,7 @@ class CountryController extends Controller {
         $country = $this->country->find($id);
         $country->name = $request->name;
         $country->slug = \Unicode::make($request->name);
+        $country->description = $request->description;
         $country->img_avatar = $img_url;
         $country->status = $request->status;
         $country->order = $request->order;

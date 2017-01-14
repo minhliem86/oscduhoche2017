@@ -32,6 +32,9 @@
     .btn-dis{
         font-size:0.6em;
     }
+    .promotion-bottom h3{
+        margin: 0 0 10px;
+    }
 }
 @media only screen and (max-width: 768px){
     .pc{
@@ -56,6 +59,10 @@
     .navbar-default .navbar-toggle:focus .icon-bar , 
     .navbar-default .navbar-toggle:hover .icon-bar{
         background: #2b328c;
+    }
+    .topmenu .navbar-nav .open .dropdown-menu{
+        background: rgba(0 ,0 ,0 ,0.1);
+        border-radius: 0 !important;
     }
     .logo-box{
         margin-top:40px;
@@ -95,7 +102,8 @@
         height: 230px;
         overflow: hidden;
     }
-    .pro-test{
+    .pro-test,
+    .contact-footer{
         text-align: center;
     }
     .pro-test .hr{
@@ -114,6 +122,22 @@
     }
     .box-destination a{
         display: block;
+    }
+    .contact-left > div:nth-child(odd){
+        margin: -10px 0 10px;
+    }
+    .contact-right{
+        margin-top: 40px;
+        padding: 0 100px;
+    }
+    .btn-read-02{
+        margin-top: 5px;
+    }
+    .promotion-content .row > div:not(:first-child){
+        margin-top: 25px;
+    }
+    .promotion-bottom{
+        background-position: -200px center;
     }
     footer{
         text-align: center;
@@ -134,14 +158,13 @@
     }
     .discover .top-box > div:last-child > div img{
     }
+    .to-local{
+        padding: 0 10px;
+    }
     .title-slider{
         font-size: 12px;
     }
-    .wellcome,
-    .video,
-    .reg,
-    .pro-test,
-    .discover{
+    article > div section:not(:first-child){
         margin-top: 30px;
          padding: 20px 0 30px; 
     }
@@ -150,6 +173,26 @@
     }
     .bg-destination img{
         width: auto;
+    }
+    .contact-right{
+        padding: 0 40px;
+    }
+    .contact-footer{
+        margin-top: 20px!important;
+        padding: 40px 15px 30px!important;
+    }
+    .promotion-bottom{
+        padding: 25px 10px 0 0;
+        background-position: -280px center;
+    }
+    .promotion-bottom > div > div:first-child{
+        display: inline-block;
+        width: auto;
+        margin-left: 100px;
+    }
+    .promotion-bottom > div > div:last-child{
+        margin-top: 0px;
+        padding-left: 100px;
     }
 }
 

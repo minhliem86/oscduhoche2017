@@ -1,5 +1,6 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Request;
 use App\Modules\Frontend\Requests\ContactRequest;
 use App\Models\Register;
@@ -24,13 +25,13 @@ class ContactController extends Controller {
 	 */
 	
 	public function getIndex(){
-		
+		return view('Frontend::pages.contact');
 	}
 
 	public function postRegister(ContactRequest $contactrequest){
 		$type = explode('@',$contactrequest->input('content_type'));
 		$content_type = $type['1'];
-		$data[
+		$data = [
 			'fullname'=> $contactrequest->input('name'),
 			'phone'=> $contactrequest->input('phone'),
 			'email'=> $contactrequest->input('email'),

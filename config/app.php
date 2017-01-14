@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		'App\Providers\ComposerServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -148,7 +149,8 @@ return [
 
 		 'Collective\Html\HtmlServiceProvider',
 		 'yajra\Datatables\DatatablesServiceProvider',
-		 'Krucas\Notification\NotificationServiceProvider'
+		 'Krucas\Notification\NotificationServiceProvider',
+		 'Intervention\Image\ImageServiceProvider'
 
 
 	],
@@ -201,7 +203,8 @@ return [
 		'Form' => 'Collective\Html\FormFacade',
       	'Html' => 'Collective\Html\HtmlFacade',
       	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
-      	'Notification' => 'Krucas\Notification\Facades\Notification'
+      	'Notification' => 'Krucas\Notification\Facades\Notification',
+      	'Image' => 'Intervention\Image\Facades\Image'
 
 	],
 

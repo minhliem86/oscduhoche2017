@@ -1,6 +1,7 @@
 @extends('Admin::layouts.layout')
 
 @section('content')
+
 <section class="content-header">
   <h1>Country</h1>
 </section>
@@ -12,7 +13,10 @@
 					<label for="">Quốc gia</label>
 					{!!Form::text('name',old('name'),array('class'=>'form-control'))!!}
 				</div>
-				
+				<div class="form-group">
+					<label for="">Mô tả</label>
+					{!!Form::textarea('description',old('description'),array('class'=>'form-control'))!!}
+				</div>
 				<div class="form-group">
 					<label for="" >Sắp xếp</label>
 					{!!Form::text('order',old('order'),array('class'=>'form-control'))!!}

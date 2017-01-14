@@ -2,8 +2,6 @@
 
 use Illuminate\Support\ServiceProvider;
 
-use App\Models\Country;
-
 class AppServiceProvider extends ServiceProvider {
 
 	/**
@@ -13,8 +11,7 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$country = Country::select('id','name')->get();
-		view()->share('country',$country);
+
 	}
 
 	/**
