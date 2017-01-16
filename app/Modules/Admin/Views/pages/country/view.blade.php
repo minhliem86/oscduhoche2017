@@ -17,6 +17,7 @@
 					<label for="">Mô tả</label>
 					{!!Form::textarea('description',old('description'),array('class'=>'form-control'))!!}
 				</div>
+				
 				<div class="form-group">
 					<label for="" >Sắp xếp</label>
 					{!!Form::text('order',old('order'),array('class'=>'form-control'))!!}

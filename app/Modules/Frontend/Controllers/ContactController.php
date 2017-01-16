@@ -1,9 +1,11 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
+
 use App\Modules\Frontend\Requests\ContactRequest;
 use App\Models\Register;
+use App\Models\Location;
 
 class ContactController extends Controller {
 
@@ -23,7 +25,7 @@ class ContactController extends Controller {
 	 *
 	 * @return void
 	 */
-	
+
 	public function getIndex(){
 		return view('Frontend::pages.contact');
 	}
@@ -41,10 +43,20 @@ class ContactController extends Controller {
 			'message'=> $contactrequest->input('message'),
 			'content_type'=> $content_type,
 			'inquiry'=> $contactrequest->input('inquiry'),
+			'id_hash'=> $contactrequest->input('id_hash'),
 		];
 		Register::create($data);
 		return redirect()->back()->with('success','Cảm ơn bạn đã đăng ký thông tin tại ILA Du học.<br/>Nhân viên ILA sẽ liên lạc với bạn trong thời gian sớm nhất.');
 	}
 
+	public function postAjaxCenter(Request $request){
+		if(!$request->ajax()){
+
+		}else{
+			$id_city = $request->input('data');
+			$id_center = Location::where('id_city',$id_city)->select('id_center')->first()->id_center;
+			return response()->json(['rs'=>$id_center]);
+		}
+	}
 
 }

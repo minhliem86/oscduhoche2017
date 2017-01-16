@@ -13,5 +13,6 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 
 	Route::get('lien-he',['as'=>'contact','uses'=>'ContactController@getIndex']);
 	Route::post('lien-he',['as'=>'contact.postRegister','uses'=>'ContactController@postRegister']);
+	Route::post('ajaxCenter',['as'=>'contact.postAjaxCenter','uses'=>'ContactController@postAjaxCenter']);
 
 });

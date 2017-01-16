@@ -1,7 +1,7 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use App\Models\Country;
 
 class HomeController extends Controller {

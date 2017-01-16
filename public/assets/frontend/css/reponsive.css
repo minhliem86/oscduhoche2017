@@ -7,6 +7,22 @@
         font-size: 12px;
         padding: 5px 15px;
     }
+    .testtimanial-slider,
+    .testtimonial-list{
+        height: 490px;
+    }
+    .testtimanial-slider-item{
+        top: 250px;
+    }
+    .title-country{
+        font-size: 0.8em;
+    }
+    .btn-dis{
+        font-size: 0.7em;
+    }
+    .content-destination{
+        max-height: 110px;
+    }
 }
 @media only screen and (max-width: 992px){
     .topmenu .navbar-default a{
@@ -20,7 +36,7 @@
         height: 128px;
     }
     .discover .box-text{
-        padding: 5%;
+        padding: 15% 5% 5%;
     }
     .discover .box-text h2{
         font-size: 20px;
@@ -30,10 +46,21 @@
         left: 0.5em;
     }
     .btn-dis{
-        font-size:0.6em;
+        font-size:0.5em;
+        bottom: 1.2em;
     }
     .promotion-bottom h3{
         margin: 0 0 10px;
+    }
+     .testtimanial-slider,
+     .testtimonial-list{
+        height: 375px;
+    }
+    .testtimanial-slider-item{
+        top: 150px;
+    }
+    .content-destination{
+        max-height: 100px;
     }
 }
 @media only screen and (max-width: 768px){
@@ -52,17 +79,27 @@
         z-index: 9998;
         box-shadow: 0 0 5px rgba(0,0,0,.8);
     }
+    .topmenu .navbar-default a{
+        font-size: 13px;
+    }
     .navbar-default .navbar-toggle:focus, 
     .navbar-default .navbar-toggle:hover{
         background: #ffcb05;
+        border: 1px solid #2b328c;
     }
     .navbar-default .navbar-toggle:focus .icon-bar , 
     .navbar-default .navbar-toggle:hover .icon-bar{
         background: #2b328c;
     }
     .topmenu .navbar-nav .open .dropdown-menu{
-        background: rgba(0 ,0 ,0 ,0.1);
+/*        background: rgba(0 ,0 ,0 ,0.1);*/
         border-radius: 0 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,.2);
+        margin-bottom: 5px;
+    }
+    .topmenu .navbar-nav .open .dropdown-menu>li>a{
+        background: transparent !important;
+        color: #2b328c !important;
     }
     .logo-box{
         margin-top:40px;
@@ -111,11 +148,15 @@
     }
     .pro-text{
         min-height: auto;
+        margin-top: 20px;
     }
     .overlay-img:before,
     .discover .box-text{
         top: 0;
         right: 0;
+    }
+    .discover .box-text{
+        padding-top: 45px;
     }
     .bg-destination img{
         width: 100%;
@@ -123,15 +164,31 @@
     .box-destination a{
         display: block;
     }
+    .title-country{
+        font-size: 1em;
+    }
+    .btn-dis{
+        font-size: 0.8em;
+        bottom:1em;
+    }
+    .contact-left h4:first-child{
+        margin-bottom: 5px;
+    }
     .contact-left > div:nth-child(odd){
         margin: -10px 0 10px;
+    }
+    .contact-left > div:nth-child(even){
+        margin: 0px 0 30px;
     }
     .contact-right{
         margin-top: 40px;
         padding: 0 100px;
     }
-    .btn-read-02{
-        margin-top: 5px;
+    .contact-footer h4.text-red-02{
+        margin: 15px auto 20px;
+    }
+    .contact-left .btn-02{
+        margin-top: 1px;
     }
     .promotion-content .row > div:not(:first-child){
         margin-top: 25px;
@@ -139,11 +196,62 @@
     .promotion-bottom{
         background-position: -200px center;
     }
+    .course-detail-table table{
+        background: rgba(255, 203, 4 ,0.1);
+    }
+    .course-detail-main .row > div:last-child{
+        margin-top: 20px;
+    }
+    .course-detail-table tr td:first-child{
+        width: 100%;
+    }
+    .course-detail-table tr td{
+        padding: 10px;
+    }
+    .course-detail-table tr{
+        margin-top: 10px;
+    }
+    .testtimanial-slider,
+    .testtimonial-list{
+        height: 100%;
+    }
+    .testtimanial-slider-item {
+        top: auto;
+        bottom: 40px;
+    }
+    .testtimonial-list{
+        text-align: center;
+        padding: 20px 0;
+    }
+    .testtimonial-list-item img{
+        margin: auto;
+    }
+    .testtimonial .bottom > div,
+    .testtimonial .bottom > div:last-child .testtimonial-list-item{
+        height: 100% ;
+        text-align: center;
+    }
+    .testtimonial .bottom > div:last-child .testtimonial-list-item{
+        margin-left: -15px;
+    }
+    .testtimonial .bottom > div:first-child{
+        margin-bottom: 20px;
+    }
+    .testtimonial-detail .testtimonial-list{
+        border-left: none;
+    }
     footer{
         text-align: center;
     }
     footer > div > div > div:not(:last-child){
         border: none;
+        min-height: auto;
+    }
+    footer > div > div > div:nth-child(4){
+        float: none;
+        width: 225px;
+        text-align: left;
+        margin: auto;
     }
 }
 @media only screen and (max-width: 480px){
@@ -153,10 +261,37 @@
     .mb{
         display: block;
     }
+    body{
+        font-size: 12px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    .title-sub, .title-slider,
+    .testtimonial-list-item h4,
+    h4{
+        font-size: 14px;
+    }
+    .to-local li a,
+    .pro-text h4{
+        font-size: 16px;
+    }
+    .pro-text h2,
+    h3{
+        font-size: 18px;
+    }
     .discover .top-box > div:last-child > div{
         height: 110px;
     }
     .discover .top-box > div:last-child > div img{
+    }
+    .title-country{
+        font-size: 0.7em;
+    }
+    .btn-dis{
+        font-size: 0.6em;
+        padding: 0.5em 1.5em 0.2em;
+        bottom:1.2em;
     }
     .to-local{
         padding: 0 10px;
@@ -193,6 +328,19 @@
     .promotion-bottom > div > div:last-child{
         margin-top: 0px;
         padding-left: 100px;
+    }
+    .testtimonial .btn-dis{
+        position: absolute;
+        bottom: 10px;
+    }
+    .testtimanial-slider-item{
+        bottom: 20px;
+    }
+    .testtimonial-detail p{
+        text-align: justify;
+    }
+    .content-destination{
+        max-height: 95px;
     }
 }
 

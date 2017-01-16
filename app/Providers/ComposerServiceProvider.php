@@ -14,6 +14,8 @@ class ComposerServiceProvider extends ServiceProvider {
   public function boot() {
   // Using class based composers...
     View::composer('Frontend::layouts.header', 'App\ViewComposers\MyViewComposer');
+    View::composer('Frontend::layouts.banner', 'App\ViewComposers\MyViewComposer');
+    View::composer('Frontend::layouts.formRegister', 'App\ViewComposers\FormViewComposer');
 
   }
 

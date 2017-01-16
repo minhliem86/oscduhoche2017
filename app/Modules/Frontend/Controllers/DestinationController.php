@@ -1,7 +1,7 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use App\Models\Country;
 
 class DestinationController extends Controller {
@@ -36,7 +36,6 @@ class DestinationController extends Controller {
 				$query->select('id','title','description','age','start','end');
 			}])->first();
 			return view('Frontend::pages.destination',compact('country_data'));
-			
 		}
 		// return view('Frontend::pages.destination');
 	}

@@ -20,7 +20,7 @@
     <link href="{!!asset('public/assets/frontend/')!!}/css/style.css" rel="stylesheet">
     <link href="{!!asset('public/assets/frontend/')!!}/css/reponsive.css" rel="stylesheet">
     <!-- Custom JS -->
-    <script src="js/scrip.js"></script>
+    <!-- <script src="{!!asset('public/assets/frontend/')!!}js/scrip.js"></script> -->
     
 </head>
 
@@ -51,6 +51,7 @@
     </div>
     <script src="{!!asset('public/assets/frontend/')!!}/js/jquery-2.1.1.js" type="text/javascript"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/bootstrap.min.js" type="text/javascript"></script>
+     <script src="{!!asset('public/assets/frontend')!!}/js/jquery.validate.min.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/swiper.min.js"></script>
     @yield('script')
     <script>

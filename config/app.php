@@ -150,7 +150,8 @@ return [
 		 'Collective\Html\HtmlServiceProvider',
 		 'yajra\Datatables\DatatablesServiceProvider',
 		 'Krucas\Notification\NotificationServiceProvider',
-		 'Intervention\Image\ImageServiceProvider'
+		 'Barryvdh\Debugbar\ServiceProvider'
+		 // 'Intervention\Image\ImageServiceProvider'
 
 
 	],
@@ -204,7 +205,8 @@ return [
       	'Html' => 'Collective\Html\HtmlFacade',
       	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
       	'Notification' => 'Krucas\Notification\Facades\Notification',
-      	'Image' => 'Intervention\Image\Facades\Image'
+      	'Debugbar' => 'Barryvdh\Debugbar\Facade'
+      	// 'Image' => 'Intervention\Image\Facades\Image'
 
 	],
 

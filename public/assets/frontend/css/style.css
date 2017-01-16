@@ -38,6 +38,18 @@
 .bg-yellow{
     background: #ffcb05;
 }
+.bg-blue{
+    background: #050D9E;
+}
+.bg-blue-01{
+    background: #27A9E1;
+}
+.bg-blue-02{
+    background: rgba(39, 169, 255, 0.2);
+}
+.mb{
+    display: none;
+}
 /*================================= Header =================================*/
 header,
 footer{
@@ -64,6 +76,12 @@ header{
     margin-left: 2px;
     color: #000!important;
 }
+/*
+.topmenu .navbar-default a{
+    border-radius:35px;
+    font-weight:bold;
+}
+*/
 .topmenu .dropdown-menu{
     background-color: #2b328c;
     padding: 10px;
@@ -76,6 +94,7 @@ header{
 }
 .topmenu .dropdown-menu a{
     color: #fff !important;
+    padding: 2px 5px;
 }
 .topmenu .navbar-default a:hover,
 .topmenu .navbar-default .active a{
@@ -103,13 +122,14 @@ body{
     font-size: 14px;
 }
 h2 ,h3, h4, .btn,
-.topmenu .navbar-default a{
+.topmenu .navbar-default a,
+.course-detail-table th,
+blockquote,
+blockquote:after,
+blockquote:before{
     font-family: 'gothamvnubold', sans-serif;
 }
-.topmenu .navbar-default a{
-    border-radius:35px;
-    font-weight:bold;
-}
+
 h2{
     font-size: 30px;
     font-weight: bold;
@@ -125,11 +145,46 @@ h4{
     font-weight: bold;
     font-size: 16px;
 }
+blockquote{
+    quotes:none;
+    position: relative;
+    font-size: 14px;
+    border-left: none;
+    margin: 0;
+}
+blockquote:after,
+blockquote:before{
+    font-size: 28px;
+    position: absolute;
+    font-weight: bold;
+}
+blockquote:after{
+    content: "”";
+    bottom: 0;
+    right: 10px;
+}
+blockquote:before{
+    content: "“";
+    top: 0;
+    left: 0;
+}
+.text-black{
+    color: #000;
+}
 .text-red{
     color: red;
 }
 .text-red-02{
     color: #F16521;
+}
+.text-blue{
+    color: #050D9E;
+}
+.text-yellow{
+    color: #FFCB04;
+}
+.text-bold{
+    font-weight: bold;
 }
 /***************** Wellcome *****************/
 /*
@@ -145,12 +200,7 @@ article > div section:not(:first-child){
     margin-top: 30px;
     padding: 30px 0; 
     overflow: hidden;
-    /*margin-top: 30px;*/
-/*    padding: 60px 0; */
 }
-/*.wellcome{
-    padding-bottom: 0;
-}*/
 hr{
     height: 1px;
     border-color: #2b328c;
@@ -163,9 +213,6 @@ hr{
     font-size: 16px;
 }
 /***************** Discover *****************/
-.discover{
-
-}
 .discover  img{
     width: 100%;
 }
@@ -222,15 +269,6 @@ hr{
     bottom: 0;
     font-size: .9em;
 }
-.btn-dis{
-    right: 2em;
-    bottom: 1em;
-    font-size: 0.7em;
-    background:transparent;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    padding: 0.4em 1.5em 0.3em;
-}
 .overlay-img:before{
     content: "";
     position: absolute;
@@ -270,8 +308,6 @@ hr{
     text-decoration: none;
 }
 /***************** Pro-Test *****************/
-.pro-test{
-}
 .pro-test .hr{
     margin-left: 0;
 }
@@ -282,7 +318,8 @@ hr{
 .pro-text h2{
     font-size: 25px;
 }
-.pro-text h4{
+.pro-text h4,
+.testtimonial-list-item h4{
     font-size: 18px;
 }
 .img-box img{
@@ -305,6 +342,9 @@ hr{
 }
 .reg-box > div{
     margin-top: 20px;
+}
+.reg-box > div:nth-child(5){
+    margin-bottom: 30px;
 }
 .reg-box{
     padding: 0 100px;
@@ -370,7 +410,10 @@ hr{
 .contact-left > div{
     margin: 20px auto;
 }
-.drop-down{
+.contact-left .btn-02{
+    margin-top: 10px;
+}
+.contact-left .drop-down{
     width: 11px;
     height: 11px;
     display: inline-block;
@@ -394,19 +437,124 @@ hr{
 .promotion-bottom > div > div:last-child{
     margin-top: 35px;
 }
+/*================================= Course Detail =================================*/
+.course-detail-main ul{
+    list-style-position: inside;
+    padding-left: 0;
+    margin: 20px 0;
+}
+.course-detail-main > div > div {
+    margin-top: 40px;
+}
+.course-detail-table .title,
+.course-detail-table th{
+    margin: 0;
+    padding: 30px 0 !important;
+}
+.course-detail-table table{
+    color: #000;
+    border: 1px dotted #D1D2D4;
+}
+.course-detail-table th,
+.course-detail-table tr td:first-child{
+    width: 12.5%;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+}
+.course-detail-table th:not(:first-child){
+    border-left: 1px dotted #D1D2D4;
+}
+.course-detail-table tr td:first-child{
+    border-bottom: 1px solid #fff;
+}
+.course-detail-table tr td{
+    text-align: justify;
+    border-bottom: 1px dotted #D1D2D4;
+    border-left: 1px dotted #D1D2D4;
+    padding: 20px 10px;
+}
+.course-detail-table tr td ul{
+    margin: 0;
+}
+/*================================= Testtimonial =================================*/
+.testtimonial >div > div:first-child{
+    border: 1px solid #050D9E;
+}
+.testtimanial-slider,
+.testtimonial-list{
+    height: 560px;
+}
+.testtimanial-slider img{
+    width: 100%;
+}
+.testtimanial-slider-item{
+    position: absolute;
+    top: 320px;
+    left: 20px;
+    color: #fff;
+    text-align: left;
+    text-shadow: 1px 1px 1px #666;
+}
+.testtimonial-list{
+    padding: 20px 30px;
+    overflow:auto;
+}
+.testtimonial-list-item{
+        margin-top: 20px;
+    }
+.testtimonial-list-item p{
+    text-align: justify;
+}
+.testtimonial .bottom > div,
+.testtimonial .bottom > div:last-child .testtimonial-list-item{
+    height: 280px;
+    overflow: auto;
+}
+.testtimonial .bottom{
+    margin-top: 30px;
+}
+.testtimonial .bottom > div:first-child{
+    background: url(../images/img-testimonial-03.png) no-repeat;
+    padding: 20px 0 15px;
+}
+.testtimonial .bottom > div:last-child{
+    color: #fff;
+}
+.testtimonial .bottom > div:last-child .testtimonial-list-item{
+    padding: 15px;
+    margin-top: 0;
+    margin-right: -15px;
+}
+/*================================= Testtimonial Detail =================================*/
+.testtimonial-detail{
+    padding-bottom: 30px;
+}
+.testtimonial-detail >div > div:first-child{
+    border: none;
+}
+.testtimonial-detail .testtimonial-list{
+    border-left: 1px solid #050D9E;
+}
+.testtimonial-detail .box-text{
+    margin: 20px 0 40px;
+}
 /*================================= Footer =================================*/
 footer {
     margin-top: 40px;
 }
 footer > div > div > div:not(:last-child){
     border-right: 1px solid #2b328c;
-    height: 130px;
+    min-height: 130px;
 }
 .website,
 .mail,
 .fb{
     display:block;
     vertical-align: middle;
+    color: #2b328c;
+    max-width: 200px;
+    margin-bottom: 5px;
 }
 .website:before,
 .mail:before,
@@ -428,57 +576,66 @@ footer > div > div > div:not(:last-child){
     background: #fff url(../images/icon-fb.png) no-repeat center center;
 }
 /********************** Button ********************/
-.btn:hover{
+.btn,
+.btn-02,
+.btn-02:hover,
+.btn-02:focus,
+.btn-03{
+    width: 90px;
+    height: 28px;
+    border-radius: 25px;
+    line-height: 26px;
+    padding: 0;
+    font-size: 12px;
+    border: 1px solid transparent;
+    color: #ffcb05;
+    background: #2b328c;
+    border: 1px solid #2b328c;
+}
+.btn:hover,
+.btn:focus,
+.btn-02{
     border: 1px solid #2b328c;
     background: transparent;
     color: #2b328c;
 }
-.btn-dis:hover,
-.btn-read-02:hover{
-    background: #2b328c;
-    color: #ffcb05;
-    border: 1px solid #2b328c;
-}
-.btn-reg,
-.btn-read-02{
-    width: 120px;
-    height: 30px;
-    border-radius: 30px;
-    background: #2b328c;
+.btn-reg{
     color: #fff;
-    line-height: 28px;
-    padding: 0;
 }
-.btn-read,
-.content-destination .btn-reg-02,
-.content-destination .btn-reg-02:hover{
-    padding: 3px 10px 4px;
-    line-height: 15px;
-    border-radius:20px;
-    background: #2b328c;
-    color: #ffcb05;
+.btn-sm,
+.btn-sm:hover,
+.btn-sm:focus{
+    width: 80px;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 18px;
     font-size: 10px;
 }
-.btn-read{
-    font-size:12px;
-    padding:5px 12px 5px;
+.btn-dis,
+.btn-03{
+    background:transparent;
+    border: 1px solid #fff;
+    color: #fff;
 }
-.btn-read-02{
-    height: 25px;
-    line-height: 19px;
-    margin-top: 10px;
+.btn-dis{
+    width: auto;
+    height: auto;
+    line-height: inherit;
+    right: 2em;
+    border-radius: 25px;
+    bottom: 0.8em;
+    font-size: 0.8em;
+    padding: 0.4em 1.5em 0.3em;
 }
-.btn-reg-02{
-    width: 87px;
-    font-size: 12px !important;
-    height: 27px;
-}
-.content-destination .btn-reg-02,
-.btn-read-02{
-    background: transparent;
-    color: #2b328c;
+.btn-dis:hover,
+.btn-dis:focus,
+.btn-03:hover,
+.btn-03:focus{
+    color: #ffcb05;
+    background: #2b328c;
     border: 1px solid #2b328c;
 }
+
 .reg ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #2b328c;
 }
@@ -489,9 +646,6 @@ footer > div > div > div:not(:last-child){
 }
 .reg select{
     color: #2b328c !important;
-}
-.reg-box .btn-reg{
-    margin-top: 30px;
 }
 /********************** Slider ********************/
 .swiper-container {
@@ -553,4 +707,33 @@ footer > div > div > div:not(:last-child){
 .slider-lv3 .swiper-pagination-bullet-active{
     background: #ffcb05;
 }
-
+/********************** Table ********************/
+.rps-table th {
+    display: none;
+}
+.rps-table td {
+    display: block;
+}
+.rps-table td:before{
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 7.5em;
+    display: inline-block;
+    color: #044476;
+}
+.rps-table td:first-child {
+    padding-top: .5em;
+}
+.rps-table td:last-child {
+    padding-bottom: .5em;
+}
+@media (min-width: 768px) {
+    .rps-table td:before {
+        display: none;
+    }
+    .rps-table th,
+    .rps-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+}

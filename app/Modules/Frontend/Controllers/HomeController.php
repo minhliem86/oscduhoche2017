@@ -1,8 +1,9 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\Location;
 
 class HomeController extends Controller {
 
@@ -24,7 +25,7 @@ class HomeController extends Controller {
 	 */
 	
 	public function getIndex(){
-		// $country_list = Country::list('name','id');
+		
 		return view('Frontend::pages.home');
 	}
 

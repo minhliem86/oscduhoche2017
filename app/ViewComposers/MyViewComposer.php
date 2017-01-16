@@ -3,6 +3,7 @@
 use Illuminate\Contracts\View\View;
 
 use App\Models\Country;
+use App\Models\Image;
 
 class MyViewComposer {
 	  /**
@@ -11,9 +12,11 @@ class MyViewComposer {
 	*/
 	
 	protected $country;
+	protected $image;
 
-	public function __construct(Country $country) {
+	public function __construct(Country $country, Image $image ) {
 		$this->country = $country;
+		$this->image = $image;
 	}
 
 	/**
@@ -26,5 +29,9 @@ class MyViewComposer {
 		// Code here 
 		$country_data = $this->country->all();
 		$view->with('country', $country_data);
+
+		/*GET BANNER IMAGE*/
+		$banner_img = $this->image->where('type','banner')->orderBy('order','DESC')->get();
+		$view->with('banner',$banner_img);
 	}
 }

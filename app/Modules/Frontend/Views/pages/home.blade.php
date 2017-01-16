@@ -5,6 +5,7 @@
 @stop
 
 @section('script')
+    <script src="{!!asset('public/assets/frontend')!!}/js/jquery.md5.js"></script>
 	<script>
         $(document).ready(function () {
             //initialize swiper when document ready
