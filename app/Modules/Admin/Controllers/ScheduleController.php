@@ -4,7 +4,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use App\Models\Location;
 use App\Models\Country;
-use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Notification;
 use App\Http\Requests\ImageRequest;
@@ -15,12 +14,11 @@ class TourController extends Controller {
 	protected $tour;
 
     protected $upload_folder = 'tour';
-    protected $upload_folder2 = 'schedule';
 
     public function __construct(Tour $tour){
         $this->tour = $tour;
     }
-
+    
     public function index()
     {
         $tour = $this->tour->select('id','title','start','end','price','age')
@@ -80,7 +78,6 @@ class TourController extends Controller {
             $img_url = asset('public/assets/backend/img/image_thumbnail.gif');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
-
         $data = [
             'title'=>$request->title,
             'slug' => \Unicode::make($request->title),
@@ -98,35 +95,7 @@ class TourController extends Controller {
             'status'=> $request->status,
             'order'=>$current
         ];
-
-        $arr_data = [];
-        $arr_img = [];
-        if($imgrequest->hasFile('scheduleimg')){
-            foreach($imgrequest->file('scheduleimg') as $key=>$img_item)
-            {
-                // $file = $imgrequest->file('scheduleimg');
-                $destinationPath = public_path().'/upload'.'/'.$this->upload_folder2;
-                $name = preg_replace('/\s+/', '', $img_item->getClientOriginalName());
-                $filename = time().'_'.$name;
-                $img_item->move($destinationPath,$filename);
-
-                $img_url = asset('public/upload').'/'.$this->upload_folder2.'/'.$filename;
-
-                array_push($arr_img, $img_url);
-            }
-            // $img_alt = \GetNameImage::make('\/',$filename);
-        }
-        foreach($request->input('scheduletitle') as $key=>$v){
-            array_push($arr_data, new Schedule([
-                'title'=>$v,
-                'content'=> $request->input('schedulecontent')[$key],
-                'img_avatar' => $arr_img[$key],
-                'status' => 1
-            ]));
-        }
-
         $tour = $this->tour->create($data);
-        $tour->schedule()->saveMany($arr_data);
         $tour->location()->attach($request->location_id);
         Notification::success('Created');
         return  redirect()->route('admin.tour.index');
@@ -151,7 +120,7 @@ class TourController extends Controller {
      */
     public function edit($id)
     {
-        $tour = $this->tour->with('schedule')->find($id);
+        $tour = $this->tour->find($id);
         $country = Country::lists('name','id');
         $location = Location::lists('title','id');
         return view('Admin::pages.tour.view')->with(compact('tour','country','location'));
@@ -204,38 +173,6 @@ class TourController extends Controller {
         $tour->order = $request->order;
         $tour->save();
 
-
-        $arr_data = [];
-        $arr_img = [];
-
-        if($imgrequest->hasFile('scheduleimg')){
-            foreach($imgrequest->file('scheduleimg') as $key=>$img_item)
-            {
-                // $file = $imgrequest->file('scheduleimg');
-                $destinationPath = public_path().'/upload'.'/'.$this->upload_folder2;
-                $name = preg_replace('/\s+/', '', $img_item->getClientOriginalName());
-                $filename = time().'_'.$name;
-                $img_item->move($destinationPath,$filename);
-
-                $img_url = asset('public/upload').'/'.$this->upload_folder2.'/'.$filename;
-
-                array_push($arr_img, $img_url);
-            }
-            // $img_alt = \GetNameImage::make('\/',$filename);
-        }else{
-            foreach($imgrequest->input('imgschedule-bk') as $key=>$img_item){
-                array_push($arr_img, $img_item);
-            }
-        }
-        foreach($request->input('scheduletitle') as $key=>$v){
-            array_push($arr_data, new Schedule([
-                'title'=>$v,
-                'content'=> $request->input('schedulecontent')[$key],
-                'img_avatar' => $arr_img[$key],
-                'status' => 1
-            ]));
-        }
-        $tour->schedule()->saveMany($arr_data);
         $tour->location()->sync([$request->location_id]);
         Notification::success('Updated');
         return  redirect()->route('admin.tour.index');
@@ -277,5 +214,5 @@ class TourController extends Controller {
             return response()->json(['msg'=>'done']);
         }
     }
-
+	
 }

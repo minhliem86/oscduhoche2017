@@ -7,7 +7,7 @@
 					<img src="{!!$item->img_url!!}" alt="">
 				@endforeach
         	@endif
-            <img src="{!!asset('public/assets/frontend')!!}/images/banner.png" alt="">
+            <img src="{!!asset('public/assets/frontend')!!}/images/banner.png" class="img-responsive" alt="">
         </div>
     </div>
 </section>

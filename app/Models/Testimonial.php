@@ -6,6 +6,6 @@ class Testimonial extends Model {
 
 	public $table = "testimonials";
 
-	protected $fillable = ['title','slug','author','description','content','img_avatar','status','order'];
+	protected $fillable = ['title','slug','author','description','content','img_avatar','status','order','focus'];
 
 }

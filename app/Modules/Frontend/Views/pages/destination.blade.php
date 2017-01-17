@@ -68,7 +68,7 @@
 				@foreach($country_data->tour()->get() as $tour)
 
 					<div class="col-xs-12 col-sm-6 col-md-4">
-		                <div class="box-destination box-active">
+		                <div class="box-destination ">
 		                    <div class="col-xs-12 content-destination">
 		                        <div class="box-destination-header">
 		                            <h4>{!!$tour->title!!}</h4>
@@ -79,8 +79,8 @@
 		                            <hr class="hr">
 		                            <p>{!!$tour->description!!}</p>
 		                            <div class="box-destination-footer">
-		                                <a class="btn btn-read" href="">Read more</a>
-		                                <a class="btn btn-reg-02" href="">Register</a>
+		                                <a class="btn btn-read" href="{!!route('quocgia',[$country_data->slug,$tour->slug])!!}">Read more</a>
+		                                <a class="btn btn-reg-02" href="{!!route('contact')!!}">Register</a>
 		                            </div>
 		                        </div>
 		                    </div>

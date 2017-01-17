@@ -71,6 +71,8 @@ class CountryController extends Controller {
             'name'=>$request->name,
             'slug' => \Unicode::make($request->name),
             'description' => $request->description,
+            'multi_countries' => $request->multi_countries,
+            'home_show' => $request->home_show,
             'status'=> $request->status,
             'img_avatar'=> $img_url,
             'order'=>$current
@@ -136,6 +138,8 @@ class CountryController extends Controller {
         $country->name = $request->name;
         $country->slug = \Unicode::make($request->name);
         $country->description = $request->description;
+        $country->multi_countries = $request->multi_countries;
+        $country->home_show = $request->home_show;
         $country->img_avatar = $img_url;
         $country->status = $request->status;
         $country->order = $request->order;

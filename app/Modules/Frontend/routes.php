@@ -3,8 +3,8 @@
 Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::get('/',['as'=>'home','uses'=>'HomeController@getIndex']);
 
-	Route::get('quoc-gia/du-hoc-{slug}',['as'=>'quocgia','uses'=>'DestinationController@getDetail'])->where(['slug'=>'[0-9a-zA-Z.-\/]+']);
-	Route::get('quoc-gia/{slugcountry}/{slugtour}',['as'=>'quocgia.detail','uses'=>'DestinationController@getDetail'])->where(['slugcountry'=>'[0-9a-zA-Z.-\/]+','slugtour'=>'[0-9a-zA-Z.-\/]+']);
+	Route::get('du-hoc-{slug?}/{slugtour?}',['as'=>'quocgia','uses'=>'DestinationController@getCountry'])->where(['slug'=>'[0-9a-zA-Z.\-]+','slugtour'=>'[0-9a-zA-Z.\-]+']);
+	// Route::get('{slugtour?}',['as'=>'quocgia.detail','uses'=>'DestinationController@getTour'])->where(['slugcountry'=>'[0-9a-zA-Z.\-/]+','slugtour'=>'[0-9a-zA-Z.\-/]+']);
 
 	Route::get('khuyen-mai',['as'=>'khuyenmai','uses'=>'PromotionController@getPromotion']);
 

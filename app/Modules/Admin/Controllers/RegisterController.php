@@ -11,7 +11,7 @@ class LocationController extends Controller {
 
 	protected $location;
 
-    protected $upload_folder = 'location';
+    // protected $upload_folder = 'location';
 
     public function __construct(Location $location){
         $this->location = $location;

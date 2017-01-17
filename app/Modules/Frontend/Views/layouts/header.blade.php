@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-3">
                 <div class="logo-box">
-                    <img class="img-responsive" src="{!!asset('public/assets/frontend')!!}/images/logo.png" alt="Ila Edu">
+                    <a href="{!!route('home')!!}"><img class="img-responsive" src="{!!asset('public/assets/frontend')!!}/images/logo.png" alt="Ila Edu"></a>
                 </div>
             </div>
             <div class="col-xs-9">
@@ -14,7 +14,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
-                                </button>
+                                </button> 
                             </div>
                             <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                                 <ul class="nav navbar-nav">
@@ -29,10 +29,9 @@
                                         </ul>
                                         @endif
                                     </li>
-                                    <li><a href="">KHUYẾN MÃI</a></li>
-                                    <li><a href="#">TRẢI NGHIỆM DU HỌC</a></li>
-                                    <li><a href="{!!route('contact')!!}">LIÊN HỆ</a></li>
-                                    <li><a href="#"><b>ĐĂNG KÝ</b></a></li>
+                                    <li><a href="{!!route('khuyenmai')!!}">KHUYẾN MÃI</a></li>
+                                    <li><a href="{!!route('trainghiem')!!}">TRẢI NGHIỆM DU HỌC</a></li>
+                                    <li><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
                                 </ul>
                             </div>
                     </nav>

@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\Promotion;
 
-class HomeController extends Controller {
+class PromotionController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -22,10 +22,17 @@ class HomeController extends Controller {
 	 *
 	 * @return void
 	 */
-	
-	public function getIndex(){
+	protected $promotion;
+
+	public function __construct(Promotion $promotion){
+		$this->promotion = $promotion;
+	}
+	public function getPromotion(){
+
 		// $country_list = Country::list('name','id');
-		return view('Frontend::pages.home');
+		$promotion_list = $this->promotion->select('id','name','description','content','img_avatar')->orderBy('order','DESC')->get();
+		$promotion_rand = $this->promotion->select('id','name','description')->orderByRaw("RAND()")->first();
+		return view('Frontend::pages.promotion',compact('promotion_list','promotion_rand'));
 	}
 
 }

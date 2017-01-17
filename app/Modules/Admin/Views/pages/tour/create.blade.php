@@ -37,6 +37,25 @@
 					{!!Form::textarea('content',old('content'),array('class'=>'form-control ckeditor'))!!}
 				</div>
 				<div class="form-group">
+					<label for="">Lịch trình</label>
+					<div class="container-fluid">
+						<div class="wrap-schedule">
+							<div class="each-schedule" style="margin-bottom:10px;">
+								<div class="form-group">
+									<input type="text" name="scheduletitle[]" class="form-control" placeholder="Tiêu đề (vd Tuần 1: 15/01 - 20/01/2017)">
+								</div>
+								<div class="form-group">
+									<textarea name="schedulecontent[]"  rows="3" class="form-control" placeholder="Nội dung Lịch trình"></textarea>
+								</div>
+								<div class="form-group">
+									<input type="file" name="scheduleimg[]">
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary" id="addschedule">Thêm Lịch trình</button>
+				</div>
+				<div class="form-group">
 					<label for="">Đối tác</label>
 					{!!Form::text('partner',old('partner'),array('class'=>'form-control'))!!}
 				</div>
@@ -76,7 +95,6 @@
 						<span class="inline-radio"><input type="radio" name="status" value="1" checked=""> <b>Active</b> </span>
 						<span class="inline-radio"><input type="radio" name="status" value="0" > <b>Deactive</b> </span>
 					</div>
-
 				</div>
 
 				<div class="form-group">
@@ -95,6 +113,13 @@
 		$('.date').datepicker({
 			'dateFormat': 'dd-mm-yy'
 		});
+
+		// ADD SCHEDULE
+		$('#addschedule').on('click',function(){
+			$('.each-schedule:first-child').clone().appendTo('.wrap-schedule');
+			// $('.wrap-schedule').appendTo('<div class="each-schedule">'+data+'</div>');
+			// console.log(data);
+		})
 	})
 </script>
 @stop

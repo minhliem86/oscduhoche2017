@@ -17,10 +17,9 @@
 					{!!Form::select('country_id',$country,$tour->country_id,['class'=>'form-control'])!!}
 				</div>
 				<div class="form-group">
-					<label for="">Quốc gia du học</label>
+					<label for="">Nơi đăng ký</label>
 					{!!Form::select('location_id',$location,'',['class'=>'form-control'])!!}
 				</div>
-				di
 				<div class="form-group">
 					<label for="">Mô tả</label>
 					{!!Form::textarea('description',old('description'),array('class'=>'form-control','rows'=>3))!!}
@@ -29,9 +28,35 @@
 					<label for="" >Nội dung</label>
 					{!!Form::textarea('content',old('content'),array('class'=>'form-control ckeditor'))!!}
 				</div>
+				@if($tour->schedule()->get())
 				<div class="form-group">
-					<label for=""></label>
+					<label for="">Lịch trình</label>
+
+					<div class="container-fluid">
+						<div class="wrap-schedule">
+							@foreach($tour->schedule()->get() as $item_schedule)
+							<div class="each-schedule" style="margin-bottom:10px;">
+								<div class="form-group">
+									<input type="text" name="scheduletitle[]" value="{!! $item_schedule->title !!}" class="form-control" placeholder="Tiêu đề (vd Tuần 1: 15/01 - 20/01/2017)">
+								</div>
+								<div class="form-group">
+									<textarea name="schedulecontent[]" rows="4" class="form-control">{!! $item_schedule->content !!}</textarea>
+								</div>
+								<div class="form-group">
+									<label for="" >Hình đại diện</label>
+									<p>
+										<img src="{!!$item_schedule->img_avatar!!}" width="150" alt="">
+										{!!Form::hidden('imgschedule-bk[]',$item_schedule->img_avatar)!!}
+									</p>
+									{!!Form::file('scheduleimg[]')!!}
+								</div>
+							</div>
+							@endforeach
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary" id="addschedule">Thêm Lịch trình</button>
 				</div>
+				@endif
 				<div class="form-group">
 					<label for="">Đối tác</label>
 					{!!Form::text('partner',old('partner'),array('class'=>'form-control'))!!}
@@ -93,6 +118,13 @@
 		$('.date').datepicker({
 			'dateFormat': 'dd-mm-yy'
 		});
+
+		// ADD SCHEDULE
+		$('#addschedule').on('click',function(){
+			$('.each-schedule:first-child').clone().appendTo('.wrap-schedule');
+			// $('.wrap-schedule').appendTo('<div class="each-schedule">'+data+'</div>');
+			// console.log(data);
+		})
 	})
 
 </script>

@@ -25,12 +25,25 @@
 					{!!Form::textarea('description',old('description'),array('class'=>'form-control'))!!}
 				</div>
 				<div class="form-margin">
+					<label for="">Kết hợp nhiều quốc gia</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="multi_countries" value="1" checked=""> <b>Có</b> </span>
+						<span class="inline-radio"><input type="radio" name="multi_countries" value="0" > <b>Không</b> </span>
+					</div>
+				</div>
+				<div class="form-margin">
+					<label for="">Hiển thị theo lựa chọn</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="home_show" value="1" checked=""> <b>Có</b> </span>
+						<span class="inline-radio"><input type="radio" name="home_show" value="0" > <b>Không</b> </span>
+					</div>
+				</div>
+				<div class="form-margin">
 					<label for="">Trạng thái</label>
 					<div>
 						<span class="inline-radio"><input type="radio" name="status" value="1" checked=""> <b>Active</b> </span>
 						<span class="inline-radio"><input type="radio" name="status" value="0" > <b>Deactive</b> </span>
 					</div>
-
 				</div>
 
 				<div class="form-group">

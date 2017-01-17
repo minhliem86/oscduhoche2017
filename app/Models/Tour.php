@@ -6,7 +6,7 @@ class Tour extends Model {
 
 	public $table = 'tours';
 
-	protected $fillable = ['title','description','content','img_avatar','partner','stay','week','start','end','price','age','order','status','country_id'];
+	protected $fillable = ['title','description','content','img_avatar','partner','stay','week','start','end','price','age','order','status','country_id','slug'];
 
 	public function country(){
 		return $this->belongsTo('App\Models\Country','country_id');
@@ -14,6 +14,10 @@ class Tour extends Model {
 
 	public function location(){
 		return $this->belongsToMany('App\Models\Location','tour_location','tour_id','location_id');
+	}
+
+	public function schedule(){
+		return $this->hasMany('App\Models\Schedule','tour_id');
 	}
 
 }

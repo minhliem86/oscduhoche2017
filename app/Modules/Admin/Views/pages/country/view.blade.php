@@ -32,6 +32,22 @@
 					{!!Form::file('img')!!}
 				</div>
 				<div class="form-group">
+					<label for="">Kết hợp nhiều quốc gia</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="multi_countries" value="1" {!!$country->multi_countries == 1 ? 'checked' : ''!!}> <b>Có</b> </span>
+						<span class="inline-radio"><input type="radio" name="multi_countries" value="0" {!!$country->multi_countries == 0 ? 'checked' : ''!!}> <b>Không</b> </span>
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<label for="">Hiển thị theo lựa chọn</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="home_show" value="1" {!!$country->home_show == 1 ? 'checked' : ''!!}> <b>Có</b> </span>
+						<span class="inline-radio"><input type="radio" name="home_show" value="0" {!!$country->home_show == 0 ? 'checked' : ''!!}> <b>Không</b> </span>
+					</div>
+					
+				</div>
+				<div class="form-group">
 					<span class="inline-radio"><input type="radio" name="status" value="1" {!!$country->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
 					<span class="inline-radio"><input type="radio" name="status" value="0" {!!$country->status == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>
 				</div>

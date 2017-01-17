@@ -79,6 +79,7 @@
         z-index: 9998;
         box-shadow: 0 0 5px rgba(0,0,0,.8);
     }
+  
     .topmenu .navbar-default a{
         font-size: 13px;
     }
@@ -91,15 +92,25 @@
     .navbar-default .navbar-toggle:hover .icon-bar{
         background: #2b328c;
     }
-    .topmenu .navbar-nav .open .dropdown-menu{
-/*        background: rgba(0 ,0 ,0 ,0.1);*/
+    .topmenu .navbar-nav .open .dropdown-menu,
+    .topmenu ul.nav li.dropdown:hover .dropdown-menu{
         border-radius: 0 !important;
         box-shadow: 0 2px 10px rgba(0,0,0,.2);
         margin-bottom: 5px;
     }
+      .topmenu ul.nav li.dropdown:hover .dropdown-menu{
+        position: relative;
+        width: 100%;
+        background: #ffcb05;
+        border: none;
+     }
+    .topmenu ul.nav li.dropdown:hover .dropdown-menu a,
     .topmenu .navbar-nav .open .dropdown-menu>li>a{
         background: transparent !important;
         color: #2b328c !important;
+        padding: 5px 15px 5px 25px;
+        line-height: 20px;
+        
     }
     .logo-box{
         margin-top:40px;
@@ -196,21 +207,10 @@
     .promotion-bottom{
         background-position: -200px center;
     }
-    .course-detail-table table{
-        background: rgba(255, 203, 4 ,0.1);
-    }
-    .course-detail-main .row > div:last-child{
-        margin-top: 20px;
-    }
-    .course-detail-table tr td:first-child{
-        width: 100%;
-    }
-    .course-detail-table tr td{
-        padding: 10px;
-    }
-    .course-detail-table tr{
-        margin-top: 10px;
-    }
+    
+    
+    
+    
     .testtimanial-slider,
     .testtimonial-list{
         height: 100%;
