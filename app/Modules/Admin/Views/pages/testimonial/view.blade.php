@@ -39,8 +39,23 @@
 					{!!Form::file('img')!!}
 				</div>
 				<div class="form-group">
+					<label for="" >Hình slideshow</label>
+					<p>
+						<img src="{!!$testimonial->img_slides!!}" width="150" alt="">
+						{!!Form::hidden('img-bk',$testimonial->img_slides)!!}
+					</p>
+					{!!Form::file('imgslide')!!}
+				</div>
+				<div class="form-group">
 					<span class="inline-radio"><input type="radio" name="status" value="1" {!!$testimonial->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
 					<span class="inline-radio"><input type="radio" name="status" value="0" {!!$testimonial->status == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>
+				</div>
+				<div class="form-group">
+					<label for="">Nổi bật</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="focus" value="1" {!!$testimonial->focus == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
+						<span class="inline-radio"><input type="radio" name="focus" value="0" {!!$testimonial->focus == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>
+					</div>
 				</div>
 
 				<div class="form-group">

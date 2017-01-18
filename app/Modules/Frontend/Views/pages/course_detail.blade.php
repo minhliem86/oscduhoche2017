@@ -46,63 +46,6 @@
         </div>
     </div>
 </section>
-<!-- ********************************-->
-<section class="container course-detail-footer clearfix">
-    <center>
-        <h2>Lịch Trình Học</h2>
-        <hr class="hr">
-        <!-- <p class="title-sub">{!!$tour_detail->description!!}</p> -->
-    </center>
-    
-    <div class="course-detail-box clearfix">
-        <div class="col-xs-12 col-sm-6">
-            <div class="course-detail-item clearfix">
-                <div class="img-box">
-                    <img src="images/img-course-detail-01.png" alt="">
-                </div>
-                <div class="col-xs-12">
-                    <a class="text-blue" href="#">Weeks 1: 01/05/ - 08/01/2017</a>
-                    <button class="btn-02 pull-right">Read more</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="course-detail-item clearfix">
-                <div class="img-box">
-                    <img src="images/img-course-detail-01.png" alt="">
-                </div>
-                <div class="col-xs-12">
-                    <a class="text-blue" href="#">Weeks 1: 01/05/ - 08/01/2017</a>
-                    <button class="btn-02 pull-right">Read more</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="course-detail-item clearfix">
-                <div class="img-box">
-                    <img src="images/img-course-detail-01.png" alt="">
-                </div>
-                <div class="col-xs-12">
-                    <a class="text-blue" href="#">Weeks 1: 01/05/ - 08/01/2017</a>
-                    <button class="btn-02 pull-right">Read more</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="course-detail-item clearfix">
-                <div class="img-box">
-                    <img src="images/img-course-detail-01.png" alt="">
-                </div>
-                <div class="col-xs-12">
-                    <a class="text-blue" href="#">Weeks 1: 01/05/ - 08/01/2017</a>
-                    <button class="btn-02 pull-right">Read more</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</section>
-<!-- **************** /Course Deltail ****************-->
 <!-- **************** Discover ****************-->
 @include('Frontend::layouts.listCountries')
 @stop

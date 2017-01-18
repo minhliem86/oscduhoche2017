@@ -1,0 +1,20 @@
+/* DISCOVERY */
+.overlay-img:hover a.btn-dis{
+	background:;
+}
+.wrap-keypoint hr{
+	margin:25px auto;
+}
+
+/* PROMOTION HOME PAGE */
+.wrap-slider-promotion{
+	margin-bottom:10px;
+}
+.each-promo{
+	text-align: left;
+}
+
+/* TESTIMONIAL */
+.wrap-each-testimotion img.img-each-testi{
+	max-height:240px;
+}

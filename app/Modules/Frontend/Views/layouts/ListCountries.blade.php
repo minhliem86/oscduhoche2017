@@ -1,4 +1,3 @@
-<!-- **************** Discover ****************-->
 <section class="discover container-fluid {!!Request::segment(1) == '' ? 'bg-yellow' : ''!!}">
     <center>
         <h2>KHÁM PHÁ ĐIỂM ĐẾN</h2>
@@ -40,33 +39,19 @@
             </div>
         </div>
         <div class="bottom-box">
-            <div class="col-xs12 col-sm-4 nopadding">
-               <div class="overlay-img">
-                    <img src="{!!asset('public/assets/frontend')!!}/images/img-well-02.png" alt="">
-                </div>
-                <div class="box-text">
-                    <h2>Du học kết hợp hai quốc gia</h2>
-                    @if(!$ul_list->isEmpty())
-                    <ul>
-                        @foreach($ul_list as $item_list)
-                            <li><a href="{!!route('quocgia',$item_list->slug)!!}">{!!$item_list->name!!}</a></li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </div>
-            </div>
             @if(!$list_multi_country->isEmpty())
                 @foreach($list_multi_country as $multi_item)
-                <div class="col-xs12 col-sm-4 nopadding">
-                    <div class="overlay-img">
-                        <img src="{!!$multi_item->img_avatar!!}" class="img-responsive" alt="">
+                <div class="col-xs-12 col-sm-4 nopadding">
+                    <div class="wrap-multi-country">
+                        <div class="overlay-img">
+                            <img src="{!!$multi_item->img_avatar!!}" class="img-responsive" alt="">
+                        </div>
+                        <p class="title-country">{!!$multi_item->name!!}</p>
+                        <a href="{!!route('quocgia',$multi_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
                     </div>
-                    <p class="title-country">{!!$multi_item->name!!}</p>
-                    <a href="{!!route('quocgia',$multi_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
                 </div>
                 @endforeach
             @endif
         </div>
     </div>
 </section>
-<!-- **************** /Discover ****************-->

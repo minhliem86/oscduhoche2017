@@ -18,7 +18,7 @@
                 <p class="fb">facebook.com/ILADuhoc</p>
             </div>
             <div class="col-xs-12 col-sm-3">
-                <button class="btn btn-reg">ĐĂNG KÝ</button>
+                <a href="{!!route('contact')!!}" class="btn btn-reg">ĐĂNG KÝ</a>
             </div>
         </div>
     </div>

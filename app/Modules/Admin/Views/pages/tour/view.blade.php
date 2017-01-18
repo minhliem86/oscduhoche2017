@@ -7,6 +7,39 @@
 <section class="content">
 	<div class="box">
 		<div class="container-fluid">
+			<!-- <div class="row">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm Lịch trình</button>
+			</div>
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Thêm lịch trình</h4>
+			      </div>
+			      {!!Form::open(['files'=>true])!!}
+			      <input type="hidden" name="tour_id" value="{!!$tour->id!!}">
+			      <div class="modal-body">
+			        <div class="form-group">
+			        	{!!Form::text('titleSch',old('titleSch[]'),array('class'=>'form-control', 'placeholder' => 'Tiêu đề (vd Tuần 1: 15/01 - 20/01/2017)'))!!}
+			        </div>
+			        <div class="form-group">
+			        	{!!Form::textarea('contentSch',old('contentSch[]'),array('class'=>'form-control','rows'=>3, 'placeholder'=>'Nội dung'))!!}
+			        </div>
+			        <div class="form-group">
+			        	{!!Form::file('imgSch')!!}
+			        </div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="submit" class="btn btn-primary">Save changes</button>
+			      </div>
+			      {!!Form::close()!!}
+			    </div>
+			  </div>
+			</div> -->
+
 			{!!Form::model($tour,array('route'=>array('admin.tour.update',$tour->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
 					<label for="">Tên Tour</label>
@@ -28,13 +61,17 @@
 					<label for="" >Nội dung</label>
 					{!!Form::textarea('content',old('content'),array('class'=>'form-control ckeditor'))!!}
 				</div>
-				@if($tour->schedule()->get())
+
+
+				<!-- MODIFY SCHEDULE -->
+				<!-- @if($tour->schedule()->get())
 				<div class="form-group">
 					<label for="">Lịch trình</label>
-
+				
 					<div class="container-fluid">
 						<div class="wrap-schedule">
 							@foreach($tour->schedule()->get() as $item_schedule)
+							<input type="hidden" name="schedule_id[]" value="{!!$item_Schedule->id!!}" >
 							<div class="each-schedule" style="margin-bottom:10px;">
 								<div class="form-group">
 									<input type="text" name="scheduletitle[]" value="{!! $item_schedule->title !!}" class="form-control" placeholder="Tiêu đề (vd Tuần 1: 15/01 - 20/01/2017)">
@@ -46,17 +83,15 @@
 									<label for="" >Hình đại diện</label>
 									<p>
 										<img src="{!!$item_schedule->img_avatar!!}" width="150" alt="">
-										{!!Form::hidden('imgschedule-bk[]',$item_schedule->img_avatar)!!}
 									</p>
-									{!!Form::file('scheduleimg[]')!!}
 								</div>
 							</div>
 							@endforeach
 						</div>
 					</div>
-					<button type="button" class="btn btn-primary" id="addschedule">Thêm Lịch trình</button>
 				</div>
-				@endif
+				@endif -->
+
 				<div class="form-group">
 					<label for="">Đối tác</label>
 					{!!Form::text('partner',old('partner'),array('class'=>'form-control'))!!}
@@ -120,11 +155,9 @@
 		});
 
 		// ADD SCHEDULE
-		$('#addschedule').on('click',function(){
-			$('.each-schedule:first-child').clone().appendTo('.wrap-schedule');
-			// $('.wrap-schedule').appendTo('<div class="each-schedule">'+data+'</div>');
-			// console.log(data);
-		})
+		// $('#addschedule').on('click',function(){
+		// 	$('.each-schedule:first-child').clone().appendTo('.wrap-schedule');
+		// })
 	})
 
 </script>

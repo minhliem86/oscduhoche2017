@@ -40,6 +40,8 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 		/*Tour*/
 		Route::post('tour/deleteall',['as'=>'admin.tour.deleteall','uses'=>'TourController@deleteAll']);
+		// Route::post('tour/addSchedule',['as'=>'admin.tour.addSchedule','uses'=>'TourController@addSchedule']);
+		// Route::post('tour/ajaxDeleteSchedule',['as'=>'admin.tour.ajaxDeleteShedule','uses'=>'TourController@ajaxDeleteSchedule']);
 		Route::resource('tour','TourController');
 
 		/*CHANGE PASS*/

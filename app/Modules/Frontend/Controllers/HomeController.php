@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Country;
-use App\Models\Location;
+use App\Models\Promotion;
+use App\Models\Testimonial;
 
 class HomeController extends Controller {
 
@@ -25,8 +25,9 @@ class HomeController extends Controller {
 	 */
 	
 	public function getIndex(){
-		
-		return view('Frontend::pages.home');
+		$promotion = Promotion::select('name','slug','description')->where('status',1)->orderBy('order','DESC')->get();
+		$testimonial = Testimonial::select('id','slug','title','author','description','img_slides')->where('status',1)->orderByRaw('RAND()')->get();
+		return view('Frontend::pages.home',compact('promotion','testimonial'));
 	}
 
 }

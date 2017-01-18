@@ -6,39 +6,18 @@
 
 @section('script')
     <script src="{!!asset('public/assets/frontend')!!}/js/jquery.md5.js"></script>
-	<script>
-        $(document).ready(function () {
-            //initialize swiper when document ready
-            var swiper = new Swiper('.slider-lv1', {
-                slidesPerView: 3,
-                paginationClickable: true,
-                spaceBetween: 30,
-                autoplay: 2500,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                autoplayDisableOnInteraction: false
-            });
-            var mySwiper = new Swiper ('.slider-lv2', {
-                // Optional parameters
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: 2500,
-                autoplayDisableOnInteraction: false
-            });
-            var mySwiper = new Swiper ('.slider-lv3', {
-                // Optional parameters
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: 2500,
-                autoplayDisableOnInteraction: false
-            });
-      });
-    </script>
     <script src="{!!asset('public/assets/frontend')!!}/js/common.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.same-height').matchHeight({});
+            var swiper_promotion = new Swiper('.swiper-promotion',{
+                speed: 600,
+                autoplay: 3000,
+                direction: 'vertical',
+                slidesPerView: 3,
+            })
+        })
+    </script>
 @stop
 
 @section('content')
@@ -55,29 +34,44 @@
                 <div class="swiper-container slider-lv1">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
-                            <hr class="hr">
-                            <p class="title-slider">Mở rộng tầm nhìn<br>tự lập</p>
+                            <div class="wrap-keypoint">
+                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                <hr class="hr">
+                                <p class="title-slider">Mở rộng tầm nhìn<br>tự lập</p>
+                            </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-feather.png" alt="">
-                            <hr class="hr">
-                            <p class="title-slider">Rèn luyện tính<br>ra thế giới</p>
+                            <div class="wrap-keypoint">
+                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-feather.png" alt="">
+                                <hr class="hr">
+                                <p class="title-slider">Rèn luyện tính<br>ra thế giới</p>
+                            </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-user.png" alt="">
-                            <hr class="hr">
-                            <p class="title-slider">Gặp gỡ và giao lưu<br>bạn bè quốc tế </p>
+                            <div class="wrap-keypoint">
+                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-user.png" alt="">
+                                <hr class="hr">
+                                <p class="title-slider">Gặp gỡ và giao lưu<br>bạn bè quốc tế </p>
+                            </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
-                            <hr class="hr">
-                            <p class="title-slider">Mở rộng tầm nhìn<br>tự lập</p>
+                            <div class="wrap-keypoint">
+                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                <hr class="hr">
+                                <p class="title-slider">Thử nghiệm hành trình<br>du học</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="wrap-keypoint">
+                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                <hr class="hr">
+                                <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ<br/>hoặc ký túc xá</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Add Arrows -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                   <!--  <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div> -->
                 </div>
             </div>
 
@@ -92,13 +86,25 @@
         <div class="pro-text">
             <h2>PROMOTIONS</h2>
             <hr class="hr">
-            <h4>Ho Chi Minh</h4>
-            <p class="text-red">15/01 - <span>Lorem ipsum dolor sit amet, cons ectetur </span></p>
-            <h4>Da Nang</h4>
-            <p>15/01 - <span>Lorem ipsum dolor sit amet, cons ectetur </span></p>
-            <h4>Ha Noi</h4>
-            <p>15/01 - <span>Lorem ipsum dolor sit amet, cons ectetur </span></p>
         </div>
+        @if($promotion)
+        <div class="wrap-slider-promotion same-height">
+            <div class="swiper-container swiper-promotion">
+                <div class="swiper-wrapper">
+                    @foreach($promotion as $item_promotion)
+                    <div class="swiper-slide">
+                        <div class="each-promo">
+                            <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
+                            <p>{!!$item_promotion->description!!}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        @else
+            <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
+        @endif
         <div class="img-box">
             <img src="{!!asset('public/assets/frontend')!!}/images/img-pro-01.png" alt="">
         </div>
@@ -107,21 +113,29 @@
         <div class="pro-text">
             <h2>TESTIMONIAL</h2>
             <hr class="hr">
-            <h4>Mr.A</h4>
-            <p>Cras rutrum nulla a bibendum feugiat. Ut aliquam dolor a neque dictum elementum. Ut ipsum diam, sagittis malesuada turpis ut, suscipit iaculis ligula</p>
-            <button class="btn btn-read">Read more</button>
         </div>
+        @if($testimonial)
         <div class="img-box">
             <div class="swiper-container slider-lv3">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="{!!asset('public/assets/frontend')!!}/images/img-pro-02.png" alt=""></div>
-                    <div class="swiper-slide"><img src="{!!asset('public/assets/frontend')!!}/images/img-pro-02.png" alt=""></div>
-                    <div class="swiper-slide"><img src="{!!asset('public/assets/frontend')!!}/images/img-pro-02.png" alt=""></div>
+                <div class="swiper-wrapper promo-testi">
+                    @foreach($testimonial as $item_testimonial)
+                    <div class="swiper-slide">
+                        <div class="wrap-each-testimotion">
+                            <div class="wrap-top-testi same-height">
+                                <h4>{!!$item_testimonial->author!!}</h4>
+                                <p>{!!$item_testimonial->description!!}</p>
+                                <a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}">ĐỌC THÊM</a>
+                            </div>
+                            <img src="{!!$item_testimonial->img_slides!!}" class="img-responsive img-each-testi" alt="">
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
         </div>
+        @endif
     </div>
 </section>
 <!-- **************** /Pro - Testi ****************-->

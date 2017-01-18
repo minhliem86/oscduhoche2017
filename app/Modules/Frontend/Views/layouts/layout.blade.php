@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/css/swiper.css">
     <link href="{!!asset('public/assets/frontend/')!!}/css/style.css" rel="stylesheet">
     <link href="{!!asset('public/assets/frontend/')!!}/css/reponsive.css" rel="stylesheet">
+    <link href="{!!asset('public/assets/frontend/')!!}/css/custom-lp.css" rel="stylesheet">
+
     <!-- Custom JS -->
     <!-- <script src="{!!asset('public/assets/frontend/')!!}js/scrip.js"></script> -->
     
@@ -34,7 +36,7 @@
 
                 <!--====================== Content ======================-->
                 <article class="container-fluid">
-                    <div class="row {!!Request::segment(1) == '' ? 'home' : ''!!} {!!Request::segment(1) == 'quoc-gia' ? 'destination' : ''!!}">
+                    <div class="row {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getCountry' ? 'destination' : ''!!} {!!Request::segment(1) == '' ? 'home' : ''!!} {!!Request::segment(1) == 'lien-he' ? 'contact' : ''!!} {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' ? 'course-detail' : ''!!} {!!Request::segment(1) == 'khuyen-mai' ? 'promotion' : ''!!} {!!Request::segment(1) == 'trai-nghiem-du-hoc' ? 'testtimonial-box' : ''!!} ">
                         <!-- **************** Banner ****************-->
                         @include('Frontend::layouts.banner')
                         <!-- **************** /Banner ****************-->
@@ -53,39 +55,15 @@
     <script src="{!!asset('public/assets/frontend/')!!}/js/bootstrap.min.js" type="text/javascript"></script>
      <script src="{!!asset('public/assets/frontend')!!}/js/jquery.validate.min.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/swiper.min.js"></script>
-    @yield('script')
+    <script src="{!!asset('public/assets/frontend/')!!}/js/jquery.matchHeight.js"></script>
+    <script src="{!!asset('public/assets/frontend/')!!}/js/customScript.js" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
-            //initialize swiper when document ready  
-            var swiper = new Swiper('.slider-lv1', {
-                slidesPerView: 3,
-                paginationClickable: true,
-                spaceBetween: 30,
-                autoplay: 2500,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                autoplayDisableOnInteraction: false
-            });
-            var mySwiper = new Swiper ('.slider-lv2', {
-                // Optional parameters
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: 2500,
-                autoplayDisableOnInteraction: false
-            });      
-            var mySwiper = new Swiper ('.slider-lv3', {
-                // Optional parameters
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: 2500,
-                autoplayDisableOnInteraction: false
-            });
-      });
+            $('.wrap-multi-country').matchHeight({})
+        });
     </script>
+    @yield('script')
+    
 </body>
 
 </html>

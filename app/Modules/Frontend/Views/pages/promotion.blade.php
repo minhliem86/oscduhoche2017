@@ -48,7 +48,7 @@
                 <p>{!!$promotion_rand->description!!}</p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-2 nopadding">
-                <a href="#" class="btn btn-reg">Đăng ký</a>
+                <a href="{!!route('contact')!!}" class="btn btn-reg">Đăng ký</a>
             </div>
         </div>
     </section>

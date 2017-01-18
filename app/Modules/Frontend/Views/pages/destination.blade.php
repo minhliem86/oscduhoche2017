@@ -79,7 +79,7 @@
 		                            <hr class="hr">
 		                            <p>{!!$tour->description!!}</p>
 		                            <div class="box-destination-footer">
-		                                <a class="btn btn-read" href="{!!route('quocgia',[$country_data->slug,$tour->slug])!!}">Read more</a>
+		                                <a class="btn btn-read" href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">Read more</a>
 		                                <a class="btn btn-reg-02" href="{!!route('contact')!!}">Register</a>
 		                            </div>
 		                        </div>
