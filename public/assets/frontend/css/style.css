@@ -710,10 +710,10 @@ footer > div > div > div:not(:last-child){
 .swiper-pagination-fraction, 
 .swiper-pagination-custom, 
 .swiper-container-horizontal > .swiper-pagination-bullets{
-    top: 25px;
-    left: 20px;
+    top: auto;
+    left: 2%;
     right: auto;
-    bottom: auto;
+    bottom: 2%;
     width: auto;
 }
 .swiper-pagination-bullet{

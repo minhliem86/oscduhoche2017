@@ -124,7 +124,7 @@
                             <div class="wrap-top-testi same-height">
                                 <h4>{!!$item_testimonial->author!!}</h4>
                                 <p>{!!$item_testimonial->description!!}</p>
-                                <a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}">ĐỌC THÊM</a>
+                                <a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}" class="btn btn-readmore">ĐỌC THÊM</a>
                             </div>
                             <img src="{!!$item_testimonial->img_slides!!}" class="img-responsive img-each-testi" alt="">
                         </div>

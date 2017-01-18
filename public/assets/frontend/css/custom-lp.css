@@ -18,3 +18,13 @@
 .wrap-each-testimotion img.img-each-testi{
 	max-height:240px;
 }
+.wrap-each-testimotion  a.btn-readmore{
+	width: auto;
+    height: auto;
+    line-height: inherit;
+    right: 2em;
+    border-radius: 25px;
+    bottom: 0.8em;
+    font-size: 0.8em;
+    padding: 0.4em 1.5em 0.3em;
+}
