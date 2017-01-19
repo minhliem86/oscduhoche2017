@@ -115,6 +115,11 @@ class TourController extends Controller {
                 array_push($arr_img, $img_url);
             }
             // $img_alt = \GetNameImage::make('\/',$filename);
+        }else{
+            $img_url = asset('public/assets/backend/img/image_thumbnail.gif');
+            foreach($request->input('scheduletitle') as $key=>$img_item){
+                array_push($arr_img, $img_url);
+            }
         }
         foreach($request->input('scheduletitle') as $key=>$v){
             array_push($arr_data, new Schedule([
@@ -204,38 +209,12 @@ class TourController extends Controller {
         $tour->order = $request->order;
         $tour->save();
 
-
-        $arr_data = [];
-        $arr_img = [];
-
-        if($imgrequest->hasFile('scheduleimg')){
-            foreach($imgrequest->file('scheduleimg') as $key=>$img_item)
-            {
-                // $file = $imgrequest->file('scheduleimg');
-                $destinationPath = public_path().'/upload'.'/'.$this->upload_folder2;
-                $name = preg_replace('/\s+/', '', $img_item->getClientOriginalName());
-                $filename = time().'_'.$name;
-                $img_item->move($destinationPath,$filename);
-
-                $img_url = asset('public/upload').'/'.$this->upload_folder2.'/'.$filename;
-
-                array_push($arr_img, $img_url);
-            }
-            // $img_alt = \GetNameImage::make('\/',$filename);
-        }else{
-            foreach($imgrequest->input('imgschedule-bk') as $key=>$img_item){
-                array_push($arr_img, $img_item);
-            }
-        }
         foreach($request->input('scheduletitle') as $key=>$v){
-            array_push($arr_data, new Schedule([
-                'title'=>$v,
-                'content'=> $request->input('schedulecontent')[$key],
-                'img_avatar' => $arr_img[$key],
-                'status' => 1
-            ]));
+            $schedule = Schedule::find($request->input('id_schedule')[$key]);
+            $schedule->title = $v;
+            $schedule->content = $request->input('content')[$key];
+            $schedule->save();
         }
-        $tour->schedule()->saveMany($arr_data);
         $tour->location()->sync([$request->location_id]);
         Notification::success('Updated');
         return  redirect()->route('admin.tour.index');
@@ -276,6 +255,46 @@ class TourController extends Controller {
             $tour->delete();
             return response()->json(['msg'=>'done']);
         }
+    }
+
+    public function ajaxDeleteSchedule(Request $request){
+        if(!$request->ajax()){
+
+        }else{
+
+        }
+    }
+
+    public function addSchedule(Request $request, ImageRequest $imgrequest){
+        if($imgrequest->hasFile('imgSch')){
+            $file = $imgrequest->file('imgSch');
+            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder2;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            $file->move($destinationPath,$filename);
+
+            // $size = getimagesize($file);
+            // if($size[0] > 620){
+            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
+            // }else{
+            //     $file->move($destinationPath,$filename);
+            // }
+
+            $img_url = asset('public/upload').'/'.$this->upload_folder2.'/'.$filename;
+        }else{
+            $img_url = asset('public/assets/backend/img/image_thumbnail.gif');
+        }
+        $schedule  = new Schedule ([
+            'title' => $request->input('titleSch'),
+            'content' => $request->input('contentSch'),
+            'img_avatar' =>  $img_url,
+            'status' =>  1,
+        ]);
+        $tour = Tour::find($request->input('tour_id'));
+        $tour->schedule()->save($schedule);
+        return redirect()->route('admin.tour.index');
+
     }
 
 }

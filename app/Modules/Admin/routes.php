@@ -40,12 +40,13 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 		/*Tour*/
 		Route::post('tour/deleteall',['as'=>'admin.tour.deleteall','uses'=>'TourController@deleteAll']);
+		Route::post('tour/addSchedule',['as'=>'admin.tour.addSchedule','uses'=>'TourController@addSchedule']);
 		Route::resource('tour','TourController');
 
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
 		Route::post('password',['as'=>'admin.postChangePass','uses'=>'AdminController@postChangePass']);
 	});
-	
+
 
 });
