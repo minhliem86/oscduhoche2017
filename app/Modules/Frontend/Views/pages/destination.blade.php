@@ -5,53 +5,18 @@
 @stop
 
 @section('script')
-<script defer>
-    $(document).ready(function(){
-        $('#id_city').on('change',function(){
-            var id_city = $(this).val();
-            var token = $('input[name="_token"]').val();
-            console.log(token);
-            $.ajax({
-                url: '{!!route("contact.postAjaxCenter")!!}',
-                data: {'_token':token, 'data':id_city},
-                type: "POST",
-                success:function(data){
-                    $('#id_center').val(data.rs);
-                },
+    <script>
+        $(document).ready(function(){
+            $('.box-destination-content').hide();
+            $('.box-destination').hover(function(){
+                $(this).find('.box-destination-content').slideDown('fast');
+                $(this).find('.content-destination').css({'background':'#ffcb05'});
+            },function(){
+                $(this).find('.box-destination-content').slideUp('fast');
+                $(this).find('.content-destination').css({'background':'white'});
             })
-        });
-
-        $('#formOSC').validate({
-            errorElement: "span",
-            rules: {
-                name: "required",
-                email: "required",
-                phone: {required: true, digits: true, minlength: 10, maxlength: 11},
-                id_city: "required",
-                country: "required"
-            },
-            messages: {
-                name: "Vui lòng nhập họ tên",
-                phone: {
-                    required: "Vui lòng nhập số điện thoại di động",
-                    digits: "Vui lòng nhập số điện thoại di động",
-                    minlength: "Vui lòng nhập số điện thoại di động",
-                },
-                email: "Vui lòng nhập email",
-                id_city: "Vui lòng chọn Thành Phố bạn đăng ký",
-                country: "Vui lòng chọn quốc gia bạn muốn du học"
-            },
-            submitHandler:function(data){
-                var strRandom = Math.random().toString(36);
-                var d = new Date();
-                strRandom += d.toLocaleString();
-                $("input[name='id_hash']").val($.md5(strRandom));
-                _swga.postLead();
-            },
         })
-    })
-    
-</script>
+    </script>
 @stop
 
 @section('content')
@@ -69,15 +34,13 @@
 
 					<div class="col-xs-12 col-sm-6 col-md-4">
 		                <div class="box-destination ">
-		                    <div class="col-xs-12 content-destination">
+		                    <div class="content-destination">
 		                        <div class="box-destination-header">
 		                            <h4>{!!$tour->title!!}</h4>
-		                            <a href="#">{!!$tour->age!!}</a>
-		                            <a href="#">Lịch chương trình: {!!$tour->start!!} – {!!$tour->end!!}</a>
+                                    <hr class="hr">
 		                        </div>
 		                        <div class="box-destination-content">
-		                            <hr class="hr">
-		                            <p>{!!$tour->description!!}</p>
+		                            <p>{!!Str::words($tour->description,30)!!}</p>
 		                            <div class="box-destination-footer">
 		                                <a class="btn btn-read" href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">Read more</a>
 		                                <a class="btn btn-reg-02" href="{!!route('contact')!!}">Register</a>

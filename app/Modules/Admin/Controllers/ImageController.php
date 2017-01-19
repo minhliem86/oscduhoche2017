@@ -46,7 +46,7 @@ class ImageController extends Controller {
 
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -120,7 +120,7 @@ class ImageController extends Controller {
     {
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -129,10 +129,11 @@ class ImageController extends Controller {
             if($request->input('type') && $request->input('type') == 'banner'){
                 $banner_width = 2000;
                 $banner_height = 400;
-
+                
+                $filename_resize = $destinationPath.$filename;
                 $size = getimagesize($file);
                 if($size[0] > $banner_width){
-                    \Image::make($file->getRealPath())->resize($banner_width,$banner_height)->save($destinationPath.'/'.$filename);
+                    \Image::make($file->getRealPath())->resize($banner_width,$banner_height)->save($filename_resize);
                 }else{
                     $file->move($destinationPath,$filename);
                 }

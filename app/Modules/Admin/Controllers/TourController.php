@@ -61,7 +61,7 @@ class TourController extends Controller {
 
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -170,7 +170,7 @@ class TourController extends Controller {
     {
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 

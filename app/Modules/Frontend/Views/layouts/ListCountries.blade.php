@@ -14,15 +14,25 @@
     <div class="container">
         <div class="top-box">
             <div class="col-xs12 col-sm-7 nopadding">
-                <div class="swiper-container slider-lv2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="{!!asset('public/assets/frontend')!!}/images/bannerlv2.png"></div>
-                        <div class="swiper-slide"><img src="{!!asset('public/assets/frontend')!!}/images/bannerlv2.png"></div>
-                        <div class="swiper-slide"><img src="{!!asset('public/assets/frontend')!!}/images/bannerlv2.png"></div>
+                <div class="wrap-content-country">
+                    <div class="swiper-container slider-lv2">
+                        <div class="swiper-wrapper">
+                            @if($countries)
+                            @foreach($countries as $item_country)
+                            <div class="swiper-slide">
+                                <div class="wrap-slider-country">
+                                    <a href="{!!route('quocgia',$item_country->id)!!}"><img src="{!!$item_country->img_slide!!}"></a>
+                                    <h3 class="title-country">{!!$item_country->name!!}</h3>
+                                </div>
+                            </div>
+                            @endforeach
+                            @endif
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
                 </div>
+                
             </div>
             <div class="col-xs-12 col-sm-5 nopadding">
                 @if($list_a_country)

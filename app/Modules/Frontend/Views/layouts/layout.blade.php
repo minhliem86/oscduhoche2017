@@ -56,6 +56,7 @@
      <script src="{!!asset('public/assets/frontend')!!}/js/jquery.validate.min.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/swiper.min.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/jquery.matchHeight.js"></script>
+    <script src="{!!asset('public/assets/frontend/')!!}/js/jquery.md5.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/customScript.js" type="text/javascript"></script>
     <script>
         $(document).ready(function () {

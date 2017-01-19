@@ -28,8 +28,8 @@
     <div class="col-xs-12">
        <textarea name="message" rows="3" class="form-control" placeholder="Ý kiến của bạn"></textarea>
     </div>
-    <div class="form-group text-center">
-         {!!Form::submit('Đăng ký',['class' => 'btn btn-reg'])!!}
+    <div class="col-xs-12 text-center">
+         {!!Form::submit('ĐĂNG KÝ',['class' => 'btn btn-reg'])!!}
     </div>
     @if(Session::has('success'))
         <div class="alert alert-success" role="alert">

@@ -42,7 +42,7 @@
 					<label for="" >Hình slideshow</label>
 					<p>
 						<img src="{!!$testimonial->img_slides!!}" width="150" alt="">
-						{!!Form::hidden('img-bk',$testimonial->img_slides)!!}
+						{!!Form::hidden('imgslide-bk',$testimonial->img_slides)!!}
 					</p>
 					{!!Form::file('imgslide')!!}
 				</div>

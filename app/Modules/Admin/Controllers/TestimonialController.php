@@ -47,7 +47,7 @@ class TestimonialController extends Controller {
 
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -69,18 +69,15 @@ class TestimonialController extends Controller {
 
         if($imgrequest->hasFile('imgslide')){
             $file = $imgrequest->file('imgslide');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
 
-            // $size = getimagesize($file);
-            // if($size[0] > 620){
-            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
-            // }else{
-            //     $file->move($destinationPath,$filename);
-            // }
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(600,400)->save($filename_resize);
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
@@ -141,7 +138,7 @@ class TestimonialController extends Controller {
     {
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -161,18 +158,15 @@ class TestimonialController extends Controller {
 
         if($imgrequest->hasFile('imgslide')){
             $file = $imgrequest->file('imgslide');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
 
-            // $size = getimagesize($file);
-            // if($size[0] > 620){
-            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
-            // }else{
-            //     $file->move($destinationPath,$filename);
-            // }
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(600,400)->save($filename_resize);
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
         }else{

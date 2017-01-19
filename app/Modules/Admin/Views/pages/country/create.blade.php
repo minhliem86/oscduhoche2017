@@ -10,11 +10,15 @@
 		<div class="container-fluid">
 			{!!Form::open(array('route'=>array('admin.country.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Hình đại diện ()</label>
+					<label for="">Hình đại diện</label>
 					{!!Form::file('img')!!}
 					@if($errors->first('img'))
 						<p class="error">{!!$errors->first('img')!!}</p>
 					@endif
+				</div>
+				<div class="form-group">
+					<label for="">Hình Slideshow</label>
+					{!!Form::file('imgslide')!!}
 				</div>
 				<div class="form-group">
 					<label for="">Quốc gia</label>

@@ -15,24 +15,20 @@
             	@if($promotion_list)
             		@foreach($promotion_list as $promotion_item)
 	                <div class="col-xs-12 col-sm-6">
-	                    <div class="img-box">
-	                        <img src="{!!asset('public/assets/frontend')!!}/images/img-promotion-01.png" alt="">
-	                    </div>
-	                    <div class="promotion-box clearfix">
-	                       <center>
-	                            <h3>{!!$promotion_item->name!!}</h3>
-	                        </center>
-	                        <div class="col-xs-12">
-	                            <!-- <h4 class="text-red-02">PROMOTION 1</h4> -->
-	                            <p>{!!$promotion_item->description!!}</p>
-	                            <hr>
-	                        </div>
-	                        <!-- <div class="col-xs-12">
-	                            <h4 class="text-red-02">PROMOTION 1</h4>
-	                            <p>Cras rutrum nulla a bibendum lorem ipsum bibendum </p>
-	                            <p>Cras rutrum nulla a bibendum lorem ipsum bibendum </p>
-	                        </div> -->
-	                    </div>
+                        <div class="wrap-promotion">
+                            <div class="img-box">
+                                <img src="{!!asset('public/assets/frontend')!!}/images/img-promotion-01.png" alt="">
+                            </div>
+                            <div class="promotion-box clearfix">
+                               <center>
+                                    <h3>{!!$promotion_item->name!!}</h3>
+                                </center>
+                                <div class="col-xs-12">
+                                    <p class="text-promotion">{!!$promotion_item->description!!}</p>
+                                </div>
+                            </div>
+                        </div>
+	                    
 	                </div>
                 	@endforeach
                 @endif

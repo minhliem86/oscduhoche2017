@@ -12,6 +12,7 @@ class CountryController extends Controller {
 	protected $country;
 
     protected $upload_folder = 'country';
+    protected $upload_sub_folder = "slider";
 
 	public function __construct(Country $country){
 		$this->country = $country;
@@ -46,7 +47,7 @@ class CountryController extends Controller {
 
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -66,6 +67,28 @@ class CountryController extends Controller {
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
+        if($imgrequest->hasFile('imgslide')){
+            $file = $imgrequest->file('imgslide');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            if($size[0] > 660){
+                \Image::make($file->getRealPath())->resize(660,550)->save($filename_resize);
+            }else{
+                $file->move($destinationPath,$filename);
+            }
+
+            $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
+            // $img_alt = \GetNameImage::make('\/',$filename);
+        }else{
+            $imgslide_url = asset('public/upload/image_thumbnail.gif');
+            // $img_alt = \GetNameImage::make('\/',$img_url);
+        }
+
 
         $data = [
             'name'=>$request->name,
@@ -75,6 +98,7 @@ class CountryController extends Controller {
             'home_show' => $request->home_show,
             'status'=> $request->status,
             'img_avatar'=> $img_url,
+            'img_slide'=> $imgslide_url,
             'order'=>$current
         ];
         $this->country->create($data);
@@ -116,7 +140,7 @@ class CountryController extends Controller {
     {
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -134,6 +158,27 @@ class CountryController extends Controller {
             $img_url = $request->input('img-bk');
         }
 
+        if($imgrequest->hasFile('imgslide')){
+            $file = $imgrequest->file('imgslide');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+             $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            // dd($size);
+            if($size[0] > 660){
+                \Image::make($file->getRealPath())->resize(660,550)->save($filename_resize);
+            }else{
+                $file->move($destinationPath,$filename);
+            }
+
+            $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
+        }else{
+            $imgslide_url = $request->input('imgslide-bk');
+        }
+
         $country = $this->country->find($id);
         $country->name = $request->name;
         $country->slug = \Unicode::make($request->name);
@@ -141,6 +186,7 @@ class CountryController extends Controller {
         $country->multi_countries = $request->multi_countries;
         $country->home_show = $request->home_show;
         $country->img_avatar = $img_url;
+        $country->img_slide = $imgslide_url;
         $country->status = $request->status;
         $country->order = $request->order;
         $country->save();

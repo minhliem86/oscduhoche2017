@@ -206,7 +206,8 @@ return [
       	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
       	'Notification' => 'Krucas\Notification\Facades\Notification',
       	'Debugbar' => 'Barryvdh\Debugbar\Facade',
-      	'Image' => 'Intervention\Image\Facades\Image'
+      	'Image' => 'Intervention\Image\Facades\Image',
+      	'Str'      => 'Illuminate\Support\Str',
 
 	],
 

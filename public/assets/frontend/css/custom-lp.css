@@ -1,7 +1,27 @@
+/* HOME PAGE */
+.wrap-slider-country{
+    position:relative;
+}
+.wrap-slider-country h3.title-country{
+    font-size:16px;
+    color:white;
+    text-transform: uppercase;
+    position:absolute;
+    bottom:30px;
+    left:30px;
+}
 /* DISCOVERY */
 .overlay-img:hover a.btn-dis{
 	background:;
 }
+.wrap-keypoint{
+    text-align:center;
+}
+.wrap-keypoint img{
+    margin:0 auto;
+    display: block;
+}
+
 .wrap-keypoint hr{
 	margin:25px auto;
 }
@@ -27,4 +47,207 @@
     bottom: 0.8em;
     font-size: 0.8em;
     padding: 0.4em 1.5em 0.3em;
+}
+
+/* PROMOTION PAGE */
+.wrap-promotion{
+    text-align: center;
+    margin-bottom:30px;
+}
+
+/* TRAI NGHIEM DU HOC */
+.testtimonial-list h4.title-testi{
+    text-transform: uppercase;
+    font-size:20px;
+    margin:0;
+    height:45px;
+}
+.testtimanial-avartar-slider{
+    height:calc(100% - 45px);
+}
+.testimonial-slider-ver{
+    height:100%;
+    width:100%;
+}
+.testimonial-slider-ver .swiper-slide{
+    min-height:80px;
+}
+.testtimanial-slider-item h4{
+    text-transform: uppercase;
+}
+.testtimanial-slider-item h5{
+    padding-left:20px;
+    font-weight: bold;
+    margin-bottom:20px;
+    margin-top:0;
+}
+.testtimanial-slider-item a.btn-readmore{
+    padding:5px 18px;
+    background:#050d9e;
+    border:1px solid #050d9e;
+    font-size:11px;
+    line-height: inherit;
+    width:auto;
+    height:auto;
+    margin-left:20px;
+    color:white;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+.testtimanial-slider-item a.btn-readmore:hover, .testtimanial-slider-item a.btn-readmore:active{
+    color:#FFCB04;
+}
+
+.testtimanial-slider .swiper-pagination{
+    left:auto;
+    right:2%;
+}
+.wrap-content-slide-v{
+    width:calc(100% - 100px);
+    display:inline-block;
+}
+.wrap-content-slide-v h4{
+    font-size:14px;
+    margin:0 0 10px;
+}
+.wrap-content-slide-v p{
+    font-size:12px;
+}
+
+.wrap-content-slide-v a.btn-readmore{
+    padding:4px 15px;
+    background:#050d9e;
+    border:1px solid #050d9e;
+    font-size:11px;
+    line-height: inherit;
+    width:auto;
+    height:auto;
+    color:white;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+.wrap-content-slide-v a.btn-readmore:hover{
+    color:#FFCB04;
+}
+.testtimonial-list-item{
+    margin-top:0;
+    margin-bottom:30px;
+}
+.testtimonial-list-item img.img-avatar{
+    border:2px solid #050d9e;
+    display: inline-block;
+    margin-right:15px;
+    vertical-align: top;
+
+}
+
+
+/* TESTIMONIAL FOCUS */
+.testtimonial-focus img.img-focus{
+    border:2px solid    white;
+}
+.testtimonial-focus h4{
+    font-size:16px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:20px;
+}
+.testtimonial-focus blockquote{
+    font-size:12px;
+    margin-bottom:20px;
+}
+.testtimonial-focus a.btn-readmore{
+    padding:5px 15px;
+    background:#FFCB04;
+    border:1px solid #FFCB04;
+    font-size:11px;
+    line-height: inherit;
+    width:auto;
+    height:auto;
+    color:#050d9e;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+.testtimonial-focus a.btn-readmore:hover{
+    color:white;
+}
+
+
+/* DESTINATION */
+.box-destination h4, .box-destination p{
+    margin:0; padding:0;
+}
+.box-destination .content-destination{
+    background:white;
+    padding:15px;
+    transition:all 0.3s;
+    -webkit-transition:all 0.3s;
+    -moz-transition:all 0.3s;
+}
+.box-destination .content-destination .box-destination-header{
+    min-height:50px;
+}
+.box-destination .content-destination h4{
+    font-size:16px;
+    text-transform:uppercase;
+    line-height: 24px;
+    color:#050d9e;
+    margin-bottom:15px;
+}
+.box-destination .box-destination-content{
+    /*display:none;*/
+}
+.box-destination .box-destination-content p{
+    font-size:12px;
+    margin-bottom:15px;
+}
+.box-destination  .bg-destination img{
+    height:100%;
+    width:100%;
+}
+.destination-main center p.title-sub{
+    margin-bottom:50px;
+}
+
+/* COURSE DETAIL */
+.course-detail-main center p.title-sub{
+    max-width:70%;
+    font-size:14px;
+}
+
+/* TESTIMOIAL DETAIL */
+.testtimonial-detail p.recommend{
+    font-size:14px;
+    text-transform:uppercase;
+    margin:0;
+    margin-bottom:15px;
+}
+.testtimonial-detail ul.list-duhoc{
+    padding-left:15px;
+}
+.testtimonial-detail ul.list-duhoc li{
+    padding:3px 0;
+}
+.testtimonial-detail ul.list-duhoc li a{
+    font-size:14px;
+    color:#050d9e;
+}
+.testtimonial-detail a.btn-readmore{
+    padding:4px 15px;
+    background:#050d9e;
+    border:1px solid #050d9e;
+    font-size:11px;
+    line-height: inherit;
+    width:auto;
+    height:auto;
+    color:white;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+.testtimonial-detail a.btn-readmore:hover{
+    color:#FFCB04;
 }

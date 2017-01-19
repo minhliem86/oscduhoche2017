@@ -20,14 +20,14 @@
                         <p>{!!$testimonial_detail->content!!}</p>
                     </div>
                     <div class="authorsign text-right">
-                        <p>{!!$testimonial_detail->author!!}</p>
+                        <p><b>{!!$testimonial_detail->author!!}</b></p>
                     </div>
                     @if($tour_rec)
                     <div>
                         <p class="text-bold recommend">Các chương trình du học hấp dẫn</p>
                         <ul class="list-duhoc">
                             @foreach($tour_rec as $item_tour_rec)
-                                <li><a href="">{!!$item_tour_rec->title!!}</a></li>
+                                <li><a href="{!!route('quocgia.detail',[App\Models\Country::find($item_tour_rec->country_id)->slug,$item_tour_rec->slug])!!}">{!!$item_tour_rec->title!!}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -42,12 +42,12 @@
                                         <div class="swiper-slide">
                                             <div class="testtimonial-list-item clearfix">
                                                 <div class="col-xs-12 col-sm-4 col-md-3 nopadding">
-                                                    <img src="{!!$item_list_v->img_avatar!!}" class="img-circle" width="50" height="50" alt="{!!$item_list_v->author!!}">
+                                                    <img src="{!!$item_list_v->img_avatar!!}" class="img-circle" width="80" height="80" alt="{!!$item_list_v->author!!}">
                                                 </div>
                                                 <div class="col-xs-12 col-sm-8 col-md-9">
                                                     <h4>{!!$item_list_v->author!!}</h4>
                                                     <p>{!!$item_list_v->description!!}</p>
-                                                    <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn-03">READ MORE</a>
+                                                    <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn-readmore btn">READ MORE</a>
                                                 </div>
                                             </div>
                                         </div>

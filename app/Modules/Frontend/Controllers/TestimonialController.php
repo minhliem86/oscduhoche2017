@@ -39,8 +39,8 @@ class TestimonialController extends Controller {
 	public function getTestimonialDetail($slug = null){
 		if($slug != null){
 			$testimonial_detail = $this->testimonial->select('id','title','content','img_slides','author')->where('slug',$slug)->first();
-			$testimonial_relate = $this->testimonial->select('id','author','description','slug')->whereNotIn('id',[$testimonial_detail->id])->where('status',1)->get();
-			$tour_rec = Tour::select('id','slug','title')->orderByRaw("RAND()")->where('status',1)->take(4)->get();
+			$testimonial_relate = $this->testimonial->select('id','author','description','slug','img_avatar')->whereNotIn('id',[$testimonial_detail->id])->where('status',1)->get();
+			$tour_rec = Tour::select('id','slug','title','country_id')->orderByRaw("RAND()")->where('status',1)->take(4)->get();
 			$promotion_rand = Promotion::select('id','slug','name','description')->where('status',1)->orderByRaw('RAND()')->first();
 			return view('Frontend::pages.testimonial-detail',compact('testimonial_detail','testimonial_relate','tour_rec','promotion_rand'));
 		}else{

@@ -18,8 +18,8 @@
                             </div>
                             <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="{!!route('home')!!}">TRANG CHỦ</a></li>
-                                    <li class="dropdown">
+                                    <li class="{!!Active::setActive(1,'')!!}"><a href="{!!route('home')!!}">TRANG CHỦ</a></li>
+                                    <li class="dropdown {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getCountry' ? 'active' : ''!!}">
                                         <a href="destination.html" class="dropdown-toggle" data-toggle="dropdown">QUỐC GIA <span class="caret"></span></a>
                                         @if($country)
                                         <ul class="dropdown-menu">
@@ -29,9 +29,9 @@
                                         </ul>
                                         @endif
                                     </li>
-                                    <li><a href="{!!route('khuyenmai')!!}">KHUYẾN MÃI</a></li>
-                                    <li><a href="{!!route('trainghiem')!!}">TRẢI NGHIỆM DU HỌC</a></li>
-                                    <li><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
+                                    <li class="{!!Active::setActive(1,'khuyen-mai')!!}"><a href="{!!route('khuyenmai')!!}">KHUYẾN MÃI</a></li>
+                                    <li class="{!!Active::setActive(1,'trai-nghiem-du-hoc')!!}"><a href="{!!route('trainghiem')!!}">TRẢI NGHIỆM DU HỌC</a></li>
+                                    <li class="{!!Active::setActive(1,'lien-he')!!}"><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
                                 </ul>
                             </div>
                     </nav>

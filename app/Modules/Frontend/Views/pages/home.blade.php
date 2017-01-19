@@ -65,7 +65,7 @@
                             <div class="wrap-keypoint">
                                 <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
                                 <hr class="hr">
-                                <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ<br/>hoặc ký túc xá</p>
+                                <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá</p>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
    <center>
        <h2>Video Title</h2>
        <div class="col-xs-12 video-box">
-           <img src="{!!asset('public/assets/frontend')!!}/images/img-video-01-04.png" alt="">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/yX7MCwUKNcw" frameborder="0" allowfullscreen></iframe>
        </div>
    </center>
 </section>

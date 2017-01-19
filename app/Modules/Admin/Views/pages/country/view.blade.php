@@ -32,6 +32,14 @@
 					{!!Form::file('img')!!}
 				</div>
 				<div class="form-group">
+					<label for="" >Hình slideshow</label>
+					<p>
+						<img src="{!!$country->img_slide!!}" width="150" alt="">
+						{!!Form::hidden('imgslide-bk',$country->img_avatar)!!}
+					</p>
+					{!!Form::file('imgslide')!!}
+				</div>
+				<div class="form-group">
 					<label for="">Kết hợp nhiều quốc gia</label>
 					<div>
 						<span class="inline-radio"><input type="radio" name="multi_countries" value="1" {!!$country->multi_countries == 1 ? 'checked' : ''!!}> <b>Có</b> </span>
