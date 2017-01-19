@@ -32,26 +32,25 @@ class DestinationController extends Controller {
 		$this->tour = $tour;
 	}
 
-	public function getCountry($slug=null, $slugtour=null){
+	public function getCountry($slug=null){
 		// $country_list = Country::list('name','id');
-		if($slug != null && $slugtour != null){
-			$tour_detail = $this->tour->where('slug',$slugtour)->first();
-			return view('Frontend::pages.course_detail',compact('tour_detail'));
-		}
-		if($slug != null && $slugtour == null ){
-			$country_data = $this->country->select('id','name','description','slug')->where('slug',$slug)->with(['tour'=>function($query){
+		if($slug != null){
+			$country_data = $this->country->select('id','name','description','slug')->where('slug',$slug)->where('status',1)->with(['tour'=>function($query){
 				$query->select('id','title','description','age','start','end','slug');
 			}])->first();
 			return view('Frontend::pages.destination',compact('country_data'));
 		}
-		return view('Frontend::pages.home');
+		return redirect()->back();
 	}
 
 	public function getTour($slugcountry=null, $slugtour=null)
 	{
-		// if($slugcountry != null && $slugtour != null){
-			
-		// }
+		if($slugcountry != null && $slugtour != null){
+			$tour_detail = $this->tour->where('slug',$slugtour)->where('status',1)->first();
+			return view('Frontend::pages.course_detail',compact('tour_detail'));
+		}else{
+			return redirect()->back();
+		}
 	}
 
 }

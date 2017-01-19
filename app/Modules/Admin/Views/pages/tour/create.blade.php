@@ -36,7 +36,9 @@
 					<label for="">Nội dung</label>
 					{!!Form::textarea('content',old('content'),array('class'=>'form-control ckeditor'))!!}
 				</div>
-				<div class="form-group">
+
+				<!-- SCHEDULE -->
+				<!-- <div class="form-group">
 					<label for="">Lịch trình</label>
 					<div class="container-fluid">
 						<div class="wrap-schedule">
@@ -54,7 +56,8 @@
 						</div>
 					</div>
 					<button type="button" class="btn btn-primary" id="addschedule">Thêm Lịch trình</button>
-				</div>
+				</div> -->
+				
 				<div class="form-group">
 					<label for="">Đối tác</label>
 					{!!Form::text('partner',old('partner'),array('class'=>'form-control'))!!}
@@ -115,11 +118,9 @@
 		});
 
 		// ADD SCHEDULE
-		$('#addschedule').on('click',function(){
-			$('.each-schedule:first-child').clone().appendTo('.wrap-schedule');
-			// $('.wrap-schedule').appendTo('<div class="each-schedule">'+data+'</div>');
-			// console.log(data);
-		})
+		// $('#addschedule').on('click',function(){
+		// 	$('.each-schedule:first-child').clone().appendTo('.wrap-schedule');
+		// })
 	})
 </script>
 @stop

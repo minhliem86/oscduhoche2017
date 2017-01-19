@@ -30,8 +30,8 @@ class PromotionController extends Controller {
 	public function getPromotion(){
 
 		// $country_list = Country::list('name','id');
-		$promotion_list = $this->promotion->select('id','name','description','content','img_avatar')->orderBy('order','DESC')->get();
-		$promotion_rand = $this->promotion->select('id','name','description')->orderByRaw("RAND()")->first();
+		$promotion_list = $this->promotion->select('id','name','description','content','img_avatar')->where('status',1)->orderBy('order','DESC')->get();
+		$promotion_rand = $this->promotion->select('id','name','description')->where('status',1)->orderByRaw("RAND()")->first();
 		return view('Frontend::pages.promotion',compact('promotion_list','promotion_rand'));
 	}
 

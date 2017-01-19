@@ -8,13 +8,17 @@
 
 	<div class="box">
 		<div class="container-fluid">
-			{!!Form::open(array('route'=>array('admin.promotion.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
+			{!!Form::open(array('route'=>array('admin.testimonial.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Hình đại diện ()</label>
+					<label for="">Hình đại diện</label>
 					{!!Form::file('img')!!}
 					@if($errors->first('img'))
 						<p class="error">{!!$errors->first('img')!!}</p>
 					@endif
+				</div>
+				<div class="form-group">
+					<label for="">Hình slideshow</label>
+					{!!Form::file('imgslide')!!}
 				</div>
 				<div class="form-group">
 					<label for="">Tên bài viết</label>
@@ -39,7 +43,14 @@
 						<span class="inline-radio"><input type="radio" name="status" value="1" checked=""> <b>Active</b> </span>
 						<span class="inline-radio"><input type="radio" name="status" value="0" > <b>Deactive</b> </span>
 					</div>
+				</div>
 
+				<div class="form-margin">
+					<label for="">Nổi bật</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="focus" value="1" checked=""> <b>Có</b> </span>
+						<span class="inline-radio"><input type="radio" name="focus" value="0" > <b>Không</b> </span>
+					</div>
 				</div>
 
 				<div class="form-group">

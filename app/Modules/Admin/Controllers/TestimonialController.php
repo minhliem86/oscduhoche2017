@@ -12,6 +12,7 @@ class TestimonialController extends Controller {
 	protected $testimonial;
 
     protected $upload_folder = 'testimonial';
+    protected $upload_sub_folder = 'slide';
 
     public function __construct(Testimonial $testimonial){
         $this->testimonial = $testimonial;
@@ -46,7 +47,7 @@ class TestimonialController extends Controller {
 
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -66,6 +67,25 @@ class TestimonialController extends Controller {
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
+        if($imgrequest->hasFile('imgslide')){
+            $file = $imgrequest->file('imgslide');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(600,400)->save($filename_resize);
+
+            $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
+            // $img_alt = \GetNameImage::make('\/',$filename);
+        }else{
+            $imgslide_url = asset('public/assets/backend/img/image_thumbnail.gif');
+            // $img_alt = \GetNameImage::make('\/',$img_url);
+        }
+
 
         $data = [
             'title'=>$request->title,
@@ -73,7 +93,9 @@ class TestimonialController extends Controller {
             'author' => $request->author,
             'description' => $request->description,
             'content' => $request->content,
+            'focus' => $request->focus,
             'img_avatar' => $img_url,
+            'img_slides' => $imgslide_url,
             'status'=> $request->status,
             'order'=>$current
         ];
@@ -116,7 +138,7 @@ class TestimonialController extends Controller {
     {
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = public_path().'/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
@@ -134,13 +156,32 @@ class TestimonialController extends Controller {
             $img_url = $request->input('img-bk');
         }
 
+        if($imgrequest->hasFile('imgslide')){
+            $file = $imgrequest->file('imgslide');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(600,400)->save($filename_resize);
+
+            $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
+        }else{
+            $imgslide_url = $request->input('imgslide-bk');
+        }
+
         $testimonial = $this->testimonial->find($id);
         $testimonial->title = $request->title;
         $testimonial->slug = \Unicode::make($request->title);
         $testimonial->author = $request->input('author');
         $testimonial->description = $request->input('description');
         $testimonial->content = $request->input('content');
+        $testimonial->focus = $request->input('focus');
         $testimonial->img_avatar = $img_url;
+        $testimonial->img_slides = $imgslide_url;
         $testimonial->status = $request->status;
         $testimonial->order = $request->order;
         $testimonial->save();

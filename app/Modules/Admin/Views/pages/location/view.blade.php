@@ -9,7 +9,7 @@
 		<div class="container-fluid">
 			{!!Form::model($location,array('route'=>array('admin.location.update',$location->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Location</label>
+					<label for="">Khu vực</label>
 					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
 				</div>
 				<div class="form-group">

@@ -10,7 +10,7 @@
 		<div class="container-fluid">
 			{!!Form::open(array('route'=>array('admin.location.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Quốc gia</label>
+					<label for="">Khu vực</label>
 					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
 				</div>
 				<div class="form-group">

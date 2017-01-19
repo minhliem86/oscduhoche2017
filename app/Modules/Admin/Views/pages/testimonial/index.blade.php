@@ -29,7 +29,7 @@
 				    <thead>
 					    <tr>
 							<th>ID</th>
-							<th data-width="60%">Articles</th>
+							<th data-width="30%">Articles</th>
 							<th>Image</th>
 							<th>Author</th>
 							<th>Action</th>

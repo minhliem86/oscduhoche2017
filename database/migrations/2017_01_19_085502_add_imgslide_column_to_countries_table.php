@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchedulesTable extends Migration {
+class AddImgslideColumnToCountriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class CreateSchedulesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('schedules', function(Blueprint $table)
+		Schema::table('countries',function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->timestamps();
+			$table->string('img_slide')->nullable();
 		});
 	}
 
@@ -26,7 +25,10 @@ class CreateSchedulesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('schedules');
+		Schema::table('countries', function(Blueprint $table)
+		{
+			$table->dropColumn('img_slide');
+		});
 	}
 
 }
