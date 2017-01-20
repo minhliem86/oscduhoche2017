@@ -1,3 +1,18 @@
+div.inner-section{
+    background:white;
+    padding:30px 0;
+}
+div.inner-section.bg-yellow{
+    background: #ffcb05;
+}
+div.inner-section.inner-header{
+    padding:10px 0;
+}
+div.inner-section.inner-reg{
+    background:url('../images/bg-keypoint.png')no-repeat;
+    background-size: cover;
+    background-position: 0 -20px;
+}
 /* HOME PAGE */
 .wrap-slider-country{
     position:relative;
@@ -27,17 +42,22 @@
 }
 
 /* PROMOTION HOME PAGE */
-.wrap-slider-promotion{
-	margin-bottom:10px;
+
+.wrap-slider-promotion a.btn-readmore{
+    width: auto;
+    height: auto;
+    line-height: inherit;
+    border-radius: 25px;
+    bottom: 0.8em;
+    font-size: 0.8em;
+    padding: 5px 15px; 5px;
 }
 .each-promo{
 	text-align: left;
+    min-height:100px;
 }
 
-/* TESTIMONIAL */
-.wrap-each-testimotion img.img-each-testi{
-	max-height:240px;
-}
+
 .wrap-each-testimotion  a.btn-readmore{
 	width: auto;
     height: auto;
@@ -49,6 +69,9 @@
     padding: 0.4em 1.5em 0.3em;
 }
 
+.wrap-each-testimotion h4{
+    margin-bottom:8px;
+}
 /* PROMOTION PAGE */
 .wrap-promotion{
     text-align: center;
@@ -56,21 +79,31 @@
 }
 
 /* TRAI NGHIEM DU HOC */
-.testtimonial-list h4.title-testi{
+.wrap-top-testimonial{
+    height:500px;
+    overflow:hidden;
+}
+.wrap-top-testimonial .fullheight{
+    height:100%;
+}
+.testimonial-list{
+    padding:10px 20px;
+}
+.testimonial-list h4.title-testi{
     text-transform: uppercase;
     font-size:20px;
     margin:0;
-    height:45px;
+    height:calc(100% - 440px);
 }
-.testtimanial-avartar-slider{
-    height:calc(100% - 45px);
+.testimonial-list .testtimanial-avartar-slider{
+    height:440px;
+    overflow: hidden;
 }
-.testimonial-slider-ver{
-    height:100%;
-    width:100%;
+.wrap-slider-landscape{
+    height:500px;
 }
-.testimonial-slider-ver .swiper-slide{
-    min-height:80px;
+.wrap-slider-landscape .each-wrap-landscape{
+    position:relative;
 }
 .testtimanial-slider-item h4{
     text-transform: uppercase;
@@ -97,6 +130,15 @@
 }
 .testtimanial-slider-item a.btn-readmore:hover, .testtimanial-slider-item a.btn-readmore:active{
     color:#FFCB04;
+}
+
+.testtimanial-slider-item{
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    color: #fff;
+    text-align: left;
+    text-shadow: 1px 1px 1px #666;
 }
 
 .testtimanial-slider .swiper-pagination{
@@ -140,8 +182,46 @@
     display: inline-block;
     margin-right:15px;
     vertical-align: top;
-
 }
+.wrap-each-testimotion img.img-each-testi{
+    width:555px;
+    height:242px;
+}
+
+/* TESTIMOIAL DETAIL */
+.testtimonial-detail p.recommend{
+    font-size:14px;
+    text-transform:uppercase;
+    margin:0;
+    margin-bottom:15px;
+}
+.testtimonial-detail ul.list-duhoc{
+    padding-left:15px;
+}
+.testtimonial-detail ul.list-duhoc li{
+    padding:3px 0;
+}
+.testtimonial-detail ul.list-duhoc li a{
+    font-size:14px;
+    color:#050d9e;
+}
+.testtimonial-detail a.btn-readmore{
+    padding:4px 15px;
+    background:#050d9e;
+    border:1px solid #050d9e;
+    font-size:11px;
+    line-height: inherit;
+    width:auto;
+    height:auto;
+    color:white;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+.testtimonial-detail a.btn-readmore:hover{
+    color:#FFCB04;
+}
+
 
 
 /* TESTIMONIAL FOCUS */
@@ -195,7 +275,7 @@
     text-transform:uppercase;
     line-height: 24px;
     color:#050d9e;
-    margin-bottom:15px;
+    margin-bottom:8px;
 }
 .box-destination .box-destination-content{
     /*display:none;*/
@@ -206,7 +286,6 @@
 }
 .box-destination  .bg-destination img{
     height:100%;
-    width:100%;
 }
 .destination-main center p.title-sub{
     margin-bottom:50px;
@@ -218,36 +297,14 @@
     font-size:14px;
 }
 
-/* TESTIMOIAL DETAIL */
-.testtimonial-detail p.recommend{
-    font-size:14px;
-    text-transform:uppercase;
-    margin:0;
-    margin-bottom:15px;
+
+/* FORM */
+#formOSC input.btn-lp{
+    transition:all 0.3s;
+    -webkit-transition:all 0.3s;
+    -moz-transition:all 0.3s;
 }
-.testtimonial-detail ul.list-duhoc{
-    padding-left:15px;
-}
-.testtimonial-detail ul.list-duhoc li{
-    padding:3px 0;
-}
-.testtimonial-detail ul.list-duhoc li a{
-    font-size:14px;
-    color:#050d9e;
-}
-.testtimonial-detail a.btn-readmore{
-    padding:4px 15px;
+#formOSC input.btn-lp:hover{
+    color:#ffcb05;
     background:#050d9e;
-    border:1px solid #050d9e;
-    font-size:11px;
-    line-height: inherit;
-    width:auto;
-    height:auto;
-    color:white;
-    transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-}
-.testtimonial-detail a.btn-readmore:hover{
-    color:#FFCB04;
 }

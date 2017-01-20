@@ -40,7 +40,6 @@ class ContactController extends Controller {
 			'id_city'=> $contactrequest->input('id_city'),
 			'id_center'=> $contactrequest->input('id_center'),
 			'country'=> $contactrequest->input('country'),
-			'message'=> $contactrequest->input('message'),
 			'content_type'=> $content_type,
 			'inquiry'=> $contactrequest->input('inquiry'),
 			'id_hash'=> $contactrequest->input('id_hash'),

@@ -16,7 +16,8 @@ $(document).ready(function () {
         spaceBetween: 15,
         centeredSlides: true,
         autoplay: 2500,
-        autoplayDisableOnInteraction: false
+        autoplayDisableOnInteraction: false,
+        preventClicks: false
     });      
     var mySwiper = new Swiper ('.slider-lv3', {
         // Optional parameters
@@ -26,22 +27,6 @@ $(document).ready(function () {
         centeredSlides: true,
         autoplay: 4000,
         speed: 800,
-        autoplayDisableOnInteraction: false
-    });
-    var mySwiper = new Swiper ('.testimonial-slider-ver', {
-        // Optional parameters
-        direction: 'vertical',
-        slidesPerView: 5,
-        autoHeight: true
-        // pagination: '.swiper-pagination',
-    });
-    var SwiperTestiHori = new Swiper ('.testimonial-slider-hori', {
-        // Optional parameters
-         slidesPerView: 1,
-         autoplay: 3000,
-        pagination: '.swiper-pagination',
-        spaceBetween: 5,
-        autoplay: false,
         autoplayDisableOnInteraction: false
     });
 

@@ -1,4 +1,4 @@
-<section class="banner container-fluid clearfix">
+<section class="banner container clearfix">
     <div class="row">
         <div class="img-box">
 

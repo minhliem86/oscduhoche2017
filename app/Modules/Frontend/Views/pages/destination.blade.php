@@ -24,7 +24,7 @@
 <section class="destination-main clearfix">
     <div class="container">
         <center>
-            <h2>ILA DU HOC {!!$country_data->name!!}</h2>
+            <h2>ILA DU HỌC {!!$country_data->name!!}</h2>
             <hr class="hr">
             <p class="title-sub">{!!$country_data->description!!}</p>
         </center>
@@ -37,6 +37,8 @@
 		                    <div class="content-destination">
 		                        <div class="box-destination-header">
 		                            <h4>{!!$tour->title!!}</h4>
+                                    <p><b>Dành cho độ tuổi:</b> {!!$tour->age!!}</p>
+                                    <p><b>Khởi hành:</b> {!!$tour->start!!}</p>
                                     <hr class="hr">
 		                        </div>
 		                        <div class="box-destination-content">

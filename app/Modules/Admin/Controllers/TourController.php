@@ -65,9 +65,12 @@ class TourController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
 
             // $size = getimagesize($file);
+            $file_resize = $destinationPath.'/'.$filename;
+
+            \Image::make($file->getRealPath())->resize(600,400)->save($file_resize);
             // if($size[0] > 620){
             //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
             // }else{
@@ -77,7 +80,7 @@ class TourController extends Controller {
             $img_url = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
         }else{
-            $img_url = asset('public/assets/backend/img/image_thumbnail.gif');
+            $img_url = asset('public/assets/frontend/images/default-img/country-default.jpg');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
@@ -174,7 +177,10 @@ class TourController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            $file_resize = $destinationPath.'/'.$filename;
+            \Image::make($file->getRealPath())->resize(600,400)->save($file_resize);
+
+            // $file->move($destinationPath,$filename);
 
             // $size = getimagesize($file);
             // if($size[0] > 620){

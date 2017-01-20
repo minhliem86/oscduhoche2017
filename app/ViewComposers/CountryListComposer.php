@@ -24,7 +24,7 @@ class CountryListComposer {
 	*/
 	public function compose(View $view) {
 		$countries = $this->country->all();
-		$list_a_country = $this->country->select('id','name','img_avatar','slug')->where('multi_countries','0')->where('home_show',1)->orderBy('order','DESC')->take(4)->get();
+		$list_a_country = $this->country->select('id','name','img_avatar','slug')->where('multi_countries','0')->where('home_show',1)->orderByRaw('RAND()')->take(4)->get();
 		$list_multi_country = $this->country->select('id','name','img_avatar','slug')->where('multi_countries',1)->where('home_show',1)->orderBy('order','DESC')->take(3)->get();
 		$ul_list = $this->country->select('id','name','slug')->where('multi_countries','1')->orderBy('order','DESC')->get();
 

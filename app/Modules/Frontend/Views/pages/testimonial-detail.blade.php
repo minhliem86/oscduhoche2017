@@ -34,8 +34,8 @@
                     @endif
                 </div>
                 <div class="col-xs-12 col-sm-4 clearfix testtimonial-list">
-                    <div class="row testtimanial-avartar-slider">
-                       <div class="swiper-container slider-lv4">
+                    <div class="testtimanial-avartar-slider">
+                         <div class="swiper-container slider-lv4">
                             <div class="swiper-wrapper">
                                 @if($testimonial_relate)
                                     @foreach($testimonial_relate as $item_list_v)

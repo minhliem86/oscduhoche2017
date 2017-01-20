@@ -76,16 +76,17 @@ class CountryController extends Controller {
             // $file->move($destinationPath,$filename);
             $filename_resize = $destinationPath.'/'.$filename;
             $size = getimagesize($file);
-            if($size[0] > 660){
-                \Image::make($file->getRealPath())->resize(660,550)->save($filename_resize);
-            }else{
-                $file->move($destinationPath,$filename);
-            }
+             \Image::make($file->getRealPath())->resize(660,325)->save($filename_resize);
+            // if($size[0] > 660){
+               
+            // }else{
+            //     $file->move($destinationPath,$filename);
+            // }
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
         }else{
-            $imgslide_url = asset('public/upload/image_thumbnail.gif');
+            $imgslide_url = asset('public/assets/frontend/images/default-img/country-default.jpg');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
@@ -168,11 +169,12 @@ class CountryController extends Controller {
              $filename_resize = $destinationPath.'/'.$filename;
             $size = getimagesize($file);
             // dd($size);
-            if($size[0] > 660){
-                \Image::make($file->getRealPath())->resize(660,550)->save($filename_resize);
-            }else{
-                $file->move($destinationPath,$filename);
-            }
+            \Image::make($file->getRealPath())->resize(660,325)->save($filename_resize);
+            // if($size[0] > 660){
+                
+            // }else{
+            //     $file->move($destinationPath,$filename);
+            // }
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
         }else{

@@ -11,10 +11,9 @@
         $(document).ready(function(){
             $('.same-height').matchHeight({});
             var swiper_promotion = new Swiper('.swiper-promotion',{
-                speed: 600,
+                speed: 800,
                 autoplay: 3000,
-                direction: 'vertical',
-                slidesPerView: 3,
+                slidesPerView: 1,
             })
         })
     </script>
@@ -22,141 +21,173 @@
 
 @section('content')
 <!-- **************** Wellcome ****************-->
-<section class="wellcome clearfix">
+<section class="wellcome">
     <div class="container">
-        <center>
-            <h2>CHÀO MỪNG ĐẾN VỚI <br>CHƯƠNG TRÌNH DU HỌC HÈ 2017</h2>
-            <hr class="hr">
-            <p class="title-sub">Cras rutrum nulla a bibendum feugiat <br>Ut aliquam dolor a neque dictum elementum</p>
-        </center>
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <div class="swiper-container slider-lv1">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="wrap-keypoint">
-                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
-                                <hr class="hr">
-                                <p class="title-slider">Mở rộng tầm nhìn<br>tự lập</p>
+            <div class="inner-section">
+                <center>
+                    <h2>CHÀO MỪNG ĐẾN VỚI <br>CHƯƠNG TRÌNH DU HỌC HÈ 2017</h2>
+                    <hr class="hr">
+                    <p class="title-sub">ILA Du Học giới thiệu chương trình Du Học Hè 2017<Br/>với 4 giá trị cốt lõi dành cho học sinh: Phiêu Lưu, Trải Nghiệm, Tự Lập và Trưởng Thành.</p>
+                </center>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="swiper-container slider-lv1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="wrap-keypoint">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                        <hr class="hr">
+                                        <p class="title-slider">Mở rộng tầm nhìn<br>ra thế giới </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="wrap-keypoint">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-feather.png" alt="">
+                                        <hr class="hr">
+                                        <p class="title-slider">Rèn luyện tính<br>tự lập </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="wrap-keypoint">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-user.png" alt="">
+                                        <hr class="hr">
+                                        <p class="title-slider">Gặp gỡ và giao lưu<br>bạn bè quốc tế </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="wrap-keypoint">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                        <hr class="hr">
+                                        <p class="title-slider">Thử nghiệm hành trình<br>du học</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="wrap-keypoint">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                        <hr class="hr">
+                                        <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="wrap-keypoint">
-                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-feather.png" alt="">
-                                <hr class="hr">
-                                <p class="title-slider">Rèn luyện tính<br>ra thế giới</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="wrap-keypoint">
-                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-user.png" alt="">
-                                <hr class="hr">
-                                <p class="title-slider">Gặp gỡ và giao lưu<br>bạn bè quốc tế </p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="wrap-keypoint">
-                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
-                                <hr class="hr">
-                                <p class="title-slider">Thử nghiệm hành trình<br>du học</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="wrap-keypoint">
-                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
-                                <hr class="hr">
-                                <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá</p>
-                            </div>
+                            <!-- Add Arrows -->
+                           <!--  <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div> -->
                         </div>
                     </div>
-                    <!-- Add Arrows -->
-                   <!--  <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div> -->
+
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 <!-- **************** /Wellcome ****************-->
 @include('Frontend::layouts.listCountries')
 <!-- **************** Pro - Testi ****************-->
-<section class="pro-test container clearfix">
-    <div class="col-xs-12 col-sm-6">
-        <div class="pro-text">
-            <h2>PROMOTIONS</h2>
-            <hr class="hr">
-        </div>
-        @if($promotion)
-        <div class="wrap-slider-promotion same-height">
-            <div class="swiper-container swiper-promotion">
-                <div class="swiper-wrapper">
-                    @foreach($promotion as $item_promotion)
-                    <div class="swiper-slide">
-                        <div class="each-promo">
-                            <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
-                            <p>{!!$item_promotion->description!!}</p>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        @else
-            <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
-        @endif
-        <div class="img-box">
-            <img src="{!!asset('public/assets/frontend')!!}/images/img-pro-01.png" alt="">
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        <div class="pro-text">
-            <h2>TESTIMONIAL</h2>
-            <hr class="hr">
-        </div>
-        @if($testimonial)
-        <div class="img-box">
-            <div class="swiper-container slider-lv3">
-                <div class="swiper-wrapper promo-testi">
-                    @foreach($testimonial as $item_testimonial)
-                    <div class="swiper-slide">
-                        <div class="wrap-each-testimotion">
-                            <div class="wrap-top-testi same-height">
-                                <h4>{!!$item_testimonial->author!!}</h4>
-                                <p>{!!$item_testimonial->description!!}</p>
-                                <a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}" class="btn btn-readmore">ĐỌC THÊM</a>
+<section class="pro-test">
+    <div class="container">
+        <div class="row">
+            <div class="inner-section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="pro-text">
+                                <h2>PROMOTIONS</h2>
+                                <hr class="hr">
                             </div>
-                            <img src="{!!$item_testimonial->img_slides!!}" class="img-responsive img-each-testi" alt="">
+                            @if($promotion)
+                            <div class="wrap-slider-promotion ">
+                                <div class="swiper-container swiper-promotion">
+                                    <div class="swiper-wrapper">
+                                        @foreach($promotion as $item_promotion)
+                                        <div class="swiper-slide">
+                                            <div class="wrap-each-promo">
+                                                <div class="each-promo same-height">
+                                                    <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
+                                                    <p>{!!$item_promotion->description!!}</p>
+                                                    <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ NGAY</a>
+                                                </div>
+                                                <img src="{!!$item_promotion->img_avatar!!}" alt="">
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            @else
+                                <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
+                            @endif
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="pro-text">
+                                <h2>TESTIMONIAL</h2>
+                                <hr class="hr">
+                            </div>
+                            @if($testimonial)
+                            <div class="img-box">
+                                <div class="swiper-container slider-lv3">
+                                    <div class="swiper-wrapper promo-testi">
+                                        @foreach($testimonial as $item_testimonial)
+                                        <div class="swiper-slide">
+                                            <div class="wrap-each-testimotion">
+                                                <div class="wrap-top-testi same-height">
+                                                    <h4>{!!$item_testimonial->author!!}</h4>
+                                                    <p>{!!Str::words($item_testimonial->description,25)!!}</p>
+                                                    <a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}" class="btn btn-readmore">ĐỌC THÊM</a>
+                                                </div>
+                                                <img src="{!!$item_testimonial->img_slides!!}" class="img-responsive img-each-testi" alt="">
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
-                    @endforeach
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
             </div>
         </div>
-        @endif
     </div>
+
 </section>
 <!-- **************** /Pro - Testi ****************-->
 <!-- **************** Video ****************-->
-<section class="video container clearfix">
-   <center>
-       <h2>Video Title</h2>
-       <div class="col-xs-12 video-box">
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/yX7MCwUKNcw" frameborder="0" allowfullscreen></iframe>
-       </div>
-   </center>
+<section class="video">
+    <div class="container">
+        <div class="row">
+            <div class="inner-section">
+                <center>
+                    <h2>Ila Du Học Hè 2016<br/>Bước chân nhỏ - Khám phá thế giới lớn</h2>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 video-box">
+                               <iframe width="560" height="315" src="https://www.youtube.com/embed/pRrfNtJpwzs" frameborder="0" allowfullscreen></iframe>
+                           </div>
+                        </div>
+                    </div>
+               </center>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- **************** /Video ****************-->
 <!-- **************** Register ****************-->
-<section class="reg clearfix">
+<section class="reg">
     <div class="container">
-        <center>
-            <h2>ĐĂNG KÝ & TƯ VẤN</h2>
-            <hr class="hr">
-        </center>
-        @include('Frontend::layouts.formRegister')
+        <div class="row">
+            <div class="inner-section inner-reg">
+                <center>
+                    <h2>ĐĂNG KÝ & TƯ VẤN</h2>
+                    <hr class="hr">
+                </center>
+                @include('Frontend::layouts.formRegister')
+            </div>
+        </div>
+
     </div>
 </section>
 <!-- **************** /Register ****************-->

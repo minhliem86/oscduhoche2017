@@ -77,12 +77,12 @@ class TestimonialController extends Controller {
 
             $filename_resize = $destinationPath.'/'.$filename;
             $size = getimagesize($file);
-            \Image::make($file->getRealPath())->resize(600,400)->save($filename_resize);
+            \Image::make($file->getRealPath())->resize(760,500)->save($filename_resize);
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
         }else{
-            $imgslide_url = asset('public/assets/backend/img/image_thumbnail.gif');
+            $imgslide_url = asset('public/assets/frontend/images/default-img/testimonial-default.jpg');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
@@ -166,7 +166,7 @@ class TestimonialController extends Controller {
 
             $filename_resize = $destinationPath.'/'.$filename;
             $size = getimagesize($file);
-            \Image::make($file->getRealPath())->resize(600,400)->save($filename_resize);
+            \Image::make($file->getRealPath())->resize(760,500)->save($filename_resize);
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
         }else{

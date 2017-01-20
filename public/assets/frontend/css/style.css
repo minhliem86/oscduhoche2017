@@ -1,3 +1,5 @@
+
+
 @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import "../css/bootstrap.min.css";
 @import "../css/bootstrap-theme.min.css";
@@ -17,8 +19,8 @@ a:hover{text-decoration: none; outline:none;}
 .nopadding{
     padding: 0;
 }
-@font-face {
-  font-family:  'gothamvnubold', sans-serif;
+/*@font-face {
+  font-family:  'gillsansregular', sans-serif;
   src: url('../font/GothamVnu-Bold.eot');
   src: url('../font/GothamVnu-Boldd41d.eot?#iefix') format('embedded-opentype'),
        url('../font/GothamVnu-Bold.woff2') format('woff2'),
@@ -29,11 +31,18 @@ a:hover{text-decoration: none; outline:none;}
   font-style: normal;
 }
 @font-face {
-	font-family: 'Gotham Book', sans-serif;
+	font-family: 'gillsansregular', sans-serif;
 	src: url('../font/GothamBook.eot');
 	src: local('../font/GothamBook'), 
            url('../font/GothamBook.woff') format('woff'), 
            url('../font/GothamBook.ttf') format('truetype');
+}*/
+@font-face {
+    font-family: 'gillsansregular';
+    src: url('../font/Gill_Sans_regular/SFUGillSansRegular.eot?#iefix') format('embedded-opentype'),
+    url('../font/Gill_Sans_regular/SFUGillSansRegular.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 /*================================= Option =================================*/
 .osc-summer{
@@ -57,11 +66,11 @@ a:hover{text-decoration: none; outline:none;}
 /*================================= Header =================================*/
 header,
 footer{
-    padding: 20px 35px;
+    /*padding: 20px 35px;*/
 }
 header{
-    padding:20px 35px 15px; 
-    margin-bottom: 30px;
+    /*padding:15px 35px 10px; */
+    /*margin-bottom: 10px;*/
 }
 .logo-box{
     width: 150px;
@@ -147,8 +156,9 @@ header{
 }
 /*================================= Container =================================*/
 body{
-    font-family: 'Gotham Book', sans-serif;
+    font-family: 'gillsansregular', sans-serif;
     font-size: 14px;
+    background: #eeeeef;
 }
 h2 ,h3, h4, .btn,
 .topmenu .navbar-default a,
@@ -156,23 +166,24 @@ h2 ,h3, h4, .btn,
 blockquote,
 blockquote:after,
 blockquote:before{
-    font-family: 'gothamvnubold', sans-serif;
+    font-family: 'gillsansregular', sans-serif;
 }
 
 h2{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
     text-transform: uppercase;
 }
 h3{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin: 20px 0;
 }
 h4{
     font-weight: bold;
     font-size: 16px;
+    margin:0;
 }
 blockquote{
     quotes:none;
@@ -227,12 +238,13 @@ blockquote:before{
 */
 article > div section:not(:first-child){
     /*margin-top: 30px;*/
-    padding: 40px 0; 
+    /*padding: 30px 0; */
     overflow: hidden;
 }
 hr{
     height: 1px;
     border-color: #2b328c;
+    margin:15px 0;
 }
 .hr{
     width: 65px;
@@ -278,7 +290,7 @@ hr{
     margin-bottom:20px;
 }
 .to-local li a{
-    font-size: 20px;
+    font-size: 18px;
     color: #2b328c;
     margin: 0 5px;
     transition:all 0.3s;
@@ -286,7 +298,8 @@ hr{
     -moz-transition:all 0.3s;
 }
 .to-local li a:hover{
-    color:white;
+    color:#050d9e;
+    font-weight:600;
 }
 .to-local li:last-child a{
     margin-right:0;
@@ -313,9 +326,10 @@ hr{
     font-weight: bold;
 }
 .title-country{
-    left: 2em;
+    left: 5%;
     bottom: 0;
-    font-size: .9em;
+    font-size: 14px;
+    text-transform: uppercase;
     transition:all 0.3s;
     -webkit-transition:all 0.3s;
     -moz-transition:all 0.3s;
@@ -377,7 +391,7 @@ hr{
     /*margin-bottom: 30px;*/
 }
 .pro-text h2{
-    font-size: 25px;
+    font-size: 18px;
 }
 .pro-text h4,
 .testtimonial-list-item h4{
@@ -400,12 +414,8 @@ hr{
     width: 100%;
 }
 /***************** Register *****************/
-.reg{
-    background: url(../images/bg-reg-01.png) no-repeat;
-    background-size: cover;
-}
 .reg-box > div{
-    margin-top: 20px;
+    margin-top: 8px;
 }
 .reg-box > div:nth-child(5){
     margin-bottom: 30px;
@@ -501,14 +511,7 @@ hr{
 .testtimanial-slider img{
     width: 100%;
 }
-.testtimanial-slider-item{
-    position: absolute;
-    top: 320px;
-    left: 20px;
-    color: #fff;
-    text-align: left;
-    text-shadow: 1px 1px 1px #666;
-}
+
 .testtimonial-list{
     padding: 20px 30px;
     /*overflow:auto;*/
@@ -553,12 +556,12 @@ hr{
     margin: 20px 0 40px;
 }
 /*================================= Footer =================================*/
-footer {
-    margin-top: 40px;
+.footer-inner{
+    padding-top:20px;
+    padding-bottom:20px;
 }
 footer > div > div > div:not(:last-child){
     border-right: 1px solid #2b328c;
-    min-height: 130px;
 }
 .website,
 .mail,
@@ -699,7 +702,7 @@ footer > div > div > div:not(:last-child){
     height: 12px;
 }
 .slider-lv1{
-    margin-top: 90px;
+    margin-top: 30px;
 }
 .slider-lv1 .swiper-slide{
     display: block;
