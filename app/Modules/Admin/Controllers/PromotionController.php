@@ -50,9 +50,11 @@ class PromotionController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
 
             // $size = getimagesize($file);
+            $filename_resize = $destinationPath.'/'.$filename;
+            \Image::make($file->getRealPath())->resize(550,225)->save($filename_resize);
             // if($size[0] > 620){
             //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
             // }else{
@@ -62,7 +64,7 @@ class PromotionController extends Controller {
             $img_url = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
         }else{
-            $img_url = asset('public/assets/backend/img/image_thumbnail.gif');
+            $img_url = asset('public/assets/frontend/images/default-img/img-promotion.jpg');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
@@ -119,7 +121,9 @@ class PromotionController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
-            $file->move($destinationPath,$filename);
+            // $file->move($destinationPath,$filename);
+            $filename_resize = $destinationPath.'/'.$filename;
+            \Image::make($file->getRealPath())->resize(550,225)->save($filename_resize);
 
             // $size = getimagesize($file);
             // if($size[0] > 620){

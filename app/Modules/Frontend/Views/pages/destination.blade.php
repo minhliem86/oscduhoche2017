@@ -21,42 +21,50 @@
 
 @section('content')
 <!-- **************** Wellcome ****************-->
-<section class="destination-main clearfix">
+<section>
     <div class="container">
-        <center>
-            <h2>ILA DU HỌC {!!$country_data->name!!}</h2>
-            <hr class="hr">
-            <p class="title-sub">{!!$country_data->description!!}</p>
-        </center>
         <div class="row">
-            @if($country_data->tour()->get())
-				@foreach($country_data->tour()->get() as $tour)
+            <div class="inner-section destination-main">
+                <center>
+                    <h2>ILA DU HỌC {!!$country_data->name!!}</h2>
+                    <hr class="hr">
+                    <p class="title-sub">{!!$country_data->description!!}</p>
+                </center>
+                <div class="container-fluid">
+                    <div class="row">
+                        @if($country_data->tour()->get())
+                            @foreach($country_data->tour()->get() as $tour)
 
-					<div class="col-xs-12 col-sm-6 col-md-4">
-		                <div class="box-destination ">
-		                    <div class="content-destination">
-		                        <div class="box-destination-header">
-		                            <h4>{!!$tour->title!!}</h4>
-                                    <p><b>Dành cho độ tuổi:</b> {!!$tour->age!!}</p>
-                                    <p><b>Khởi hành:</b> {!!$tour->start!!}</p>
-                                    <hr class="hr">
-		                        </div>
-		                        <div class="box-destination-content">
-		                            <p>{!!Str::words($tour->description,30)!!}</p>
-		                            <div class="box-destination-footer">
-		                                <a class="btn btn-read" href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">Read more</a>
-		                                <a class="btn btn-reg-02" href="{!!route('contact')!!}">Register</a>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <div class="bg-destination">
-		                        <img src="{!!$tour->img_avatar!!}" class="img-responsive" alt="">
-		                    </div>
-		                </div>
-		            </div>
-				@endforeach
-            @endif
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="box-destination ">
+                                        <div class="content-destination">
+                                            <div class="box-destination-header">
+                                                <h4>{!!$tour->title!!}</h4>
+                                                <p><b>Dành cho độ tuổi:</b> {!!$tour->age!!}</p>
+                                                <p><b>Khởi hành:</b> {!!$tour->start!!}</p>
+                                                <hr class="hr">
+                                            </div>
+                                            <div class="box-destination-content">
+                                                <p>{!!Str::words($tour->description,30)!!}</p>
+                                                <div class="box-destination-footer">
+                                                    <a class="btn btn-read" href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">XEM THÊM</a>
+                                                    <a class="btn btn-reg-02" href="{!!route('contact')!!}">ĐĂNG KÝ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-destination">
+                                            <img src="{!!$tour->img_avatar!!}" class="img-responsive" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                
+            </div>
         </div>
+        
     </div>
 </section>
 <!-- **************** /Wellcome ****************-->
@@ -64,11 +72,16 @@
 <!-- **************** Register ****************-->
 <section class="reg clearfix">
     <div class="container">
-        <center>
-            <h2>ĐĂNG KÝ & TƯ VẤN</h2>
-            <hr class="hr">
-        </center>
-        @include('Frontend::layouts.formRegister')
+        <div class="row">
+            <div class="inner-section inner-reg">
+                <center>
+                    <h2>ĐĂNG KÝ & TƯ VẤN</h2>
+                    <hr class="hr">
+                </center>
+                @include('Frontend::layouts.formRegister')
+            </div>
+        </div>
+        
     </div>
 </section>
 <!-- **************** /Register ****************-->

@@ -84,6 +84,7 @@
 <!-- **************** /Wellcome ****************-->
 @include('Frontend::layouts.listCountries')
 <!-- **************** Pro - Testi ****************-->
+
 <section class="pro-test">
     <div class="container">
         <div class="row">
@@ -92,7 +93,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="pro-text">
-                                <h2>PROMOTIONS</h2>
+                                <h2>Chương trình khuyến mãi</h2>
                                 <hr class="hr">
                             </div>
                             @if($promotion)
@@ -104,10 +105,10 @@
                                             <div class="wrap-each-promo">
                                                 <div class="each-promo same-height">
                                                     <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
-                                                    <p>{!!$item_promotion->description!!}</p>
+                                                    <p>{!!Str::words($item_promotion->description,25)!!}</p>
                                                     <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ NGAY</a>
                                                 </div>
-                                                <img src="{!!$item_promotion->img_avatar!!}" alt="">
+                                                <img src="{!!$item_promotion->img_avatar!!}" class="img-responsive" alt="">
                                             </div>
                                         </div>
                                         @endforeach
@@ -121,7 +122,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="pro-text">
-                                <h2>TESTIMONIAL</h2>
+                                <h2>Trải nghiệm du học</h2>
                                 <hr class="hr">
                             </div>
                             @if($testimonial)
