@@ -15,8 +15,8 @@ class ComposerServiceProvider extends ServiceProvider {
   // Using class based composers...
     View::composer('Frontend::layouts.header', 'App\ViewComposers\MyViewComposer');
     View::composer('Frontend::layouts.banner', 'App\ViewComposers\MyViewComposer');
-    View::composer('Frontend::layouts.formRegister', 'App\ViewComposers\FormViewComposer');
-    View::composer('Frontend::layouts.listCountries','App\ViewComposers\CountryListComposer');
+    View::composer(['Frontend::layouts.formRegister','Frontend::pages.contact'], 'App\ViewComposers\FormViewComposer');
+    View::composer(['Frontend::layouts.listCountries'],'App\ViewComposers\CountryListComposer');
 
   }
 

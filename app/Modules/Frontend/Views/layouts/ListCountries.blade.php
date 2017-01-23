@@ -1,7 +1,7 @@
 <section class="discover">
     <div class="container">
         <div class="row">
-            <div class="inner-section bg-yellow">
+            <div class="inner-section bg-yellow {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' || Request::segment(1) == 'khuyen-mai' ? 'bg-gray' : ''  !!}">
                 <center>
                     <h2>KHÁM PHÁ ĐIỂM ĐẾN</h2>
                     <hr class="hr">

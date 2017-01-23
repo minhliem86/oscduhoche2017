@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Modules\Frontend\Requests\ContactRequest;
 use App\Models\Register;
 use App\Models\Location;
+use App\Models\Promotion;
 
 class ContactController extends Controller {
 
@@ -27,7 +28,8 @@ class ContactController extends Controller {
 	 */
 
 	public function getIndex(){
-		return view('Frontend::pages.contact');
+		$promotion = Promotion::select('name','slug','description','img_avatar')->where('status',1)->orderBy('order','DESC')->get();
+		return view('Frontend::pages.contact',compact('promotion'));
 	}
 
 	public function postRegister(ContactRequest $contactrequest){

@@ -113,7 +113,7 @@
         
     }
     .logo-box{
-        margin-top:40px;
+        margin-top:60px;
     }
     .navbar-toggle{
         background: #2b328c;
@@ -280,6 +280,9 @@
     h3{
         font-size: 18px;
     }
+    .pro-test .hr{
+        margin: 10px auto ;
+    }
     .discover .top-box > div:last-child > div{
         height: 110px;
     }
@@ -299,8 +302,10 @@
     .title-slider{
         font-size: 12px;
     }
+    
+
     article > div section:not(:first-child){
-        margin-top: 30px;
+        /*margin-top: 30px;*/
          padding: 20px 0 30px; 
     }
     .reg-box{
@@ -342,5 +347,51 @@
     .content-destination{
         max-height: 95px;
     }
+
+    /* HOME PAGE */
+    .logo-box img{
+        max-width:120px;
+    }
+    .wrap-each-promo .each-promo{
+        text-align: center;
+    }
+    
+    .footer-inner{
+        display: block;
+    }
+    .footer-inner .wrap-each-footer{
+        width:100%;
+        display:block;
+    }
+    .footer-inner .wrap-each-footer:before{
+        display:none;
+    }
+    .topmenu .navbar-default .active a, .topmenu .navbar-default .navbar-nav>.active>a, .topmenu .navbar-default .navbar-nav>.open>a, .topmenu .navbar-default a:hover, .topmenu ul.nav li.dropdown:hover>{
+        background:none !important;
+        color:#050d9e !important;
+    }
+
+    .topmenu ul.nav li.dropdown.open{
+        background:none !important;
+    }
+
+    /* TESTiMONIAL */
+    .wrap-top-testimonial{
+        height:auto;
+    }
+    .wrap-top-testimonial .wrap-slider-landscape{
+        height:auto;
+    }
+    .wrap-slider-landscape .each-wrap-landscape h4{
+        font-size:12px;
+    }
+    .wrap-slider-landscape .each-wrap-landscape blockquote{
+        font-size:12px;
+    }
+    .testimonial-list h4.title-testi{
+        margin-bottom:10px;
+    }
 }
+
+
 

@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12 ">
             <form class="reg-box" accept-charset="true" method="POST" action="{!!route('contact.postRegister')!!}" id="formOSC">
                 {!!Form::token()!!}
                 <input type="hidden" name="content_type" value="osc@du-hoc-he"/>

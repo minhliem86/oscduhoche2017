@@ -254,7 +254,7 @@ hr{
 }
 .title-sub,
 .title-slider{
-    font-size: 16px;
+    font-size: 14px;
     color:#050d9e;
 }
 .title-slider{
@@ -293,12 +293,13 @@ hr{
     margin-bottom:20px;
 }
 .to-local li a{
-    font-size: 18px;
+    font-size: 16px;
     color: #2b328c;
     margin: 0 5px;
     transition:all 0.3s;
     -webkit-transition:all 0.3s;
     -moz-transition:all 0.3s;
+    font-family: 'Tahoma', sans-serif;
 }
 .to-local li a:hover{
     color:#050d9e;
@@ -449,7 +450,7 @@ hr{
     padding: 0;
 }
 .contact-left > div{
-    margin: 20px auto;
+    /*margin: 20px auto;*/
 }
 .contact-left .btn-02{
     margin-top: 10px;
@@ -549,14 +550,42 @@ hr{
 .footer-inner{
     padding-top:20px;
     padding-bottom:20px;
+    display:table;
+}
+.footer-inner .wrap-each-footer{
+    position:relative;
+    width:calc(100%/4);
+    display:table-cell;
+    height:100%;
+    position:relative;
+    padding:0 15px;
+}
+.footer-inner .wrap-each-footer:before{
+    content:'';
+    display:block;
+    width:1px;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    background:#050d9e;
+}
+.footer-inner .wrap-each-footer:first-child:before{
+    display:none;
 }
 footer > div > div > div:not(:last-child){
     border-right: 1px solid #2b328c;
 }
-.website,
-.mail,
-.fb{
-    display:block;
+.footer-inner h4 {
+    margin-bottom:5px;
+}
+.footer-inner p{
+    font-size:14px;
+    line-height:25px;
+}
+.website a,
+.mail a,
+.fb a{
     vertical-align: middle;
     color: #2b328c;
     max-width: 200px;

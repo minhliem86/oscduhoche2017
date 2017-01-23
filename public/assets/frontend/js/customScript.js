@@ -7,7 +7,12 @@ $(document).ready(function () {
         autoplay: 5500,
         // nextButton: '.swiper-button-next',
         // prevButton: '.swiper-button-prev',
-        autoplayDisableOnInteraction: false
+        autoplayDisableOnInteraction: false,
+        breakpoints:{
+            480:{
+                slidesPerView: 2,
+            }
+        }
     });
     var mySwiper = new Swiper ('.slider-lv2', {
         // Optional parameters

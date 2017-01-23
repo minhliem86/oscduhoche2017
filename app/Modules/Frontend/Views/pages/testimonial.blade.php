@@ -17,7 +17,12 @@
                 height: 440,
                 autoplay: 3000,
                 speed: 1000,
-                preventClicks: false
+                preventClicks: false,
+                breakpoints:{
+                    480: {
+                        slidesPerView: 2
+                    }
+                }
                 // pagination: '.swiper-pagination',
             });
             var SwiperTestiHori = new Swiper ('.testimonial-slider-hori', {
