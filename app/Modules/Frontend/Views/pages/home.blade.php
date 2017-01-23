@@ -57,14 +57,14 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="wrap-keypoint">
-                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-hanhtrinh.png" alt="">
                                         <hr class="hr">
                                         <p class="title-slider">Thử nghiệm hành trình<br>du học</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="wrap-keypoint">
-                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
+                                        <img src="{!!asset('public/assets/frontend')!!}/images/icon-kytucxa.png" alt="">
                                         <hr class="hr">
                                         <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá</p>
                                     </div>

@@ -38,7 +38,7 @@ a:hover{text-decoration: none; outline:none;}
            url('../font/GothamBook.ttf') format('truetype');
 }*/
 @font-face {
-    font-family: 'gillsansregular';
+    font-family: 'gillsansregular', sans-serif;
     src: url('../font/Gill_Sans_regular/SFUGillSansRegular.eot?#iefix') format('embedded-opentype'),
     url('../font/Gill_Sans_regular/SFUGillSansRegular.ttf');
     font-weight: normal;
@@ -157,7 +157,7 @@ header{
 /*================================= Container =================================*/
 body{
     font-family: 'gillsansregular', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     background: #eeeeef;
 }
 h2 ,h3, h4, .btn,
@@ -254,11 +254,11 @@ hr{
 }
 .title-sub,
 .title-slider{
-    font-size: 14px;
+    font-size: 12px;
     color:#050d9e;
 }
 .title-slider{
-    font-size:14px;
+    font-size:12px;
 }
 /***************** Discover *****************/
 .discover  img{
@@ -332,11 +332,12 @@ hr{
 .title-country{
     left: 5%;
     bottom: 0;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     transition:all 0.3s;
     -webkit-transition:all 0.3s;
     -moz-transition:all 0.3s;
+    font-family: 'gillsansregular', sans-serif;
 }
 .overlay-img:before{
     content: "";
@@ -426,6 +427,9 @@ hr{
 }
 .reg-box{
     padding: 0 100px;
+}
+.reg-box .mar-top{
+    margin-top:15px;
 }
 /*================================= Destination =================================*/
 .box-destination{
@@ -580,7 +584,7 @@ footer > div > div > div:not(:last-child){
     margin-bottom:5px;
 }
 .footer-inner p{
-    font-size:14px;
+    font-size:12px;
     line-height:25px;
 }
 .website a,
@@ -590,6 +594,7 @@ footer > div > div > div:not(:last-child){
     color: #2b328c;
     max-width: 200px;
     margin-bottom: 5px;
+    font-family: 'Tahoma', sans-serif;
 }
 .website:before,
 .mail:before,
@@ -626,6 +631,7 @@ footer > div > div > div:not(:last-child){
     color: #ffcb05;
     background: #2b328c;
     border: 1px solid #2b328c;
+    font-family: 'gillsansregular', sans-serif;
 }
 .btn:hover,
 .btn:focus,
@@ -633,6 +639,8 @@ footer > div > div > div:not(:last-child){
     border: 1px solid #2b328c;
     background: transparent;
     color: #2b328c;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight:bold;
 }
 .btn-reg{
     color: #fff;
@@ -656,11 +664,14 @@ footer > div > div > div:not(:last-child){
     width: auto;
     height: auto;
     line-height: inherit;
+    font-weight: normal;
     right: 2em;
     border-radius: 25px;
     bottom: 0.8em;
-    font-size: 0.8em;
-    padding: 0.4em 1.5em 0.3em;
+    font-size: 10px;
+    padding: 4px 18px 4px;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
 }
 .btn-dis:hover,
 .btn-dis:focus,

@@ -1,7 +1,7 @@
 <section class="discover">
     <div class="container">
         <div class="row">
-            <div class="inner-section bg-yellow {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' || Request::segment(1) == 'khuyen-mai' ? 'bg-gray' : ''  !!}">
+            <div class="inner-section bg-yellow {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' || Request::segment(1) == 'khuyen-mai' || Request::segment(1) == 'trai-nghiem-du-hoc' ? 'bg-gray' : ''  !!}">
                 <center>
                     <h2>KHÁM PHÁ ĐIỂM ĐẾN</h2>
                     <hr class="hr">
@@ -25,6 +25,7 @@
                                             <div class="wrap-slider-country">
                                                 <a href="{!!route('quocgia',$item_country->slug)!!}"><img src="{!!$item_country->img_slide!!}"></a>
                                                 <h3 class="title-country">{!!$item_country->name!!}</h3>
+                                                <a href="{!!route('quocgia',$item_country->slug)!!}" class="btn-reg-slide">ĐĂNG KÝ</a>
                                             </div>
                                         </div>
                                         @endforeach

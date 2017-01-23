@@ -35,6 +35,8 @@ class ContactController extends Controller {
 	public function postRegister(ContactRequest $contactrequest){
 		$type = explode('@',$contactrequest->input('content_type'));
 		$content_type = $type['1'];
+
+
 		$data = [
 			'fullname'=> $contactrequest->input('name'),
 			'phone'=> $contactrequest->input('phone'),
@@ -46,7 +48,8 @@ class ContactController extends Controller {
 			'inquiry'=> $contactrequest->input('inquiry'),
 			'id_hash'=> $contactrequest->input('id_hash'),
 		];
-		Register::create($data);
+		\DB::connection('mysql2')->table('lp_register_summer_2017')->insert($data);
+		// Register::create($data);
 		return redirect()->back()->with('success','Cảm ơn bạn đã đăng ký thông tin tại ILA Du học.<br/>Nhân viên ILA sẽ liên lạc với bạn trong thời gian sớm nhất.');
 	}
 

@@ -36,6 +36,12 @@ div.promotion-bottom{
     display:inline-block;
     vertical-align:middle;
 }
+.promotion-bottom .wrap-promo-bottom .left-promo-inner  h3{
+    text-transform: uppercase;
+}
+.promotion-bottom .wrap-promo-bottom .left-promo-inner p{
+
+}
 .promotion-bottom .wrap-promo-bottom .right-promo-inner{
     width:25%;
     display:inline-block;
@@ -64,11 +70,33 @@ div.promotion-bottom{
     position:absolute;
     bottom:30px;
     left:30px;
+    margin:0;
+}
+.wrap-slider-country a.btn-reg-slide{
+    font-size:10px;
+    padding
+    color:white;
+    text-transform: uppercase;
+    position:absolute;
+    bottom:30px;
+    right:30px;
+    width: auto;
+    height: auto;
+    line-height: inherit;
+    border-radius: 25px;
+    font-size: 12px;
+    padding: 4px 18px 4px;
+    background:#050d9e;
+    color:white;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
+    
+}
+.wrap-slider-country a.btn-reg-slide:hover{
+    color:#ffcb05;
 }
 /* DISCOVERY */
-.overlay-img:hover a.btn-dis{
-	background:;
-}
+
 .wrap-keypoint{
     text-align:center;
 }
@@ -91,15 +119,17 @@ div.promotion-bottom{
     bottom: 0.8em;
     font-size: 0.8em;
     padding: 5px 15px 5px;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
 }
 .each-promo{
 	text-align: left;
     min-height:150px;
 }
 .each-promo h4{
-    font-size:16px;
+    font-size:14px;
     margin-bottom:10px;
-    text-transform: uppercase;
+    font-family: 'Tahoma', sans-serif;
 }
 
 
@@ -113,10 +143,14 @@ div.promotion-bottom{
     bottom: 0.8em;
     font-size: 0.8em;
     padding: 0.4em 1.5em 0.3em;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
 }
 
 .wrap-each-testimotion h4{
     margin-bottom:8px;
+    font-size:14px;
+    font-family: 'Tahoma', sans-serif;
 }
 /* PROMOTION PAGE */
 .wrap-promotion{
@@ -174,6 +208,8 @@ div.promotion-bottom{
     transition: all 0.3s;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
 }
 .testtimanial-slider-item a.btn-readmore:hover, .testtimanial-slider-item a.btn-readmore:active{
     color:#FFCB04;
@@ -216,6 +252,8 @@ div.promotion-bottom{
     transition: all 0.3s;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
+     font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
 }
 .wrap-content-slide-v a.btn-readmore:hover{
     color:#FFCB04;
@@ -306,6 +344,7 @@ div.promotion-bottom{
 /* DESTINATION */
 .box-destination h4, .box-destination p{
     margin:0; padding:0;
+    color:#050d9e;
 }
 .box-destination .content-destination{
     background:white;
@@ -323,6 +362,7 @@ div.promotion-bottom{
     line-height: 24px;
     color:#050d9e;
     margin-bottom:8px;
+    min-height:50px;
 }
 .box-destination .box-destination-content{
     /*display:none;*/
@@ -333,15 +373,35 @@ div.promotion-bottom{
 }
 .box-destination  .bg-destination img{
     height:100%;
+    max-height:220px;
 }
 .destination-main center p.title-sub{
     margin-bottom:50px;
 }
 
 /* COURSE DETAIL */
+
 .course-detail-main center p.title-sub{
     max-width:70%;
     font-size:14px;
+}
+.course-detail-main .wrap-btn{
+    margin-top:20px;
+}
+.course-detail-main a.btn-course-dk{
+    padding:4px 15px;
+    background:#050d9e;
+    border:1px solid #050d9e;
+    font-size:11px;
+    line-height: inherit;
+    width:auto;
+    height:auto;
+    color:white;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+     font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
 }
 
 /* CONTACT */
@@ -359,6 +419,9 @@ div.promotion-bottom{
 /* FORM */
 #formOSC input, #formOSC select{
     color:#050d9e;
+    font-family: 'gillsansregular', sans-serif;
+    font-weight: bold;
+    font-size:12px;
 }
 
 #formOSC ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -380,4 +443,5 @@ div.promotion-bottom{
 #formOSC input.btn-lp:hover{
     color:#ffcb05;
     background:#050d9e;
+    font-family: 'gillsansregular', sans-serif;
 }

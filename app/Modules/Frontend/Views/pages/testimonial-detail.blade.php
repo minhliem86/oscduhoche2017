@@ -36,9 +36,9 @@
                                 </div>
                                 @endif
                             </div>
-                            <div class="col-xs-12 col-sm-4 clearfix testtimonial-list">
+                            <div class="col-xs-12 col-sm-4">
                                 <div class="testtimanial-avartar-slider">
-                                     <div class="swiper-container slider-lv4">
+                                     <div class="swiper-container slider-lv4 slider-testimonial-detail">
                                         <div class="swiper-wrapper">
                                             @if($testimonial_relate)
                                                 @foreach($testimonial_relate as $item_list_v)
@@ -50,7 +50,7 @@
                                                             <div class="col-xs-12 col-sm-8 col-md-9">
                                                                 <h4>{!!$item_list_v->author!!}</h4>
                                                                 <p>{!!$item_list_v->description!!}</p>
-                                                                <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn-readmore btn">READ MORE</a>
+                                                                <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn-readmore btn">XEM THÊM</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -72,15 +72,14 @@
     </section>
     <!-- **************** /Testtimonial ****************-->
     <!-- **************** Promotion ****************-->
-    @if($promotion_rand)
     <section>
         <div class="container">
             <div class="row">
                 <div class="promotion-bottom">
                     <div class="wrap-promo-bottom">
                         <div class="left-promo-inner">
-                            <h3>{!!$promotion_rand->name!!}</h3>
-                                <p>{!!$promotion_rand->description!!}</p>
+                            <h3>Đăng Ký Sớm</h3>
+                            <p>Để nhận ngay ưu đãi lên đến <b>12.500.000đ </b></p>
                         </div>
                         <div class="right-promo-inner">
                             <a href="{!!route('contact')!!}" class="btn btn-register">Đăng ký</a>
@@ -90,7 +89,6 @@
             </div>
         </div>
     </section>
-    @endif
     <!-- **************** /Promotion ****************-->
     <!-- **************** Discover ****************-->
     @include('Frontend::layouts.listCountries')

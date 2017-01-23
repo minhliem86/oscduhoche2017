@@ -70,7 +70,7 @@ class TourController extends Controller {
             // $size = getimagesize($file);
             $file_resize = $destinationPath.'/'.$filename;
 
-            \Image::make($file->getRealPath())->resize(600,400)->save($file_resize);
+            \Image::make($file->getRealPath())->resize(720,440)->save($file_resize);
             // if($size[0] > 620){
             //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
             // }else{
@@ -178,7 +178,7 @@ class TourController extends Controller {
             $filename = time().'_'.$name;
 
             $file_resize = $destinationPath.'/'.$filename;
-            \Image::make($file->getRealPath())->resize(600,400)->save($file_resize);
+            \Image::make($file->getRealPath())->resize(720,440)->save($file_resize);
 
             // $file->move($destinationPath,$filename);
 

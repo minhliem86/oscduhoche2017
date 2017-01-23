@@ -14,16 +14,22 @@ $(document).ready(function () {
             }
         }
     });
-    var mySwiper = new Swiper ('.slider-lv2', {
+    var mySwiperhomehorizal = new Swiper ('.slider-lv2', {
         // Optional parameters
         pagination: '.swiper-pagination',
         paginationClickable: true,
         spaceBetween: 15,
         centeredSlides: true,
-        autoplay: 2500,
+        autoplay: 4000,
+        speed: 1200,
         autoplayDisableOnInteraction: false,
         preventClicks: false
-    });      
+    }); 
+    $('.wrap-content-country').hover(function(){
+        mySwiperhomehorizal.stopAutoplay();
+    },function(){
+        mySwiperhomehorizal.startAutoplay();
+    })     
     var mySwiper = new Swiper ('.slider-lv3', {
         // Optional parameters
         pagination: '.swiper-pagination',
@@ -35,20 +41,17 @@ $(document).ready(function () {
         autoplayDisableOnInteraction: false
     });
 
+    var sliderTestimonialDetail = new Swiper ('.slider-testimonial-detail',{
+        spaceBetween: 5,
+        centeredSlides: true,
+        autoplay: 4000,
+        speed: 800,
+        autoplayDisableOnInteraction: false,
+        slidesPerView: 1,
+    });
+
     $(document).ready(function(){
-        $('#id_city').on('change',function(){
-            var id_city = $(this).val();
-            var token = $('input[name="_token"]').val();
-            console.log(token);
-            $.ajax({
-                url: '{!!route("contact.postAjaxCenter")!!}',
-                data: {'_token':token, 'data':id_city},
-                type: "POST",
-                success:function(data){
-                    $('#id_center').val(data.rs);
-                },
-            })
-        });
+       
 
         $('#formOSC').validate({
             errorElement: "span",

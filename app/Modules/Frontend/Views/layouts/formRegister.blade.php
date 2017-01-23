@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 ">
+        <div class="col-sm-8 col-sm-offset-2 ">
             <form class="reg-box" accept-charset="true" method="POST" action="{!!route('contact.postRegister')!!}" id="formOSC">
                 {!!Form::token()!!}
                 <input type="hidden" name="content_type" value="osc@du-hoc-he"/>
@@ -25,13 +25,13 @@
                 @endif
                 @if($country_list)
                 <div class="col-xs-12 col-sm-6">
-                    {!!Form::select('country',[''=>'Quốc gia bạn muốn Du Học']+$country_list,old('country'),['class'=>'form-control'])!!}
+                    {!!Form::select('country',[''=>'Quốc gia']+$country_list,old('country'),['class'=>'form-control'])!!}
                 </div>
                 @endif
                 <!-- <div class="col-xs-12">
                    <textarea name="message" rows="3" class="form-control" placeholder="Ý kiến của bạn"></textarea>
                 </div> -->
-                <div class="col-xs-12 text-center">
+                <div class="col-xs-12 text-center mar-top">
                      {!!Form::submit('ĐĂNG KÝ',['class' => 'btn btn-reg btn-lp'])!!}
                 </div>
                 @if(Session::has('success'))

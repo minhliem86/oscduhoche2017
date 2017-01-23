@@ -38,12 +38,14 @@
                                 <div class="col-xs-12 col-sm-6 col-md-4">
                                     <div class="box-destination ">
                                         <div class="content-destination">
-                                            <div class="box-destination-header">
-                                                <h4>{!!$tour->title!!}</h4>
-                                                <p><b>Dành cho độ tuổi:</b> {!!$tour->age!!}</p>
-                                                <p><b>Khởi hành:</b> {!!$tour->start!!}</p>
-                                                <hr class="hr">
-                                            </div>
+                                            <a href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">
+                                                <div class="box-destination-header">
+                                                    <h4>{!!$tour->title!!}</h4>
+                                                    <p><b>Dành cho độ tuổi:</b> {!!$tour->age!!}</p>
+                                                    <p><b>Khởi hành:</b> {!!$tour->start!!}</p>
+                                                    <hr class="hr">
+                                                </div>
+                                            </a>
                                             <div class="box-destination-content">
                                                 <p>{!!Str::words($tour->description,30)!!}</p>
                                                 <div class="box-destination-footer">
@@ -53,7 +55,7 @@
                                             </div>
                                         </div>
                                         <div class="bg-destination">
-                                            <img src="{!!$tour->img_avatar!!}" class="img-responsive" alt="">
+                                            <a href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}"><img src="{!!$tour->img_avatar!!}" class="img-responsive" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -61,10 +63,10 @@
                         @endif
                     </div>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
 </section>
 <!-- **************** /Wellcome ****************-->
@@ -81,7 +83,7 @@
                 @include('Frontend::layouts.formRegister')
             </div>
         </div>
-        
+
     </div>
 </section>
 <!-- **************** /Register ****************-->

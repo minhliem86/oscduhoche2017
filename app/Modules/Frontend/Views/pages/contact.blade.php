@@ -82,7 +82,7 @@
                                     @endif
                                     @if($country_list)
                                     <div class="form-group">
-                                        {!!Form::select('country',[''=>'Quốc gia bạn muốn Du Học']+$country_list,old('country'),['class'=>'form-control'])!!}
+                                        {!!Form::select('country',[''=>'Quốc gia']+$country_list,old('country'),['class'=>'form-control'])!!}
                                     </div>
                                     @endif
                                     <!-- <div class="col-xs-12">
