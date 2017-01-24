@@ -17,14 +17,19 @@
                 <center>
                     <h2>{!! $tour_detail->title!!}</h2>
                     <hr class="hr">
-                    <p class="title-sub">{!!$tour_detail->description!!}</p>
+                    <!-- <p class="title-sub">{!!$tour_detail->description!!}</p> -->
                 </center>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-7  ">
                             <!-- <h4>LOREM IPSUM DOLOR CONSE <br>CTETUR ADIPISCING ELIT SIT AMET</h4> -->
                             <p>{!!$tour_detail->content!!}</p>
+                            <div class="text-right wrap-btn">
+                                <a href="{!!route('contact')!!}" class="btn btn-course-dk">ĐĂNG KÝ</a>
+                            </div>
+
                         </div>
+
                         <!-- <div class="col-xs-12 col-sm-4 col-md-4">
                             <h4>THỜI GIAN</h4>
                             <div class="clearfix">
@@ -39,6 +44,7 @@
                                 <img src="{!!$tour_detail->img_avatar!!}" class="img-responsive" alt="">
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 

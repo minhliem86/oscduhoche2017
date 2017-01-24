@@ -42,15 +42,15 @@
         </div>
     </section>
 
-	@if($promotion_rand)
+	
     <section>
         <div class="container">
             <div class="row">
                 <div class="promotion-bottom">
                     <div class="wrap-promo-bottom">
                         <div class="left-promo-inner">
-                            <h3>{!!$promotion_rand->name!!}</h3>
-                                <p>{!!$promotion_rand->description!!}</p>
+                            <h3>Đăng Ký Sớm</h3>
+                            <p>Để nhận ngay ưu đãi lên đến <b>12.500.000đ </b></p>
                         </div>
                         <div class="right-promo-inner">
                             <a href="{!!route('contact')!!}" class="btn btn-register">Đăng ký</a>
@@ -60,7 +60,6 @@
             </div>
         </div>
     </section>
-    @endif
     <!-- **************** /Promotion ****************-->
     @include('Frontend::layouts.listCountries')
 @stop

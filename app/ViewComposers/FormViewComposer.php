@@ -26,7 +26,7 @@ class FormViewComposer {
 	* @return void
 	*/
 	public function compose(View $view) {
-		$country_list = Country::lists('name','id');
+		$country_list = Country::lists('name','name');
 		$location_list = Location::select('title','id_city')->lists('title','id_city');
 		$view->with(['country_list'=>$country_list,'location_list'=>$location_list]);
 	}

@@ -17,7 +17,12 @@
                 height: 440,
                 autoplay: 3000,
                 speed: 1000,
-                preventClicks: false
+                preventClicks: false,
+                breakpoints:{
+                    480: {
+                        slidesPerView: 2
+                    }
+                }
                 // pagination: '.swiper-pagination',
             });
             var SwiperTestiHori = new Swiper ('.testimonial-slider-hori', {
@@ -61,7 +66,7 @@
                                                                         <h4>{!!$item_list->title!!}</h4>
                                                                         <blockquote>{!!$item_list->description!!}</blockquote>
                                                                         <h5 class="text-yellow">{!!$item_list->author!!}</h5>
-                                                                        <a href="{!!route('trainghiem.detail',$item_list->slug)!!}" class="btn btn-readmore">READ MORE</a>
+                                                                        <a href="{!!route('trainghiem.detail',$item_list->slug)!!}" class="btn btn-readmore">XEM THÊM</a>
                                                                     </div>
                                                                 </div>
 
@@ -94,7 +99,7 @@
                                                                     <div class="wrap-content-slide-v">
                                                                         <h4>{!!$item_list_v->author!!}</h4>
                                                                         <p>{!!Str::words($item_list_v->description,19)!!}</p>
-                                                                        <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn btn-readmore">READ MORE</a>
+                                                                        <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn btn-readmore">XEM THÊM</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
