@@ -4,15 +4,16 @@
             <div class="inner-section bg-yellow inner-header">
                 <div class="container-fluid">
                     <div class="row">
-                         <div class="col-xs-3">
+                        <div class="col-md-3 hidden-xs hidden-sm">
                             <div class="logo-box">
-                                <a href="{!!route('home')!!}"><img class="img-responsive" src="{!!asset('public/assets/frontend')!!}/images/logo.png" alt="Ila Edu"></a>
+                                <a href="{!!route('home')!!}"><img class="img-responsive" src="{!!asset('public/assets/frontend')!!}/images/logo.png" class="img-responsive" alt="Ila Du Học Hè 2017"></a>
                             </div>
                         </div>
-                        <div class="col-xs-9">
+                        <div class="col-md-9">
                             <div class="topmenu">
                                 <nav class="navbar navbar-default navbar-right" role="navigation">
                                         <div class="navbar-header">
+                                            <a href="{!!route('home')!!}" class="visible-xs visible-sm logo-mobile"><img class="img-responsive" src="{!!asset('public/assets/frontend')!!}/images/logo.png" class="img-responsive" alt="Ila Du Học Hè 2017"></a>
                                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
@@ -22,7 +23,7 @@
                                         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                                             <ul class="nav navbar-nav">
                                                 <li class="{!!Active::setActive(1,'')!!}"><a href="{!!route('home')!!}">TRANG CHỦ</a></li>
-                                                <li class="dropdown {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getCountry' ? 'active' : ''!!}">
+                                                <li class="dropdown {!! Route::getCurrentRoute()->getActionName()!= null && Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getCountry' ? 'active' : ''!!}">
                                                     <a href="destination.html" class="dropdown-toggle" data-toggle="dropdown">QUỐC GIA <span class="caret"></span></a>
                                                     @if($country)
                                                     <ul class="dropdown-menu">

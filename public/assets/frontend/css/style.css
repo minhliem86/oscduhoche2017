@@ -574,6 +574,9 @@ hr{
     top:0;
     background:#050d9e;
 }
+.footer-inner .wrap-each-footer p a{
+    color:#050d9e;
+}
 .footer-inner .wrap-each-footer:first-child:before{
     display:none;
 }

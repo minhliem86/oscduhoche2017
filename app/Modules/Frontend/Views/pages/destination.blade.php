@@ -38,7 +38,6 @@
                                 <div class="col-xs-12 col-sm-6 col-md-4">
                                     <div class="box-destination ">
                                         <div class="content-destination">
-                                            <a href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">
                                                 <div class="box-destination-header">
                                                     <h4>{!!$tour->title!!}</h4>
                                                     <p><b>Dành cho độ tuổi:</b> {!!$tour->age!!}</p>
@@ -49,13 +48,12 @@
                                             <div class="box-destination-content">
                                                 <p>{!!Str::words($tour->description,30)!!}</p>
                                                 <div class="box-destination-footer">
-                                                    <a class="btn btn-read" href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">XEM THÊM</a>
                                                     <a class="btn btn-reg-02" href="{!!route('contact')!!}">ĐĂNG KÝ</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="bg-destination">
-                                            <a href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}"><img src="{!!$tour->img_avatar!!}" class="img-responsive" alt=""></a>
+                                            <img src="{!!$tour->img_avatar!!}" class="img-responsive" alt="">
                                         </div>
                                     </div>
                                 </div>

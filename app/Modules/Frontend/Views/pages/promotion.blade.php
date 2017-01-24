@@ -20,7 +20,7 @@
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="wrap-promotion">
                                         <div class="img-box">
-                                            <img src="{!!asset('public/assets/frontend')!!}/images/img-promotion-01.png" alt="">
+                                            <img src="{!!$promotion_item->img_avatar!!}" class="img-responsive" alt="">
                                         </div>
                                         <div class="promotion-box clearfix">
                                            <center>
@@ -43,7 +43,7 @@
     </section>
 
 	
-    <section>
+    <section class="promotion-bar hidden-xs hidden-sm">
         <div class="container">
             <div class="row">
                 <div class="promotion-bottom">

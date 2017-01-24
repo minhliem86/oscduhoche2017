@@ -25,38 +25,9 @@
                 <div class="inner-section">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-6 contact-left">
-                                <div class="wrap-promotion-contact">
-                                    <div class="pro-text">
-                                        <h2>Chương trình khuyến mãi</h2>
-                                        <hr class="hr">
-                                    </div>
-                                    @if($promotion)
-                                    <div class="wrap-slider-promotion ">
-                                        <div class="swiper-container swiper-promotion">
-                                            <div class="swiper-wrapper">
-                                                @foreach($promotion as $item_promotion)
-                                                <div class="swiper-slide">
-                                                    <div class="wrap-each-promo">
-                                                        <div class="each-promo same-height">
-                                                            <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
-                                                            <p>{!!Str::words($item_promotion->description,25)!!}</p>
-                                                            <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ NGAY</a>
-                                                        </div>
-                                                        <img src="{!!$item_promotion->img_avatar!!}" class="img-responsive" alt="">
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @else
-                                        <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
-                                    @endif
-                                </div>
-                            </div>
+                            
 
-                            <div class="col-xs-12 col-sm-6 contact-right">
+                            <div class="col-xs-12 col-sm-6 col-sm-push-6 contact-right">
                                 <h4>ĐĂNG KÝ ĐỂ ĐƯỢC TƯ VẤN</h4>
                                 <form class="reg-box" accept-charset="true" method="POST" action="{!!route('contact.postRegister')!!}" id="formOSC">
                                     {!!Form::token()!!}
@@ -116,6 +87,38 @@
                                     </script>
                                 </form>
                             </div>
+
+                            <div class="col-xs-12 col-sm-6 col-sm-pull-6 contact-left">
+                                <div class="wrap-promotion-contact">
+                                    <div class="pro-text">
+                                        <h2>Chương trình khuyến mãi</h2>
+                                        <hr class="hr">
+                                    </div>
+                                    @if($promotion)
+                                    <div class="wrap-slider-promotion ">
+                                        <div class="swiper-container swiper-promotion">
+                                            <div class="swiper-wrapper">
+                                                @foreach($promotion as $item_promotion)
+                                                <div class="swiper-slide">
+                                                    <div class="wrap-each-promo">
+                                                        <div class="each-promo same-height">
+                                                            <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
+                                                            <p>{!!Str::words($item_promotion->description,25)!!}</p>
+                                                            <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ NGAY</a>
+                                                        </div>
+                                                        <img src="{!!$item_promotion->img_avatar!!}" class="img-responsive" alt="">
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @else
+                                        <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
+                                    @endif
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

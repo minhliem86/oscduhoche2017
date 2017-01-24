@@ -72,7 +72,7 @@
     </section>
     <!-- **************** /Testtimonial ****************-->
     <!-- **************** Promotion ****************-->
-    <section>
+    <section class="promotion-bar hidden-xs hidden-sm">
         <div class="container">
             <div class="row">
                 <div class="promotion-bottom">

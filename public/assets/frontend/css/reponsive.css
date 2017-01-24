@@ -21,13 +21,13 @@
         font-size: 0.7em;
     }
     .content-destination{
-        max-height: 110px;
+        /*max-height: 110px;*/
     }
 }
 @media only screen and (max-width: 992px){
     .topmenu .navbar-default a{
         font-size: 11px;
-        padding: 4px 12px;
+        padding: 7px 12px;
     }
     .discover .top-box{
         height: 256px;
@@ -60,7 +60,7 @@
         top: 150px;
     }
     .content-destination{
-        max-height: 100px;
+        /*max-height: 100px;*/
     }
 }
 @media only screen and (max-width: 768px){
@@ -69,6 +69,9 @@
     }
     .mb{
         display: block;
+    }
+    header{
+        height:80px;
     }
     .topmenu .navbar-default{
         position: fixed;
@@ -79,10 +82,31 @@
         z-index: 9998;
         box-shadow: 0 0 5px rgba(0,0,0,.8);
     }
+    .topmenu .navbar-default li{
+        margin-bottom:8px;
+    }
+    .navbar-header{
+        padding:8px 0;
+    }
+    .navbar-header a.logo-mobile{
+        width:50%;
+        float:left;
+        background: none !important;
+        outline:none;
+    }
+    .navbar-header a.logo-mobile:hover{
+        background: none !important;
+        outline:none;
+    }
+    .navbar-header a.logo-mobile img{
+        max-width:80px;
+    }
   
     .topmenu .navbar-default a{
         font-size: 13px;
     }
+    
+
     .navbar-default .navbar-toggle:focus, 
     .navbar-default .navbar-toggle:hover{
         background: #ffcb05;
@@ -121,6 +145,8 @@
     .navbar-default .navbar-toggle .icon-bar{
         background-color:#ffcb05;
     }
+
+
     .discover .top-box,
     .discover .top-box > div:last-child > div{
         height: 100% ;
@@ -173,7 +199,7 @@
         width: 100%;
     }
     .box-destination a{
-        display: block;
+        /*display: inline-block;*/
     }
     .title-country{
         font-size: 1em;
@@ -186,15 +212,18 @@
         margin-bottom: 5px;
     }
     .contact-left > div:nth-child(odd){
-        margin: -10px 0 10px;
+        /*margin: -10px 0 10px;*/
+    }
+    .wrap-promotion-contact .pro-text hr.hr{
+        margin:15px auto;
     }
     .contact-left > div:nth-child(even){
         margin: 0px 0 30px;
     }
-    .contact-right{
+    /* .contact-right{
         margin-top: 40px;
         padding: 0 100px;
-    }
+    } */
     .contact-footer h4.text-red-02{
         margin: 15px auto 20px;
     }
@@ -207,10 +236,6 @@
     .promotion-bottom{
         background-position: -200px center;
     }
-    
-    
-    
-    
     .testtimanial-slider,
     .testtimonial-list{
         height: 100%;
@@ -306,7 +331,7 @@
 
     article > div section:not(:first-child){
         /*margin-top: 30px;*/
-         padding: 20px 0 30px; 
+         /*padding: 20px 0 30px; */
     }
     .reg-box{
         padding: 0 10px;
@@ -314,13 +339,13 @@
     .bg-destination img{
         width: auto;
     }
-    .contact-right{
-        padding: 0 40px;
-    }
-    .contact-footer{
+/*     .contact-right{
+    padding: 0 40px;
+} */
+    /*.contact-footer{
         margin-top: 20px!important;
         padding: 40px 15px 30px!important;
-    }
+    }*/
     .promotion-bottom{
         padding: 25px 10px 0 0;
         background-position: -280px center;
@@ -345,7 +370,7 @@
         text-align: justify;
     }
     .content-destination{
-        max-height: 95px;
+        /*max-height: 95px;*/
     }
 
     /* HOME PAGE */

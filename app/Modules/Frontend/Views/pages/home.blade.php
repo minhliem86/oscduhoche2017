@@ -7,6 +7,10 @@
 @section('script')
     <script src="{!!asset('public/assets/frontend')!!}/js/jquery.md5.js"></script>
     <script src="{!!asset('public/assets/frontend')!!}/js/common.js"></script>
+    <!-- VIDEO -->
+    <link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/js/video/plyr.css">
+    <script src="{!!asset('public/assets/frontend')!!}/js/video/plyr.js"></script>
+    <!-- END -->
     <script type="text/javascript">
         $(document).ready(function(){
             $('.same-height').matchHeight({});
@@ -15,6 +19,9 @@
                 autoplay: 3000,
                 slidesPerView: 1,
             })
+
+            /*VIDEO*/
+            plyr.setup();
         })
     </script>
 @stop
@@ -164,11 +171,9 @@
                 <center>
                     <h2>Ila Du Học Hè 2016<br/>Bước chân nhỏ - Khám phá thế giới lớn</h2>
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-12 video-box">
-                               <iframe width="560" height="315" src="https://www.youtube.com/embed/pRrfNtJpwzs" frameborder="0" allowfullscreen></iframe>
-                           </div>
-                        </div>
+                        <div class="video-box">
+                            <div data-type="youtube" data-video-id="pRrfNtJpwzs"></div>
+                       </div>
                     </div>
                </center>
             </div>
