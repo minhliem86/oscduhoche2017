@@ -12,14 +12,14 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->    
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <!-- Custom Css -->
     <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/css/swiper.css">
     <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/css/bootstrap.min.css">
     <link href="{!!asset('public/assets/frontend/')!!}/css/style.css" rel="stylesheet">
     <link href="{!!asset('public/assets/frontend/')!!}/css/reponsive.css" rel="stylesheet">
     <link href="{!!asset('public/assets/frontend/')!!}/css/custom-lp.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -46,7 +46,7 @@
                                                                 <span class="icon-bar"></span>
                                                                 <span class="icon-bar"></span>
                                                                 <span class="icon-bar"></span>
-                                                            </button> 
+                                                            </button>
                                                         </div>
                                                         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                                                             <ul class="nav navbar-nav">
@@ -71,9 +71,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
                             </div>
-                            
                         </div>
                     </div>
                 </header>
@@ -89,16 +87,16 @@
                                     <div class="inner-section">
                                         <div class="wrap-404">
                                             <div class="wrap-table-cell">
-                                                <h2 class="title">Chúng tôi rất tiếc vì trang bạn đang tìm kiếm hiện không có trên website ILA Du Học</h2>
+                                                <h2 class="title">Cảm ơn bạn đã đăng ký thông tin tại ILA Du học.<br/>Nhân viên ILA sẽ liên lạc với bạn trong thời gian sớm nhất.</h2>
                                                 <a class="btn btn-return" href="{!!route('home')!!}">Trở về trang chủ</a>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                        
+
                         <!-- **************** /Register ****************-->
                     </div>
                 </article>

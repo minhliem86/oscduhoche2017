@@ -1,6 +1,7 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
+    
 
 @stop
 

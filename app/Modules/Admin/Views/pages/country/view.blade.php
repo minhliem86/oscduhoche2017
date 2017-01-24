@@ -35,7 +35,7 @@
 					<label for="" >Hình slideshow</label>
 					<p>
 						<img src="{!!$country->img_slide!!}" width="150" alt="">
-						{!!Form::hidden('imgslide-bk',$country->img_avatar)!!}
+						{!!Form::hidden('imgslide-bk',$country->img_slide)!!}
 					</p>
 					{!!Form::file('imgslide')!!}
 				</div>

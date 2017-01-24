@@ -1,7 +1,9 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
-
+    <meta property="og:title" content="Lá Thư cho tương lại" />
+    <meta property="og:image" content="{!!$testimonial_detail->img_avatar!!}" />
+    <meta property="og:type" content="website" />
 @stop
 
 @section('script')
