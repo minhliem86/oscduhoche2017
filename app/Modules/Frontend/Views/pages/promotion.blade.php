@@ -19,7 +19,7 @@
                                 @foreach($promotion_list as $promotion_item)
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="wrap-promotion">
-                                        <div class="img-box">
+                                        <div class="banner-box">
                                             <img src="{!!$promotion_item->img_avatar!!}" class="img-responsive" alt="">
                                         </div>
                                         <div class="promotion-box clearfix">

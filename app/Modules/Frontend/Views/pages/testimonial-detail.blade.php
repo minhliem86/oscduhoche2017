@@ -18,7 +18,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8">
-                                <div class="img-box">
+                                <div class="testimonial-img-box">
                                     <img src="{!!$testimonial_detail->img_slides!!}" class="img-responsive" alt="">
                                 </div>
                                 <div class="box-text">

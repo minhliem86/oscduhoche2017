@@ -108,6 +108,67 @@ div.promotion-bottom{
     max-width: 650px;
     margin:0 auto;
 }
+.key-point h2{
+    text-align: center;
+    margin-bottom:20px;
+}
+
+.promotion-box-home .wrap-each-promotionhome img{
+    margin:0 auto 20px;
+}
+.promotion-box-home .wrap-each-promotionhome hr.line-promo{
+    max-width:80px;
+    margin:0 auto 20px;
+    background:#050d9e;
+    height:1px;
+}
+.promotion-box-home .wrap-each-promotionhome h4{
+    text-align:center;
+    color:#050d9e;
+    font-size:12px;
+    font-weight: normal;
+}
+.promotion-box-home .wrap-btn{
+    margin-top:20px;
+    text-align: center;
+}
+
+
+.promo-testi .wrap-each-testimotion .left-testi{
+    width:120px;
+    display:inline-block;
+}
+.promo-testi .wrap-each-testimotion .left-testi img{
+    width:100px;
+    height:100px;
+    border:2px solid rgba(43, 50, 140, 0.45);
+}
+.promo-testi .wrap-each-testimotion .right-testi{
+    width:calc(100% - 200px);
+    display:inline-block;
+    vertical-align: top;
+}
+@media screen and (max-width:768px){
+    .img-box {
+        height:660px;
+        overflow:hidden;
+    }
+    .wrap-each-testimotion{
+        height:220px;
+    }
+    .promo-testi .wrap-each-testimotion .left-testi{
+        width:auto;
+        display:block;
+        margin-bottom:10px;
+    }
+    .promo-testi .wrap-each-testimotion .left-testi img{
+        margin:0 auto 10px;
+    }
+    .promo-testi .wrap-each-testimotion .right-testi{
+        width:auto;
+        display:block;
+    }
+}
 /* DISCOVERY */
 
 .wrap-keypoint{
@@ -180,6 +241,8 @@ div.promotion-bottom{
     text-align: center;
     margin-bottom:30px;
 }
+
+
 
 
 /* TRAI NGHIEM DU HOC */
@@ -284,6 +347,14 @@ div.promotion-bottom{
 .testtimonial-list-item{
     margin-top:0;
     margin-bottom:30px;
+}
+@media screen and (max-width:768px){
+    .testtimonial-list-item{
+        margin-bottom:0;
+    }
+    .testtimonial-list-item img{
+        margin-bottom:10px;
+    }
 }
 .testtimonial-list-item img.img-avatar{
     border:2px solid #050d9e;

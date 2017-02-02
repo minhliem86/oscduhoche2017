@@ -46,7 +46,7 @@
                                                 </div>
                                             </a>
                                             <div class="box-destination-content">
-                                                <p>{!!Str::words($tour->description,30)!!}</p>
+                                                <p>{!!$tour->description!!}</p>
                                                 <div class="box-destination-footer">
                                                     <a class="btn btn-reg-02" href="{!!route('contact')!!}">ĐĂNG KÝ</a>
                                                 </div>

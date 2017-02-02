@@ -26,7 +26,7 @@ class HomeController extends Controller {
 	
 	public function getIndex(){
 		$promotion = Promotion::select('name','slug','description','img_avatar')->where('status',1)->orderBy('order','DESC')->get();
-		$testimonial = Testimonial::select('id','slug','title','author','description','img_slides')->where('status',1)->orderByRaw('RAND()')->get();
+		$testimonial = Testimonial::select('id','slug','title','author','description','img_slides','img_avatar')->where('status',1)->orderByRaw('RAND()')->get();
 		return view('Frontend::pages.home',compact('promotion','testimonial'));
 	}
 

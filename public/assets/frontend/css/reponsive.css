@@ -27,7 +27,6 @@
 @media only screen and (max-width: 992px){
     .topmenu .navbar-default a{
         font-size: 11px;
-        padding: 7px 12px;
     }
     .discover .top-box{
         height: 256px;
@@ -71,7 +70,7 @@
         display: block;
     }
     header{
-        height:80px;
+        height:70px;
     }
     .topmenu .navbar-default{
         position: fixed;
@@ -86,13 +85,14 @@
         margin-bottom:8px;
     }
     .navbar-header{
-        padding:8px 0;
+        padding:8px 0 8px 15px;
     }
     .navbar-header a.logo-mobile{
         width:50%;
         float:left;
         background: none !important;
         outline:none;
+        padding:0;
     }
     .navbar-header a.logo-mobile:hover{
         background: none !important;

@@ -26,11 +26,36 @@ $(document).ready(function () {
         autoplayDisableOnInteraction: false,
         preventClicks: false
     }); 
+
+    var mySwiperPromotionHome = new Swiper ('.swiper-promotionhome', {
+         slidesPerView: 4,
+         spaceBetween: 15,
+          autoplay: 4000,
+        speed: 1000,
+    })
+
+    var mySwiperTestimonialHome = new Swiper('.testimonial-slide-home',{
+        slidesPerView: 1,
+        spaceBetween: 15,
+        autoplay: 3500,
+        speed: 1200,
+        breakpoints:{
+            480:{
+                direction: 'vertical',
+                slidesPerView: 3,
+                height: 660,
+                spaceBetween: 5,
+                autoplay: false
+            }
+        }
+    })
+
     $('.wrap-content-country').hover(function(){
         mySwiperhomehorizal.stopAutoplay();
     },function(){
         mySwiperhomehorizal.startAutoplay();
     })     
+
     var mySwiper = new Swiper ('.slider-lv3', {
         // Optional parameters
         pagination: '.swiper-pagination',

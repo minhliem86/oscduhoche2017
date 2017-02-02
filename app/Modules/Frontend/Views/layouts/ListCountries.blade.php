@@ -3,7 +3,7 @@
         <div class="row">
             <div class="inner-section bg-yellow {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' || Request::segment(1) == 'khuyen-mai' || Request::segment(1) == 'trai-nghiem-du-hoc' ? 'bg-gray' : ''  !!}">
                 <center>
-                    <h2>KHÁM PHÁ ĐIỂM ĐẾN</h2>
+                    <h2>KHÁM PHÁ ĐIỂM ĐẾN HẤP DẪN 2017</h2>
                     <hr class="hr">
                     @if($countries)
                         <ul class="to-local nopadding inline-list">
