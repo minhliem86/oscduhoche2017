@@ -470,7 +470,7 @@ hr{
 /*================================= Promotion =================================*/
 .promotion-box {
     border: 1px solid #2b328c;
-    border-top: none;
+    /*border-top: none;*/
     border-bottom: 7px solid #ffcb05;
 }
 
@@ -549,7 +549,7 @@ hr{
     /*border-left: 1px solid #050D9E;*/
 }
 .testtimonial-detail .box-text{
-    margin: 20px 0 40px;
+    margin: 10px 0 40px;
 }
 /*================================= Footer =================================*/
 .footer-inner{

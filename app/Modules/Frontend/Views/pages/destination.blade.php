@@ -1,7 +1,12 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
+    <meta name="keywords" content=" du học hè {!!$country_data->name!!}, du học hè, du học hè 2017, ila du học hè">
+    <meta name="description" content="Trải nghiệm chương trình du học hè {!!$country_data->name!!} với môi trường sống và học tập của một du học sinh {!!$country_data->name!!} thực thụ.">
+@stop
 
+@section('title')
+    Chương Trình Du Học Hè {!!$country_data->name!!} - ILA Du Học
 @stop
 
 @section('script')

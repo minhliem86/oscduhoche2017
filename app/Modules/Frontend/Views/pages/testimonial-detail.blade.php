@@ -1,10 +1,11 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
-    <meta property="og:title" content="Lá Thư cho tương lại" />
-    <meta property="og:image" content="{!!$testimonial_detail->img_avatar!!}" />
-    <meta property="og:type" content="website" />
+    <meta name="keywords" content="du học hè, du học hè 2017, ila du học hè">
+    <meta name="description" content="Chia sẻ trải nghiệm Du học hè của của các học viên đoàn ILA những năm trước">
 @stop
+
+@section('title','Trải nghiệm du học hè - ILA Du Học')
 
 @section('script')
 	<script src="{!!asset('public/assets/frontend')!!}/js/customScript.js" type="text/javascript"></script>
@@ -17,14 +18,22 @@
                 <div class="inner-section testtimonial testtimonial-detail">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-8">
+                            <div class="col-xs-12 col-sm-12 visible-xs visible-sm">
+                                <div class="wrap-title-page-testi">
+                                    <h4 class="title-testi">CHIA SẺ TRẢI NGHIỆM DU HỌC HÈ</h4>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-8">
                                 <div class="testimonial-img-box">
                                     <img src="{!!$testimonial_detail->img_slides!!}" class="img-responsive" alt="">
+                                </div>
+                                <div class="authorsign visible-xs visible-sm">
+                                    <p style="margin:10px 0 0;"><b>{!!$testimonial_detail->author!!}</b></p>
                                 </div>
                                 <div class="box-text">
                                     <p>{!!$testimonial_detail->content!!}</p>
                                 </div>
-                                <div class="authorsign text-right">
+                                <div class="authorsign text-right hidden-xs hidden-sm">
                                     <p><b>{!!$testimonial_detail->author!!}</b></p>
                                 </div>
                                 @if($tour_rec)
@@ -38,7 +47,7 @@
                                 </div>
                                 @endif
                             </div>
-                            <div class="col-xs-12 col-sm-4">
+                            <div class="col-xs-12 col-md-4 hidden-sm hidden-xs">
                                 <div class="testtimanial-avartar-slider">
                                      <div class="swiper-container slider-lv4 slider-testimonial-detail">
                                         <div class="swiper-wrapper">

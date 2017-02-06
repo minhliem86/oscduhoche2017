@@ -3,10 +3,10 @@
         <div class="row">
             <div class="inner-section bg-yellow {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' || Request::segment(1) == 'khuyen-mai' || Request::segment(1) == 'trai-nghiem-du-hoc' ? 'bg-gray' : ''  !!}">
                 <center>
-                    <h2>KHÁM PHÁ ĐIỂM ĐẾN HẤP DẪN 2017</h2>
-                    <hr class="hr">
+                    <h2 class="title-list-country">KHÁM PHÁ ĐIỂM ĐẾN HẤP DẪN 2017</h2>
+                    <hr class="hr hidden-sm hidden-xs">
                     @if($countries)
-                        <ul class="to-local nopadding inline-list">
+                        <ul class="to-local nopadding inline-list hidden-sm hidden-xs">
                             @foreach($countries as $country)
                             <li><a href="{!!route('quocgia',$country->slug)!!}">{!!$country->name!!}</a></li>
                             @endforeach
@@ -14,8 +14,8 @@
                     @endif
                 </center>
                 <div class="container-fluid {!!Request::segment(1) == '' ? 'bg-yellow' : ''!!}">
-                    <div class="top-box">
-                        <div class="col-xs12 col-sm-7 nopadding">
+                    <div class="top-box hidden-xs hidden-sm">
+                        <div class="col-xs12 col-md-7 nopadding">
                             <div class="wrap-content-country">
                                 <div class="swiper-container slider-lv2">
                                     <div class="swiper-wrapper">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-5 nopadding">
+                        <div class="col-xs-12 col-md-5 nopadding">
                             @if($list_a_country)
                                 @foreach($list_a_country as $country_item)
                                     <div class="col-xs-6 nopadding">
@@ -44,13 +44,13 @@
                                             <img src="{!!$country_item->img_avatar!!}" class="img-responsive" alt="">
                                         </div>
                                         <p class="title-country">{!!$country_item->name!!}</p>
-                                        <button class="btn btn-dis">ĐĂNG KÝ</button><a href="{!!route('quocgia',$country_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
+                                        <a href="{!!route('quocgia',$country_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
                                     </div>
                                 @endforeach
                             @endif
                         </div>
                     </div>
-                    <div class="bottom-box">
+                    <div class="bottom-box hidden-xs hidden-sm">
                         @if(!$list_multi_country->isEmpty())
                             @foreach($list_multi_country as $multi_item)
                             <div class="col-xs-12 col-sm-4 nopadding">
@@ -65,9 +65,30 @@
                             @endforeach
                         @endif
                     </div>
+                    <div class="list-countries-mobile visible-xs visible-sm clearfix">
+                        @if(!$countries->isEmpty())
+                            @foreach($countries as $country_mobile)
+                            <div class="col-xs-12 nopadding each-country-mobile">
+                                <div class="wrap-multi-country">
+                                    <div class="overlay-img">
+                                        <img src="{!!$country_mobile->img_avatar!!}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="wrap-button-mobile">
+                                        <div class="inner-wrap-button">
+                                            <div class="table-cell">
+                                                <p class="title-country">{!!$country_mobile->name!!}</p>
+                                            </div>
+                                        </div>
+                                        <a href="{!!route('quocgia',$country_mobile->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>

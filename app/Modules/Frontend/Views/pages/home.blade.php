@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/js/video/plyr.css">
     <script src="{!!asset('public/assets/frontend')!!}/js/video/plyr.js"></script>
     <!-- END -->
+    <script src="{!!asset('public/assets/frontend/')!!}/js/customScript.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.same-height').matchHeight({});
             var swiper_promotion = new Swiper('.swiper-promotion',{
                 speed: 800,
                 autoplay: 3000,
@@ -35,7 +35,7 @@
                 <center>
                     <h2>CHÀO MỪNG ĐẾN VỚI <br>CHƯƠNG TRÌNH DU HỌC HÈ 2017</h2>
                     <hr class="hr">
-                    <p class="title-sub">ILA Du Học giới thiệu chương trình Du Học Hè 2017<Br/>với 4 giá trị cốt lõi: Phiêu Lưu, Trải Nghiệm, Tự Lập và Trưởng Thành.</p>
+                    <p class="title-sub">ILA Du Học giới thiệu chương trình Du Học Hè 2017 với 4 giá trị cốt lõi:<br/>  Phiêu Lưu, Trải Nghiệm, Tự Lập và Trưởng Thành.</p>
                 </center>
             </div>
         </div>
@@ -51,29 +51,48 @@
             <div class="inner-section">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-6">
+                        <div class="col-xs-12 col-md-6">
                             <div class="pro-text">
                                 <h2>Chương trình khuyến mãi</h2>
                             </div>
                             @if($promotion)
-                            <div class="promotion-box-home ">
+                            <div class="promotionhome-area clearfix">
+                                @foreach($promotion as $item_promotion)
+                                <div class="wrap-each-promotionhome2">
+                                    <div class="wrap-inner-img">
+                                        <div class="wrap-img">
+                                            <img src="{!!$item_promotion->img_avatar!!}" alt="" class="img-circle img-responsive">
+                                        </div>
+                                        <div class="table-cell">
+                                            <h4>{!!$item_promotion->name!!}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <div class="wrap-btn">
+                                <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ</a>
+                            </div>
+                            <!-- <div class="promotion-box-home ">
                                 <div class="swiper-container swiper-promotionhome">
                                     <div class="swiper-wrapper">
+                                        <?php $i = 1; ?>
                                         @foreach($promotion as $item_promotion)
                                         <div class="swiper-slide">
                                             <div class="wrap-each-promotionhome">
-                                                <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="" class="img-responsive">
+                                                <img src="{!!$item_promotion->img_avatar!!}" alt="" class="img-circle img-responsive">
                                                 <hr class="line-promo">
                                                 <h4>{!!$item_promotion->name!!}</h4>
                                             </div>
                                         </div>
+                                        <?php $i++; ?>
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="wrap-btn">
                                     <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ</a>
                                 </div>
-                            </div>
+                            </div> -->
                             @endif
                             <!-- @if($promotion)
                             <div class="wrap-slider-promotion ">
@@ -99,15 +118,14 @@
                             @endif -->
 
                         </div>
-                        <div class="col-xs-12 col-sm-6">
+                        <div class="col-xs-12 col-md-6">
                             <div class="pro-text">
-                                <h2>Trải nghiệm du học</h2>
-                                <hr class="hr">
+                                <h2>Chia Sẻ Trải nghiệm du học hè</h2>
                             </div>
                             @if($testimonial)
                             <div class="img-box">
                                 <div class="swiper-container testimonial-slide-home">
-                                    <div class="swiper-wrapper promo-testi">
+                                    <div class="swiper-wrapper">
                                         @foreach($testimonial as $item_testimonial)
                                         <div class="swiper-slide">
                                             <div class="wrap-each-testimotion clearfix">
@@ -115,8 +133,8 @@
                                                     <img src="{!!$item_testimonial->img_avatar!!}" class="img-responsive img-circle" alt="">
                                                 </div>
                                                 <div class="right-testi">
-                                                    <h4>{!!$item_testimonial->author!!}</h4>
-                                                    <p>{!!Str::words($item_testimonial->description,25)!!}</p>
+                                                    <h4><span>{!!$item_testimonial->author!!}</span><a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}" class="xemthem">Đọc thêm</a></h4>
+                                                    <p>{!!Str::words($item_testimonial->description,35)!!}</p>
                                                     <a href="{!!route('trainghiem.detail',$item_testimonial->slug)!!}" class="btn btn-readmore">ĐỌC THÊM</a>
                                                 </div>
                                             </div>
@@ -124,7 +142,6 @@
                                         @endforeach
                                     </div>
                                     <!-- Add Pagination -->
-                                    
                                 </div>
                             </div>
                             @endif
@@ -163,41 +180,66 @@
                     <h2 class="title">Tại sao nên chọn ILA?</h2>
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
-                            <div class="swiper-container slider-lv1">
+                            <div class="swiper-container slider-lv1 swiper-keypoint">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <div class="wrap-keypoint">
-                                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-earth.png" alt="">
-                                            <hr class="hr">
-                                            <p class="title-slider">Mở rộng tầm nhìn<br>ra thế giới </p>
+                                        <div class="wrap-keypoint" id="first-key">
+                                            <div class="wrap-inner-key">
+                                                <div class="wrap-img-key">
+                                                    <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/morong-ic.jpg" class="keypoint-img" alt="Mở rộng tầm nhìn ra thế giới">
+                                                </div>
+                                                <div class="table-cell">
+                                                    <p class="title-slider">Mở rộng tầm nhìn<br>ra thế giới </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="wrap-keypoint">
-                                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-feather.png" alt="">
-                                            <hr class="hr">
-                                            <p class="title-slider">Rèn luyện tính<br>tự lập </p>
+                                            <div class="wrap-inner-key">
+                                                <div class="wrap-img-key">
+                                                    <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/renluyen-ic.jpg" class="keypoint-img" alt="Rèn luyện tính tự lập">
+                                                </div>
+                                                <div class="table-cell">
+                                                    <p class="title-slider">Rèn luyện tính<br>tự lập </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="wrap-keypoint">
-                                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-user.png" alt="">
-                                            <hr class="hr">
-                                            <p class="title-slider">Gặp gỡ và giao lưu<br>bạn bè quốc tế </p>
+                                            <div class="wrap-inner-key">
+                                                <div class="wrap-img-key">
+                                                   <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/gapgo-ic.jpg" class="keypoint-img" alt="Gặp gỡ và giao lưu bạn bé quốc tế">
+                                                </div>
+                                                <div class="table-cell">
+                                                    <p class="title-slider">Gặp gỡ và giao lưu<br>bạn bè quốc tế </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="wrap-keypoint">
-                                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-hanhtrinh.png" alt="">
-                                            <hr class="hr">
-                                            <p class="title-slider">Thử nghiệm hành trình<br>du học</p>
+                                            <div class="wrap-inner-key">
+                                                <div class="wrap-img-key">
+                                                   <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/thunghiem-ic.jpg" class="keypoint-img" alt="Thử nghiệm hành trình du học">
+                                                </div>
+                                                <div class="table-cell">
+                                                    <p class="title-slider">Thử nghiệm hành trình<br>du học</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="wrap-keypoint">
-                                            <img src="{!!asset('public/assets/frontend')!!}/images/icon-kytucxa.png" alt="">
-                                            <hr class="hr">
-                                            <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá</p>
+                                            <div class="wrap-inner-key">
+                                                <div class="wrap-img-key">
+                                                   <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/trainghiem-ic.jpg" class="keypoint-img" alt="Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá">
+                                                </div>
+                                                <div class="table-cell">
+                                                    <p class="title-slider">Trải nghiệm thực tế cuộc sống tại nhà bản xứ hoặc ký túc xá</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

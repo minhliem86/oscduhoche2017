@@ -1,11 +1,14 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
-
+    <meta name="keywords" content="du học hè, du học hè 2017, ila du học hè, khuyến mãi du học hè">
+    <meta name="description" content="Các chương trình khuyến mãi hấp dẫn của chuông trình Du Học Hè 2017 của ILA Du Học">
 @stop
 
-@section('script')
+@section('title','Chương Trình Khuyến Mãi - ILA Du Học')
 
+@section('script')
+    <script src="{!!asset('public/assets/frontend/')!!}/js/customScript.js" type="text/javascript"></script>
 @stop
 
 @section('content')
@@ -19,9 +22,9 @@
                                 @foreach($promotion_list as $promotion_item)
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="wrap-promotion">
-                                        <div class="banner-box">
+                                        <!-- <div class="banner-box">
                                             <img src="{!!$promotion_item->img_avatar!!}" class="img-responsive" alt="">
-                                        </div>
+                                        </div> -->
                                         <div class="promotion-box clearfix">
                                            <center>
                                                 <h3>{!!$promotion_item->name!!}</h3>

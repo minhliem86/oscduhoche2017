@@ -1,9 +1,12 @@
 $(document).ready(function () {
-    //initialize swiper when document ready  
+    $('.wrap-each-promotionhome2').height($('.wrap-each-promotionhome2').width());
+    console.log($('.swiper-keypoint .swiper-slide:first-child').width());
+
+    //initialize swiper when document ready
+    var window_w = $(window).width();
     var swiper = new Swiper('.slider-lv1', {
         slidesPerView: 5,
         paginationClickable: true,
-        spaceBetween: 15,
         autoplay: 3500,
         speed: 1200,
         // nextButton: '.swiper-button-next',
@@ -25,13 +28,14 @@ $(document).ready(function () {
         speed: 1200,
         autoplayDisableOnInteraction: false,
         preventClicks: false
-    }); 
+    });
 
     var mySwiperPromotionHome = new Swiper ('.swiper-promotionhome', {
          slidesPerView: 4,
          spaceBetween: 15,
-          autoplay: 4000,
+        autoplay: 4000,
         speed: 1000,
+
     })
 
     var mySwiperTestimonialHome = new Swiper('.testimonial-slide-home',{
@@ -39,22 +43,32 @@ $(document).ready(function () {
         spaceBetween: 15,
         autoplay: 3500,
         speed: 1200,
+        preventClicks: false,
         breakpoints:{
-            480:{
-                direction: 'vertical',
-                slidesPerView: 3,
-                height: 660,
-                spaceBetween: 5,
-                autoplay: false
+            769:{
+                // direction: 'vertical',
+                // slidesPerView: 3,
+                // height: 660,
+                // spaceBetween: 5,
+                // autoplay: false
+                spaceBetween: 0,
+            },
+            481:{
+                // autoHeight: true
+                spaceBetween: 0,
             }
         }
     })
+    if(window_w <= 768){
+        mySwiperTestimonialHome.destroy();
+    }
+
 
     $('.wrap-content-country').hover(function(){
         mySwiperhomehorizal.stopAutoplay();
     },function(){
         mySwiperhomehorizal.startAutoplay();
-    })     
+    })
 
     var mySwiper = new Swiper ('.slider-lv3', {
         // Optional parameters
@@ -77,7 +91,7 @@ $(document).ready(function () {
     });
 
     $(document).ready(function(){
-       
+
 
         $('#formOSC').validate({
             errorElement: "span",
@@ -108,5 +122,5 @@ $(document).ready(function () {
             },
         })
     })
-    
+
 });

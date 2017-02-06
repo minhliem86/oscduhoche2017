@@ -101,18 +101,18 @@
     .navbar-header a.logo-mobile img{
         max-width:80px;
     }
-  
+
     .topmenu .navbar-default a{
         font-size: 13px;
     }
-    
 
-    .navbar-default .navbar-toggle:focus, 
+
+    .navbar-default .navbar-toggle:focus,
     .navbar-default .navbar-toggle:hover{
         background: #ffcb05;
         border: 1px solid #2b328c;
     }
-    .navbar-default .navbar-toggle:focus .icon-bar , 
+    .navbar-default .navbar-toggle:focus .icon-bar ,
     .navbar-default .navbar-toggle:hover .icon-bar{
         background: #2b328c;
     }
@@ -134,7 +134,7 @@
         color: #2b328c !important;
         padding: 5px 15px 5px 25px;
         line-height: 20px;
-        
+
     }
     .logo-box{
         margin-top:60px;
@@ -157,13 +157,13 @@
     }
     .discover .top-box > div:last-child > div{
         margin: 5px 0 0 ;
-        height: 180px;
+        height: 230px;
         overflow: hidden;
     }
     .discover .top-box > div:last-child > div:nth-child(1),
     .discover .top-box > div:last-child > div:nth-child(3n){
         padding-right: 5px;
-        
+
     }
     .discover .bottom-box > div:not(:last-child){
         padding-right: 0;
@@ -176,12 +176,53 @@
         height: 230px;
         overflow: hidden;
     }
+    .wrap-multi-country{
+        margin-bottom:10px;
+        position:relative;
+    }
+    .wrap-multi-country .wrap-button-mobile{
+        position:absolute;
+        bottom:2%;
+        left:50%;
+         transform:translateX(-50%);
+        -webkit-transform:translateX(-50%) ;
+        -moz-transform:translateX(-50%); 
+        text-align: center;
+    }
+    .wrap-multi-country .wrap-button-mobile .inner-wrap-button{
+        background:rgba(255,255,255,0.7);
+        display:table;
+        padding:7px 18px;
+        margin:0 auto 10px;
+    }
+    .wrap-multi-country .wrap-button-mobile .inner-wrap-button .table-cell{
+        display:table-cell;
+        vertical-align: middle;
+    }
+    .wrap-multi-country .wrap-button-mobile .title-country{
+        position:static;
+        margin-bottom:10px;
+        font-size:12px;
+        display:block;
+        color:#2b328c;
+        margin:0;
+    }
+    .wrap-multi-country .wrap-button-mobile a.btn-dis{
+        position:static;
+    }
+    .list-countries-mobile .each-country-mobile:nth-child(6) .wrap-button-mobile{
+        min-width:185px;
+    }
+    h2.title-list-country{
+        margin-bottom:15px;
+    }
     .pro-test,
     .contact-footer{
         text-align: center;
     }
     .pro-test .hr{
         margin-left: auto;
+        display: none;
     }
     .pro-text{
         min-height: auto;
@@ -265,6 +306,43 @@
     .testtimonial-detail .testtimonial-list{
         border-left: none;
     }
+    /*TESTIMONIAL PAGE*/
+    .testtimonial .wrap-mobile-type .wrap-each-testi-mobile{
+        position:relative;
+        margin-bottom:10px;
+    }
+    .testtimonial .wrap-mobile-type .wrap-each-testi-mobile .testtimanial-slider-item{
+        position:absolute;
+        left:2%;
+        bottom:2%;
+        width:80%;
+        background:rgba(255,255,255,0.5);
+        padding:7px;
+    }
+    .testtimonial .wrap-mobile-type .wrap-each-testi-mobile .testtimanial-slider-item h4{
+        font-size:12px;
+        color:#2b328c;
+    }
+    .testtimonial .wrap-mobile-type .wrap-each-testi-mobile .testtimanial-slider-item h4 a.xemthem{
+        font-size:11px;
+        text-transform: none;
+        font-style: italic;
+        color:#2b328c;
+        margin-left:10px;
+    }
+    .testtimonial .wrap-mobile-type .wrap-each-testi-mobile .testtimanial-slider-item blockquote{
+        font-size:12px;
+        color:#2b328c;
+        padding:7px 20px;
+    }
+    .wrap-title-page-testi {
+        margin-bottom:20px;
+        text-align: center;
+    }
+    .wrap-title-page-testi h4.title-testi{
+        font-size:20px;
+        text-transform: uppercase;
+    }
     footer{
         text-align: center;
     }
@@ -308,9 +386,7 @@
     .pro-test .hr{
         margin: 10px auto ;
     }
-    .discover .top-box > div:last-child > div{
-        height: 110px;
-    }
+
     .discover .top-box > div:last-child > div img{
     }
     .title-country{
@@ -324,10 +400,19 @@
     .to-local{
         padding: 0 10px;
     }
+    .to-local li{
+        display:block;
+        margin-bottom:5px;
+        list-style: none;
+    }
+    .to-local li:before{
+        content:'';
+        display: none;
+    }
     .title-slider{
         font-size: 12px;
     }
-    
+
 
     article > div section:not(:first-child){
         /*margin-top: 30px;*/
@@ -380,7 +465,7 @@
     .wrap-each-promo .each-promo{
         text-align: center;
     }
-    
+
     .footer-inner{
         display: block;
     }

@@ -1,13 +1,15 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
-    
-
+    <meta name="keywords" content="du học hè, du học hè 2017, ila du học hè">
+    <meta name="description" content="Chương trình Du Học Hè 2017 với 4 giá trị cốt lõi: Phiêu Lưu, Trải Nghiệm, Tự Lập và Trưởng Thành.">
 @stop
+
+@section('title','Đăng ký tham gia Du học hè 2017 - ILA Du Học')
 
 @section('script')
     <script src="{!!asset('public/assets/frontend')!!}/js/jquery.md5.js"></script>
-    <script src="{!!asset('public/assets/frontend')!!}/js/common.js"></script>
+    <script src="{!!asset('public/assets/frontend/')!!}/js/customScript.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             var swiper_promotion = new Swiper('.swiper-promotion',{
@@ -26,8 +28,6 @@
                 <div class="inner-section">
                     <div class="container-fluid">
                         <div class="row">
-                            
-
                             <div class="col-xs-12 col-sm-6 col-sm-push-6 contact-right">
                                 <h4>ĐĂNG KÝ ĐỂ ĐƯỢC TƯ VẤN</h4>
                                 <form class="reg-box" accept-charset="true" method="POST" action="{!!route('contact.postRegister')!!}" id="formOSC">
@@ -93,26 +93,22 @@
                                 <div class="wrap-promotion-contact">
                                     <div class="pro-text">
                                         <h2>Chương trình khuyến mãi</h2>
-                                        <hr class="hr">
+                                        <!-- <hr class="hr"> -->
                                     </div>
                                     @if($promotion)
-                                    <div class="wrap-slider-promotion ">
-                                        <div class="swiper-container swiper-promotion">
-                                            <div class="swiper-wrapper">
-                                                @foreach($promotion as $item_promotion)
-                                                <div class="swiper-slide">
-                                                    <div class="wrap-each-promo">
-                                                        <div class="each-promo same-height">
-                                                            <h4 class="title-each-promo">{!!$item_promotion->name!!}</h4>
-                                                            <p>{!!Str::words($item_promotion->description,25)!!}</p>
-                                                            <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ NGAY</a>
-                                                        </div>
-                                                        <img src="{!!$item_promotion->img_avatar!!}" class="img-responsive" alt="">
-                                                    </div>
+                                    <div class="promotionhome-area clearfix">
+                                        @foreach($promotion as $item_promotion)
+                                        <div class="wrap-each-promotionhome2">
+                                            <div class="wrap-inner-img">
+                                                <div class="wrap-img">
+                                                    <img src="{!!$item_promotion->img_avatar!!}" alt="" class="img-circle img-responsive">
                                                 </div>
-                                                @endforeach
+                                                <div class="table-cell">
+                                                    <h4>{!!$item_promotion->name!!}</h4>
+                                                </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
                                     @else
                                         <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
