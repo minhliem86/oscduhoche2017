@@ -17,6 +17,13 @@
 					@endif
 				</div>
 				<div class="form-group">
+					<label for="">Hình trang chi tiết()</label>
+					{!!Form::file('img-slide')!!}
+					@if($errors->first('img-slide'))
+						<p class="error">{!!$errors->first('img-slide')!!}</p>
+					@endif
+				</div>
+				<div class="form-group">
 					<label for="">Tên bài viết</label>
 					{!!Form::text('name',old('name'),array('class'=>'form-control'))!!}
 				</div>

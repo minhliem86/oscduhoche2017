@@ -39,26 +39,6 @@
     &noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
-    
-    <!-- Google Code for ILA Du H&#7885;c H&egrave; 2017 Conversion Page -->
-    <script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 934827352;
-    var google_conversion_language = "en";
-    var google_conversion_format = "3";
-    var google_conversion_color = "ffffff";
-    var google_conversion_label = "wtezCJSf9m0Q2KrhvQM";
-    var google_remarketing_only = false;
-    /* ]]> */
-    </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-    </script>
-    <noscript>
-    <div style="display:inline;">
-    <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/934827352/?label=wtezCJSf9m0Q2KrhvQM&amp;guid=ON&amp;script=0"/>
-    </div>
-    </noscript>
-
 </head>
 
 <body>
@@ -171,6 +151,24 @@
             </div>
         </div>
     </div>
+    <!-- Google Code for ILA Du H&#7885;c H&egrave; 2017 Conversion Page -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 934827352;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "wtezCJSf9m0Q2KrhvQM";
+    var google_remarketing_only = false;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/934827352/?label=wtezCJSf9m0Q2KrhvQM&amp;guid=ON&amp;script=0"/>
+    </div>
+    </noscript>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
                     @endif
                 </center>
                 <div class="container-fluid {!!Request::segment(1) == '' ? 'bg-yellow' : ''!!}">
-                    <div class="top-box hidden-xs hidden-sm">
+                    <div class="top-box hidden-xs hidden-sm clearfix">
                         <div class="col-xs12 col-md-7 nopadding">
                             <div class="wrap-content-country">
                                 <div class="swiper-container slider-lv2">
@@ -50,7 +50,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="bottom-box hidden-xs hidden-sm">
+                    <div class="bottom-box hidden-xs hidden-sm clearfix">
                         @if(!$list_multi_country->isEmpty())
                             @foreach($list_multi_country as $multi_item)
                             <div class="col-xs-12 col-sm-4 nopadding">
@@ -65,6 +65,25 @@
                             @endforeach
                         @endif
                     </div>
+                    @if(Request::segment(1) == '')
+                    <div class="promotion-yellow visible-md visible-lg">
+                        <h2 class="title-promotion-yellow">Chương trình khuyến mãi</h2>
+                        <hr class="hr hidden-sm hidden-xs">
+                        @if($promotion)
+                        <div class="promotionhome-area clearfix">
+                            @foreach($promotion as $item_promotion)
+                            <div class="wrap-promotion-yellow">
+                                <img src="{!!$item_promotion->img_icon!!}" alt="" class="img-circle img-responsive">
+                                <h4>{!!$item_promotion->name!!}</h4>
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="wrap-btn">
+                            <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ</a>
+                        </div>
+                        @endif
+                    </div>
+                    @endif
                     <div class="list-countries-mobile visible-xs visible-sm clearfix">
                         @if(!$countries->isEmpty())
                             @foreach($countries as $country_mobile)
@@ -76,10 +95,10 @@
                                     <div class="wrap-button-mobile">
                                         <div class="inner-wrap-button">
                                             <div class="table-cell">
-                                                <p class="title-country">{!!$country_mobile->name!!}</p>
+                                                <p class="title-country">
+                                                <span>{!! count(explode(' ',$country_mobile->name)) > 2 ? '' : 'ILA Du Học'!!} {!!$country_mobile->name!!}</span> - <a href="{!!route('quocgia',$country_mobile->slug)!!}" class="btn-dk">Đăng ký ngay</a></p>
                                             </div>
                                         </div>
-                                        <a href="{!!route('quocgia',$country_mobile->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
                                     </div>
                                 </div>
                             </div>

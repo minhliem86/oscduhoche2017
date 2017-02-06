@@ -46,15 +46,14 @@ class PromotionController extends Controller {
 
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
-            $destinationPath = 'upload/upload'.'/'.$this->upload_folder;
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
             // $file->move($destinationPath,$filename);
-
-            // $size = getimagesize($file);
             $filename_resize = $destinationPath.'/'.$filename;
-            \Image::make($file->getRealPath())->resize(550,225)->save($filename_resize);
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(200,200)->save($filename_resize);
             // if($size[0] > 620){
             //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
             // }else{
@@ -68,11 +67,35 @@ class PromotionController extends Controller {
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
+        if($imgrequest->hasFile('img-slide')){
+            $file = $imgrequest->file('img-slide');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(560,230)->save($filename_resize);
+            // if($size[0] > 620){
+            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
+            // }else{
+            //     $file->move($destinationPath,$filename);
+            // }
+
+            $img_url2 = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
+            // $img_alt = \GetNameImage::make('\/',$filename);
+        }else{
+            $img_url2 = asset('public/assets/frontend/images/default-img/img-promotion.jpg');
+            // $img_alt = \GetNameImage::make('\/',$img_url);
+        }
+
 
         $data = [
             'name'=>$request->name,
             'slug' => \Unicode::make($request->name),
-            'img_avatar' => $img_url,
+            'img_icon' => $img_url,
+            'img_avatar' => $img_url2,
             'description' => $request->input('description'),
             'content' => $request->input('content'),
             'status'=> $request->status,
@@ -123,7 +146,8 @@ class PromotionController extends Controller {
 
             // $file->move($destinationPath,$filename);
             $filename_resize = $destinationPath.'/'.$filename;
-            \Image::make($file->getRealPath())->resize(550,225)->save($filename_resize);
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(200,200)->save($filename_resize);
 
             // $size = getimagesize($file);
             // if($size[0] > 620){
@@ -137,12 +161,36 @@ class PromotionController extends Controller {
             $img_url = $request->input('img-bk');
         }
 
+        if($imgrequest->hasFile('img-slide')){
+            $file = $imgrequest->file('img-slide');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+            \Image::make($file->getRealPath())->resize(560,230)->save($filename_resize);
+
+            // $size = getimagesize($file);
+            // if($size[0] > 620){
+            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
+            // }else{
+            //     $file->move($destinationPath,$filename);
+            // }
+
+            $img_url2 = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
+        }else{
+            $img_url2 = $request->input('img-bk-chitiet');
+        }
+
         $promotion = $this->promotion->find($id);
         $promotion->name = $request->name;
         $promotion->slug = \Unicode::make($request->name);
         $promotion->description = $request->input('description');
         $promotion->content = $request->input('content');
-        $promotion->img_avatar = $img_url;
+        $promotion->img_icon = $img_url;
+        $promotion->img_avatar = $img_url2;
         $promotion->status = $request->status;
         $promotion->order = $request->order;
         $promotion->save();

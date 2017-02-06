@@ -29,10 +29,18 @@
 				<div class="form-group">
 					<label for="" >Hình đại diện</label>
 					<p>
-						<img src="{!!$promotion->img_avatar!!}" width="150" alt="">
-						{!!Form::hidden('img-bk',$promotion->img_avatar)!!}
+						<img src="{!!$promotion->img_icon!!}" width="150" alt="">
+						{!!Form::hidden('img-bk',$promotion->img_icon)!!}
 					</p>
 					{!!Form::file('img')!!}
+				</div>
+				<div class="form-group">
+					<label for="" >Hình trang chi tiết</label>
+					<p>
+						<img src="{!!$promotion->img_avatar!!}" width="150" alt="">
+						{!!Form::hidden('img-bk-chitiet',$promotion->img_avatar)!!}
+					</p>
+					{!!Form::file('img-slide')!!}
 				</div>
 				<div class="form-group">
 					<span class="inline-radio"><input type="radio" name="status" value="1" {!!$promotion->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>

@@ -20,6 +20,13 @@
                 slidesPerView: 1,
             })
 
+            var swiper_testi_desktop = new Swiper('.slider-testi-desk',{
+                speed: 1000,
+                autoplay: 6500,
+                slidesPerView: 1,
+                preventClicks: false
+            })
+
             /*VIDEO*/
             plyr.setup();
         })
@@ -44,8 +51,43 @@
 <!-- **************** /Wellcome ****************-->
 @include('Frontend::layouts.listCountries')
 <!-- **************** Pro - Testi ****************-->
-
-<section class="pro-test">
+@if($testimonial)
+<section class="testimonial-desktop visible-md visible-lg hidden">
+    <div class="container">
+        <div class="row">
+            <div class="inner-section">
+                <div class="container-fluid">
+                    <div class="inner-testi-desktop">
+                        <div class="pro-text">
+                            <h2>Chia sẻ trải nghiệm</h2>
+                            <hr class="hr">
+                        </div>
+                        <div class="wrap-slider-testi-desktop">
+                            <div class="swiper-container slider-testi-desk">
+                                <div class="swiper-wrapper">
+                                    @foreach($testimonial as $item_testi_desk)
+                                    <div class="swiper-slide">
+                                        <div class="left-img">
+                                            <img src="{!!$item_testi_desk->img_slides!!}" alt="" class="img-responsive">
+                                        </div>
+                                        <div class="right-img">
+                                            <h4 class="name">{!!$item_testi_desk->author!!}</h4>
+                                            <p class="description">{!!Str::words($item_testi_desk->content,80)!!}</p>
+                                            <a href="{!!route('trainghiem.detail',$item_testi_desk->slug)!!}" class="btn btn-test-dk">Đọc thêm</a>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+<section class="pro-test visible-sm visible-xs">
     <div class="container">
         <div class="row">
             <div class="inner-section">
@@ -61,7 +103,7 @@
                                 <div class="wrap-each-promotionhome2">
                                     <div class="wrap-inner-img">
                                         <div class="wrap-img">
-                                            <img src="{!!$item_promotion->img_avatar!!}" alt="" class="img-circle img-responsive">
+                                            <img src="{!!$item_promotion->img_icon!!}" alt="" class="img-circle img-responsive">
                                         </div>
                                         <div class="table-cell">
                                             <h4>{!!$item_promotion->name!!}</h4>

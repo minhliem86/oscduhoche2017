@@ -22,8 +22,6 @@ div.inner-section.inner-reg{
     div.inner-section.inner-reg{
         background-position:90% 0;
     }
-    
-    
 }
 
 div.promotion-bottom{
@@ -163,7 +161,6 @@ div.promotion-bottom{
     z-index: 1;
 }
 .wrap-each-promotionhome2 .wrap-img img{
-    border:1px solid #050d9e;
     width:100%;
     height:100%;
     position:relative;
@@ -188,11 +185,12 @@ div.promotion-bottom{
     z-index: 3;
 }
 .wrap-each-promotionhome2 .table-cell h4{
-    font-size:12px;
+    font-size:1.02rem;
     color:white;
-    padding:10px;
+    padding:5px;
     text-align: center;
     margin-bottom:0;
+    display:block;
 }
 @media screen and (max-width: 480px){
     .promotionhome-area{
@@ -211,6 +209,67 @@ div.promotion-bottom{
 }
 /* END OPTION */
 
+/* PROMOTION YELLOW HOME PAGE */
+.promotion-yellow {
+    padding:30px 10% 0;
+    text-align: center;
+
+}
+.promotion-yellow hr{
+    margin:15px auto;
+}
+.promotion-yellow .promotionhome-area .wrap-promotion-yellow{
+    width:calc(100%/4);
+    padding:0 10px;
+    float:left;
+}
+.promotion-yellow .promotionhome-area .wrap-promotion-yellow img{
+    margin:0 auto 10px;
+    max-width: 150px;
+}
+.promotion-yellow .promotionhome-area .wrap-promotion-yellow h4{
+    font-size:12px;
+    color:#050d9e;
+    padding:5px;
+    text-align: center;
+    margin-bottom:0;
+}
+
+
+/* END */
+
+/* CHIA SE TRAI NGHIEM OPTION DESK */
+.testimonial-desktop .inner-testi-desktop{
+    text-align: center;
+}
+.testimonial-desktop .inner-testi-desktop .pro-text h2{
+    font-size:20px;
+}
+.testimonial-desktop .inner-testi-desktop hr{
+    margin:15px auto;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .left-img{
+    width:40%;
+    float:left;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .right-img{
+    padding-left:calc(40% + 20px);
+    text-align: left;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .right-img h4.name{
+    font-size:16px;
+    margin-bottom:10px;
+    color:#050d9e;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .right-img {
+    font-size:12px;
+    color:#050d9e;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .right-img  .btn-test-dk{
+    text-transform: uppercase;
+    font-size:12px;
+}
+/* END */
 
 .testimonial-slide-home .wrap-each-testimotion .left-testi{
     width:150px;
@@ -219,7 +278,6 @@ div.promotion-bottom{
 .testimonial-slide-home .wrap-each-testimotion .left-testi img{
     width:128px;
     height:128px;
-    border:2px solid rgba(43, 50, 140, 0.45);
 }
 .testimonial-slide-home .wrap-each-testimotion .right-testi{
     width:calc(100% - 200px);
@@ -250,7 +308,6 @@ div.promotion-bottom{
         margin:0 auto 10px;
         width:150px;
         height:150px;
-        border:2px solid rgba(43, 50, 140, 0.45);
     }
     .testimonial-slide-home .wrap-each-testimotion .right-testi{
         width:auto;
@@ -292,7 +349,6 @@ div.promotion-bottom{
     margin:0 auto;
     display: block;
     border-radius:50%;
-    border:2px solid #050d9e;
     width:120px;
     height:120px;
 }
@@ -339,7 +395,6 @@ div.promotion-bottom{
     margin:0 auto;
     display: block;
     border-radius:50%;
-    border:1px solid #050d9e;
     width:100%;
     height:100%;
 }

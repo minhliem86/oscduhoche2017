@@ -6,6 +6,6 @@ class Promotion extends Model {
 
 	public $table = 'promotions';
 
-	protected $fillable =['name', 'slug','description','content','img_avatar','status','order'];
+	protected $fillable =['name', 'slug','description','content','img_avatar','img_icon','status','order'];
 
 }
