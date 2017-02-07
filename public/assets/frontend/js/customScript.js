@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('.wrap-each-promotionhome2').height($('.wrap-each-promotionhome2').width());
-    console.log($('.swiper-keypoint .swiper-slide:first-child').width());
+    // $('.testimonial-detail .testtimanial-avartar-slider').height($('.testimonial-detail .wrap-content-testimonial').height());
+    
 
     //initialize swiper when document ready
     var window_w = $(window).width();

@@ -24,7 +24,9 @@
                 speed: 1000,
                 autoplay: 6500,
                 slidesPerView: 1,
-                preventClicks: false
+                preventClicks: false,
+                pagination: '.swiper-pagination-testihome',
+                paginationClickable: true,
             })
 
             /*VIDEO*/
@@ -59,7 +61,7 @@
                 <div class="container-fluid">
                     <div class="inner-testi-desktop">
                         <div class="pro-text">
-                            <h2>Chia sẻ trải nghiệm</h2>
+                            <h2>Chia sẻ trải nghiệm Du Học Hè</h2>
                             <hr class="hr">
                         </div>
                         <div class="wrap-slider-testi-desktop">
@@ -79,6 +81,8 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <!--Add Pagination -->
+                            <div class="swiper-pagination swiper-pagination-testihome"></div>
                         </div>
                     </div>
                 </div>
@@ -217,7 +221,7 @@
 <section class="key-point">
     <div class="container">
         <div class="row">
-            <div class="inner-section">
+            <div class="inner-section bg-yellow">
                 <div class="container-fluid">
                     <h2 class="title">Tại sao nên chọn ILA?</h2>
                     <div class="row">
@@ -227,12 +231,8 @@
                                     <div class="swiper-slide">
                                         <div class="wrap-keypoint" id="first-key">
                                             <div class="wrap-inner-key">
-                                                <div class="wrap-img-key">
-                                                    <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/morong-ic.jpg" class="keypoint-img" alt="Mở rộng tầm nhìn ra thế giới">
-                                                </div>
-                                                <div class="table-cell">
-                                                    <p class="title-slider">Mở rộng tầm nhìn<br>ra thế giới </p>
-                                                </div>
+                                                <img src="{!!asset('public/assets/frontend')!!}/images/keypoint/morong-ic.jpg" class="keypoint-img" alt="Mở rộng tầm nhìn ra thế giới">
+                                                <p class="title-slider">Mở rộng tầm nhìn<br>ra thế giới </p>
                                             </div>
                                         </div>
                                     </div>

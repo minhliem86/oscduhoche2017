@@ -12,6 +12,7 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::get('trai-nghiem-du-hoc/{slug}',['as'=>'trainghiem.detail','uses'=>'TestimonialController@getTestimonialDetail'])->where(['slug'=>'[a-zA-Z0-9.\-]+']);
 
 	Route::get('lien-he',['as'=>'contact','uses'=>'ContactController@getIndex']);
+	Route::get('thank-you',['as'=>'contact.thankyou','uses'=>'ContactController@getThankyou']);
 	Route::post('lien-he',['as'=>'contact.postRegister','uses'=>'ContactController@postRegister']);
 	Route::post('ajaxCenter',['as'=>'contact.postAjaxCenter','uses'=>'ContactController@postAjaxCenter']);
 

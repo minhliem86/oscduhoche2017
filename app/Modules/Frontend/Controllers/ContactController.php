@@ -28,7 +28,7 @@ class ContactController extends Controller {
 	 */
 
 	public function getIndex(){
-		$promotion = Promotion::select('name','slug','description','img_avatar')->where('status',1)->orderBy('order','DESC')->get();
+		$promotion = Promotion::select('name','slug','description','img_avatar','img_icon')->where('status',1)->orderBy('order','DESC')->get();
 		return view('Frontend::pages.contact',compact('promotion'));
 	}
 
@@ -50,7 +50,8 @@ class ContactController extends Controller {
 		];
 		\DB::connection('mysql2')->table('lp_register_summer_2017')->insert($data);
 		// Register::create($data);
-		return view('Frontend::pages.thank-you');
+		\Session::flash('success');
+		return redirect()->route('contact.thankyou');
 		// return redirect()->back()->with('success','Cảm ơn bạn đã đăng ký thông tin tại ILA Du học.<br/>Nhân viên ILA sẽ liên lạc với bạn trong thời gian sớm nhất.');
 	}
 
@@ -62,6 +63,15 @@ class ContactController extends Controller {
 			$id_center = Location::where('id_city',$id_city)->select('id_center')->first()->id_center;
 			return response()->json(['rs'=>$id_center]);
 		}
+	}
+
+	public function getThankyou(){
+		if(\Session::has('success')){
+			return view('Frontend::pages.thank-you');
+		}else{
+			return redirect()->route('home');
+		}
+		
 	}
 
 }

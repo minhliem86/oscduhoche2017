@@ -26,12 +26,9 @@
                                             <img src="{!!$promotion_item->img_avatar!!}" class="img-responsive" alt="">
                                         </div>
                                         <div class="promotion-box clearfix">
-                                           <center>
-                                                <h3>{!!$promotion_item->name!!}</h3>
-                                            </center>
-                                            <div class="col-xs-12">
-                                                <p class="text-promotion">{!!$promotion_item->description!!}</p>
-                                            </div>
+                                            <h3>{!!$promotion_item->name!!}</h3>
+                                            <p class="text-promotion">{!!$promotion_item->description!!}</p>
+                                            <a href="{!!route('contact')!!}" class="btn btn-dk-promotion">ĐĂNG KÝ</a>
                                         </div>
                                     </div>
 
@@ -44,8 +41,6 @@
             </div>
         </div>
     </section>
-
-	
     <section class="promotion-bar hidden-xs hidden-sm">
         <div class="container">
             <div class="row">

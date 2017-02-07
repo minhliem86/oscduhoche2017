@@ -96,7 +96,7 @@
                                         <div class="inner-wrap-button">
                                             <div class="table-cell">
                                                 <p class="title-country">
-                                                <span>{!! count(explode(' ',$country_mobile->name)) > 2 ? '' : 'ILA Du Học'!!} {!!$country_mobile->name!!}</span> - <a href="{!!route('quocgia',$country_mobile->slug)!!}" class="btn-dk">Đăng ký ngay</a></p>
+                                                {!! count(explode(' ',$country_mobile->name)) > 2 ? '<span class="multi">'.$country_mobile->name.'</span>' : '<span> Du học hè '.$country_mobile->name.' - </span>'!!}</span> <a href="{!!route('quocgia',$country_mobile->slug)!!}" class="btn-dk">Đăng ký ngay</a></p>
                                             </div>
                                         </div>
                                     </div>

@@ -9,47 +9,62 @@
 
 @section('script')
 	<script src="{!!asset('public/assets/frontend')!!}/js/customScript.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function(){
+        var testiDetail = new Swiper('.testidetial-swiper',{
+            direction: 'vertical',
+            slidesPerView: 4,
+            height: 600,
+            autoplay: 3500,
+            speed: 900,
+            paginationClickable: true,
+            pagination: '.swiper-pagination-testidetail',
+        })
+    })
+    </script>
 @stop
 
 @section('content')
-	<section class="">
+	<section class="testimonial-detail">
         <div class="container">
             <div class="row">
                 <div class="inner-section testtimonial testtimonial-detail">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 visible-xs visible-sm">
+                            <div class="col-xs-12 col-sm-12">
                                 <div class="wrap-title-page-testi">
                                     <h4 class="title-testi">CHIA SẺ TRẢI NGHIỆM DU HỌC HÈ</h4>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-8">
-                                <div class="testimonial-img-box">
-                                    <img src="{!!$testimonial_detail->img_slides!!}" class="img-responsive" alt="">
-                                </div>
-                                <div class="authorsign visible-xs visible-sm">
-                                    <p style="margin:10px 0 0;"><b>{!!$testimonial_detail->author!!}</b></p>
-                                </div>
-                                <div class="box-text">
-                                    <p>{!!$testimonial_detail->content!!}</p>
-                                </div>
-                                <div class="authorsign text-right hidden-xs hidden-sm">
-                                    <p><b>{!!$testimonial_detail->author!!}</b></p>
-                                </div>
-                                @if($tour_rec)
-                                <div>
-                                    <p class="text-bold recommend">Các chương trình du học hấp dẫn</p>
-                                    <ul class="list-duhoc">
-                                        @foreach($tour_rec as $item_tour_rec)
-                                            <li><a href="{!!route('quocgia.detail',[App\Models\Country::find($item_tour_rec->country_id)->slug,$item_tour_rec->slug])!!}">{!!$item_tour_rec->title!!}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
+                                <div class="wrap-content-testimonial">
+                                    <div class="testimonial-img-box">
+                                        <img src="{!!$testimonial_detail->img_slides!!}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="authorsign visible-xs visible-sm">
+                                        <p style="margin:10px 0 0;"><b>{!!$testimonial_detail->author!!}</b></p>
+                                    </div>
+                                    <div class="box-text">
+                                        <p>{!!$testimonial_detail->content!!}</p>
+                                    </div>
+                                    <div class="authorsign text-right hidden-xs hidden-sm">
+                                        <p><b>{!!$testimonial_detail->author!!}</b></p>
+                                    </div>
+                                    @if($tour_rec)
+                                    <div>
+                                        <p class="text-bold recommend">Các chương trình du học hấp dẫn</p>
+                                        <ul class="list-duhoc">
+                                            @foreach($tour_rec as $item_tour_rec)
+                                                <li><a href="{!!route('quocgia.detail',[App\Models\Country::find($item_tour_rec->country_id)->slug,$item_tour_rec->slug])!!}">{!!$item_tour_rec->title!!}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                </div> <!-- end wrap-content-testimonial -->
                             </div>
                             <div class="col-xs-12 col-md-4 hidden-sm hidden-xs">
                                 <div class="testtimanial-avartar-slider">
-                                     <div class="swiper-container slider-lv4 slider-testimonial-detail">
+                                    <div class="swiper-container testidetial-swiper">
                                         <div class="swiper-wrapper">
                                             @if($testimonial_relate)
                                                 @foreach($testimonial_relate as $item_list_v)
@@ -60,19 +75,17 @@
                                                             </div>
                                                             <div class="col-xs-12 col-sm-8 col-md-9">
                                                                 <h4>{!!$item_list_v->author!!}</h4>
-                                                                <p>{!!$item_list_v->description!!}</p>
+                                                                <p>{!!Str::words($item_list_v->description,25)!!}</p>
                                                                 <a href="{!!route('trainghiem.detail',$item_list_v->slug)!!}" class="btn-readmore btn">XEM THÊM</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
-                                            @else
-                                                <h4>Các trải ngiệm khác</h4>
                                             @endif
                                         </div>
-                                        <!--Add Pagination -->
-                                        <!-- <div class="swiper-pagination"></div> -->
                                     </div>
+                                    <!--Add Pagination -->
+                                    <div class="swiper-pagination swiper-pagination-testidetail"></div>
                                 </div>
                             </div>
                         </div>

@@ -18,9 +18,11 @@
                 direction: 'vertical',
                 slidesPerView: 3,
                 height: 440,
+                pagination: '.swiper-pagination-ver',
                 autoplay: 3000,
                 speed: 1000,
                 preventClicks: false,
+                paginationClickable: true,
                 breakpoints:{
                     480: {
                         slidesPerView: 2
@@ -37,7 +39,8 @@
                 spaceBetween: 5,
                 autoplay: false,
                 autoplayDisableOnInteraction: false,
-                preventClicks: false
+                preventClicks: false,
+                paginationClickable: true,
             });
 
             mySwiper.params.control = SwiperTestiHori;
@@ -105,15 +108,14 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                         @endforeach
                                                     @endif
                                                 </div>
-                                                <!--Add Pagination -->
-                                                <!-- <div class="swiper-pagination"></div> -->
+
                                             </div>
                                         </div>
-
+                                        <!--Add Pagination -->
+                                        <div class="swiper-pagination-ver swiper-pagination"></div>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +128,7 @@
                                 <div class="col-xs-12 col-sm-12 ">
                                     @if($testimonial_list)
                                         @foreach($testimonial_list as $item_list_mobile)
-                                    
+
                                         <div class="wrap-each-testi-mobile">
                                             <a href="{!!route('trainghiem.detail',$item_list_mobile->slug)!!}"><img src="{!!$item_list_mobile->img_slides!!}" class="img-responsive" alt=""></a>
                                             <div class="testtimanial-slider-item">
@@ -134,12 +136,12 @@
                                                 <a href="{!!route('trainghiem.detail',$item_list_mobile->slug)!!}"><blockquote>{!!Str::words($item_list_mobile->description,25)!!}</blockquote></a>
                                             </div>
                                         </div>
-                                    
+
                                         @endforeach
                                     @endif
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

@@ -210,6 +210,9 @@
         color:white;
         margin:0;
     }
+    .wrap-multi-country .wrap-button-mobile .title-country span.multi{
+        display:block;
+    }
     .wrap-multi-country .wrap-button-mobile a.btn-dk{
         position:static;
         display: inline-block;

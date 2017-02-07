@@ -89,8 +89,8 @@
                                 </form>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-sm-pull-6 contact-left">
-                                <div class="wrap-promotion-contact">
+                            <div class="col-xs-12 col-sm-6 col-sm-pull-6 contact-left ">
+                                <div class="wrap-promotion-contact visible-sm visible-xs">
                                     <div class="pro-text">
                                         <h2>Chương trình khuyến mãi</h2>
                                         <!-- <hr class="hr"> -->
@@ -112,6 +112,23 @@
                                     </div>
                                     @else
                                         <p>Chúng tôi đang cập nhật thêm các chương trình khuyến mãi.</p>
+                                    @endif
+                                </div>
+
+                                <div class="promotion-yellow visible-md visible-lg">
+                                    <h2 class="title-promotion-yellow">Chương trình khuyến mãi</h2>
+                                    @if($promotion)
+                                    <div class="promotionhome-area clearfix">
+                                        @foreach($promotion as $item_promotion)
+                                        <div class="wrap-promotion-yellow">
+                                            <img src="{!!$item_promotion->img_icon!!}" alt="" class="img-circle img-responsive">
+                                            <h4>{!!$item_promotion->name!!}</h4>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <!-- <div class="wrap-btn">
+                                        <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ</a>
+                                    </div> -->
                                     @endif
                                 </div>
                             </div>
