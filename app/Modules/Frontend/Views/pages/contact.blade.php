@@ -22,6 +22,9 @@
 @stop
 
 @section('content')
+    <!-- **************** Banner ****************-->
+    @include('Frontend::layouts.banner')
+    <!-- **************** /Banner ****************-->
 	<section class="contact-footer">
        <div class="container">
             <div class="row">

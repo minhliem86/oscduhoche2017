@@ -57,9 +57,7 @@
                 <!--====================== Content ======================-->
                 <article class="container-fluid">
                     <div class="row {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getCountry' ? 'destination' : ''!!} {!!Request::segment(1) == '' ? 'home' : ''!!} {!!Request::segment(1) == 'lien-he' ? 'contact' : ''!!} {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' ? 'course-detail' : ''!!} {!!Request::segment(1) == 'khuyen-mai' ? 'promotion' : ''!!} {!!Request::segment(1) == 'trai-nghiem-du-hoc' ? 'testtimonial-box' : ''!!} ">
-                        <!-- **************** Banner ****************-->
-                        @include('Frontend::layouts.banner')
-                        <!-- **************** /Banner ****************-->
+                        
                         @yield('content')
                     </div>
                 </article>

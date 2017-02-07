@@ -25,7 +25,7 @@
                                             <div class="wrap-slider-country">
                                                 <a href="{!!route('quocgia',$item_country->slug)!!}"><img src="{!!$item_country->img_slide!!}"></a>
                                                 <h3 class="title-country">{!!$item_country->name!!}</h3>
-                                                <a href="{!!route('quocgia',$item_country->slug)!!}" class="btn-reg-slide">ĐĂNG KÝ</a>
+                                                <a href="{!!route('quocgia',$item_country->slug)!!}" class="btn-reg-slide">ĐĂNG KÝ NGAY</a>
                                             </div>
                                         </div>
                                         @endforeach
@@ -44,7 +44,7 @@
                                             <img src="{!!$country_item->img_avatar!!}" class="img-responsive" alt="">
                                         </div>
                                         <p class="title-country">{!!$country_item->name!!}</p>
-                                        <a href="{!!route('quocgia',$country_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
+                                        <a href="{!!route('quocgia',$country_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ NGAY</a>
                                     </div>
                                 @endforeach
                             @endif
@@ -59,7 +59,7 @@
                                         <img src="{!!$multi_item->img_avatar!!}" class="img-responsive" alt="">
                                     </div>
                                     <p class="title-country">{!!$multi_item->name!!}</p>
-                                    <a href="{!!route('quocgia',$multi_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ</a>
+                                    <a href="{!!route('quocgia',$multi_item->slug)!!}" class="btn btn-dis">ĐĂNG KÝ NGAY</a>
                                 </div>
                             </div>
                             @endforeach
@@ -79,7 +79,7 @@
                             @endforeach
                         </div>
                         <div class="wrap-btn">
-                            <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ</a>
+                            <a href="{!!route('contact')!!}" class="btn btn-readmore">ĐĂNG KÝ NGAY</a>
                         </div>
                         @endif
                     </div>

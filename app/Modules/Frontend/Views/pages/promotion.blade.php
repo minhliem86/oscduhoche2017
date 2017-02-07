@@ -12,6 +12,9 @@
 @stop
 
 @section('content')
+<!-- **************** Banner ****************-->
+@include('Frontend::layouts.banner')
+<!-- **************** /Banner ****************-->
  <section class="promotion-content">
         <div class="container">
             <div class="row">

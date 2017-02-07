@@ -19,6 +19,7 @@ $(document).ready(function () {
             }
         }
     });
+    
     var mySwiperhomehorizal = new Swiper ('.slider-lv2', {
         // Optional parameters
         pagination: '.swiper-pagination',

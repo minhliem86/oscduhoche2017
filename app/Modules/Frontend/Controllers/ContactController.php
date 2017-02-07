@@ -50,7 +50,8 @@ class ContactController extends Controller {
 		];
 		\DB::connection('mysql2')->table('lp_register_summer_2017')->insert($data);
 		// Register::create($data);
-		\Session::flash('success');
+		
+		\Session::flash('status','success');
 		return redirect()->route('contact.thankyou');
 		// return redirect()->back()->with('success','Cảm ơn bạn đã đăng ký thông tin tại ILA Du học.<br/>Nhân viên ILA sẽ liên lạc với bạn trong thời gian sớm nhất.');
 	}
@@ -66,7 +67,7 @@ class ContactController extends Controller {
 	}
 
 	public function getThankyou(){
-		if(\Session::has('success')){
+		if(\Session::has('status') && \Session::get('status') == 'success'){
 			return view('Frontend::pages.thank-you');
 		}else{
 			return redirect()->route('home');

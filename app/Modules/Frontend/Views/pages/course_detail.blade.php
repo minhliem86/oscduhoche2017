@@ -15,7 +15,7 @@
         <div class="row">
             <div class="inner-section bg-yellow course-detail-main">
                 <center>
-                    <h2>{!! $tour_detail->title!!}</h2>
+                    <h2>Du Học Hè {!!$tour_detail->title!!}</h2>
                     <hr class="hr">
                     <!-- <p class="title-sub">{!!$tour_detail->description!!}</p> -->
                 </center>

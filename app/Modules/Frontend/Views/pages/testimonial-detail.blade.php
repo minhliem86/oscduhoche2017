@@ -25,6 +25,9 @@
 @stop
 
 @section('content')
+    <!-- **************** Banner ****************-->
+    @include('Frontend::layouts.banner')
+    <!-- **************** /Banner ****************-->
 	<section class="testimonial-detail">
         <div class="container">
             <div class="row">

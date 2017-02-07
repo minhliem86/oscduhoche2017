@@ -20,6 +20,21 @@
                 $(this).find('.box-destination-content').slideUp('fast');
                 $(this).find('.content-destination').css({'background':'white'});
             })
+
+                var swiper = new Swiper('.swiper-keypoint', {
+                    slidesPerView: 5,
+                    paginationClickable: true,
+                    autoplay: 3500,
+                    speed: 1200,
+                    // nextButton: '.swiper-button-next',
+                    // prevButton: '.swiper-button-prev',
+                    autoplayDisableOnInteraction: false,
+                    breakpoints:{
+                        480:{
+                            slidesPerView: 2,
+                        }
+                    }
+                });
         })
     </script>
 @stop
@@ -53,7 +68,8 @@
                                             <div class="box-destination-content">
                                                 <p>{!!$tour->description!!}</p>
                                                 <div class="box-destination-footer">
-                                                    <a class="btn btn-reg-02" href="{!!route('contact')!!}">ĐĂNG KÝ</a>
+                                                    <a class="btn btn-reg-02" href="{!!route('contact')!!}">ĐĂNG KÝ Ngay</a>
+                                                    <a class="btn btn-coursedetail" href="{!!route('quocgia.detail',[$country_data->slug,$tour->slug])!!}">ĐỌC THÊM</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,7 +89,9 @@
     </div>
 </section>
 <!-- **************** /Wellcome ****************-->
-
+<!-- KEYPOINT -->
+@include('Frontend::layouts.keypoint')
+<!-- END KEY -->
 <!-- **************** Register ****************-->
 <section class="reg clearfix">
     <div class="container">

@@ -139,6 +139,7 @@ div.promotion-bottom{
     font-size:12px;
     padding:4px 18px 4px;
     line-height: 20px;
+    width:auto;
 }
 
 /* OPTION 2 */
@@ -223,7 +224,7 @@ div.promotion-bottom{
     padding:0 10px;
     float:left;
 }
-.promotion-yellow .promotionhome-area .wrap-promotion-yellow img{
+.discover .promotion-yellow .promotionhome-area .wrap-promotion-yellow img{
     margin:0 auto 10px;
     max-width: 150px;
 }
@@ -251,10 +252,26 @@ div.promotion-bottom{
 
 /* CHIA SE TRAI NGHIEM OPTION DESK */
 .testimonial-desktop .inner-testi-desktop{
-    text-align: center;
+    text-align: left;
     position:relative;
 }
-.testimonial-desktop .inner-testi-desktop .swiper-pagination-testihome{
+.testimonial-desktop .inner-testi-desktop .wrap-testidesk .each-testhome{
+    margin-bottom:10px;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-testidesk .each-testhome img{
+    margin:0 auto 10px;
+}
+.testimonial-desktop .inner-testi-desktop .wrap-testidesk .each-testhome h4.name{
+    
+}
+.testimonial-desktop .inner-testi-desktop .pro-text h2{
+    font-size:20px;
+    text-align: center
+}
+.testimonial-desktop .inner-testi-desktop hr{
+    margin:15px auto;
+}
+/*.testimonial-desktop .inner-testi-desktop .swiper-pagination-testihome{
     position:absolute;
     bottom:2%;
     right:2%;
@@ -269,12 +286,7 @@ div.promotion-bottom{
     background: #ffcb05;
     opacity: 1
 }
-.testimonial-desktop .inner-testi-desktop .pro-text h2{
-    font-size:20px;
-}
-.testimonial-desktop .inner-testi-desktop hr{
-    margin:15px auto;
-}
+
 .testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .left-img{
     width:40%;
     float:left;
@@ -300,7 +312,7 @@ div.promotion-bottom{
 .testimonial-desktop .inner-testi-desktop .wrap-slider-testi-desktop  .right-img  .btn-test-dk{
     text-transform: uppercase;
     font-size:12px;
-}
+}*/
 /* END */
 
 .testimonial-slide-home .wrap-each-testimotion .left-testi{
@@ -791,8 +803,10 @@ div.promotion-bottom{
     margin-bottom:8px;
     min-height:50px;
 }
-.box-destination .box-destination-content{
+.box-destination .box-destination-content .box-destination-footer .btn-reg-02{
     /*display:none;*/
+    width:120px;
+    text-transform: uppercase
 }
 .box-destination .box-destination-content p{
     font-size:12px;

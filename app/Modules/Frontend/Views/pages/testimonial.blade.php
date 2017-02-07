@@ -50,6 +50,9 @@
 @stop
 
 @section('content')
+<!-- **************** Banner ****************-->
+@include('Frontend::layouts.banner')
+<!-- **************** /Banner ****************-->
 	 <!-- **************** Testtimonial ****************-->
     <section class="testtimonial">
         <div class="container">
