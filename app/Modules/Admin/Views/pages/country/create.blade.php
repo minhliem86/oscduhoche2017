@@ -49,6 +49,10 @@
 						<span class="inline-radio"><input type="radio" name="status" value="0" > <b>Deactive</b> </span>
 					</div>
 				</div>
+				<div class="form-margin">
+					<label for="img_banner">Hình Banner</label>
+					{!!Form::file('img-banner')!!}
+				</div>
 
 				<div class="form-group">
 					{!!Form::submit('Save',array('class'=>'btn btn-primary'))!!}

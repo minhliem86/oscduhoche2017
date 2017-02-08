@@ -5,6 +5,7 @@ use App\Models\Country;
 use Illuminate\Http\Request;
 use Notification;
 use App\Http\Requests\ImageRequest;
+use App\Models\Image as ImgModel;
 
 
 class CountryController extends Controller {
@@ -12,12 +13,13 @@ class CountryController extends Controller {
 	protected $country;
 
     protected $upload_folder = 'country';
+    protected $upload_folder_banner = 'banner';
     protected $upload_sub_folder = "slider";
 
 	public function __construct(Country $country){
 		$this->country = $country;
 	}
-	
+
 	public function index()
     {
         $country = $this->country->select('id','name','status','order','img_avatar')->get();
@@ -78,7 +80,7 @@ class CountryController extends Controller {
             $size = getimagesize($file);
              \Image::make($file->getRealPath())->resize(660,325)->save($filename_resize);
             // if($size[0] > 660){
-               
+
             // }else{
             //     $file->move($destinationPath,$filename);
             // }
@@ -89,7 +91,6 @@ class CountryController extends Controller {
             $imgslide_url = asset('public/assets/frontend/images/default-img/country-default.jpg');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
-
 
         $data = [
             'name'=>$request->name,
@@ -102,7 +103,25 @@ class CountryController extends Controller {
             'img_slide'=> $imgslide_url,
             'order'=>$current
         ];
-        $this->country->create($data);
+        $country = $this->country->create($data);
+
+        if($imgrequest->hasFile('img-banner')){
+            $file = $imgrequest->file('img-banner');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_folder_banner;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            $filename_resize = $destinationPath.'/'.$filename;
+             \Image::make($file->getRealPath())->resize(1170,350)->save($filename_resize);
+            $imgbanner_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_folder_banner.'/'.$filename;
+
+            $order_img = ImgModel::orderBy('order','DESC')->first();
+            count($order_img) == 0 ?  $current = 1 :  $current = $order->order +1 ;
+
+            $image = new ImgModel(['img_url'=>$imgbanner_url,'status'=>1,'order'=>$order_img,'type'=>'banner_country']);
+            $country->images()->save($image);
+        }
+
         Notification::success('Created');
         return  redirect()->route('admin.country.index');
     }
@@ -171,7 +190,7 @@ class CountryController extends Controller {
             // dd($size);
             \Image::make($file->getRealPath())->resize(660,325)->save($filename_resize);
             // if($size[0] > 660){
-                
+
             // }else{
             //     $file->move($destinationPath,$filename);
             // }
@@ -233,5 +252,5 @@ class CountryController extends Controller {
             return response()->json(['msg'=>'done']);
         }
     }
-	
+
 }

@@ -393,8 +393,9 @@ div.promotion-bottom{
     margin:0 auto;
     display: block;
     border-radius:50%;
-    width:120px;
-    height:120px;
+    /*width:120px;
+    height:120px;*/
+    max-width:90%;
 }
 
 .wrap-keypoint hr{

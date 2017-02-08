@@ -8,4 +8,8 @@ class Image extends Model {
 
 	protected $fillable = ['img_url','img_alt','status','order','type'];
 
+	public function countries(){
+		return $this->belongsTo('App\Models\Country','country_id');
+	}
+
 }
