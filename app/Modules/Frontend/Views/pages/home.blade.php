@@ -5,7 +5,6 @@
 @stop
 
 @section('script')
-    <script src="{!!asset('public/assets/frontend')!!}/js/jquery.md5.js"></script>
     <script src="{!!asset('public/assets/frontend')!!}/js/common.js"></script>
     <!-- VIDEO -->
     <link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/js/video/plyr.css">
@@ -32,14 +31,14 @@
 
             /*VIDEO*/
             plyr.setup();
+
+
         })
     </script>
 @stop
 
 @section('content')
-<!-- **************** Banner ****************-->
 @include('Frontend::layouts.banner')
-<!-- **************** /Banner ****************-->
 <!-- **************** Wellcome ****************-->
 <section class="wellcome">
     <div class="container">

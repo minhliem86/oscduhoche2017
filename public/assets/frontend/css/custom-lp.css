@@ -923,15 +923,24 @@ div.promotion-bottom{
 
 
 /* BANNER DESTINATION */
-.banner-destination .tp-banner-container{
+.banner-homepage, .banner-destination{
+    padding-top:10px;
+    background:white;
+}
+.banner-homepage .tp-banner-container, .banner-destination .tp-banner-container{
     width:100%;
     position:relative;
     padding:0;
 }
-.banner-destination .tp-banner-container .tp-banner{
+.banner-homepage .tp-banner-container .tp-banner, .banner-destination .tp-banner-container .tp-banner{
     width:100%;
     position:relative;
 }
+.banner-homepage .tp-banner-container .tp-banner ul,
+.banner-destination .tp-banner-container .tp-banner ul{
+    list-style: none
+}
+.banner-homepage .tp-banner-container .tp-banner .tp-bannertimer, 
 .banner-destination .tp-banner-container .tp-banner .tp-banner .tp-bannertimer{
     display: none !important;
     opacity: 0 !important;

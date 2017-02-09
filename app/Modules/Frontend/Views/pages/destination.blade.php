@@ -10,9 +10,7 @@
 @stop
 
 @section('script')
-    <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/js/revolution/css/settings.css">
-    <script src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.plugins.min.js"></script>
-    <script src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.revolution.min.js"></script>
+
     <script>
         $(document).ready(function(){
             $('.box-destination-content').hide();
@@ -38,14 +36,6 @@
                     }
                 }
             });
-
-            $('.tp-banner').revolution({
-                delay:5000,
-                startwidth:1170,
-                startheight:350,
-                hideThumbs:10,
-                navigationType:'none'
-            })
 
         })
     </script>

@@ -71,44 +71,42 @@
     </div>
     <script src="{!!asset('public/assets/frontend/')!!}/js/jquery-2.1.1.js" type="text/javascript"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/bootstrap.min.js" type="text/javascript"></script>
-     <script src="{!!asset('public/assets/frontend')!!}/js/jquery.validate.min.js"></script>
+    <script src="{!!asset('public/assets/frontend')!!}/js/jquery.validate.min.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/swiper.min.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/jquery.matchHeight.js"></script>
     <script src="{!!asset('public/assets/frontend/')!!}/js/jquery.md5.js"></script>
     <!-- REVOLUTION -->
-    <script type="text/javascript" src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.plugins.min.js"></script>
-    <script type="text/javascript" src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.revolution.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{!!asset('public/assets/frontend/')!!}/js/revolution/css/settings.css">
+    <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/js/revolution/css/settings.css">
+    <script src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.plugins.min.js"></script>
+    <script src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.revolution.min.js"></script>
     <!-- END -->
     <script>
         $(document).ready(function () {
             $('.wrap-multi-country').matchHeight({})
-
-            // $('.main-banner').revolution(
-            // {
-            //     delay:9000,
-            //     startwidth:1170,
-            //     startheight:350,
-            //     hideThumbs:10
-
-            // });
-
             $('#id_city').on('change',function(){
                 var id_city = $(this).val();
                 var token = $('input[name="_token"]').val();
-                console.log(token);
                 $.ajax({
                     url: "{!!route('contact.postAjaxCenter')!!}",
                     data: {'_token':token, 'data':id_city},
                     type: "POST",
                     success:function(data){
                         $('#id_center').val(data.rs);
-                        console.log(data.rs);
                     },
                 })
             });
         });
-
+    </script>
+     <script>
+        $(document).ready(function(){
+            $('.tp-banner').revolution({
+                delay:5000,
+                startwidth:1170,
+                startheight:350,
+                hideThumbs:10,
+                navigationType:'none'
+            })
+        })
     </script>
     @yield('script')
 
