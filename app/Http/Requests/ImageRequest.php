@@ -22,7 +22,8 @@ class ImageRequest extends Request {
 	public function rules()
 	{
 		return [
-			'img' =>'mimes:jpeg,bmp,png'
+			'img' =>'mimes:jpeg,bmp,png|max:5000',
+
 		];
 	}
 

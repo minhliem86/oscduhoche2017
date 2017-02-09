@@ -10,6 +10,9 @@
 @stop
 
 @section('script')
+    <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/js/revolution/css/settings.css">
+    <script src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.plugins.min.js"></script>
+    <script src="{!!asset('public/assets/frontend/')!!}/js/revolution/jquery.themepunch.revolution.min.js"></script>
     <script>
         $(document).ready(function(){
             $('.box-destination-content').hide();
@@ -21,26 +24,55 @@
                 $(this).find('.content-destination').css({'background':'white'});
             })
 
-                var swiper = new Swiper('.swiper-keypoint', {
-                    slidesPerView: 5,
-                    paginationClickable: true,
-                    autoplay: 3500,
-                    speed: 1200,
-                    // nextButton: '.swiper-button-next',
-                    // prevButton: '.swiper-button-prev',
-                    autoplayDisableOnInteraction: false,
-                    breakpoints:{
-                        480:{
-                            slidesPerView: 2,
-                        }
+            var swiper = new Swiper('.swiper-keypoint', {
+                slidesPerView: 5,
+                paginationClickable: true,
+                autoplay: 3500,
+                speed: 1200,
+                // nextButton: '.swiper-button-next',
+                // prevButton: '.swiper-button-prev',
+                autoplayDisableOnInteraction: false,
+                breakpoints:{
+                    480:{
+                        slidesPerView: 2,
                     }
-                });
+                }
+            });
+
+            $('.tp-banner').revolution({
+                delay:5000,
+                startwidth:1170,
+                startheight:350,
+                hideThumbs:10,
+                navigationType:'none'
+            })
+
         })
     </script>
 @stop
 
 @section('content')
 <!-- **************** Wellcome ****************-->
+@if(!$country_data->images()->get()->isEmpty())
+<section class="banner container clearfix">
+    <div class="row">
+        <div class="banner-destination">
+            <div class="tp-banner-container">
+                <div class="tp-banner" >
+                    <ul>
+                        @foreach($country_data->images()->get() as $imgbanner)
+                        <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500">
+                            <!-- MAIN IMAGE -->
+                            <img src="{!!$imgbanner->img_url!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>  <!-- banner-destination -->
+    </div>
+</section>
+@endif
 <section>
     <div class="container">
         <div class="row">

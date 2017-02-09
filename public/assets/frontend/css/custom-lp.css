@@ -920,3 +920,20 @@ div.promotion-bottom{
      font-family: 'gillsansregular', sans-serif;
     font-weight: bold;
 }
+
+
+/* BANNER DESTINATION */
+.banner-destination .tp-banner-container{
+    width:100%;
+    position:relative;
+    padding:0;
+}
+.banner-destination .tp-banner-container .tp-banner{
+    width:100%;
+    position:relative;
+}
+.banner-destination .tp-banner-container .tp-banner .tp-banner .tp-bannertimer{
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}

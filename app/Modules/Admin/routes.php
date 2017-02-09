@@ -24,6 +24,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 		/*COUTRY*/
 		Route::post('country/deleteall',['as'=>'admin.country.deleteall','uses'=>'CountryController@deleteAll']);
+		Route::post('country/ajaxRemoveBanner',['as'=>'admin.country.removeBanner','uses'=>'CountryController@removeBanner']);
 		Route::resource('country','CountryController');
 
 		/*LOCATION*/

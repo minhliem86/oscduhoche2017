@@ -37,7 +37,7 @@ class DestinationController extends Controller {
 		if($slug != null){
 			$country_data = $this->country->select('id','name','description','slug')->where('slug',$slug)->where('status',1)->with(['tour'=>function($query){
 				$query->select('id','title','description','age','start','end','slug');
-			}])->first();
+			},'images'])->first();
 			return view('Frontend::pages.destination',compact('country_data'));
 		}
 		return redirect()->back();

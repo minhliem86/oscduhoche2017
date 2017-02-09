@@ -42,3 +42,16 @@ ul.list-img li { display: inline-block; width: 20%; padding: 5px; float: left; }
 ul.list-img li div.each-img { background: #ededed; padding: 5px; border-radius: 3px; text-align: center; }
 ul.list-img li div.each-img p { margin: 0; }
 ul.list-img li div.each-img p input { text-align: center; border: 1px solid #bcbcbc; border-radius: 3px; display: inline-block; }
+
+ul.ul-image {
+	margin:0; padding:0;
+	list-style: none;
+}
+ul.ul-image li{
+	float:left;
+	width:calc(100%/5);
+	padding:10px;
+}
+ul.ul-image li button{
+	width:100%;
+}

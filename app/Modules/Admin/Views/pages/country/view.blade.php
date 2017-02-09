@@ -8,6 +8,11 @@
 <section class="content">
 	<div class="box">
 		<div class="container-fluid">
+			@if($errors->all())
+				@foreach($errors->all() as $err)
+				<p>{!!$err!!}</p>
+				@endforeach
+			@endif
 			{!!Form::model($country,array('route'=>array('admin.country.update',$country->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
 					<label for="">Quốc gia</label>
@@ -17,7 +22,7 @@
 					<label for="">Mô tả</label>
 					{!!Form::textarea('description',old('description'),array('class'=>'form-control'))!!}
 				</div>
-				
+
 				<div class="form-group">
 					<label for="" >Sắp xếp</label>
 					{!!Form::text('order',old('order'),array('class'=>'form-control'))!!}
@@ -45,7 +50,7 @@
 						<span class="inline-radio"><input type="radio" name="multi_countries" value="1" {!!$country->multi_countries == 1 ? 'checked' : ''!!}> <b>Có</b> </span>
 						<span class="inline-radio"><input type="radio" name="multi_countries" value="0" {!!$country->multi_countries == 0 ? 'checked' : ''!!}> <b>Không</b> </span>
 					</div>
-					
+
 				</div>
 				<div class="form-group">
 					<label for="">Hiển thị theo lựa chọn</label>
@@ -53,11 +58,32 @@
 						<span class="inline-radio"><input type="radio" name="home_show" value="1" {!!$country->home_show == 1 ? 'checked' : ''!!}> <b>Có</b> </span>
 						<span class="inline-radio"><input type="radio" name="home_show" value="0" {!!$country->home_show == 0 ? 'checked' : ''!!}> <b>Không</b> </span>
 					</div>
-					
+				</div>
+				@if(!$country->images()->get()->isEmpty())
+				<div class="form-group">
+					<label for="">Hình Banner</label>
+					<div>
+						<ul class="ul-image">
+							@foreach($country->images()->get() as $image)
+							<li>
+								<img src="{!!$image->img_url!!}" class="img-responsive" alt="">
+								<button type="button" data-id="{!!$image->id!!}" class="remove-banner btn btn-xs btn-danger">Remove</button>
+							</li>
+							@endforeach
+						</ul>
+					</div>
+				</div>
+				@endif
+				<div class="form-group">
+					<label for="img-banner">Hình Banner</label>
+					{!!Form::file('img-banner')!!}
 				</div>
 				<div class="form-group">
-					<span class="inline-radio"><input type="radio" name="status" value="1" {!!$country->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
-					<span class="inline-radio"><input type="radio" name="status" value="0" {!!$country->status == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>
+					<label for="status">Trạng thái hoạt động</label>
+					<div>
+						<span class="inline-radio"><input type="radio" name="status" value="1" {!!$country->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
+						<span class="inline-radio"><input type="radio" name="status" value="0" {!!$country->status == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>
+					</div>
 				</div>
 
 				<div class="form-group">
@@ -71,6 +97,23 @@
 
 @section('script')
 <script>
-
+$(document).ready(function(){
+	$('.remove-banner').click(function(){
+		var thisbtn = $(this);
+		var id = thisbtn.data('id');
+		alertify.confirm('You can not undo this action. Are you sure ?', function(e){
+			if(e){
+				$.ajax({
+					'url':'{!!route("admin.country.removeBanner")!!}',
+					'data' : {id: id,_token:$('meta[name="csrf-token"]').attr('content')},
+					'type':'POST',
+					'success':function(data){
+						thisbtn.parent().remove();
+					}
+				})
+			}
+		})
+	})
+})
 </script>
 @stop

@@ -116,9 +116,9 @@ class CountryController extends Controller {
             $imgbanner_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_folder_banner.'/'.$filename;
 
             $order_img = ImgModel::orderBy('order','DESC')->first();
-            count($order_img) == 0 ?  $current = 1 :  $current = $order->order +1 ;
+            count($order_img) == 0 ?  $current = 1 :  $current = $order_img->order +1 ;
 
-            $image = new ImgModel(['img_url'=>$imgbanner_url,'status'=>1,'order'=>$order_img,'type'=>'banner_country']);
+            $image = new ImgModel(['img_url'=>$imgbanner_url,'status'=>1,'order'=>$current,'type'=>'banner_country']);
             $country->images()->save($image);
         }
 
@@ -145,7 +145,8 @@ class CountryController extends Controller {
      */
     public function edit($id)
     {
-        $country = $this->country->find($id);
+        $country = $this->country->with('images')->find($id);
+        // dd($country);
         return view('Admin::pages.country.view')->with(compact('country'));
     }
 
@@ -212,6 +213,23 @@ class CountryController extends Controller {
         $country->order = $request->order;
         $country->save();
 
+        if($imgrequest->hasFile('img-banner')){
+            $file = $imgrequest->file('img-banner');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_folder_banner;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            $filename_resize = $destinationPath.'/'.$filename;
+             \Image::make($file->getRealPath())->resize(1170,350)->save($filename_resize);
+            $imgbanner_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_folder_banner.'/'.$filename;
+
+            $order_img = ImgModel::orderBy('order','DESC')->first();
+            count($order_img) == 0 ?  $current = 1 :  $current = $order_img->order +1 ;
+
+            $image = new ImgModel(['img_url'=>$imgbanner_url,'status'=>1,'order'=>$current,'type'=>'banner_country']);
+            $country->images()->save($image);
+        }
+
         Notification::success('Updated');
         return  redirect()->route('admin.country.index');
     }
@@ -250,6 +268,16 @@ class CountryController extends Controller {
         }else{
             $country->delete();
             return response()->json(['msg'=>'done']);
+        }
+    }
+
+    public function removeBanner(Request $request){
+        if($request->ajax()){
+            $img_id = $request->input('id');
+            ImgModel::destroy($img_id);
+            return response()->json(['rs'=>'ok']);
+        }else{
+            abort('404');
         }
     }
 
