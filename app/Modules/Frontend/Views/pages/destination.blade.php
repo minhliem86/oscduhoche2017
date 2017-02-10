@@ -1,6 +1,10 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
+    <meta property="og:image" content="{!!asset('public/assets/frontend/')!!}/images/fb-share.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
+    
     <meta name="keywords" content=" du học hè {!!$country_data->name!!}, du học hè, du học hè 2017, ila du học hè">
     <meta name="description" content="Trải nghiệm chương trình du học hè {!!$country_data->name!!} với môi trường sống và học tập của một du học sinh {!!$country_data->name!!} thực thụ.">
 @stop

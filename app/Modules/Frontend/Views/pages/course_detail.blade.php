@@ -1,7 +1,9 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
-
+ 	<meta property="og:image" content="{!!asset('public/assets/frontend/')!!}/images/fb-share/fb-share-my.jpg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
 @stop
 
 @section('script')
@@ -55,4 +57,5 @@
 </section>
 <!-- **************** Discover ****************-->
 @include('Frontend::layouts.listCountries')
+@include("Frontend::layouts.keypoint")
 @stop

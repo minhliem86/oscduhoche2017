@@ -8,11 +8,6 @@
 <section class="content">
 	<div class="box">
 		<div class="container-fluid">
-			@if($errors->all())
-				@foreach($errors->all() as $err)
-				<p>{!!$err!!}</p>
-				@endforeach
-			@endif
 			{!!Form::model($country,array('route'=>array('admin.country.update',$country->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
 					<label for="">Quốc gia</label>

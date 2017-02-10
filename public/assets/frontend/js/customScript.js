@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('.wrap-each-promotionhome2').height($('.wrap-each-promotionhome2').width());
-    // $('.testimonial-detail .testtimanial-avartar-slider').height($('.testimonial-detail .wrap-content-testimonial').height());
-    
+    console.log($('.swiper-keypoint .swiper-slide:first-child').width());
 
     //initialize swiper when document ready
     var window_w = $(window).width();
@@ -19,7 +18,6 @@ $(document).ready(function () {
             }
         }
     });
-    
     var mySwiperhomehorizal = new Swiper ('.slider-lv2', {
         // Optional parameters
         pagination: '.swiper-pagination',
@@ -124,4 +122,5 @@ $(document).ready(function () {
             },
         })
     })
+
 });

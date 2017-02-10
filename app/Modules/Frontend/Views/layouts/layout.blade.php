@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{!!csrf_token()!!}">
+    <meta property="og:description" content="ILA Du Học giới thiệu chương trình Du Học Hè 2017 với 4 giá trị cốt lõi: Phiêu Lưu, Trải Nghiệm, Tự Lập và Trưởng Thành." >
+
     @yield('meta')
     <title>@yield('title','ILA Du Học Hè 2017')</title>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
