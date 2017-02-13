@@ -6,7 +6,7 @@ class Tour extends Model {
 
 	public $table = 'tours';
 
-	protected $fillable = ['title','description','content','img_avatar','partner','stay','week','start','end','price','age','order','status','country_id','slug'];
+	protected $fillable = ['title','description','content','img_avatar','partner','stay','week','start','end','price','age','order','status','country_id','slug','img_sharing'];
 
 	public function country(){
 		return $this->belongsTo('App\Models\Country','country_id');

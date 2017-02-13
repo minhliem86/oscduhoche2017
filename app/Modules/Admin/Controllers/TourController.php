@@ -65,22 +65,40 @@ class TourController extends Controller {
             $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
             $filename = time().'_'.$name;
 
+            
+            $file_resize = $destinationPath.'/'.$filename;
+
+            \Image::make($file->getRealPath())->resize(720,440)->save($file_resize);
+            
+
+            $img_url = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
+            // $img_alt = \GetNameImage::make('\/',$filename);
+        }else{
+            $img_url = asset('public/assets/frontend/images/default-img/country-default.jpg');
+            // $img_alt = \GetNameImage::make('\/',$img_url);
+        }
+        if($imgrequest->hasFile('img-sharing')){
+            $file = $imgrequest->file('img-sharing');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
             // $file->move($destinationPath,$filename);
 
             // $size = getimagesize($file);
             $file_resize = $destinationPath.'/'.$filename;
 
-            \Image::make($file->getRealPath())->resize(720,440)->save($file_resize);
+            \Image::make($file->getRealPath())->resize(600,315)->save($file_resize);
             // if($size[0] > 620){
             //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
             // }else{
             //     $file->move($destinationPath,$filename);
             // }
 
-            $img_url = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
+            $img_sharing = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
         }else{
-            $img_url = asset('public/assets/frontend/images/default-img/country-default.jpg');
+            $img_sharing = asset('public/assets/frontend/images/default-img/country-default.jpg');
             // $img_alt = \GetNameImage::make('\/',$img_url);
         }
 
@@ -97,6 +115,7 @@ class TourController extends Controller {
             'price' => $request->price,
             'age' => $request->age,
             'img_avatar' => $img_url,
+            'img_sharing' => $img_sharing,
             'country_id' => $request->country_id,
             'status'=> $request->status,
             'order'=>$current
@@ -193,6 +212,30 @@ class TourController extends Controller {
         }else{
             $img_url = $request->input('img-bk');
         }
+        if($imgrequest->hasFile('img-sharing')){
+            $file = $imgrequest->file('img-sharing');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+
+            // $size = getimagesize($file);
+            $file_resize = $destinationPath.'/'.$filename;
+
+            \Image::make($file->getRealPath())->resize(600,315)->save($file_resize);
+            // if($size[0] > 620){
+            //     \Image::make($file->getRealPath())->resize(620,null,function($constraint){$constraint->aspectRatio();})->save($destinationPath.'/'.$filename);
+            // }else{
+            //     $file->move($destinationPath,$filename);
+            // }
+
+            $img_sharing = asset('public/upload').'/'.$this->upload_folder.'/'.$filename;
+            // $img_alt = \GetNameImage::make('\/',$filename);
+        }else{
+            $img_sharing = $request->input('img-bk-sharing');
+            // $img_alt = \GetNameImage::make('\/',$img_url);
+        }
 
         $tour = $this->tour->find($id);
         $tour->title = $request->title;
@@ -200,6 +243,7 @@ class TourController extends Controller {
         $tour->description = $request->input('description');
         $tour->content = $request->input('content');
         $tour->img_avatar = $img_url;
+        $tour->img_sharing = $img_sharing;
         $tour->partner = $request->input('partner');
         $tour->stay = $request->input('stay');
         $tour->week = $request->input('week');

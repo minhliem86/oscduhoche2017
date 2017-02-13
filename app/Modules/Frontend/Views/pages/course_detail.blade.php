@@ -1,7 +1,7 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
- 	<meta property="og:image" content="{!!asset('public/assets/frontend/')!!}/images/fb-share/fb-share-my.jpg">
+ 	<meta property="og:image" content="{!!$tour_detail->img_sharing!!}">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="315">
 @stop

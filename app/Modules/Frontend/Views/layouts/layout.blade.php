@@ -101,10 +101,18 @@
     </script>
      <script>
         $(document).ready(function(){
-            $('.tp-banner').revolution({
+            $('.banner-homepage .tp-banner').revolution({
                 delay:5000,
                 startwidth:1170,
                 startheight:350,
+                hideThumbs:10,
+                navigationType:'none'
+            })
+
+            $('.banner-mobile .tp-banner').revolution({
+                delay:5000,
+                startwidth:1170,
+                startheight:600,
                 hideThumbs:10,
                 navigationType:'none'
             })

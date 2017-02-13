@@ -10,9 +10,16 @@
 		<div class="container-fluid">
 			{!!Form::open(array('route'=>array('admin.tour.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Hình đại diện ()</label>
+					<label for="">Hình đại diện</label>
 					{!!Form::file('img')!!}
 					@if($errors->first('img'))
+						<p class="error">{!!$errors->first('img')!!}</p>
+					@endif
+				</div>
+				<div class="form-group">
+					<label for="">Hình Sharing FB (600x315)</label>
+					{!!Form::file('img')!!}
+					@if($errors->first('img-sharing'))
 						<p class="error">{!!$errors->first('img')!!}</p>
 					@endif
 				</div>

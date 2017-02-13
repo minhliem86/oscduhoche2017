@@ -133,6 +133,16 @@
 					</p>
 					{!!Form::file('img')!!}
 				</div>
+				
+				<div class="form-group">
+					<label for="" >Hình FB sharing (600x315)</label>
+					<p>
+						<img src="{!!$tour->img_sharing!!}" width="150" alt="">
+						{!!Form::hidden('img-bk-sharing',$tour->img_sharing)!!}
+					</p>
+					{!!Form::file('img-sharing')!!}
+				</div>
+				
 				<div class="form-group">
 					<span class="inline-radio"><input type="radio" name="status" value="1" {!!$tour->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
 					<span class="inline-radio"><input type="radio" name="status" value="0" {!!$tour->status == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>
