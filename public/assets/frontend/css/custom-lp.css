@@ -923,27 +923,29 @@ div.promotion-bottom{
 
 
 /* BANNER DESTINATION */
-.banner-homepage, .banner-destination, .banner-mobile{
+.banner-homepage, .banner-destination, .banner-mobile, .banner-destination-mobile{
     padding-top:10px;
     background:white;
 }
-.banner-homepage .tp-banner-container, .banner-destination .tp-banner-container, .banner-mobile .tp-banner-container{
+.banner-homepage .tp-banner-container, .banner-destination .tp-banner-container, .banner-mobile .tp-banner-container, .banner-destination-mobile .tp-banner-container{
     width:100%;
     position:relative;
     padding:0;
 }
-.banner-homepage .tp-banner-container .tp-banner, .banner-destination .tp-banner-container .tp-banner, .banner-mobile .tp-banner-container .tp-banner{
+.banner-homepage .tp-banner-container .tp-banner, .banner-destination .tp-banner-container .tp-banner, .banner-mobile .tp-banner-container .tp-banner, .banner-destination-mobile .tp-banner-container .tp-banner{
     width:100%;
     position:relative;
 }
 .banner-homepage .tp-banner-container .tp-banner ul,
 .banner-destination .tp-banner-container .tp-banner ul,
-.banner-mobile .tp-banner-container .tp-banner ul{
+.banner-mobile .tp-banner-container .tp-banner ul,
+.banner-destination-mobile .tp-banner-container .tp-banner ul{
     list-style: none
 }
 .banner-homepage .tp-banner-container .tp-banner .tp-bannertimer, 
 .banner-destination .tp-banner-container .tp-banner .tp-bannertimer,
-.banner-mobile .tp-banner-container .tp-banner .tp-bannertimer{
+.banner-mobile .tp-banner-container .tp-banner .tp-bannertimer,
+.banner-destination-mobile .tp-banner-container .tp-banner .tp-bannertimer{
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;

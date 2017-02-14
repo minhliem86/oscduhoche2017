@@ -1,10 +1,10 @@
 @extends('Frontend::layouts.layout')
 
 @section('meta')
-    <meta property="og:image" content="{!!asset('public/assets/frontend/')!!}/images/fb-share.png">
+    <meta property="og:image" content="{!!asset('public/assets/frontend')!!}/images/fb-share.png">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="315">
-    
+
     <meta name="keywords" content=" du học hè {!!$country_data->name!!}, du học hè, du học hè 2017, ila du học hè">
     <meta name="description" content="Trải nghiệm chương trình du học hè {!!$country_data->name!!} với môi trường sống và học tập của một du học sinh {!!$country_data->name!!} thực thụ.">
 @stop
@@ -40,6 +40,17 @@
                     }
                 }
             });
+            $('.banner-destination .tp-banner').revolution({
+                startwidth:1170,
+                startheight:350,
+                hideThumbs:10,
+            });
+
+            $('.banner-destination-mobile .tp-banner').revolution({
+                startwidth:600,
+                startheight:800,
+                hideThumbs:10,
+            })
 
         })
     </script>
@@ -47,23 +58,43 @@
 
 @section('content')
 <!-- **************** Wellcome ****************-->
-@if(!$country_data->images()->get()->isEmpty())
-<section class="banner container clearfix">
+@if(!$country_data->images()->where('type','banner_country')->get()->isEmpty())
+<section class="banner container visible-md visible-lg clearfix">
     <div class="row">
         <div class="banner-destination">
             <div class="tp-banner-container">
                 <div class="tp-banner" >
                     <ul>
-                        @foreach($country_data->images()->get() as $imgbanner)
+                        @foreach($country_data->images()->where('type','banner_country')->get() as $imgbanner)
                         <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500">
-                            <!-- MAIN IMAGE -->
+                            <!-- MAIN IMAGE  -->
                             <img src="{!!$imgbanner->img_url!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         </li>
                         @endforeach
                     </ul>
                 </div>
             </div>
-        </div>  <!-- banner-destination -->
+        </div>  <!-- banner-destination-->
+    </div>
+</section>
+@endif
+@if(!$country_data->images()->where('type','banner_country_mobile')->get()->isEmpty())
+<section class="banner container clearfix visible-xs visible-sm">
+    <div class="row">
+        <div class="banner-destination-mobile">
+            <div class="tp-banner-container">
+                <div class="tp-banner" >
+                    <ul>
+                        @foreach($country_data->images()->where('type','banner_country_mobile')->get() as $imgbanner)
+                        <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500">
+                            <!-- MAIN IMAGE  -->
+                            <img src="{!!$imgbanner->img_url!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>  <!-- banner-destination-->
     </div>
 </section>
 @endif
@@ -115,6 +146,9 @@
     </div>
 </section>
 <!-- **************** /Wellcome ****************-->
+<!-- DIEM DEN -->
+@include('Frontend::layouts.listCountries')
+<!-- END DIEM DEN -->
 <!-- KEYPOINT -->
 @include('Frontend::layouts.keypoint')
 <!-- END KEY -->

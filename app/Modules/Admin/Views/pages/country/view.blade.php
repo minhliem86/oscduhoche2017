@@ -54,12 +54,12 @@
 						<span class="inline-radio"><input type="radio" name="home_show" value="0" {!!$country->home_show == 0 ? 'checked' : ''!!}> <b>Không</b> </span>
 					</div>
 				</div>
-				@if(!$country->images()->get()->isEmpty())
+				@if(!$country->images()->where('type','banner_country')->get()->isEmpty())
 				<div class="form-group">
 					<label for="">Hình Banner</label>
 					<div>
 						<ul class="ul-image">
-							@foreach($country->images()->get() as $image)
+							@foreach($country->images()->where('type','banner_country')->get() as $image)
 							<li>
 								<img src="{!!$image->img_url!!}" class="img-responsive" alt="">
 								<button type="button" data-id="{!!$image->id!!}" class="remove-banner btn btn-xs btn-danger">Remove</button>
@@ -70,8 +70,27 @@
 				</div>
 				@endif
 				<div class="form-group">
-					<label for="img-banner">Hình Banner</label>
+					<label for="img-banner">Thêm Hình Banner</label>
 					{!!Form::file('img-banner')!!}
+				</div>
+				@if(!$country->images()->where('type','banner_country_mobile')->get()->isEmpty())
+				<div class="form-group">
+					<label for="">Hình Banner Mobile Version</label>
+					<div>
+						<ul class="ul-image">
+							@foreach($country->images()->where('type','banner_country_mobile')->get() as $image_mobile)
+							<li>
+								<img src="{!!$image_mobile->img_url!!}" class="img-responsive" alt="">
+								<button type="button" data-id="{!!$image_mobile->id!!}" class="remove-banner btn btn-xs btn-danger">Remove</button>
+							</li>
+							@endforeach
+						</ul>
+					</div>
+				</div>
+				@endif
+				<div class="form-group">
+					<label for="img-banner-mobile">Thêm Hình Banner Mobile version</label>
+					{!!Form::file('img-banner-mobile')!!}
 				</div>
 				<div class="form-group">
 					<label for="status">Trạng thái hoạt động</label>

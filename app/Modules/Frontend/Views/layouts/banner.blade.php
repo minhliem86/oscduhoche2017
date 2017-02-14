@@ -26,7 +26,7 @@
             </div>
         </div>  <!-- banner-homepage -->
 
-        <div class="banner-mobile" >
+        <div class="banner-mobile visible-sm visible-xs" >
             <div class="tp-banner-container">
                 <div class="tp-banner" >
                     <ul>

@@ -79,11 +79,6 @@ class CountryController extends Controller {
             $filename_resize = $destinationPath.'/'.$filename;
             $size = getimagesize($file);
              \Image::make($file->getRealPath())->resize(660,325)->save($filename_resize);
-            // if($size[0] > 660){
-
-            // }else{
-            //     $file->move($destinationPath,$filename);
-            // }
 
             $imgslide_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
             // $img_alt = \GetNameImage::make('\/',$filename);
@@ -113,6 +108,7 @@ class CountryController extends Controller {
 
             $filename_resize = $destinationPath.'/'.$filename;
              \Image::make($file->getRealPath())->resize(1170,350)->save($filename_resize);
+
             $imgbanner_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_folder_banner.'/'.$filename;
 
             $order_img = ImgModel::orderBy('order','DESC')->first();
@@ -120,6 +116,24 @@ class CountryController extends Controller {
 
             $image = new ImgModel(['img_url'=>$imgbanner_url,'status'=>1,'order'=>$current,'type'=>'banner_country']);
             $country->images()->save($image);
+        }
+
+        if($imgrequest->hasFile('img-banner-mobile')){
+            $file = $imgrequest->file('img-banner-mobile');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_sub_folder;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            // $file->move($destinationPath,$filename);
+            $filename_resize = $destinationPath.'/'.$filename;
+            $size = getimagesize($file);
+             \Image::make($file->getRealPath())->resize(600,800)->save($filename_resize);
+
+            $imgslide_mobile_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
+
+            $image = new ImgModel(['img_url'=>$imgslide_mobile_url,'status'=>1,'order'=>$current,'type'=>'banner_country_mobile']);
+            $country->images()->save($image);
+            // $img_alt = \GetNameImage::make('\/',$filename);
         }
 
         Notification::success('Created');
@@ -227,6 +241,23 @@ class CountryController extends Controller {
             count($order_img) == 0 ?  $current = 1 :  $current = $order_img->order +1 ;
 
             $image = new ImgModel(['img_url'=>$imgbanner_url,'status'=>1,'order'=>$current,'type'=>'banner_country']);
+            $country->images()->save($image);
+        }
+
+        if($imgrequest->hasFile('img-banner-mobile')){
+            $file = $imgrequest->file('img-banner-mobile');
+            $destinationPath = 'public/upload'.'/'.$this->upload_folder.'/'.$this->upload_folder_banner;
+            $name = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $filename = time().'_'.$name;
+
+            $filename_resize = $destinationPath.'/'.$filename;
+             \Image::make($file->getRealPath())->resize(600,800)->save($filename_resize);
+            $imgbanner_url_mobile = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_folder_banner.'/'.$filename;
+
+            $order_img = ImgModel::orderBy('order','DESC')->first();
+            count($order_img) == 0 ?  $current = 1 :  $current = $order_img->order +1 ;
+
+            $image = new ImgModel(['img_url'=>$imgbanner_url_mobile,'status'=>1,'order'=>$current,'type'=>'banner_country_mobile']);
             $country->images()->save($image);
         }
 

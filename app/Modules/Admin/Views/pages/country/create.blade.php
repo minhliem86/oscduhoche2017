@@ -54,6 +54,11 @@
 					{!!Form::file('img-banner')!!}
 				</div>
 
+				<div class="form-margin">
+					<label for="img-banner-mobile">Hình Banner Mobile version</label>
+					{!!Form::file('img-banner-mobile')!!}
+				</div>
+
 				<div class="form-group">
 					{!!Form::submit('Save',array('class'=>'btn btn-primary'))!!}
 					<a href="{!!URL::previous()!!}" class="btn btn-primary">Back</a>
