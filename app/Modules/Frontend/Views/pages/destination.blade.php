@@ -47,8 +47,8 @@
             });
 
             $('.banner-destination-mobile .tp-banner').revolution({
-                startwidth:600,
-                startheight:800,
+                startwidth:800,
+                startheight:600,
                 hideThumbs:10,
             })
 

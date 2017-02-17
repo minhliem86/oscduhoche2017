@@ -950,3 +950,7 @@ div.promotion-bottom{
     opacity: 0 !important;
     visibility: hidden !important;
 }
+
+span.error{
+    color:red;
+}

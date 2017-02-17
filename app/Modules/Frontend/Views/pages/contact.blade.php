@@ -108,7 +108,7 @@
                                         <div class="wrap-each-promotionhome2">
                                             <div class="wrap-inner-img">
                                                 <div class="wrap-img">
-                                                    <img src="{!!$item_promotion->img_avatar!!}" alt="" class="img-circle img-responsive">
+                                                    <img src="{!!$item_promotion->img_icon!!}" alt="" class="img-circle img-responsive">
                                                 </div>
                                                 <div class="table-cell">
                                                     <h4>{!!$item_promotion->name!!}</h4>

@@ -127,7 +127,7 @@ class CountryController extends Controller {
             // $file->move($destinationPath,$filename);
             $filename_resize = $destinationPath.'/'.$filename;
             $size = getimagesize($file);
-             \Image::make($file->getRealPath())->resize(600,800)->save($filename_resize);
+             \Image::make($file->getRealPath())->resize(800,600)->save($filename_resize);
 
             $imgslide_mobile_url = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_sub_folder.'/'.$filename;
 
@@ -251,7 +251,7 @@ class CountryController extends Controller {
             $filename = time().'_'.$name;
 
             $filename_resize = $destinationPath.'/'.$filename;
-             \Image::make($file->getRealPath())->resize(600,800)->save($filename_resize);
+             \Image::make($file->getRealPath())->resize(800,600)->save($filename_resize);
             $imgbanner_url_mobile = asset('public/upload').'/'.$this->upload_folder.'/'.$this->upload_folder_banner.'/'.$filename;
 
             $order_img = ImgModel::orderBy('order','DESC')->first();
