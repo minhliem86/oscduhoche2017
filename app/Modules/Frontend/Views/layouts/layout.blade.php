@@ -46,6 +46,19 @@
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 
+    <!-- GOOGLE ANALYTIC -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60129748-14', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+<!-- END -->
+
 </head>
 
 <body>
@@ -116,37 +129,39 @@
                 hideThumbs:10,
                 navigationType:'none'
             })
+
+
         })
         $(document).ready(function(){
-            $('#formOSC').validate({
-                errorElement: "span",
-                rules: {
-                    name: "required",
-                    email: "required",
-                    phone: {required: true, digits: true, minlength: 10, maxlength: 11},
-                    id_city: "required",
-                    country: "required"
+        $('#formOSC').validate({
+            errorElement: "span",
+            rules: {
+                name: "required",
+                email: "required",
+                phone: {required: true, digits: true, minlength: 10, maxlength: 11},
+                id_city: "required",
+                country: "required"
+            },
+            messages: {
+                name: "Vui lòng nhập họ tên",
+                phone: {
+                    required: "Vui lòng nhập số điện thoại di động",
+                    digits: "Vui lòng nhập số điện thoại di động",
+                    minlength: "Vui lòng nhập số điện thoại di động",
                 },
-                messages: {
-                    name: "Vui lòng nhập họ tên",
-                    phone: {
-                        required: "Vui lòng nhập số điện thoại di động",
-                        digits: "Vui lòng nhập số điện thoại di động",
-                        minlength: "Vui lòng nhập số điện thoại di động",
-                    },
-                    email: "Vui lòng nhập email",
-                    id_city: "Vui lòng chọn Thành Phố bạn đăng ký",
-                    country: "Vui lòng chọn quốc gia bạn muốn du học"
-                },
-                submitHandler:function(data){
-                    var strRandom = Math.random().toString(36);
-                    var d = new Date();
-                    strRandom += d.toLocaleString();
-                    $("input[name='id_hash']").val($.md5(strRandom));
-                    _swga.postLead();
-                },
-            })
+                email: "Vui lòng nhập email",
+                id_city: "Vui lòng chọn Thành Phố bạn đăng ký",
+                country: "Vui lòng chọn quốc gia bạn muốn du học"
+            },
+            submitHandler:function(data){
+                var strRandom = Math.random().toString(36);
+                var d = new Date();
+                strRandom += d.toLocaleString();
+                $("input[name='id_hash']").val($.md5(strRandom));
+                _swga.postLead();
+            },
         })
+    })
     </script>
     @yield('script')
 

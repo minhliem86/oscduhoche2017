@@ -159,4 +159,21 @@
     <!-- **************** Discover ****************-->
    	@include('Frontend::layouts.listCountries')
     <!-- **************** /Discover ****************-->
+
+    <!-- REGISTER -->
+    <section class="reg">
+        <div class="container">
+            <div class="row">
+                <div class="inner-section inner-reg">
+                    <center>
+                        <h2>ĐĂNG KÝ & TƯ VẤN</h2>
+                        <hr class="hr">
+                    </center>
+                    @include('Frontend::layouts.formRegister')
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- END REGISTER -->
 @stop

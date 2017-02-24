@@ -66,9 +66,9 @@
                 <div class="tp-banner" >
                     <ul>
                         @foreach($country_data->images()->where('type','banner_country')->get() as $imgbanner)
-                        <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500">
+                        <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
                             <!-- MAIN IMAGE  -->
-                            <img src="{!!$imgbanner->img_url!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                           <img src="{!!$imgbanner->img_url!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         </li>
                         @endforeach
                     </ul>
@@ -86,7 +86,7 @@
                 <div class="tp-banner" >
                     <ul>
                         @foreach($country_data->images()->where('type','banner_country_mobile')->get() as $imgbanner)
-                        <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500">
+                        <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
                             <!-- MAIN IMAGE  -->
                             <img src="{!!$imgbanner->img_url!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         </li>
