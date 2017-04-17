@@ -97,6 +97,47 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-6 col-sm-pull-6 contact-left ">
+                                <div class="wrap-new-promotion">
+                                    <div class="pro-text">
+                                        <h2>NGÀY HỘI TƯ VẤN DU HỌC HÈ: BƯỚC ĐỆM HOÀN HẢO CHO CON TỰ TIN MỞ CỬA THẾ GIỚI</h2>
+                                    </div>
+                                    <div class="new-promotion-content">
+                                        <ul class="list-new-promotion">
+                                            <li>Tặng <b>Ipad mini cho 2 khách hàng may mắn</b> khi đăng ký và đặt cọc trước và trong ngày 16/4</li>
+                                            <li>Đăng ký và đặt cọc 20,000,000đ trước ngày 16/4: <b>Tặng 2,500,000 VND</b></li>
+                                            <li>Đặc biệt, <b>tặng 500,000đ</b> khi đăng ký và đặt cọc trước hoặc trong sự kiện</li>
+                                            <li>Rút thăm các phần quà xinh xắn từ ILA Du học khi đăng ký tham gia chương trình Du học Hè</li>
+                                        </ul>
+
+                                        <div class="location">
+                                            <p class="locate">Tại TP.HCM:</p>
+                                            <p>- <b>Thời gian:</b> 9:00 - 15:00; Thứ 7 ngày  15/04/2017</p>
+                                            <p>- <b>Địa điểm:</b> ILA Du học, 146 Nguyển Đình Chiểu, Q3</p>
+                                            <p>- <b>Liên hệ:</b> 0903 891 511 - 0938 264 343</p>
+                                        </div>
+
+                                        <div class="location">
+                                            <p class="locate">Tại Đà Nẵng:</p>
+                                            <p>- <b>Thời gian:</b> 9:00 - 12:00; Chủ nhật, ngày 16/4/2017</p>
+                                            <p>- <b>Địa điểm:</b> 169-171 Nguyễn Văn Linh, Quận Thank Khê, Đà Nẵng</p>
+                                            <p>- <b>Liên hệ:</b> 0905 100 910 - 0979 779 155 - 0914 022 599</p>
+                                        </div>
+
+                                        <div class="location">
+                                            <p class="locate">Tại Hà Nội:</p>
+                                            <p>- <b>Thời gian:</b> 9:00 - 15:00; Thứ 7 ngày  15/04/2017</p>
+                                            <p>- <b>Địa điểm:</b> ILA Du Học, số 6 Phố Huế, Q. Hoàn Kiếm</p>
+                                            <p>- <b>Liên hệ:</b> 0986 149 583 – 0902 284 573</p>
+                                        </div>
+
+                                        <div class="location">
+                                            <p class="locate">Vũng Tàu:</p>
+                                            <p>- <b>Thời gian:</b> 9:00 - 15:00; Chủ nhật ngày  16/04/2017</p>
+                                            <p>- <b>Địa điểm:</b> ILA Du học, 155 Nguyễn Thái Học, Phường 7</p>
+                                            <p>- <b>Liên hệ:</b> 0909 753 363</p>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="wrap-promotion-contact visible-sm visible-xs">
                                     <div class="pro-text">
                                         <h2>Chương trình khuyến mãi</h2>

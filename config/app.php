@@ -151,8 +151,8 @@ return [
 		 'yajra\Datatables\DatatablesServiceProvider',
 		 'Krucas\Notification\NotificationServiceProvider',
 		 'Barryvdh\Debugbar\ServiceProvider',
-		 'Intervention\Image\ImageServiceProvider'
-
+		 'Intervention\Image\ImageServiceProvider',
+		 'Zizaco\Entrust\EntrustServiceProvider'
 
 	],
 
@@ -202,13 +202,13 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form' => 'Collective\Html\FormFacade',
-      	'Html' => 'Collective\Html\HtmlFacade',
-      	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
-      	'Notification' => 'Krucas\Notification\Facades\Notification',
-      	'Debugbar' => 'Barryvdh\Debugbar\Facade',
-      	'Image' => 'Intervention\Image\Facades\Image',
-      	'Str'      => 'Illuminate\Support\Str',
-
+  	'Html' => 'Collective\Html\HtmlFacade',
+  	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
+  	'Notification' => 'Krucas\Notification\Facades\Notification',
+  	'Debugbar' => 'Barryvdh\Debugbar\Facade',
+  	'Image' => 'Intervention\Image\Facades\Image',
+  	'Str'      => 'Illuminate\Support\Str',
+		'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
 	],
 
 

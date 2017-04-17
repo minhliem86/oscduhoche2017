@@ -954,3 +954,33 @@ div.promotion-bottom{
 span.error{
     color:red;
 }
+
+/* NEW PROMTION - CONTACT PAGE */
+.wrap-new-promotion{
+    margin-bottom:25px;
+}
+.wrap-new-promotion .pro-text h2{
+    font-size:16px;
+    line-height: 20px;
+}
+.new-promotion-content p.note{
+    font-size:14px;
+    font-weight: 600;
+    margin-bottom:5px;
+}
+.new-promotion-content ul.list-new-promotion{
+    padding-left:15px;
+}
+.new-promotion-content ul.list-new-promotion li{
+    margin-bottom:5px;
+}
+
+.new-promotion-content .location{
+    margin-bottom:10px;
+}
+.new-promotion-content .location:last-child{
+    margin-bottom:0;
+}
+.new-promotion-content .location p.locate{
+    font-weight: 600;
+}

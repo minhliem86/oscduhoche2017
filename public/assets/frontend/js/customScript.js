@@ -90,6 +90,38 @@ $(document).ready(function () {
         slidesPerView: 1,
     });
 
-    
+    $(document).ready(function(){
+
+
+        $('#formOSC').validate({
+            errorElement: "span",
+            rules: {
+                name: "required",
+                email: "required",
+                phone: {required: true, digits: true, minlength: 10, maxlength: 11},
+                id_city: "required",
+                country: "required"
+            },
+            messages: {
+                name: "Vui lòng nhập họ tên",
+                phone: {
+                    required: "Vui lòng nhập số điện thoại di động",
+                    digits: "Vui lòng nhập số điện thoại di động",
+                    minlength: "Vui lòng nhập số điện thoại di động",
+                },
+                email: "Vui lòng nhập email",
+                id_city: "Vui lòng chọn Thành Phố bạn đăng ký",
+                country: "Vui lòng chọn quốc gia bạn muốn du học"
+            },
+            submitHandler:function(data){
+                $('#formOSC input[type="submit"]').attr('disabled','disabled');
+                var strRandom = Math.random().toString(36);
+                var d = new Date();
+                strRandom += d.toLocaleString();
+                $("input[name='id_hash']").val($.md5(strRandom));
+                _swga.postLead();
+            },
+        })
+    })
 
 });
