@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Validator;
 use Auth;
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller {
@@ -44,6 +46,7 @@ class AuthController extends Controller {
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'username' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
 //           'password' => 'required|min:6|confirmed',
 			'password' => 'required|min:3|confirmed',
@@ -53,9 +56,11 @@ class AuthController extends Controller {
 
     protected function create(array $data)
     {
-        return App\Models\User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+						'username' => $data['username'],
+            'tour_id' => 1,
             'password' => bcrypt($data['password']),
         ]);
 //		Auth::logout();
@@ -85,8 +90,15 @@ class AuthController extends Controller {
 				$request, $validator
 			);
 		}
+		$user = $this->create($request->all());
 
-		$this->auth->login($this->registrar->create($request->all()));
+		$role = Role::where('name',$request->input('role'))-first();
+		if($role){
+			$user->attachRole($role);
+			$permission = Permission::find(1);
+			$role->attachPermission($permission);
+		}
+		// $this->auth->login($this->registrar->create($request->all()));
 
 		return redirect($this->redirectPath());
 	}
@@ -109,11 +121,18 @@ class AuthController extends Controller {
 	 */
 	public function postLogin(Request $request)
 	{
+		// $this->validate($request, [
+		// 	'email' => 'required|email', 'password' => 'required',
+		// ]);
+		// Customize Login
 		$this->validate($request, [
-			'email' => 'required|email', 'password' => 'required',
+			'login' => 'required', 'password' => 'required',
 		]);
 
-		$credentials = $request->only('email', 'password');
+		// $credentials = $request->only('username', 'password');
+		$filter = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+		$request->merge([$filter => $request->input('login') ]);
+		$credentials = $request->only($filter, 'password');
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
@@ -121,9 +140,9 @@ class AuthController extends Controller {
 		}
 
 		return redirect($this->loginPath())
-					->withInput($request->only('email', 'remember'))
+					->withInput($request->only('usename', 'remember'))
 					->withErrors([
-						'email' => $this->getFailedLoginMessage(),
+						'error' => $this->getFailedLoginMessage(),
 					]);
 	}
 
