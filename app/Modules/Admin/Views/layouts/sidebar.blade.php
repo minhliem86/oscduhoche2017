@@ -4,12 +4,13 @@
     <section class="sidebar">
 
       <!-- Sidebar user panel (optional) -->
-      
+
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <!-- <li class="header">MAIN NAVIGATION</li> -->
         <!-- Optionally, you can add icons to the links -->
         <!-- <li class=""><a href=""><i class="fa fa-photo"></i> <span>Thống kê</span></a></li> -->
+        @if(Auth::admin()->get()->hasRole('admin'))
         <li class="{!!Active::setActive(2,'dashboard')!!}"><a href="{!!url('admin/dashboard')!!}"><i class="fa fa-photo"></i> <span>Dashboard</span></a></li>
         <li class="{!!Active::setActive(2,'promotion')!!}"><a href="{!!route('admin.promotion.index')!!}"><i class="fa fa-photo"></i> <span>Promotions</span></a></li>
         <li class="{!!Active::setActive(2,'country')!!}"><a href="{!!route('admin.country.index')!!}"><i class="fa fa-photo"></i> <span>Countries</span></a></li>
@@ -17,6 +18,8 @@
         <li class="{!!Active::setActive(2,'testimonial')!!}"><a href="{!!route('admin.testimonial.index')!!}"><i class="fa fa-photo"></i> <span>Testimonials</span></a></li>
          <li class="{!!Active::setActive(2,'image')!!}"><a href="{!!route('admin.image.index')!!}"><i class="fa fa-photo"></i> <span>Images</span></a></li>
          <li class="{!!Active::setActive(2,'tour')!!}"><a href="{!!route('admin.tour.index')!!}"><i class="fa fa-photo"></i> <span>Courses</span></a></li>
+         @endif
+         <li class="{!!Active::setActive(2,'Upload Photo')!!}"><a href="#"><i class="fa fa-photo"></i> <span>Upload Photo</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

@@ -34,9 +34,10 @@ class AuthController extends Controller {
 	protected $redirectAfterLogout = "admin/login";
 
 
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct( Registrar $registrar)
 	{
-		$this->auth = $auth;
+		// $this->auth = $auth;
+		$this->auth = Auth::admin();
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
@@ -46,7 +47,6 @@ class AuthController extends Controller {
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'username' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
 //           'password' => 'required|min:6|confirmed',
 			'password' => 'required|min:3|confirmed',
@@ -59,8 +59,7 @@ class AuthController extends Controller {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-						'username' => $data['username'],
-            'tour_id' => 1,
+            // 'tour_id' => 1,
             'password' => bcrypt($data['password']),
         ]);
 //		Auth::logout();
@@ -92,7 +91,7 @@ class AuthController extends Controller {
 		}
 		$user = $this->create($request->all());
 
-		$role = Role::where('name',$request->input('role'))-first();
+		$role = Role::where('name',$request->input('role'))->first();
 		if($role){
 			$user->attachRole($role);
 			$permission = Permission::find(1);
@@ -140,7 +139,7 @@ class AuthController extends Controller {
 		}
 
 		return redirect($this->loginPath())
-					->withInput($request->only('usename', 'remember'))
+					->withInput($request->only('login', 'remember'))
 					->withErrors([
 						'error' => $this->getFailedLoginMessage(),
 					]);

@@ -110,7 +110,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         @if($country_data->tour()->get())
-                            @foreach($country_data->tour()->get() as $tour)
+                            @foreach($country_data->tour()->where('status',1)->get() as $tour)
 
                                 <div class="col-xs-12 col-sm-6 col-md-4">
                                     <div class="box-destination ">

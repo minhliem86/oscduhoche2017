@@ -41,39 +41,46 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 	Route::get('logout',['as'=>'admin.getLogout','uses'=>'Auth\AuthController@getLogout']);
 
-	Route::group(['middleware'=>'auth'],function(){
+	Route::group(['middleware'=>'checkLogin'],function(){
 		Route::get('dashboard',['as'=>'admin','uses'=>'AdminController@index']);
 
-		/*PROMOTION*/
-		Route::post('promotion/deleteall',['as'=>'admin.promotion.deleteall','uses'=>'PromotionController@deleteAll']);
-		Route::resource('promotion','PromotionController');
+		Route::group(['middleware'=>'checkAdminRole'], function(){
+			/*PROMOTION*/
+			Route::post('promotion/deleteall',['as'=>'admin.promotion.deleteall','uses'=>'PromotionController@deleteAll']);
+			Route::resource('promotion','PromotionController');
 
-		/*COUTRY*/
-		Route::post('country/deleteall',['as'=>'admin.country.deleteall','uses'=>'CountryController@deleteAll']);
-		Route::post('country/ajaxRemoveBanner',['as'=>'admin.country.removeBanner','uses'=>'CountryController@removeBanner']);
-		Route::resource('country','CountryController');
+			/*COUTRY*/
+			Route::post('country/deleteall',['as'=>'admin.country.deleteall','uses'=>'CountryController@deleteAll']);
+			Route::post('country/ajaxRemoveBanner',['as'=>'admin.country.removeBanner','uses'=>'CountryController@removeBanner']);
+			Route::resource('country','CountryController');
 
-		/*LOCATION*/
-		Route::post('location/deleteall',['as'=>'admin.location.deleteall','uses'=>'LocationController@deleteAll']);
-		Route::resource('location','LocationController');
+			/*LOCATION*/
+			Route::post('location/deleteall',['as'=>'admin.location.deleteall','uses'=>'LocationController@deleteAll']);
+			Route::resource('location','LocationController');
 
-		/*TESTIMONIAL*/
-		Route::post('testimonial/deleteall',['as'=>'admin.testimonial.deleteall','uses'=>'TestimonialController@deleteAll']);
-		Route::resource('testimonial','TestimonialController');
+			/*TESTIMONIAL*/
+			Route::post('testimonial/deleteall',['as'=>'admin.testimonial.deleteall','uses'=>'TestimonialController@deleteAll']);
+			Route::resource('testimonial','TestimonialController');
 
-		/*Image*/
-		Route::post('image/deleteall',['as'=>'admin.image.deleteall','uses'=>'ImageController@deleteAll']);
-		Route::resource('image','ImageController');
+			/*Image*/
+			Route::post('image/deleteall',['as'=>'admin.image.deleteall','uses'=>'ImageController@deleteAll']);
+			Route::resource('image','ImageController');
 
-		/*Tour*/
-		Route::post('tour/deleteall',['as'=>'admin.tour.deleteall','uses'=>'TourController@deleteAll']);
-		// Route::post('tour/addSchedule',['as'=>'admin.tour.addSchedule','uses'=>'TourController@addSchedule']);
-		// Route::post('tour/ajaxDeleteSchedule',['as'=>'admin.tour.ajaxDeleteShedule','uses'=>'TourController@ajaxDeleteSchedule']);
-		Route::resource('tour','TourController');
+			/*Tour*/
+			Route::post('tour/deleteall',['as'=>'admin.tour.deleteall','uses'=>'TourController@deleteAll']);
+			// Route::post('tour/addSchedule',['as'=>'admin.tour.addSchedule','uses'=>'TourController@addSchedule']);
+			// Route::post('tour/ajaxDeleteSchedule',['as'=>'admin.tour.ajaxDeleteShedule','uses'=>'TourController@ajaxDeleteSchedule']);
+			Route::resource('tour','TourController');
+
+			// MANAGEMENT USER
+		});
 
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
 		Route::post('password',['as'=>'admin.postChangePass','uses'=>'AdminController@postChangePass']);
+
+
+
 	});
 
 

@@ -18,9 +18,9 @@
 				</div>
 				<div class="form-group">
 					<label for="">Hình Sharing FB (600x315)</label>
-					{!!Form::file('img')!!}
+					{!!Form::file('img-sharing')!!}
 					@if($errors->first('img-sharing'))
-						<p class="error">{!!$errors->first('img')!!}</p>
+						<p class="error">{!!$errors->first('img-sharing')!!}</p>
 					@endif
 				</div>
 				<div class="form-group">
