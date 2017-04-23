@@ -31,10 +31,10 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-    
+
     {!! Form::open(array('route'=>'admin.postLogin'))!!}
       <div class="form-group has-feedback">
-        {!!Form::text('email',old('email'), array('class'=>'form-control', 'placeholder'=> 'Email') )!!}
+        {!!Form::text('login',old('login'), array('class'=>'form-control', 'placeholder'=> 'Email/Username') )!!}
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -50,7 +50,7 @@
 
    @include ("Admin::errors.listerror")
 
-    
+
     <!-- <a href="register.html" class="text-center">Register a new membership</a> -->
 
   </div>

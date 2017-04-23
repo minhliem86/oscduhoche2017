@@ -12,6 +12,7 @@
 
 @section('content')
 <!-- **************** Course Deltail ****************-->
+@if(count($tour_detail))
 <section>
     <div class="container">
         <div class="row">
@@ -55,6 +56,7 @@
         
     </div>
 </section>
+@endif
 <!-- **************** Discover ****************-->
 <section class="reg">
     <div class="container">
