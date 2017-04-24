@@ -64,7 +64,7 @@ return [
       ],
       'client' => [
           'driver' => 'eloquent',
-          'table' => 'App\Models\Customer',
+          'model' => 'App\Models\Customer',
       ]
   ],
 

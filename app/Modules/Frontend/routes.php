@@ -16,4 +16,22 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::post('lien-he',['as'=>'contact.postRegister','uses'=>'ContactController@postRegister']);
 	Route::post('ajaxCenter',['as'=>'contact.postAjaxCenter','uses'=>'ContactController@postAjaxCenter']);
 
+	// IMPORT USER
+	Route::get('/import-user',['as' => 'f.importUser', 'uses'=>'ImportController@index']);
+	Route::post('/import-user', ['as'=>'f.postImportUser', 'uses'=>'ImportController@postImportUser']);
+
+	// CUSTOMER LOGIN
+	Route::get('/dang-nhap',['as'=>'f.getLoginCustomer', 'uses'=>'Auth\AuthController@getLogin']);
+	Route::post('/dang-nhap',['as'=>'f.postLoginCustomer', 'uses'=>'Auth\AuthController@postLogin']);
+	Route::get('/dang-xuat',['as'=>'f.getLogoutCustomer', 'uses'=>'Auth\AuthController@getLogout']);
+
+	Route::get('/thay-doi-mat-khau', ['as'=>'f.getChangePass', 'uses' => 'Auth\AuthController@getChangePass']);
+	Route::get('/thay-doi-mat-khau', ['as'=>'f.postChangePass', 'uses' => 'Auth\AuthController@postChangePass']);
+
+	Route::get('/sendEmailReset',['as'=>'admin.getSendEmailReset','uses'=>'Auth\PasswordController@getEmail']);
+	Route::post('/sendEmailReset',['as'=>'admin.postSendEmailReset','uses'=>'Auth\PasswordController@postEmail']);
+	Route::get('/resetPassword/{token?}',['as'=>'admin.getresetPassword','uses'=>'Auth\PasswordController@getReset']);
+	Route::post('/resetPassword',['as'=>'admin.postresetPassword','uses'=>'Auth\PasswordController@postReset']);
+
+
 });

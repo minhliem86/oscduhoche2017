@@ -154,7 +154,8 @@ return [
 		 'Krucas\Notification\NotificationServiceProvider',
 		 'Barryvdh\Debugbar\ServiceProvider',
 		 'Intervention\Image\ImageServiceProvider',
-		 'Zizaco\Entrust\EntrustServiceProvider'
+		 'Zizaco\Entrust\EntrustServiceProvider',
+		 'Maatwebsite\Excel\ExcelServiceProvider'
 
 	],
 
@@ -210,7 +211,8 @@ return [
   	'Debugbar' => 'Barryvdh\Debugbar\Facade',
   	'Image' => 'Intervention\Image\Facades\Image',
   	'Str'      => 'Illuminate\Support\Str',
-		'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
+		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 	],
 
 

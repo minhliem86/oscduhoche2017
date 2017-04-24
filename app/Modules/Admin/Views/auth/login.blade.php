@@ -34,7 +34,7 @@
 
     {!! Form::open(array('route'=>'admin.postLogin'))!!}
       <div class="form-group has-feedback">
-        {!!Form::text('login',old('login'), array('class'=>'form-control', 'placeholder'=> 'Email/Username') )!!}
+        {!!Form::text('email',old('email'), array('class'=>'form-control', 'placeholder'=> 'Email/Username') )!!}
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

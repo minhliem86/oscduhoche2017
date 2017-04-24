@@ -1,4 +1,4 @@
-<?php namespace App\Modules\Admin\Controllers\Auth;
+<?php namespace App\Modules\Frontend\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
@@ -7,9 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Validator;
 use Auth;
-use App\Models\User;
-use App\Models\Role;
-use App\Models\Permission;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller {
@@ -30,14 +28,13 @@ class AuthController extends Controller {
 
 	protected $validator;
 	protected $redirectPath = 'admin/dashboard';
-	protected $loginPath = 'admin/login';
 	protected $redirectAfterLogout = "admin/login";
 
 
 	public function __construct( Registrar $registrar)
 	{
 		// $this->auth = $auth;
-		$this->auth = Auth::admin();
+		$this->auth = Auth::client();
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
@@ -46,61 +43,14 @@ class AuthController extends Controller {
 	protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+          'name' => 'required|max:255',
+          'email' => 'required|email|max:255|unique:users',
 //           'password' => 'required|min:6|confirmed',
-			'password' => 'required|min:3|confirmed',
-			'password_confirmation' => 'required|min:3',
+					'password' => 'required|min:3|confirmed',
+					'password_confirmation' => 'required|min:3',
         ]);
     }
 
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            // 'tour_id' => 1,
-            'password' => bcrypt($data['password']),
-        ]);
-//		Auth::logout();
-//		return view('admin::pages.auth.waiting');
-    }
-
-
-
-	public function getRegister()
-	{
-		return view('Admin::auth.register');
-	}
-
-	/**
-	 * Handle a registration request for the application.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function postRegister(Request $request)
-	{
-		$validator = $this->registrar->validator($request->all());
-
-		if ($validator->fails())
-		{
-			$this->throwValidationException(
-				$request, $validator
-			);
-		}
-		$user = $this->create($request->all());
-
-		$role = Role::where('name',$request->input('role'))->first();
-		if($role){
-			$user->attachRole($role);
-			$permission = Permission::find(1);
-			$role->attachPermission($permission);
-		}
-		// $this->auth->login($this->registrar->create($request->all()));
-
-		return redirect($this->redirectPath());
-	}
 
 	/**
 	 * Show the application login form.
@@ -109,7 +59,7 @@ class AuthController extends Controller {
 	 */
 	public function getLogin()
 	{
-		return view('Admin::auth.login');
+		return view('Frontend::auth.login');
 	}
 
 	/**
@@ -125,21 +75,24 @@ class AuthController extends Controller {
 		// ]);
 		// Customize Login
 		$this->validate($request, [
-			'email' => 'required', 'password' => 'required',
+			'username' => 'required', 'password' => 'required',
 		]);
 
-		$credentials = $request->only('email', 'password');
+		$credentials = $request->only('username', 'password');
 		// $filter = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 		// $request->merge([$filter => $request->input('login') ]);
 		// $credentials = $request->only($filter, 'password');
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
-			return redirect()->intended($this->redirectPath());
+			$tour_id = $this->auth->get()->tour_id;
+			dd($tour_id);
+			// return redirect()->route();
+			// return redirect()->intended($this->redirectPath());
 		}
 
-		return redirect($this->loginPath())
-					->withInput($request->only('email', 'remember'))
+		return redirect()->back()
+					->withInput($request->only('username', 'remember'))
 					->withErrors([
 						'error' => $this->getFailedLoginMessage(),
 					]);
@@ -152,7 +105,7 @@ class AuthController extends Controller {
 	 */
 	protected function getFailedLoginMessage()
 	{
-		return 'These credentials do not match our records.';
+		return 'Username/email hoặc password không chính xác.';
 	}
 
 	/**
@@ -163,8 +116,8 @@ class AuthController extends Controller {
 	public function getLogout()
 	{
 		$this->auth->logout();
-
-		return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+		return "done";
+		// return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
 	}
 
 	/**
@@ -180,16 +133,6 @@ class AuthController extends Controller {
 		}
 
 		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
-	}
-
-	/**
-	 * Get the path to the login route.
-	 *
-	 * @return string
-	 */
-	public function loginPath()
-	{
-		return property_exists($this, 'loginPath') ? $this->loginPath : '/auth/login';
 	}
 
 }
