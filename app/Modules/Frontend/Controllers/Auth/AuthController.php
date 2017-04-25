@@ -37,7 +37,8 @@ class AuthController extends Controller {
 		$this->auth = Auth::client();
 		$this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => 'getLogout']);
+		// $this->middleware('guest', ['except' => 'getLogout']);
+    $this->middleware('customer_logined',['except' => ['getLogout','getChangePass', 'postChangePass']]);
 	}
 
 	protected function validator(array $data)
@@ -86,8 +87,8 @@ class AuthController extends Controller {
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
 			$tour_id = $this->auth->get()->tour_id;
-			dd($tour_id);
-			// return redirect()->route();
+
+			return redirect()->route('f.getChangePass');
 			// return redirect()->intended($this->redirectPath());
 		}
 
@@ -134,5 +135,41 @@ class AuthController extends Controller {
 
 		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
 	}
+
+  /*CHANGE PASSWORD*/
+
+  public function getChangePass()
+  {
+    return view('Frontend::auth.changepass');
+
+  }
+
+  public function postChangePass(Request $request)
+  {
+    $rule = [
+      'new_password' => 'required|min:6|confirmed',
+      'new_password_confirmation' => 'required'
+    ];
+    $message = [
+      'new_password.required' => 'Password không được rỗng',
+      'new_password.min' => 'Password phải có ít nhất 6 ký tự',
+      'new_password.confirmed' => 'Xác nhận Password không chính xác',
+      'new_password_confirmation.required' => 'Xác nhận Password không được rỗng '
+    ];
+    $valid = Validator::make($request->all(), $rule, $message);
+    if($valid->fails()){
+      return redirect()->back()->withErrors($valid);
+    }
+
+    $user = $this->auth->get();
+    $user->password=\Hash::make($request->input('new_password'));
+    $user->change_pass = 1;
+    $user->save();
+
+    \Session::flash('success', 'Bạn đã đổi mật khẩu thành công');
+
+    return "done";
+    // return redirect()->route();
+  }
 
 }

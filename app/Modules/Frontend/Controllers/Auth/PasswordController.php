@@ -41,7 +41,7 @@ class PasswordController extends Controller {
 		// $this->passwords = $passwords;
 		$this->passwords = Password::client();
 
-		$this->middleware('guest');
+		$this->middleware('customer_logined');
 	}
 
 	public function getEmail()

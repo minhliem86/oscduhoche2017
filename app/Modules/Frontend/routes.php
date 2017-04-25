@@ -25,13 +25,13 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::post('/dang-nhap',['as'=>'f.postLoginCustomer', 'uses'=>'Auth\AuthController@postLogin']);
 	Route::get('/dang-xuat',['as'=>'f.getLogoutCustomer', 'uses'=>'Auth\AuthController@getLogout']);
 
-	Route::get('/thay-doi-mat-khau', ['as'=>'f.getChangePass', 'uses' => 'Auth\AuthController@getChangePass']);
-	Route::get('/thay-doi-mat-khau', ['as'=>'f.postChangePass', 'uses' => 'Auth\AuthController@postChangePass']);
+	Route::get('/thay-doi-mat-khau', ['middleware'=>'customer_login_not_yet','as'=>'f.getChangePass', 'uses' => 'Auth\AuthController@getChangePass']);
+	Route::post('/thay-doi-mat-khau', ['middleware'=>'customer_login_not_yet','as'=>'f.postChangePass', 'uses' => 'Auth\AuthController@postChangePass']);
 
-	Route::get('/sendEmailReset',['as'=>'admin.getSendEmailReset','uses'=>'Auth\PasswordController@getEmail']);
-	Route::post('/sendEmailReset',['as'=>'admin.postSendEmailReset','uses'=>'Auth\PasswordController@postEmail']);
-	Route::get('/resetPassword/{token?}',['as'=>'admin.getresetPassword','uses'=>'Auth\PasswordController@getReset']);
-	Route::post('/resetPassword',['as'=>'admin.postresetPassword','uses'=>'Auth\PasswordController@postReset']);
+	Route::get('/sendEmailReset',['as'=>'f.getSendEmailReset','uses'=>'Auth\PasswordController@getEmail']);
+	Route::post('/sendEmailReset',['as'=>'f.postSendEmailReset','uses'=>'Auth\PasswordController@postEmail']);
+	Route::get('/resetPassword/{token?}',['as'=>'f.getresetPassword','uses'=>'Auth\PasswordController@getReset']);
+	Route::post('/resetPassword',['as'=>'f.postresetPassword','uses'=>'Auth\PasswordController@postReset']);
 
 
 });
