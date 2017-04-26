@@ -42,6 +42,17 @@ return [
 
 	// 'table' => 'users',
 
+	'multi' => [
+      'admin' => [
+          'driver' => 'eloquent',
+          'model' => 'App\Models\User',
+      ],
+      'client' => [
+          'driver' => 'eloquent',
+          'model' => 'App\Models\Customer',
+					'email' => 'Frontend::emails.password',
+      ]
+  ],
 	/*
 	|--------------------------------------------------------------------------
 	| Password Reset Settings
@@ -57,16 +68,7 @@ return [
 	|
 	*/
 
-	'multi' => [
-      'admin' => [
-          'driver' => 'eloquent',
-          'model' => 'App\Models\User',
-      ],
-      'client' => [
-          'driver' => 'eloquent',
-          'model' => 'App\Models\Customer',
-      ]
-  ],
+
 
 	'password' => [
 		'email' => 'emails.password',

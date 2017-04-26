@@ -87,9 +87,7 @@ class AuthController extends Controller {
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
 			$tour_id = $this->auth->get()->tour_id;
-
-			return redirect()->route('f.getChangePass');
-			// return redirect()->intended($this->redirectPath());
+			return $this->auth->get()->change_pass ? redirect()->route('/') : redirect()->route('f.getChangePass');
 		}
 
 		return redirect()->back()
