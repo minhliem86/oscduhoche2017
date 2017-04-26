@@ -1,9 +1,9 @@
 <?php namespace App\Modules\Frontend\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\PasswordBroker;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Ollieread\Multiauth\Passwords\PasswordBroker;
 
 use Validator;
 use Auth;
@@ -12,8 +12,12 @@ use Illuminate\Http\Request;
 
 class PasswordController extends Controller {
 
+<<<<<<< HEAD
 	protected $redirectPath = 'admin/dashboard';
 	protected $redirectPath = 'dang-nhap';
+=======
+	protected $redirectPath = 'dang-xuat';
+>>>>>>> dae7603be7219d88d6c10736d5705009d3bed9ab
 
 	/*
 	|--------------------------------------------------------------------------
@@ -35,14 +39,15 @@ class PasswordController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\PasswordBroker  $passwords
 	 * @return void
 	 */
-	public function __construct(Guard $auth, PasswordBroker $passwords)
+
+	public function __construct()
 	{
 		// $this->auth = $auth;
 		$this->auth = Auth::client();
 		// $this->passwords = $passwords;
 		$this->passwords = Password::client();
 
-		$this->middleware('guest');
+		$this->middleware('customer_logined');
 	}
 
 	public function getEmail()
@@ -68,10 +73,10 @@ class PasswordController extends Controller {
 		switch ($response)
 		{
 			case PasswordBroker::RESET_LINK_SENT:
-				return redirect()->back()->with('status', trans($response));
+				return redirect()->back()->with('status', 'Chúng tôi đã gửi một email khôi phục mật khẩu bạn. Vui lòng kiểm tra email và làm theo hướng dẫn.');
 
 			case PasswordBroker::INVALID_USER:
-				return redirect()->back()->withErrors(['email' => trans($response)]);
+				return redirect()->back()->withErrors(['email' => 'Chúng tôi không tìm thấy user với địa chỉ email trên.']);
 		}
 	}
 
@@ -91,13 +96,12 @@ class PasswordController extends Controller {
 	 * @param  string  $token
 	 * @return Response
 	 */
-	public function getReset($token = null)
+	public function getReset(Request $request, $token = null)
 	{
 		if (is_null($token))
 		{
 			throw new NotFoundHttpException;
 		}
-
 		return view('Frontend::auth.passwords.reset')->with('token', $token);
 	}
 

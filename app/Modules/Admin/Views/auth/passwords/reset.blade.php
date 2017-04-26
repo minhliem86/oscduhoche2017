@@ -7,7 +7,7 @@
     <title>AdminOSC | Starter</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
+
     {!!Html::style('public/assets/backend/bootstrap/css/bootstrap.min.css')!!}
 
          <!-- Font Awesome -->
@@ -28,7 +28,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{!!route('admin.postresetPassword')!!}">
                       <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <input type="hidden" name="token" value="{!! $token !!}">
-                        
+
                         <div class="form-group{!! $errors->has('email') ? ' has-error' : '' !!}">
                             <label class="col-md-4 control-label">E-Mail Address</label>
 
@@ -85,4 +85,3 @@
 </div>
 </body>
 </html>
-
