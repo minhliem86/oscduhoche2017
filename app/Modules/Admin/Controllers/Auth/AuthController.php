@@ -125,13 +125,13 @@ class AuthController extends Controller {
 		// ]);
 		// Customize Login
 		$this->validate($request, [
-			'login' => 'required', 'password' => 'required',
+			'email' => 'required', 'password' => 'required',
 		]);
 
-		// $credentials = $request->only('username', 'password');
-		$filter = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-		$request->merge([$filter => $request->input('login') ]);
-		$credentials = $request->only($filter, 'password');
+		$credentials = $request->only('email', 'password');
+		// $filter = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+		// $request->merge([$filter => $request->input('login') ]);
+		// $credentials = $request->only($filter, 'password');
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
@@ -139,7 +139,7 @@ class AuthController extends Controller {
 		}
 
 		return redirect($this->loginPath())
-					->withInput($request->only('login', 'remember'))
+					->withInput($request->only('email', 'remember'))
 					->withErrors([
 						'error' => $this->getFailedLoginMessage(),
 					]);

@@ -70,28 +70,25 @@ class AuthController extends Controller {
 	 */
 	public function postLogin(Request $request)
 	{
-		// $this->validate($request, [
-		// 	'email' => 'required|email', 'password' => 'required',
-		// ]);
 		// Customize Login
 		$this->validate($request, [
-			'login' => 'required', 'password' => 'required',
+			'username' => 'required', 'password' => 'required',
 		]);
 
-		// $credentials = $request->only('username', 'password');
-		$filter = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-		$request->merge([$filter => $request->input('login') ]);
-		$credentials = $request->only($filter, 'password');
-
+		$credentials = $request->only('username', 'password');
+		// $filter = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+		// $request->merge([$filter => $request->input('login') ]);
+		// $credentials = $request->only($filter, 'password');
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
 			$tour_id = $this->auth->get()->tour_id;
-			// return redirect()->route();
 			dd($tour_id);
+			// return redirect()->route();
+			// return redirect()->intended($this->redirectPath());
 		}
 
-		return redirect($this->loginPath())
-					->withInput($request->only('login', 'remember'))
+		return redirect()->back()
+					->withInput($request->only('username', 'remember'))
 					->withErrors([
 						'error' => $this->getFailedLoginMessage(),
 					]);
@@ -104,7 +101,7 @@ class AuthController extends Controller {
 	 */
 	protected function getFailedLoginMessage()
 	{
-		return 'Username/email hoặc password không chính xác';
+		return 'Username/email hoặc password không chính xác.';
 	}
 
 	/**
@@ -115,5 +112,23 @@ class AuthController extends Controller {
 	public function getLogout()
 	{
 		$this->auth->logout();
-		return redirect()->route('home');
+		return "done";
+		// return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
 	}
+
+	/**
+	 * Get the post register / login redirect path.
+	 *
+	 * @return string
+	 */
+	public function redirectPath()
+	{
+		if (property_exists($this, 'redirectPath'))
+		{
+			return $this->redirectPath;
+		}
+
+		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+	}
+
+}

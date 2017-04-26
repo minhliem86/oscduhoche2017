@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddMoreTourIdToUser extends Migration {
+class CreateAlbumsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,14 @@ class AddMoreTourIdToUser extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('users', function(Blueprint $table)
+		Schema::create('albums', function(Blueprint $table)
 		{
-			$table->string('username')->nullable();
+			$table->increments('id');
+			$table->string('title')->nullable();
+			$table->boolean('status')->default(1)->nullable();
 			$table->integer('tour_id')->unsigned();
 			$table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
+			$table->timestamps();
 		});
 	}
 
@@ -27,11 +30,7 @@ class AddMoreTourIdToUser extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function(Blueprint $table)
-		{
-			$table->dropColumn('username');
-			$table->dropColumn('tour_id');
-		});
+		Schema::drop('albums');
 	}
 
 }

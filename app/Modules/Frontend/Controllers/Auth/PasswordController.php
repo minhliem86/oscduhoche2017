@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class PasswordController extends Controller {
 
 	protected $redirectPath = 'admin/dashboard';
+	protected $redirectPath = 'dang-nhap';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,8 +27,6 @@ class PasswordController extends Controller {
 	*/
 
 	use ResetsPasswords;
-
-	protected $password;
 
 	/**
 	 * Create a new password controller instance.
@@ -48,7 +47,7 @@ class PasswordController extends Controller {
 
 	public function getEmail()
 	{
-		return view('Admin::auth.passwords.email');
+		return view('Frontend::auth.passwords.email');
 	}
 
 	/**
@@ -99,7 +98,7 @@ class PasswordController extends Controller {
 			throw new NotFoundHttpException;
 		}
 
-		return view('Admin::auth.passwords.reset')->with('token', $token);
+		return view('Frontend::auth.passwords.reset')->with('token', $token);
 	}
 
 	/**
