@@ -11,10 +11,15 @@ use Auth;
 use Validator;
 use Notification;
 
+use App\Repositories\UserRepository;
+
 class AdminController extends Controller {
 
-	public function __construct(){
+	protected $userRepo;
+
+	public function __construct(UserRepository $user){
 		$this->auth = Auth::admin();
+		$this->userRepo = $user;
 		$this->middleware('checkLogin');
 	}
 
@@ -67,11 +72,12 @@ class AdminController extends Controller {
 		}
 	}
 
+	/*CREATE USER*/
 	public function getCreateUser(){
 		return view('Admin::users.create');
 	}
 
-	public function postCreateUser(){
+	public function postCreateUser(Request $request){
 		$validator = $this->validator($request->all());
 
 		if ($validator->fails())
@@ -85,11 +91,38 @@ class AdminController extends Controller {
 		$role = Role::where('name',$request->input('role'))->first();
 		if($role){
 			$user->attachRole($role);
-			$permission = Permission::find(1);
-			$role->attachPermission($permission);
 		}
-		Notification::success('Create User Successfull.')
+		Notification::success('Create User Successfull.');
 		return redirect()->route('admin.getCreateUser');
 	}
+
+	/*LIST USER*/
+	public function getListUser(){
+		$user = $this->userRepo->getList();
+		return view ('Admin::users.list', compact('user'));
+	}
+
+	public function deleteUser($id){
+		$this->userRepo->delete($id);
+		Notification::success('Delete User Successfull.');
+		return redirect()->route('admin.getListUser');
+	}
+
+	public function deleteAll(Request $request){
+			if(!$request->ajax()){
+					return view('404');
+			}else{
+					$data = $request->arr;
+					if($data){
+							$this->country->destroy($data);
+							return response()->json(array('msg'=>'ok'));
+					}else{
+							return response()->json(array('msg'=>'error'));
+					}
+			}
+	}
+
+
+
 
 }
