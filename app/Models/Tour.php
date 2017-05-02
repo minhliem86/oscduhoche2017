@@ -20,4 +20,8 @@ class Tour extends Model {
 		return $this->hasMany('App\Models\Schedule','tour_id');
 	}
 
+	public function photos(){
+		return $this->hasManyThrough('App\Models\Photo', 'App\Models\Album');
+	}
+
 }

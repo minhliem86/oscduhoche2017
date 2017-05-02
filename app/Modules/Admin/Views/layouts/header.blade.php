@@ -26,8 +26,8 @@
             <ul class="dropdown-menu">
               <li>
                 <ul class="menu">
-                  <li><a href="#"><i class="fa fa-plus-square"></i> Add User </a></li>
-                  <li><a href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i> User Management</a></li>
+                  <li><a href="{!!route('admin.getCreateUser')!!}"><i class="fa fa-plus-square"></i> Add User </a></li>
+                  <li><a href="{!!route('admin.getListUser')!!}"><i class="fa fa-calendar-o" aria-hidden="true"></i> User Management</a></li>
                 </ul>
               </li>
             </ul>

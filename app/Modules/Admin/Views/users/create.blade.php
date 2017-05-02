@@ -8,7 +8,7 @@
 
 	<div class="box">
 		<div class="container-fluid">
-      {!! Form::open(array('route'=>'admin.postRegister', 'class'=>'form-register')) !!}
+      {!! Form::open(array('route'=>'admin.getCreateUser', 'class'=>'form-register')) !!}
 				<div class="form-group has-feedback">
 					{!!Form::text('name',old('name'), array('class'=>'form-control', 'placeholder'=>'Fullname'))!!}
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -33,7 +33,7 @@
 							</label>
 
 							<label>
-								<input type="radio" name="role" value="mod"> Moderator
+								<input type="radio" name="role" value="mod" checked> Moderator
 							</label>
 						</div>
 					</div>
@@ -44,12 +44,29 @@
 				</div>
 			{!! Form::close()!!}
 		</div>
+
+    <div class="container-fluid">
+      @include('Admin::errors.listerror')
+    </div>
 	</div>
 </section>
 @stop
 
 @section('script')
+<!-- iCheck -->
+{!!Html::style('public/assets/backend/plugins/iCheck/square/blue.css')!!}
+{!!Html::script('public/assets/backend/plugins/iCheck/icheck.min.js')!!}
 <script>
-
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  });
+  $(document).ready(function(){
+    {!! Notification::showSuccess('alertify.success(":message");') !!}
+    {!! Notification::showError('alertify.error(":message");') !!}
+  })
 </script>
 @stop
