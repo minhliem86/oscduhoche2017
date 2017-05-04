@@ -24,4 +24,8 @@ class Tour extends Model {
 		return $this->hasManyThrough('App\Models\Photo', 'App\Models\Album');
 	}
 
+	public function albums(){
+		return $this->hasMany('App\Models\Album');
+	}
+
 }

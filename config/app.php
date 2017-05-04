@@ -155,7 +155,8 @@ return [
 		 'Barryvdh\Debugbar\ServiceProvider',
 		 'Intervention\Image\ImageServiceProvider',
 		 'Zizaco\Entrust\EntrustServiceProvider',
-		 'Maatwebsite\Excel\ExcelServiceProvider'
+		 'Maatwebsite\Excel\ExcelServiceProvider',
+		 'Codingo\Dropzoner\DropzonerServiceProvider'
 
 	],
 

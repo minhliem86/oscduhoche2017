@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'App\Services\Registrar'
 		);
+		$this->app->bind('App\Repositories\Contract\CrudInterface', ['App\Repositories\AlbumRepository'] );
 	}
 
 }

@@ -14,6 +14,12 @@ class EventServiceProvider extends ServiceProvider {
 		'event.name' => [
 			'EventListener',
 		],
+		'App\Events\PhotoWasUploaded' => [
+			'App\Handlers\CreatePhotoHandler'
+		],
+		'App\Events\PhotoWasDeleted' => [
+			'App\Handlers\DeletePhotoHandler'
+		],
 	];
 
 	/**
