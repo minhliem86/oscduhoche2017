@@ -10,7 +10,7 @@
 		<div class="container-fluid">
 			{!!Form::open(array('route'=>array('admin.album.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Hình đại diện</label>
+					<label for="">Hình đại diện (555x292)</label>
 					{!!Form::file('img')!!}
 					@if($errors->first('img'))
 						<p class="error">{!!$errors->first('img')!!}</p>

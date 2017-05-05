@@ -10,7 +10,7 @@
 		<div class="container-fluid">
       {!!Form::model($album,array('route'=>array('admin.album.update',$album->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
-					<label for="">Hình đại diện</label>
+					<label for="">Hình đại diện (555x292)</label>
           <p>
 						<img src="{!!$album->img_url!!}" width="150" alt="">
 						{!!Form::hidden('img-bk',$album->img_url)!!}

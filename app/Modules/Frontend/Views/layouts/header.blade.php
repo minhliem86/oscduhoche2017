@@ -18,7 +18,7 @@
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
-                                            </button> 
+                                            </button>
                                         </div>
                                         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                                             <ul class="nav navbar-nav">
@@ -36,6 +36,15 @@
                                                 <li class="{!!Active::setActive(1,'khuyen-mai')!!}"><a href="{!!route('khuyenmai')!!}">KHUYẾN MÃI</a></li>
                                                 <li class="{!!Active::setActive(1,'trai-nghiem-du-hoc')!!}"><a href="{!!route('trainghiem')!!}">TRẢI NGHIỆM DU HỌC</a></li>
                                                 <li class="{!!Active::setActive(1,'lien-he')!!}"><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
+                                                @if(Auth::client()->check())
+                                                <li class="dropdown">
+                                                  <a href="{!!route('contact')!!}"><b>{!!Auth::client()->get()->name!!}</b></a>
+                                                  <ul class="dropdown-menu">
+                                                       <li><a href="{!!route('f.getChangePass')!!}">Thay đổi mật khẩu</a></li>
+                                                       <li><a href="{!!route('f.getLogoutCustome')!!}">Đăng xuất</a></li>
+                                                  </ul>
+                                                </li>
+                                                @endif
                                             </ul>
                                         </div>
                                 </nav>
@@ -43,9 +52,9 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
-            
+
         </div>
     </div>
 </header>

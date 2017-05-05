@@ -6,7 +6,7 @@ class Album extends Model{
 
   public $table = 'albums';
 
-  protected $fillable =  [ 'title', 'status', 'img_url', 'tour_id'];
+  protected $fillable =  [ 'title', 'status', 'img_url', 'tour_id','slug'];
 
   public function tours(){
     return $this->belongsTo('App\Models\Tour', 'tour_id');

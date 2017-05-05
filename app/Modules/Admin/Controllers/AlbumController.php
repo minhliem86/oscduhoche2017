@@ -36,13 +36,14 @@ class AlbumController extends Controller {
   {
     if($request->hasFile('img')){
       $common = new CommonRepository;
-      $img_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder,$resize=true,350,184);
+      $img_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder,$resize=true,555,292);
     }else{
       $img_url = $this->_default_img;
     }
 
     $data = [
       'title' => $request->input('title'),
+      'slug' => \Unicode::make($request->input('title')),
       'status' => $request->input('status'),
       'tour_id' => $request->input('tour_id'),
       'img_url' => $img_url
@@ -66,13 +67,14 @@ class AlbumController extends Controller {
   {
     if($request->hasFile('img')){
       $common = new CommonRepository;
-      $img_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder,$resize=true,350,184);
+      $img_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder,$resize=true,555,292);
     }else{
       $img_url = $request->input('img-bk');
     }
 
     $data = [
       'title' => $request->input('title'),
+      'slug' => \Unicode::make($request->input('title')),
       'status' => $request->input('status'),
       'tour_id' => $request->input('tour_id'),
       'img_url' => $img_url

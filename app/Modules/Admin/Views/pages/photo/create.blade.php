@@ -76,7 +76,7 @@
           <!-- The fileinput-button span is used to style the file input field as button -->
           <span class="btn btn-success fileinput-button dz-clickable">
               <i class="glyphicon glyphicon-plus"></i>
-              <span>Add files...</span>
+              <span>Add files (1200x630)...</span>
           </span>
           <button type="submit" class="btn btn-primary start">
               <i class="glyphicon glyphicon-upload"></i>

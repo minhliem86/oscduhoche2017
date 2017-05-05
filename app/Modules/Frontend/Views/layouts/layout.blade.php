@@ -22,7 +22,7 @@
     <link href="{!!asset('public/assets/frontend/')!!}/css/style.css" rel="stylesheet">
     <link href="{!!asset('public/assets/frontend/')!!}/css/reponsive.css" rel="stylesheet">
     <link href="{!!asset('public/assets/frontend/')!!}/css/custom-lp.css" rel="stylesheet">
-
+    @yield('css')
     <!-- Custom JS -->
     <!-- <script src="{!!asset('public/assets/frontend/')!!}js/scrip.js"></script> -->
 
@@ -36,11 +36,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
- fbq('init', '130923730765955'); 
+ fbq('init', '130923730765955');
 fbq('track', 'PageView');
 </script>
 <noscript>
- <img height="1" width="1" 
+ <img height="1" width="1"
 src="https://www.facebook.com/tr?id=130923730765955&ev=PageView
 &noscript=1"/>
 </noscript>
@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8GRGZX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <div class="osc-summer">
         <div class="container-fluid">
             <div class="row">
@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <!--====================== Content ======================-->
                 <article class="container-fluid">
                     <div class="row {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getCountry' ? 'destination' : ''!!} {!!Request::segment(1) == '' ? 'home' : ''!!} {!!Request::segment(1) == 'lien-he' ? 'contact' : ''!!} {!!Route::getCurrentRoute()->getActionName() == 'App\Modules\Frontend\Controllers\DestinationController@getTour' ? 'course-detail' : ''!!} {!!Request::segment(1) == 'khuyen-mai' ? 'promotion' : ''!!} {!!Request::segment(1) == 'trai-nghiem-du-hoc' ? 'testtimonial-box' : ''!!} ">
-                        
+
                         @yield('content')
                     </div>
                 </article>

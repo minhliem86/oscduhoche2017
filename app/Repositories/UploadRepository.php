@@ -119,7 +119,7 @@ class UploadRepository
         if (\File::exists($thumb_path)) {
             \File::delete($thumb_path);
         }
-        
+
         event(new PhotoWasDeleted($item));
       }
       return response()->json([
