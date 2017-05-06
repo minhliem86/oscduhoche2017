@@ -37,16 +37,19 @@ class CustomerController extends Controller {
 		$this->album = $album;
 		$this->photo = $photo;
     $this->auth = Auth::client();
-    // $this->middleware('customer_login_not_yet');
+    $this->middleware('customer_login_not_yet');
 	}
 
 	public function getAlbum()
   {
-    // $tour_id = $this->auth->get()->tour_id;
-    $tour_album = $this->tour->select('id', 'title')->with('albums')->find(1);
-    $lastest_album = $tour_album->albums()->orderBy('id', 'DESC')->take(2)->get();
-    $all_album = $tour_album->albums()->orderBy('id', 'DESC')->get();
-
+    $tour_id = $this->auth->get()->tour_id;
+		try {
+				$tour_album = $this->tour->select('id', 'title')->with('albums')->find($tour_id);
+        $lastest_album = $tour_album->albums()->orderBy('id', 'DESC')->take(2)->get();
+        $all_album = $tour_album->albums()->orderBy('id', 'DESC')->get();
+		} catch (Exception $e) {
+			return redirect()->back();
+		}
     return view('Frontend::users.course.album', compact('lastest_album', 'all_album'));
   }
 

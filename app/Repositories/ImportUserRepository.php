@@ -23,10 +23,9 @@ class ImportUserRepository{
       $reader->each(function($sheet) {
         $username = 'duhoche2017_'.\Unicode::make($sheet->name);
         $password = \Common::randomPasword(6);
-        $email = $sheet->email;
+        $email = $sheet->email ? $sheet->email : '' ;
         $name = $sheet->name;
-        $tour_id = round($sheet->tour_id);
-        // INSERT LOG
+        $tour_id = round($sheet->tourcode);
         LogCreateUser::create([
           'username'=> $username,
           'init_password' => $password,

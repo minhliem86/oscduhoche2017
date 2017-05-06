@@ -31,6 +31,7 @@ class ImportController extends Controller {
 		} catch (Exception $e) {
 			return $e->getMessage();
 		}
+		return "done";
 	}
 
 

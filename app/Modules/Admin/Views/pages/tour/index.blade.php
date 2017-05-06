@@ -49,7 +49,7 @@
 							<td>{!!$item->price!!}</td>
 							<td>@foreach($item->location()->get() as $location) {!!$location->title!!},   @endforeach</td>
 							<td>
-							<a href="{!!route('admin.tour.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a> 
+							<a href="{!!route('admin.tour.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a>
 							{!!Form::open(array('route'=>array('admin.tour.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
 							<button class="btn  btn-danger btn-xs remove-btn" type="button" attrid="{!!$item->id!!}" onclick="confirm_remove(this);"   > Remove </button>
 							{!!Form::close()!!}
@@ -85,11 +85,12 @@
 		$(document).ready(function(){
 			{!! Notification::showSuccess('alertify.success(":message");') !!}
 			{!! Notification::showError('alertify.error(":message");') !!}
-			
+
 			var table = $('#table-post').DataTable({
 				'ordering': false,
 				"bLengthChange": false,
 				"bFilter" : false,
+        'searching': true
 			});
 			/*SELECT ROW*/
 			$('#table-post tbody').on('click','tr',function(){

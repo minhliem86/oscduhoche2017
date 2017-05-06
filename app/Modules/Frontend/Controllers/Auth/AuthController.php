@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Validator;
 use Auth;
+use Session;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -83,7 +84,14 @@ class AuthController extends Controller {
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
 			$tour_id = $this->auth->get()->tour_id;
-			return $this->auth->get()->change_pass ? redirect()->route('/') : redirect()->route('f.getChangePass');
+			if($this->auth->get()->change_pass){
+				return redirect()->route('f.album');
+			}else{
+				Session::flash('first_time', 'Lần đầu');
+				return redirect()->route('f.getChangePass');
+			}
+
+			// return redirect()->route('f.album');
 		}
 
 		return redirect()->back()
@@ -111,7 +119,7 @@ class AuthController extends Controller {
 	public function getLogout()
 	{
 		$this->auth->logout();
-		return "done";
+		return redirect()->route('f.getLoginCustomer');
 		// return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
 	}
 
@@ -135,9 +143,9 @@ class AuthController extends Controller {
   public function getChangePass()
   {
 		if($this->auth->get()->change_pass){
-			Session::flash('first_time',true);
+			Session::flash('first_time','sdsd');
 		}
-    return view('Frontend::auth.changepass');
+    return view('Frontend::users.change-password');
   }
 
   public function postChangePass(Request $request)
@@ -162,10 +170,10 @@ class AuthController extends Controller {
     $user->change_pass = 1;
     $user->save();
 
-    \Session::flash('success', 'Bạn đã đổi mật khẩu thành công');
+    \Session::flash('success', 'Bạn đã đổi mật khẩu thành công. Vui lòng đăng nhập lại với mật khẩu mới.');
 
-    return "done";
-    // return redirect()->route();
+		$this->getLogout();
+    return redirect()->route('f.getLoginCustomer');
   }
 
 }

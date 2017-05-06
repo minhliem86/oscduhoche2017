@@ -33,8 +33,8 @@ a:hover{text-decoration: none; outline:none;}
 @font-face {
 	font-family: 'gillsansregular', sans-serif;
 	src: url('../font/GothamBook.eot');
-	src: local('../font/GothamBook'), 
-           url('../font/GothamBook.woff') format('woff'), 
+	src: local('../font/GothamBook'),
+           url('../font/GothamBook.woff') format('woff'),
            url('../font/GothamBook.ttf') format('truetype');
 }*/
 @font-face {
@@ -92,7 +92,8 @@ header{
 }
 .topmenu .navbar-default a{
     display:block;
-    padding: 10px 20px;
+    padding: 8px 12px;
+    text-transform: uppercase;
     font-weight:bold;
     color: #050d9e !important;
     border-radius: 35px !important;
@@ -114,6 +115,10 @@ header{
     border-radius: 8px !important;
     left: 0;
     min-width:320px;
+}
+.topmenu ul.nav li.dropdown:last-child ul.dropdown-menu{
+    right:0;
+    left:auto;
 }
 .topmenu ul.nav li.dropdown:hover .dropdown-menu{
     display: block;
@@ -145,7 +150,7 @@ header{
     font-weight:bold;
      border-radius: 35px !important;
 }
-.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.open>a{
     background-image: -webkit-linear-gradient(top,#050d9e 0,#050d9e 100%);
     background-image: -o-linear-gradient(top,#050d9e 0,#050d9e 100%);
@@ -292,7 +297,7 @@ hr{
     overflow: hidden;
 }
 .to-local{
-    margin:0; 
+    margin:0;
     padding:0;
     margin-bottom:20px;
 }
@@ -416,7 +421,7 @@ hr{
 }
 /***************** Video *****************/
 .video{
- 
+
 }
 .video-box{
     margin-top: 20px;
@@ -717,7 +722,7 @@ footer > div > div > div:not(:last-child){
     font-size: 18px;
     background: #fff;
 
-    /* Center slide text vertically 
+    /* Center slide text vertically
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -731,8 +736,8 @@ footer > div > div > div:not(:last-child){
     -webkit-align-items: center;
     align-items: center;
 }  */
-.swiper-pagination-fraction, 
-.swiper-pagination-custom, 
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
 .swiper-container-horizontal > .swiper-pagination-bullets{
     top: auto;
     left: 2%;

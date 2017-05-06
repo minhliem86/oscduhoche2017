@@ -11,20 +11,32 @@
         </div> <!-- end logo -->
         <h2 class="title">Chào mừng đến với <span>Chương trình Du học hè 2017</span></h2>
         <div class="wrap-form">
+          @if(Session::has('success'))
+              <div class="alert alert-success" role="alert">
+                <p>{!!Session::get('success')!!}</p>
+              </div>
+          @endif
           {!!Form::open(['route'=>['f.postLoginCustomer'],'class'=>'form' , 'id'=>'form-login'])!!}
             <div class="form-group has-feedback">
               <i class="form-control-feedback right-feedback glyphicon glyphicon-user"></i>
-              <input type="text" class="form-control" placeholder="Username">
+              <input type="text" name="username" class="form-control" placeholder="Username" value="{!!old('username')!!}">
             </div>
             <div class="form-group has-feedback">
               <i class="form-control-feedback right-feedback glyphicon glyphicon-lock"></i>
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
             <div class="form-group text-center">
               <input type="submit" class="btn-submit-login" value="Đăng Nhập">
-              <a href="#" class="back">Trang chủ</a>
+              <a href="{!!route('home')!!}" class="back">Trang chủ</a>
             </div>
           {!!Form::close()!!}
+          @if($errors->any())
+            @foreach($errors->all() as $error)
+              <div class="alert alert-danger" role="alert">
+                <p>{!!$error!!}</p>
+              </div>
+            @endforeach
+          @endif
         </div>
 
       </div>  <!-- end table - cell -->

@@ -2,31 +2,31 @@
 
 Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],function(){
 
-	// Route::get('role/create',function(){
-	// 	$admin = new \App\Models\Role();
-	// 	$admin->name = 'admin';
-	// 	$admin->display_name = 'Administrator';
-	// 	$admin->description = 'Admin can create user';
-	// 	$admin->save();
-	//
-	// 	$mod = new \App\Models\Role();
-	// 	$mod->name = 'mod';
-	// 	$mod->display_name = 'Moderator';
-	// 	$mod->description = 'Mod can only upload photos';
-	// 	$mod->save();
-	//
-	// 	return "Done";
-	// });
-	//
-	// Route::get('permission/create',function(){
-	// 	$login = new \App\Models\Permission();
-	// 	$login->name = 'login_dashboard';
-	// 	$login->display_name = 'Login Dashboard';
-	// 	$login->description = 'can login to dashboard';
-	// 	$login->save();
-	//
-	// 	return "Done";
-	// });
+	Route::get('role/create',function(){
+		$admin = new \App\Models\Role();
+		$admin->name = 'admin';
+		$admin->display_name = 'Administrator';
+		$admin->description = 'Admin can create user';
+		$admin->save();
+
+		$mod = new \App\Models\Role();
+		$mod->name = 'mod';
+		$mod->display_name = 'Moderator';
+		$mod->description = 'Mod can only upload photos';
+		$mod->save();
+
+		return "Done";
+	});
+
+	Route::get('permission/create',function(){
+		$login = new \App\Models\Permission();
+		$login->name = 'login_dashboard';
+		$login->display_name = 'Login Dashboard';
+		$login->description = 'can login to dashboard';
+		$login->save();
+
+		return "Done";
+	});
 
 	Route::get('login',['as'=>'admin.getlogin','uses'=>'Auth\AuthController@getLogin']);
 	Route::post('login',['as'=>'admin.postLogin','uses'=>'Auth\AuthController@postLogin']);

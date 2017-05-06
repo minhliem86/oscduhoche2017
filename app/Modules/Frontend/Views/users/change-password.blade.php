@@ -11,7 +11,7 @@
         </div> <!-- end logo -->
         <h2 class="title">Chào mừng đến với <span>Chương trình Du học hè 2017</span></h2>
         <h3 class="note">
-          {!! Session::has('first_time') ? 'Đây là lần đăng nhập đầu tiên của bạn. Bạn có thể thay đổi mật khẩu hoặc bỏ qua bước này' : 'Thay đổi mật khẩu'  !!}
+          {!! Session::has('first_time') ? 'Đây là lần đăng nhập đầu tiên hoặc bạn chưa thay đổi mật khẩu. Bạn có thể thay đổi mật khẩu hoặc bỏ qua bước này' : 'Thay đổi mật khẩu'  !!}
         </h3>
         <div class="wrap-form">
           {!!Form::open(['route'=>['f.postChangePass'],'class'=>'form' , 'id'=>'form-login'])!!}
@@ -25,9 +25,16 @@
             </div>
             <div class="form-group text-center">
               <input type="submit" class="btn-submit-login" value="thay đổi">
-              <a href="#" class="back">Bỏ qua</a>
+              <a href="{!!route('f.album')!!}" class="back">Bỏ qua</a>
             </div>
           {!!Form::close()!!}
+          @if($errors->any())
+            @foreach($errors->all() as $error)
+              <div class="alert alert-danger" role="alert">
+                <p>{!!$error!!}</p>
+              </div>
+            @endforeach
+          @endif
         </div>
 
       </div>  <!-- end table - cell -->

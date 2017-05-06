@@ -19,7 +19,7 @@
          <li class="{!!Active::setActive(2,'image')!!}"><a href="{!!route('admin.image.index')!!}"><i class="fa fa-photo"></i> <span>Images</span></a></li>
          <li class="{!!Active::setActive(2,'tour')!!}"><a href="{!!route('admin.tour.index')!!}"><i class="fa fa-photo"></i> <span>Courses</span></a></li>
          @endif
-         <li class="{!!Active::setActive(2,'album')!!}"><a href="{!!route('admin.album.index')!!}"><i class="fa fa-album"></i> <span>Album</span></a></li>
+         <li class="{!!Active::setActive(2,'album')!!}"><a href="{!!route('admin.album.index')!!}"><i class="fa fa-file-image-o"></i> <span>Album</span></a></li>
          <li class="{!!Active::setActive(2,'Upload Photo')!!}"><a href="{!!route('admin.photo.index')!!}"><i class="fa fa-photo"></i> <span>Upload Photo</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->

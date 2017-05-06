@@ -1,7 +1,7 @@
 @if(!$image->isEmpty())
 <div class="container-fluid">
   <div class="row">
-    @foreach($image as$k=> $item)
+    @foreach($image as $k=> $item)
     <div class="col-sm-4">
       <div class="each-all">
         <a href="#" data-index="{!!$k!!}">
@@ -11,7 +11,7 @@
         </a>
       </div>  <!--end each all -->
     </div>
-  @endforeach
+    @endforeach
   </div>
   <div class="row">
     <div class="col-sm-12">

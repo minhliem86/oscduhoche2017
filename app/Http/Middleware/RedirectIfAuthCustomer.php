@@ -37,7 +37,8 @@ class RedirectIfAuthCustomer {
  	{
  		if ($this->auth->check())
  		{
- 			return new RedirectResponse(url('/'));
+			return redirect()->route('f.album');
+ 		// 	return new RedirectResponse(url('/'));
  		}
 
  		return $next($request);

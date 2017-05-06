@@ -38,10 +38,10 @@
                                                 <li class="{!!Active::setActive(1,'lien-he')!!}"><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
                                                 @if(Auth::client()->check())
                                                 <li class="dropdown">
-                                                  <a href="{!!route('contact')!!}"><b>{!!Auth::client()->get()->name!!}</b></a>
+                                                  <a href="{!!route('f.album')!!}"><b>{!!Auth::client()->get()->name!!}</b></a>
                                                   <ul class="dropdown-menu">
                                                        <li><a href="{!!route('f.getChangePass')!!}">Thay đổi mật khẩu</a></li>
-                                                       <li><a href="{!!route('f.getLogoutCustome')!!}">Đăng xuất</a></li>
+                                                       <li><a href="{!!route('f.getLogoutCustomer')!!}">Đăng xuất</a></li>
                                                   </ul>
                                                 </li>
                                                 @endif
