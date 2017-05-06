@@ -79,8 +79,16 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			Route::get('/list-user',['as' => 'admin.getListUser', 'uses' =>'AdminController@getListUser']);
 			Route::post('/user/deleteall',['as'=>'admin.user.deleteall','uses'=>'LocationController@deleteAll']);
 			Route::delete('/delete-user/{id}',['as' => 'admin.deleteUser', 'uses' =>'AdminController@deleteUser']);
-
 		});
+
+		// ALBUM
+		Route::post('/album/deleteall',['as'=>'admin.album.deleteall','uses'=>'AlbumController@deleteAll']);
+		Route::resource('/album', 'AlbumController');
+
+		// PHOTO
+		Route::post('/uploadPhoto', [ 'as' => 'admin.photo.postUpload', 'uses'=>'PhotoController@postUpload']);
+		Route::post('/photo/deleteall',['as'=>'admin.photo.deleteall','uses'=>'PhotoController@deleteAll']);
+		Route::resource('/photo', 'PhotoController');
 
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);

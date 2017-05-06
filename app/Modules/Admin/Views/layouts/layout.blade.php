@@ -9,7 +9,7 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<meta name="csrf-token" content="{!! csrf_token() !!}">
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-	
+
 	{!!Html::style('public/assets/backend/bootstrap/css/bootstrap.min.css')!!}
 
 		 <!-- Font Awesome -->
@@ -58,6 +58,8 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+
+	@yield('css')
 </head>
 <body class="skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -88,7 +90,7 @@ desired effect
 	{!!Html::script('public/assets/backend/js/alert/alertify.js')!!}
 	{!!Html::style('public/assets/backend/js/alert/alertify.css')!!}
 	{!!Html::style('public/assets/backend/js/alert/semantic.min.css')!!}
-	
+
 	@yield('script')
 </body>
 </html>

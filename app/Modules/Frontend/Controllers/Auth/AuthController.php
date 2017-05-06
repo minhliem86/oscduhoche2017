@@ -60,7 +60,7 @@ class AuthController extends Controller {
 	 */
 	public function getLogin()
 	{
-		return view('Frontend::auth.login');
+		return view('Frontend::users.customer_login');
 	}
 
 	/**
@@ -134,8 +134,10 @@ class AuthController extends Controller {
 
   public function getChangePass()
   {
+		if($this->auth->get()->change_pass){
+			Session::flash('first_time',true);
+		}
     return view('Frontend::auth.changepass');
-
   }
 
   public function postChangePass(Request $request)

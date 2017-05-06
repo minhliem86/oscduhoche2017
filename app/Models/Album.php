@@ -3,15 +3,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model{
+
   public $table = 'albums';
 
-  protected $fillable = ['title', ' status', ' tour_id'];
+  protected $fillable =  [ 'title', 'status', 'img_url', 'tour_id','slug'];
 
   public function tours(){
-    $this->belongsTo('App\Models\Tour', 'tour_id');
+    return $this->belongsTo('App\Models\Tour', 'tour_id');
   }
 
   public function photos(){
-    $this->hasMany('App\Models\Photo');
+    return $this->hasMany('App\Models\Photo');
   }
 }
