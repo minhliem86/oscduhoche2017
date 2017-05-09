@@ -9,6 +9,7 @@
           <div class="swiper-slide">
             <div class="wrap-photo">
               <img src="{!!$item->img_url!!}" class="img-responsive" alt="">
+              <p class="caption">{!!$item->title!!}</p>
             </div>
           </div>
           @endforeach

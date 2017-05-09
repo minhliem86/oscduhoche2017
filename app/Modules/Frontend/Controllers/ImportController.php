@@ -28,6 +28,7 @@ class ImportController extends Controller {
 		$file = $request->file('file');
 		try {
 			$data = $this->import->importUser($file);
+			dd($data);
 		} catch (Exception $e) {
 			return $e->getMessage();
 		}

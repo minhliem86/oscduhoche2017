@@ -77,7 +77,7 @@ public function postUpload(Request $request)
     ];
     $this->image->postUpdate($id,$data);
     Notification::success('Updated');
-    return  redirect()->route('admin.image.index');
+    return  redirect()->route('admin.photo.index');
   }
 
   public function postDelete(Request $request)
