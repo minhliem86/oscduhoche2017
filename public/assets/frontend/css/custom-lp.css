@@ -853,9 +853,15 @@ div.promotion-bottom{
 .contact-left .wrap-promotion-contact .each-promo p{
     margin-bottom:10px;
 }
+
+.contact-left p{
+    margin-bottom:10px;
+}
 .contact-right h4{
     margin-bottom:20px;
 }
+
+
 
 
 /* FORM */
@@ -957,7 +963,12 @@ span.error{
 
 /* NEW PROMTION - CONTACT PAGE */
 .wrap-new-promotion{
-    margin-bottom:25px;
+    margin-bottom:60px;
+}
+@media screen and (min-width:320px) and (max-width: 480px){
+    .new-promotion-content{
+        text-align: left;
+    }
 }
 .wrap-new-promotion .pro-text h2{
     font-size:16px;

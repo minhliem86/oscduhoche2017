@@ -19,13 +19,13 @@ class ImportUserRepository{
 
   public function importUser($file)
   {
-    Excel::load($file, function($reader){
+    Excel::selectSheets('Sheet1')->load($file, function($reader){
       $reader->each(function($sheet) {
         $username = 'duhoche2017_'.\Unicode::make($sheet->name);
         $password = \Common::randomPasword(6);
         $email = $sheet->email ? $sheet->email : '' ;
         $name = $sheet->name;
-        $tour_id = round($sheet->tourcode);
+        $tour_id = round($sheet->code);
         LogCreateUser::create([
           'username'=> $username,
           'init_password' => $password,
