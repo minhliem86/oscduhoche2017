@@ -1,6 +1,9 @@
 @extends('Frontend::layouts.layout')
 
 @section('title', 'ILA Du Học Hè 2017 - Thư viện hình ảnh')
+@section('css')
+  <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/css/customer.min.css">
+@stop
 @section('script')
   <script src="{!!asset('public/assets/frontend/')!!}/js/swiper.min.js"></script>
   {{-- REMODAL --}}
@@ -47,7 +50,23 @@
   </script>
 @stop
 @section('content')
-  @include('Frontend::layouts.banner')
+  <section class="banner container clearfix">
+      <div class="row">
+          <div class="banner-destination">
+              <div class="tp-banner-container">
+                  <div class="tp-banner" >
+                      <ul>
+                          <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
+                              <!-- MAIN IMAGE  -->
+                             <img src="{!!$img_banner!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                              <div class="tp-caption sft large_text"  data-x="400" data-y="100" data-speed="700" data-start="1700" data-easing="easeOutBack">{!! str_word_count($country_name) <= 3 ? "<p>Du học hè ".$country_name."</p>"   :  '<p>Du học hè</p><p>'.$country_name.'</p>' !!}</div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>  <!-- banner-destination-->
+      </div>
+  </section>
   <!-- **************** Wellcome ****************-->
   <section class="wellcome">
       <div class="container">
