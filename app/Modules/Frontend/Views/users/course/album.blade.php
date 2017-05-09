@@ -5,7 +5,23 @@
   <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/css/customer.min.css">
 @stop
 @section('content')
-  @include('Frontend::layouts.banner')
+  <section class="banner container visible-md visible-lg clearfix">
+      <div class="row">
+          <div class="banner-destination">
+              <div class="tp-banner-container">
+                  <div class="tp-banner" >
+                      <ul>
+                          <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
+                              <!-- MAIN IMAGE  -->
+                             <img src="{!!$img_banner!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                             <div class="tp-caption sft medium_text"  data-x="400" data-y="100" data-speed="700" data-start="1700" data-easing="easeOutBack">KICKSTART YOUR WEBSITE</div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>  <!-- banner-destination-->
+      </div>
+  </section>
   <!-- **************** Wellcome ****************-->
   <section class="wellcome">
       <div class="container">

@@ -47,7 +47,7 @@
   </script>
 @stop
 @section('content')
-  @include('Frontend::layouts.banner')
+  
   <!-- **************** Wellcome ****************-->
   <section class="wellcome">
       <div class="container">

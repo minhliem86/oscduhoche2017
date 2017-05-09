@@ -13,12 +13,12 @@
     </div>
     @endforeach
   </div>
-  <div class="row">
+  {{-- <div class="row">
     <div class="col-sm-12">
       <div class="wrap-pagination text-center">
         {!!$image->setPath('')->render()!!}
       </div>
     </div>
-  </div>
+  </div> --}}
 </div>
 @endif
