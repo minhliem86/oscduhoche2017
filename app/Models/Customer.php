@@ -12,7 +12,7 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
 
 	public $table = 'customers';
 
-  protected $fillable = ['name','email','password','username','tour_id'];
+  protected $fillable = ['name','email','password','username','tour_id','super'];
 
 	protected $hidden = ['password', 'remember_token'];
 
