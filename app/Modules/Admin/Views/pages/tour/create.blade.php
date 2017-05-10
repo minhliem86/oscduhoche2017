@@ -8,7 +8,7 @@
 
 	<div class="box">
 		<div class="container-fluid">
-			{!!Form::open(array('route'=>array('admin.tour.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
+			{!!Form::open(array('route'=>array('admin.course.store'),'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
 					<label for="">Hình đại diện</label>
 					{!!Form::file('img')!!}
@@ -23,6 +23,23 @@
 						<p class="error">{!!$errors->first('img-sharing')!!}</p>
 					@endif
 				</div>
+
+        <div class="form-group">
+  					<label for="">Hình banner desktop (1170x350)</label>
+  					{!!Form::file('banner_desktop')!!}
+  					@if($errors->first('banner_desktop'))
+  						<p class="error">{!!$errors->first('banner_desktop')!!}</p>
+  					@endif
+				</div>
+
+        <div class="form-group">
+  					<label for="">Hình banner mobile (768x450)</label>
+  					{!!Form::file('banner_mobile')!!}
+  					@if($errors->first('banner_mobile'))
+  						<p class="error">{!!$errors->first('banner_mobile')!!}</p>
+  					@endif
+				</div>
+
 				<div class="form-group">
 					<label for="">Tên tour</label>
 					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
@@ -64,7 +81,7 @@
 					</div>
 					<button type="button" class="btn btn-primary" id="addschedule">Thêm Lịch trình</button>
 				</div> -->
-				
+
 				<div class="form-group">
 					<label for="">Đối tác</label>
 					{!!Form::text('partner',old('partner'),array('class'=>'form-control'))!!}

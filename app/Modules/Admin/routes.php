@@ -67,10 +67,10 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			Route::resource('image','ImageController');
 
 			/*Tour*/
-			Route::post('tour/deleteall',['as'=>'admin.tour.deleteall','uses'=>'TourController@deleteAll']);
+			Route::post('/course/deleteall',['as'=>'admin.course.deleteall','uses'=>'CourseController@deleteAll']);
 			// Route::post('tour/addSchedule',['as'=>'admin.tour.addSchedule','uses'=>'TourController@addSchedule']);
 			// Route::post('tour/ajaxDeleteSchedule',['as'=>'admin.tour.ajaxDeleteShedule','uses'=>'TourController@ajaxDeleteSchedule']);
-			Route::resource('tour','TourController');
+			Route::resource('/course','CourseController');
 
 			// MANAGE USER
 			Route::get('/create-user',['as'=>'admin.getCreateUser', 'uses'=>'AdminController@getCreateUser']);
@@ -81,7 +81,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			Route::delete('/delete-user/{id}',['as' => 'admin.deleteUser', 'uses' =>'AdminController@deleteUser']);
 
 			// MANAGE SUPER CUSTOMER
-			
+
 			Route::resource('/customer','CustomerController');
 
 

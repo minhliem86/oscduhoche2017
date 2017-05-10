@@ -17,7 +17,7 @@
 			<div class="box">
 	            <div class="box-header">
 	              <div class="pull-right">
-	              	<a href="{!!route('admin.tour.create')!!}" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+	              	<a href="{!!route('admin.course.create')!!}" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 					<button class="btn btn-danger btn-xs" id="btn-count">Remove data selected</button>
 	              </div>
 	            </div>
@@ -42,15 +42,15 @@
 					    @foreach($tour as $item)
 						<tr>
 							<td >{!!$item->id!!}</td>
-							<td><b><a href="{!!route('admin.tour.edit',$item->id)!!}">{!!$item->title!!}</a></b></td>
+							<td><b><a href="{!!route('admin.course.edit',$item->id)!!}">{!!$item->title!!}</a></b></td>
 							<td>{!!$item->start!!}</td>
 							<td>{!!$item->end!!}</td>
 							<td>{!!$item->age!!}</td>
 							<td>{!!$item->price!!}</td>
 							<td>@foreach($item->location()->get() as $location) {!!$location->title!!},   @endforeach</td>
 							<td>
-							<a href="{!!route('admin.tour.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a>
-							{!!Form::open(array('route'=>array('admin.tour.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
+							<a href="{!!route('admin.course.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a>
+							{!!Form::open(array('route'=>array('admin.course.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
 							<button class="btn  btn-danger btn-xs remove-btn" type="button" attrid="{!!$item->id!!}" onclick="confirm_remove(this);"   > Remove </button>
 							{!!Form::close()!!}
 							</td>
@@ -107,7 +107,7 @@
 				alertify.confirm('You can not undo this action. Are you sure ?', function(e){
 					if(e){
 						$.ajax({
-							'url':"{!!route('admin.tour.deleteall')!!}",
+							'url':"{!!route('admin.course.deleteall')!!}",
 							'data' : {arr: data,_token:$('meta[name="csrf-token"]').attr('content')},
 							'type': "POST",
 							'success':function(result){

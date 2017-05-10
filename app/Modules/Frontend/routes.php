@@ -34,6 +34,8 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::post('/resetPassword',['as'=>'f.postresetPassword','uses'=>'Auth\PasswordController@postReset']);
 
 
-	Route::get('/thu-vien-hinh-anh', ['as' =>'f.album', 'uses' => 'CustomerController@getAlbum']);
-	Route::get('/thu-vien-hinh-anh/{slug_album}/photo', ['as' => 'f.photo', 'uses' => 'CustomerController@getPhotoByAlbum'])->where('slug_album','[0-9A-Za-z._\-]+');
+	Route::get('/thu-vien-hinh-anh', ['middleware'=>'customer_login_not_yet', 'as' =>'f.album', 'uses' => 'CustomerController@getAlbum']);
+	Route::get('/get-Album', ['middleware'=>'customer_login_not_yet',  'as' =>'f.ajaxAlbum', 'uses' => 'CustomerController@ajaxLoadAlbum']);
+
+	Route::get('/thu-vien-hinh-anh/{slug_album}/photo', ['middleware'=>'customer_login_not_yet', 'as' => 'f.photo', 'uses' => 'CustomerController@getPhotoByAlbum'])->where('slug_album','[0-9A-Za-z._\-]+');
 });

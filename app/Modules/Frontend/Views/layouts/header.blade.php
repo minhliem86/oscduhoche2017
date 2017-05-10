@@ -38,8 +38,9 @@
                                                 <li class="{!!Active::setActive(1,'lien-he')!!}"><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
                                                 @if(Auth::client()->check())
                                                 <li class="dropdown">
-                                                  <a href="{!!route('f.album')!!}">Travel Blog</a>
+                                                  <a href="javascript:avoid()">Travel Blog</a>
                                                   <ul class="dropdown-menu">
+                                                       <li><a href="{!!route('f.album')!!}">Tất cả Album</a></li>
                                                        <li><a href="{!!route('f.getChangePass')!!}">Thay đổi mật khẩu</a></li>
                                                        <li><a href="{!!route('f.getLogoutCustomer')!!}">Đăng xuất</a></li>
                                                   </ul>

@@ -42,40 +42,48 @@ class CustomerController extends Controller {
 
 	public function getAlbum()
   {
-    // $tour_id = $this->auth->get()->tour_id;
-<<<<<<< HEAD
-    $img_banner = $this->tour->find(1)->country()->first()->images()->where('type','banner_country')->first()->img_url;
-=======
-		$img_banner = $this->tour->find(1)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
-		$country_name = $this->tour->find(1)->country()->first()->name;
->>>>>>> 6b09937641cfd47ba8e41e7aa4ca659c033320a4
+    $tour_id = $this->auth->get()->tour_id;
+		$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
+		$country_name = $this->tour->find($tour_id)->country()->first()->name;
+		$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
+		$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
 		try {
-				$tour_album = $this->tour->select('id', 'title')->with('albums')->find(1);
+				$tour_album = $this->tour->select('id', 'title')->with('albums')->find($tour_id);
         $lastest_album = $tour_album->albums()->orderBy('id', 'DESC')->take(2)->get();
-        $all_album = $tour_album->albums()->orderBy('id', 'DESC')->get();
+        $all_album = $tour_album->albums()->orderBy('id', 'ASC')->take(6)->get();
 		} catch (Exception $e) {
 			return redirect()->back();
 		}
-<<<<<<< HEAD
-    return view('Frontend::users.course.album', compact('lastest_album', 'all_album', 'img_banner'));
-=======
-    return view('Frontend::users.course.album', compact('lastest_album', 'all_album', 'img_banner', 'country_name'));
->>>>>>> 6b09937641cfd47ba8e41e7aa4ca659c033320a4
+    return view('Frontend::users.course.album', compact('lastest_album', 'all_album', 'img_banner', 'country_name', 'banner_desk', 'banner_mobile'));
   }
+
+	public function ajaxLoadAlbum(Request $request)
+	{
+		if(!$request->ajax()){
+			abort(404);
+		}else{
+			  $tour_id = $this->auth->get()->tour_id;
+				try {
+					$tour_album = $this->tour->select('id', 'title')->with('albums')->find($tour_id);
+					$all_album = $tour_album->albums()->orderBy('id', 'DESC')->get();
+				} catch (Exception $e) {
+					return response()->json(['error'=>true, 'msg' => 'Not Found Album'],500);
+				}
+				$view = view('Frontend::ajax.loadFullAlbum', compact('all_album'))->render();
+				return response()->json( ['error'=>false, 'msg' =>$view],200);
+		}
+	}
 
   public function getPhotoByAlbum(Request $request, $slug_album)
   {
     try {
         $title_album = $this->album->where('slug', $slug_album)->first()->title;
-<<<<<<< HEAD
-        $tour_id = $this->auth->get()->tour_id;
-        $img_banner = $this->tour->find(1)->country()->first()->images()->where('type','banner_country')->first()->img_url;
-=======
-
 				$tour_id = $this->auth->get()->tour_id;
 				$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
 				$country_name = $this->tour->find($tour_id)->country()->first()->name;
->>>>>>> 6b09937641cfd47ba8e41e7aa4ca659c033320a4
+
+				$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
+				$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
     } catch (Exception $e) {
       return redirect()->back();
     }
@@ -83,11 +91,7 @@ class CustomerController extends Controller {
     if($request->ajax()){
       return view('Frontend::ajax.paginatePhoto', compact('image'))->render();
     }
-<<<<<<< HEAD
-      return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner'));
-=======
-      return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name'));
->>>>>>> 6b09937641cfd47ba8e41e7aa4ca659c033320a4
+      return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name', 'banner_mobile', 'banner_desk'));
 
   }
 

@@ -50,27 +50,39 @@
   </script>
 @stop
 @section('content')
-<<<<<<< HEAD
-  
-=======
+
   <section class="banner container clearfix">
       <div class="row">
           <div class="banner-destination">
-              <div class="tp-banner-container">
-                  <div class="tp-banner" >
-                      <ul>
-                          <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
-                              <!-- MAIN IMAGE  -->
-                             <img src="{!!$img_banner!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                              <div class="tp-caption sft large_text"  data-x="400" data-y="100" data-speed="700" data-start="1700" data-easing="easeOutBack">{!! str_word_count($country_name) <= 3 ? "<p>Du học hè ".$country_name."</p>"   :  '<p>Du học hè</p><p>'.$country_name.'</p>' !!}</div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+            <div class="banner-destination visible-lg visible-md">
+                <div class="tp-banner-container fullwidthbanner-container">
+                    <div class="tp-banner fullwidthbanner" >
+                        <ul>
+                            <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
+                                <!-- MAIN IMAGE  -->
+                               <img src="{!!$banner_desk!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                                <div class="tp-caption sft large_text"  data-x="400" data-y="100" data-speed="700" data-start="1700" data-easing="easeOutBack">{!! str_word_count($country_name) <= 3 ? "<p>Du học hè ".$country_name."</p>"   :  '<p>Du học hè</p><p>'.$country_name.'</p>' !!}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  <!-- banner-destination-->
+            <div class="banner-destination visible-sm visible-xs">
+                <div class="tp-banner-container fullwidthbanner-container">
+                    <div class="tp-banner fullwidthbanner" >
+                        <ul>
+                            <li data-transition="boxslide" data-slotamount="7" data-masterspeed="500" data-link="{!!route('contact')!!}">
+                                <!-- MAIN IMAGE  -->
+                               <img src="{!!$banner_mobile!!}"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                                <div class="tp-caption sft large_text"  data-x="400" data-y="100" data-speed="700" data-start="1700" data-easing="easeOutBack">{!! str_word_count($country_name) <= 3 ? "<p>Du học hè ".$country_name."</p>"   :  '<p>Du học hè</p><p>'.$country_name.'</p>' !!}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  <!-- banner-destination-->
           </div>  <!-- banner-destination-->
       </div>
   </section>
->>>>>>> 6b09937641cfd47ba8e41e7aa4ca659c033320a4
   <!-- **************** Wellcome ****************-->
   <section class="wellcome">
       <div class="container">

@@ -7,40 +7,8 @@
 <section class="content">
 	<div class="box">
 		<div class="container-fluid">
-			<!-- <div class="row">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm Lịch trình</button>
-			</div>
 
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Thêm lịch trình</h4>
-			      </div>
-			      {!!Form::open(['files'=>true])!!}
-			      <input type="hidden" name="tour_id" value="{!!$tour->id!!}">
-			      <div class="modal-body">
-			        <div class="form-group">
-			        	{!!Form::text('titleSch',old('titleSch[]'),array('class'=>'form-control', 'placeholder' => 'Tiêu đề (vd Tuần 1: 15/01 - 20/01/2017)'))!!}
-			        </div>
-			        <div class="form-group">
-			        	{!!Form::textarea('contentSch',old('contentSch[]'),array('class'=>'form-control','rows'=>3, 'placeholder'=>'Nội dung'))!!}
-			        </div>
-			        <div class="form-group">
-			        	{!!Form::file('imgSch')!!}
-			        </div>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="submit" class="btn btn-primary">Save changes</button>
-			      </div>
-			      {!!Form::close()!!}
-			    </div>
-			  </div>
-			</div> -->
-
-			{!!Form::model($tour,array('route'=>array('admin.tour.update',$tour->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
+			{!!Form::model($tour,array('route'=>array('admin.course.update',$tour->id),'method'=>'PUT' ,'class'=>'formAdmin form-horizontal','files'=>true))!!}
 				<div class="form-group">
 					<label for="">Tên Tour</label>
 					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
@@ -67,7 +35,7 @@
 				<!-- @if($tour->schedule()->get())
 				<div class="form-group">
 					<label for="">Lịch trình</label>
-				
+
 					<div class="container-fluid">
 						<div class="wrap-schedule">
 							@foreach($tour->schedule()->get() as $item_schedule)
@@ -133,7 +101,7 @@
 					</p>
 					{!!Form::file('img')!!}
 				</div>
-				
+
 				<div class="form-group">
 					<label for="" >Hình FB sharing (600x315)</label>
 					<p>
@@ -142,7 +110,25 @@
 					</p>
 					{!!Form::file('img-sharing')!!}
 				</div>
-				
+
+        <div class="form-group">
+          <label for="" >Hình Banner Desktop</label>
+          <p>
+            <img src="{!!$tour->banner_desktop!!}" width="150" alt="">
+            {!!Form::hidden('bk-banner-desktop',$tour->banner_desktop)!!}
+          </p>
+          {!!Form::file('banner_desktop')!!}
+        </div>
+
+        <div class="form-group">
+          <label for="" >Hình Banner Mobile</label>
+          <p>
+            <img src="{!!$tour->banner_mobile!!}" width="150" alt="">
+            {!!Form::hidden('bk-banner-mobile',$tour->banner_mobile)!!}
+          </p>
+          {!!Form::file('banner_mobile')!!}
+        </div>
+
 				<div class="form-group">
 					<span class="inline-radio"><input type="radio" name="status" value="1" {!!$tour->status == 1 ? 'checked' : ''!!}> <b>Active</b> </span>
 					<span class="inline-radio"><input type="radio" name="status" value="0" {!!$tour->status == 0 ? 'checked' : ''!!}> <b>Deactive</b> </span>

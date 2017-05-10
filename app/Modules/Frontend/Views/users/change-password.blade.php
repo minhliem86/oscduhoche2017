@@ -9,7 +9,7 @@
             <img src="{!!asset('public/assets/frontend/')!!}/images/customers/logo-login.png" alt="">
           </a>
         </div> <!-- end logo -->
-        <h2 class="title">Chào mừng đến với <span>Chương trình Du học hè 2017</span></h2>
+        <h2 class="title">CHÀO MỪNG ĐẾN VỚI TRAVEL BLOG  <span>CỦA CHƯƠNG TRÌNH DU HỌC HÈ 2017</span></h2>
         <h3 class="note">
           {!! Session::has('first_time') ? 'Đây là lần đăng nhập đầu tiên hoặc bạn chưa thay đổi mật khẩu. Bạn có thể thay đổi mật khẩu hoặc bỏ qua bước này' : 'Thay đổi mật khẩu'  !!}
         </h3>

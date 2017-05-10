@@ -9,7 +9,7 @@
             <img src="{!!asset('public/assets/frontend/')!!}/images/customers/logo-login.png" alt="">
           </a>
         </div> <!-- end logo -->
-        <h2 class="title">Chào mừng đến với <span>Chương trình Du học hè 2017</span></h2>
+        <h2 class="title">CHÀO MỪNG ĐẾN VỚI TRAVEL BLOG  <span>CỦA CHƯƠNG TRÌNH DU HỌC HÈ 2017</span></h2>
         <div class="wrap-form">
           @if(Session::has('success'))
               <div class="alert alert-success" role="alert">
@@ -26,7 +26,7 @@
               <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
             <div class="form-group text-center">
-              <input type="submit" class="btn-submit-login" value="Đăng Nhập">
+              <input type="submit" class="btn-submit-login" value="Travel Blog">
               <a href="{!!route('home')!!}" class="back">Trang chủ</a>
             </div>
           {!!Form::close()!!}

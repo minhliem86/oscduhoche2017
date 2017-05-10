@@ -11,7 +11,7 @@ use App\Http\Requests\ImageRequest;
 use App\Repositories\CommonRepository;
 
 
-class TourController extends Controller {
+class CourseController extends Controller {
 
 		protected $tour;
 
@@ -167,7 +167,7 @@ class TourController extends Controller {
         // $tour->schedule()->saveMany($arr_data);
         $tour->location()->attach($request->location_id);
         Notification::success('Created');
-        return  redirect()->route('admin.tour.index');
+        return  redirect()->route('admin.course.index');
     }
 
     /**
@@ -204,7 +204,6 @@ class TourController extends Controller {
      */
     public function update(Request $request,ImageRequest $imgrequest, $id)
     {
-			dd('test');
         if($imgrequest->hasFile('img')){
             $file = $imgrequest->file('img');
             $destinationPath = 'public/upload'.'/'.$this->upload_folder;
@@ -269,26 +268,26 @@ class TourController extends Controller {
 
 
 
-        // $tour = $this->tour->find($id);
-        // $tour->title = $request->title;
-        // $tour->slug = \Unicode::make($request->title);
-        // $tour->description = $request->input('description');
-        // $tour->content = $request->input('content');
-        // $tour->img_avatar = $img_url;
-        // $tour->img_sharing = $img_sharing;
-        // $tour->partner = $request->input('partner');
-        // $tour->stay = $request->input('stay');
-        // $tour->week = $request->input('week');
-        // $tour->start = $request->input('start');
-        // $tour->end = $request->input('end');
-        // $tour->price = $request->input('price');
-        // $tour->age = $request->input('age');
-        // $tour->country_id = $request->input('country_id');
-        // $tour->status = $request->status;
-        // $tour->order = $request->order;
-        // $tour->banner_desktop = $banner_desktop;
-        // $tour->banner_mobile = $banner_mobile;
-        // $tour->save();
+        $tour = $this->tour->find($id);
+        $tour->title = $request->title;
+        $tour->slug = \Unicode::make($request->title);
+        $tour->description = $request->input('description');
+        $tour->content = $request->input('content');
+        $tour->img_avatar = $img_url;
+        $tour->img_sharing = $img_sharing;
+        $tour->partner = $request->input('partner');
+        $tour->stay = $request->input('stay');
+        $tour->week = $request->input('week');
+        $tour->start = $request->input('start');
+        $tour->end = $request->input('end');
+        $tour->price = $request->input('price');
+        $tour->age = $request->input('age');
+        $tour->country_id = $request->input('country_id');
+        $tour->status = $request->status;
+        $tour->order = $request->order;
+        $tour->banner_desktop = $banner_desktop;
+        $tour->banner_mobile = $banner_mobile;
+        $tour->save();
 
         /*SCHEDULE TOUR*/
         // foreach($request->input('schedule_id') as $key=>$v){
@@ -297,10 +296,10 @@ class TourController extends Controller {
         //     $schedule->content = $request->input('schedulecontent')[$key];
         //     $schedule->save();
         // }
-
         // $tour->location()->sync([$request->location_id]);
-        // Notification::success('Updated');
-        // return  redirect()->route('admin.tour.index');
+
+        Notification::success('Updated');
+        return  redirect()->route('admin.course.index');
     }
 
     /**
@@ -312,7 +311,7 @@ class TourController extends Controller {
     public function destroy($id){
         $this->tour->destroy($id);
         \Notification::success('Remove Successful');
-        return redirect()->route('admin.tour.index');
+        return redirect()->route('admin.course.index');
     }
 
     public function deleteAll(Request $request){
