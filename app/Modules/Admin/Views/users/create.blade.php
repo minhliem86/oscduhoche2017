@@ -8,7 +8,7 @@
 
 	<div class="box">
 		<div class="container-fluid">
-      {!! Form::open(array('route'=>'admin.getCreateUser', 'class'=>'form-register')) !!}
+      {!! Form::open(array('route'=>'admin.postCreateUser', 'class'=>'form-register')) !!}
 				<div class="form-group has-feedback">
 					{!!Form::text('name',old('name'), array('class'=>'form-control', 'placeholder'=>'Fullname'))!!}
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>

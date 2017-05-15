@@ -91,6 +91,8 @@ class AdminController extends Controller {
 		$role = Role::where('name',$request->input('role'))->first();
 		if($role){
 			$user->attachRole($role);
+			$permission = Permission::find(1);
+			$role->attachPermission($permission);
 		}
 		Notification::success('Create User Successfull.');
 		return redirect()->route('admin.getCreateUser');
