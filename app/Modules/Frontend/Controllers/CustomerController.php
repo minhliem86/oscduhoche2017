@@ -91,8 +91,49 @@ class CustomerController extends Controller {
     if($request->ajax()){
       return view('Frontend::ajax.paginatePhoto', compact('image'))->render();
     }
-      return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name', 'banner_mobile', 'banner_desk'));
+    return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name', 'banner_mobile', 'banner_desk'));
+	}
 
-  }
+
+	public function getAlbumSuper(Request $request)
+	{
+		$list_tour = $this->tour->lists('title', 'id');
+		return view('Frontend::users.course.albumSuper', compact('list_tour'));
+	}
+
+	public function ajaxGetAlbum(Request $request)
+	{
+		if(!$request->ajax()){
+			abort(404);
+		}else{
+			$tour = $this->tour->find($request->id);
+			if(!$tour){
+				return response()->json(['error'=> true, 'msg' => 'Vui lòng chọn chương trình'], 200);
+			}
+			$tour_name = $tour->title;
+			$album = $tour->albums()->get();
+			if($album->isEmpty()){
+				return response()->json(['error'=> true, 'msg' => 'Hiện chưa có hình ảnh' , 'title' => $tour_name], 200);
+			}
+			$view = view('Frontend::ajax.loadAlbumforSuper', compact('album'))->render();
+			return response()->json(['error' => false, 'msg' => $view, 'title' =>$tour_name], 200);
+		}
+	}
+
+	public function getSuperPhotoByAlbum(Request $request,$tour_id , $slug_album)
+  {
+    try {
+        $title_album = $this->album->where('slug', $slug_album)->first()->title;
+				$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
+				$country_name = $this->tour->find($tour_id)->country()->first()->name;
+    } catch (Exception $e) {
+      return redirect()->back();
+    }
+		$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
+		$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
+    $image = $this->album->where('slug', $slug_album)->first()->photos()->get();
+
+		return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name', 'banner_mobile', 'banner_desk'));
+	}
 
 }

@@ -83,6 +83,9 @@ class AuthController extends Controller {
 		// $credentials = $request->only($filter, 'password');
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
+			if($this->auth->get()->super){
+				return redirect()->route('f.superAlbum');
+			}
 			$tour_id = $this->auth->get()->tour_id;
 			if($this->auth->get()->change_pass){
 				return redirect()->route('f.album');
@@ -90,7 +93,6 @@ class AuthController extends Controller {
 				Session::flash('first_time', 'Lần đầu');
 				return redirect()->route('f.getChangePass');
 			}
-
 			// return redirect()->route('f.album');
 		}
 

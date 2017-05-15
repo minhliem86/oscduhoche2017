@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/js/remodal/remodal.css">
   <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/js/remodal/remodal-default-theme.css">
   <script src="{!!asset('public/assets/frontend/')!!}/js/remodal/remodal.min.js"></script>
-
   <script>
     $(document).ready(function(){
       const inst =  $('[data-remodal-id=modal]').remodal();
@@ -89,8 +88,13 @@
           <div class="row">
               <div class="inner-section">
                   <center>
+                    <div class="wrap-photo-super">
                       <h2>{!!$title_album!!}</h2>
                       <hr class="hr">
+                      @if(Auth::client()->get()->super)
+                          <a href="{!!URL::previous()!!}" class="btn-back">Quay lại</a>
+                      @endif
+                    </div>
                   </center>
               </div>
           </div>

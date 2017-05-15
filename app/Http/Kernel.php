@@ -33,7 +33,8 @@ class Kernel extends HttpKernel {
 
 		//CHECK CUSTOMER
 		'customer_logined'=>'App\Http\Middleware\RedirectIfAuthCustomer',
-		'customer_login_not_yet' => 'App\Http\Middleware\CustomerAuthenticate'
+		'customer_login_not_yet' => 'App\Http\Middleware\CustomerAuthenticate',
+		'check_super_user' => 'App\Http\Middleware\CheckSuperUser',
 	];
 
 }

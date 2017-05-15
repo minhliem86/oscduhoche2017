@@ -36,10 +36,13 @@
                                                 <li class="{!!Active::setActive(1,'khuyen-mai')!!}"><a href="{!!route('khuyenmai')!!}">KHUYẾN MÃI</a></li>
                                                 <li class="{!!Active::setActive(1,'trai-nghiem-du-hoc')!!}"><a href="{!!route('trainghiem')!!}">TRẢI NGHIỆM DU HỌC</a></li>
                                                 <li class="{!!Active::setActive(1,'lien-he')!!}"><a href="{!!route('contact')!!}"><b>ĐĂNG KÝ</b></a></li>
-                                                @if(Auth::client()->check())
                                                 <li class="dropdown">
+                                                  @if(Auth::client()->check())
                                                   <a href="javascript:avoid()">Travel Blog</a>
                                                   <ul class="dropdown-menu">
+                                                      @if(Auth::client()->get()->super)
+                                                        <li><a href="{!!route('f.superAlbum')!!}">Kiểm tra hình ảnh </a></li>
+                                                      @endif
                                                        <li><a href="{!!route('f.album')!!}">Tất cả Album</a></li>
                                                        <li><a href="{!!route('f.getChangePass')!!}">Thay đổi mật khẩu</a></li>
                                                        <li><a href="{!!route('f.getLogoutCustomer')!!}">Đăng xuất</a></li>

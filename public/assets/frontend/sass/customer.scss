@@ -246,9 +246,9 @@ html, body{
       .btn-showall{
         position:absolute;
         display: inline-block;
-        padding:6px 20px;
-        background:$color-xanh;
-        color:white;
+        // padding:6px 20px;
+        // background:$color-xanh;
+        color:$color-xanh;
         font-size:12px;
         right:15px;
         top:50%;
@@ -270,7 +270,27 @@ html, body{
       padding:15px 0 !important;
     };
 }
+.wrap-photo-super{
+  a.btn-back{
+    font-size:1.4rem;
+    font-weight: 600;
+    color:$color-xanh;
+    padding:6px 12px;
+    background:transparent;
+    @include transition(all 0.3s);
+    &:hover{
+      background:$color-xanh;
+      color:white;
+    }
+  }
+}
 .load-photo{
+  p.note{
+    font-size:1.4rem;
+    font-weight:600;
+    text-align: center;
+    text-transform: uppercase;
+  }
   .each-all{
     margin-bottom:20px;
     height:235px;
@@ -302,6 +322,16 @@ html, body{
 .remodal{
   .wrap-photo{
     position:relative;
+    &:before{
+      content:'';
+      display:block;
+      width:100%;
+      height:25px;
+      background:rgba(255,255,255,0.5);
+      position: absolute;
+      top:0;
+      left:0;
+    }
     img{
       margin: 0 auto 20px;
       @include media(320px, 768px){
@@ -336,6 +366,25 @@ html, body{
     text-transform: uppercase;
     @include media(320px, 480px){
       font-size:28px;
+    };
+  }
+}
+// SUPER USER ALBUM
+section.wrap-searchtour{
+  .wrap-button{
+    #btn-search{
+      padding:6px 20px;
+      color:white;
+      background:$color-xanh;
+      font-size:1.4rem;
+      border:none;
+      box-shadow: none;
+      @include media(320px , 480px){
+        margin-top:10px;
+      }
+    }
+    @include media(320px , 480px){
+       text-align: center;
     };
   }
 }
