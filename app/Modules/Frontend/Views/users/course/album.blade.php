@@ -74,11 +74,12 @@
       </div>
   </section>
   <!-- **************** /Wellcome ****************-->
-  @if(!$lastest_album->isEmpty())
+
   <section class="lastest-album section-show">
     <div class="container">
       <div class="row">
         <div class="inner-section bg-yellow">
+          @if(!$lastest_album->isEmpty())
           <h2 class="title-page">Những hình ảnh mới nhất</h2>
           <div class="container-fluid">
             <div class="row">
@@ -95,11 +96,14 @@
             @endforeach
             </div>
           </div>
+          @else
+            <h2 class="title-page">Hình ảnh đang được cập nhật, vui lòng quay lại sau. Xin cảm ơn.</h2>  
+          @endif
         </div>  <!-- end inner-section -->
       </div>
     </div>
   </section>   <!-- end lastes album -->
-@endif
+
 
 @if(!$all_album->isEmpty())
   <section class="all-album section-show">

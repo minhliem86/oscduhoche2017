@@ -44,17 +44,17 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 			Route::get('/loadAlbum', ['as' => 'f.ajaxLoadAlbum', 'uses' => 'CustomerController@ajaxGetAlbum']);
 	});
 
-	Route::get('/create-super', function(){
-		$data = [
-			'name' => 'Tester Travel Blog',
-			'username' => 'admin-travelblog',
-			'password' => bcrypt('ila@osc'),
-			'tour_id' =>1,
-			'super' => 1,
-		];
-
-		App\Models\Customer::create($data);
-
-		return "done";
-	});
+	// Route::get('/create-super', function(){
+	// 	$data = [
+	// 		'name' => 'Tester Travel Blog',
+	// 		'username' => 'admin-travelblog',
+	// 		'password' => bcrypt('ila@osc'),
+	// 		'tour_id' =>1,
+	// 		'super' => 1,
+	// 	];
+	//
+	// 	App\Models\Customer::create($data);
+	//
+	// 	return "done";
+	// });
 });

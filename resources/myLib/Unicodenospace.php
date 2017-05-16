@@ -1,5 +1,5 @@
 <?php
-class Unicode {
+class Unicodenospace {
     public static function make($string){
         // Chuyển đổi chuỗi kí tự thành dạng slug dùng cho việc tạo friendly url.
             // @access    public

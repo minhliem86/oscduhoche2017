@@ -5,6 +5,7 @@ use Excel;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\LogCreateUser;
+use Carbon\Carbon as Carbon;
 
 class ImportUserRepository{
 
@@ -19,28 +20,22 @@ class ImportUserRepository{
 
   public function importUser($file)
   {
-    $excel = Excel::selectSheets('Sheet1')->load($file, function($reader){
-      $reader->each(function($sheet) {
-        $username = 'duhoche2017_'.\Unicode::make($sheet->name);
-        $password = \Common::randomPasword(6);
-        $email = $sheet->email ? $sheet->email : '' ;
-        $name = $sheet->name;
-        $tour_id = round($sheet->code);
-
-      });
-    })->get();
+    $last_item = LogCreateUser::orderBy('id','DESC')->first();
+    if(count($last_item)){
+      $last_id = $last_item->id;
+    }
+    $excel = Excel::selectSheets('SIN1')->load($file, function($reader){})->get();
     $data_log = [];
     $data = [];
     if(!$excel->isEmpty() && $excel->count()){
       $chu_excel = $excel->chunk(2);
       foreach($chu_excel as $item){
         foreach($item as $data_item){
-          $username = 'duhoche2017_'.\Unicode::make($data_item->name);
-          $password = \Common::randomPasword(6);
-          $email = $data_item->email ? $data_item->email : '' ;
+          $username = \Unicodenospace::make($data_item->name).$data_item->dob;
+          $password = 'abc123456';
+          $email =  '' ;
           $name = $data_item->name;
           $tour_id = round($data_item->code);
-
           $obj_log = [
             'username' => $username,
             'init_password' => $password,
@@ -56,13 +51,28 @@ class ImportUserRepository{
             'name' => $name,
             'tour_id' => $tour_id
           ];
-
         }
       }
-    }
-    for($i = 0 ; $i<count($data); $i++){
-      LogCreateUser::create($data_log[$i]);
-      Customer::create($data[$i]);
+      for($i = 0 ; $i<count($data); $i++){
+        LogCreateUser::create($data_log[$i]);
+        Customer::create($data[$i]);
+      }
+      if(isset($last_id)){
+        $list_export = LogCreateUser::select('name', 'username', 'init_password')->where('id', '>', $last_id )->get();
+        $time = Carbon::now();
+        Excel::create('account_'.$time, function($excel) use($list_export){
+          $excel->sheet('Sheet 1', function($sheet) use ($list_export){
+            $sheet->cell('A1:A3', function($cell){
+              $cells->setBackground('#76b7bf');
+            });
+            $sheet->fromArray($list_export);
+          });
+        })->export('xlsx');
+      }
+    }else{
+      return "File rỗng";
     }
   }
+
+
 }
