@@ -57,6 +57,28 @@
 </style>
 @stop
 
+@section('script')
+  <script>
+    $(document).ready(function(){
+      $('select[name="album_id"]').prop('disabled', true);
+
+      $('select[name="tour_code"]').change(function(){
+        const tour_id = $(this).val();
+        console.log(tour_id);
+        $.ajax({
+          url : '{!!route("admin.photo.ajaxAlbum")!!}',
+          type: "POST",
+          data: {id: tour_id, _token: $('meta[name="csrf-token"]').attr('content') },
+          success: function(data){
+            $('.load-album').empty();
+            $('.load-album').data(data.msg);
+          },
+        })
+      })
+    })
+  </script>
+@stop
+
 @section('content')
 <section class="content-header">
   <h1>Photo</h1>
@@ -65,9 +87,18 @@
 
 	<div class="box">
 		<div class="container-fluid">
+      <div class="tourcode" style="margin-bottom:10px;">
+        <p><b>Course</b></p>
+        {!!Form::select('tour_code',$list_tour,'',['class'=>'form-control'])!!}
+      </div>
       <div class="album" style="margin-bottom:10px;">
         <p><b>Album</b></p>
-        {!!Form::select('album_id',$list_album,'',['class'=>'form-control'])!!}
+        <div class="load-album">
+          <select name="album_id" id="album_id" class="form-control">
+            <option value="">Chọn Album</option>
+          </select>
+        </div>
+
       </div>
 
       <div id="actions" class="row">

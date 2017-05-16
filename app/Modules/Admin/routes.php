@@ -83,8 +83,6 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			// MANAGE SUPER CUSTOMER
 
 			Route::resource('/customer','CustomerController');
-
-
 		});
 
 		// ALBUM
@@ -94,6 +92,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		// PHOTO
 		Route::post('/uploadPhoto', [ 'as' => 'admin.photo.postUpload', 'uses'=>'PhotoController@postUpload']);
 		Route::post('/photo/deleteall',['as'=>'admin.photo.deleteall','uses'=>'PhotoController@deleteAll']);
+		Route::post('/photo/ajaxAlbum', ['as' => 'admin.photo.ajaxAlbum', 'uses'=>'PhotoController@loadAlbum']);
 		Route::resource('/photo', 'PhotoController');
 
 		/*CHANGE PASS*/

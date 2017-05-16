@@ -13,6 +13,10 @@
 					<label for="">Tên Tour</label>
 					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
 				</div>
+        <div class="form-group">
+          <label for="">Code</label>
+          {!!Form::text('tour_code',old('tour_code'),array('class'=>'form-control'))!!}
+        </div>
 				<div class="form-group">
 					<label for="">Quốc gia du học</label>
 					{!!Form::select('country_id',$country,$tour->country_id,['class'=>'form-control'])!!}

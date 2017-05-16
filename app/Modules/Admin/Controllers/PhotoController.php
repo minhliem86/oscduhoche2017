@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Notification;
 
 use App\Models\Photo;
+use App\Models\Album;
+use App\Models\Tour;
 use App\Http\Requests\ImageRequest;
 use App\Repositories\UploadRepository;
 use App\Repositories\CommonRepository;
@@ -13,11 +15,15 @@ use App\Repositories\CommonRepository;
 class PhotoController extends Controller {
 
   protected $photo;
+  protected $tour;
+  protected $album;
   protected $_upload_folder = 'public/upload/image';
   protected $_upload_folder_thumb = 'public/upload/image/thumbs';
 
-  public function __construct(UploadRepository $image){
+  public function __construct(UploadRepository $image, Tour $tour, Album $album){
       $this->image = $image;
+      $this->tour = $tour;
+      $this->album = $album;
   }
 
   public function index()
@@ -29,7 +35,8 @@ class PhotoController extends Controller {
   public function create()
   {
       $list_album = $this->image->getListAlbum();
-      return view('Admin::pages.photo.create',compact('list_album'));
+      $list_tour = $this->tour->where('status',1)->lists('tour_code','id');
+      return view('Admin::pages.photo.create',compact('list_tour'));
   }
 
 public function postUpload(Request $request)
@@ -98,6 +105,22 @@ public function postUpload(Request $request)
           $data = $request->arr;
           $response = $this->image->deleteAll($data);
           return response()->json(['msg' => 'ok']);
+    }
+  }
+
+  public function loadAlbum(Request $request)
+  {
+    if(!$reqeust->ajax()){
+      abort(404);
+    }else{
+      $tour_id = $request->input('id');
+      try {
+        $list_album = $this->album->where('tour_id', $tour_id)->lists('title', 'id');
+        $view = view('Admin::ajax.loadAlbum', compact('list_album'))->render();
+        return response()->json(['error'=> true, 'msg' => 'test'], 200);
+      } catch (Exception $e) {
+        return response()->json(['error'=> false, 'msg' => 'Cần tạo Album trước khi up ảnh'], 200);
+      }
     }
   }
 

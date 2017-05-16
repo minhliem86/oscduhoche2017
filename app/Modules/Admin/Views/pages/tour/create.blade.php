@@ -44,6 +44,10 @@
 					<label for="">Tên tour</label>
 					{!!Form::text('title',old('title'),array('class'=>'form-control'))!!}
 				</div>
+        <div class="form-group">
+					<label for="">Code</label>
+					{!!Form::text('tour_code',old('tour_code'),array('class'=>'form-control'))!!}
+				</div>
 				<div class="form-group">
 					<label for="">Thuộc quốc gia</label>
 					{!!Form::select('country_id',$country,'',['class'=>'form-control'])!!}

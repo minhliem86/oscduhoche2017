@@ -133,6 +133,7 @@ class CourseController extends Controller {
             'order'=>$current,
 						'banner_desktop' => $banner_desktop,
 						'banner_mobile' => $banner_mobile,
+						'tour_code' => $request->tour_code,
         ];
 
         /* --- SCHEDULE --- */
@@ -287,6 +288,7 @@ class CourseController extends Controller {
         $tour->order = $request->order;
         $tour->banner_desktop = $banner_desktop;
         $tour->banner_mobile = $banner_mobile;
+				$tour->tour_code = $request->tour_code;
         $tour->save();
 
         /*SCHEDULE TOUR*/
