@@ -37,7 +37,7 @@ class RedirectIfAuthenticated {
 	{
 		if ($this->auth->check())
 		{
-			return new RedirectResponse(url('/home'));
+			return redirect()->intended('/admin/dashboard');
 		}
 
 		return $next($request);
