@@ -145,6 +145,10 @@ html, body{
 // ALBUM PAGE
 .wrap-title-blog{
    padding:0 15px;
+   max-width:800px;
+   @include media(320px, 480px){
+     max-width: 100%;
+   }
    h2{
      @include media(320px, 480px){
        font-size: 18px;

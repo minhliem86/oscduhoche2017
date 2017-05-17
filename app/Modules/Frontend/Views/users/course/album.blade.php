@@ -80,7 +80,7 @@
       <div class="row">
         <div class="inner-section bg-yellow">
           @if(!$lastest_album->isEmpty())
-          <h2 class="title-page">Những hình ảnh mới nhất</h2>
+          <h2 class="title-page">Du học hè - {!!$tour_name!!}</h2>
           <div class="container-fluid">
             <div class="row">
               @foreach($lastest_album as $item_lastest)
@@ -97,7 +97,7 @@
             </div>
           </div>
           @else
-            <h2 class="title-page">Hình ảnh đang được cập nhật, vui lòng quay lại sau. Xin cảm ơn.</h2>  
+            <h2 class="title-page">Hình ảnh đang được cập nhật, vui lòng quay lại sau. Xin cảm ơn.</h2>
           @endif
         </div>  <!-- end inner-section -->
       </div>
