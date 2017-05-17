@@ -110,14 +110,17 @@ public function postUpload(Request $request)
 
   public function loadAlbum(Request $request)
   {
-    if(!$reqeust->ajax()){
+    if(!$request->ajax()){
       abort(404);
     }else{
       $tour_id = $request->input('id');
       try {
         $list_album = $this->album->where('tour_id', $tour_id)->lists('title', 'id');
+        if(!count($list_album)){
+            return response()->json(['error'=> false, 'msg' => 'Cần tạo Album trước khi up ảnh'], 200);
+        }
         $view = view('Admin::ajax.loadAlbum', compact('list_album'))->render();
-        return response()->json(['error'=> true, 'msg' => 'test'], 200);
+        return response()->json(['error'=> true, 'msg' => $view], 200);
       } catch (Exception $e) {
         return response()->json(['error'=> false, 'msg' => 'Cần tạo Album trước khi up ảnh'], 200);
       }

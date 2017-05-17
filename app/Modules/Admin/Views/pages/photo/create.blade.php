@@ -56,29 +56,6 @@
 
 </style>
 @stop
-
-@section('script')
-  <script>
-    $(document).ready(function(){
-      $('select[name="album_id"]').prop('disabled', true);
-
-      $('select[name="tour_code"]').change(function(){
-        const tour_id = $(this).val();
-        console.log(tour_id);
-        $.ajax({
-          url : '{!!route("admin.photo.ajaxAlbum")!!}',
-          type: "POST",
-          data: {id: tour_id, _token: $('meta[name="csrf-token"]').attr('content') },
-          success: function(data){
-            $('.load-album').empty();
-            $('.load-album').data(data.msg);
-          },
-        })
-      })
-    })
-  </script>
-@stop
-
 @section('content')
 <section class="content-header">
   <h1>Photo</h1>
@@ -89,7 +66,7 @@
 		<div class="container-fluid">
       <div class="tourcode" style="margin-bottom:10px;">
         <p><b>Course</b></p>
-        {!!Form::select('tour_code',$list_tour,'',['class'=>'form-control'])!!}
+        {!!Form::select('tour_code',$list_tour,'',['class'=>'form-control', "id" => "tour_code"  ])!!}
       </div>
       <div class="album" style="margin-bottom:10px;">
         <p><b>Album</b></p>
@@ -243,6 +220,21 @@
         myDropzone.removeAllFiles(true);
       };
 
+        // SELECT ALBUM
+        $('select[name="album_id"]').prop('disabled', true);
+        $('select#tour_code').change(function(){
+          const  tour_id =  $(this).val();
+          $.ajax({
+            url : '{!!route("admin.photo.ajaxAlbum")!!}',
+            type: "GET",
+            data: {id: tour_id, _token: $('meta[name="csrf-token"]').attr('content') },
+            success: function(data){
+              console.log(data);
+              $('.load-album').empty();
+              $('.load-album').append(data.msg);
+            },
+          })
+        })
 
     })
   </script>

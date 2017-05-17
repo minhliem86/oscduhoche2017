@@ -28,7 +28,7 @@ class AlbumController extends Controller {
 
   public function create()
   {
-    $tour_list = Tour::where('status', 1)->lists('title','id');
+    $tour_list = Tour::where('status', 1)->lists('tour_code','id');
     return view('Admin::pages.album.create', compact('tour_list'));
   }
 
@@ -57,7 +57,7 @@ class AlbumController extends Controller {
 
   public function edit($id)
   {
-    $tour_list = Tour::where('status', 1)->lists('title','id');
+    $tour_list = Tour::where('status', 1)->lists('tour_code','id');
     $album = $this->album->getByID($id);
 
     return view ('Admin::pages.album.view', compact('tour_list', 'album'));
