@@ -24,7 +24,7 @@ class ImportUserRepository{
     if(count($last_item)){
       $last_id = $last_item->id;
     }
-    $excel = Excel::selectSheets('SIN1')->load($file, function($reader){})->get();
+    $excel = Excel::selectSheets('Sheet1')->load($file, function($reader){})->get();
     $data_log = [];
     $data = [];
     if(!$excel->isEmpty() && $excel->count()){
@@ -62,13 +62,16 @@ class ImportUserRepository{
         $time = Carbon::now();
         Excel::create('account_'.$time, function($excel) use($list_export){
           $excel->sheet('Sheet 1', function($sheet) use ($list_export){
-            $sheet->cell('A1:A3', function($cell){
-              $cells->setBackground('#76b7bf');
+            $sheet->cells('A1:C1', function($cell){
+              $cell->setBackground('#76b7bf');
+              $cell->setFontSize(14);
+              $cell->setFontWeight('bold');
             });
             $sheet->fromArray($list_export);
           });
         })->export('xlsx');
       }
+      return "done";
     }else{
       return "File rỗng";
     }
