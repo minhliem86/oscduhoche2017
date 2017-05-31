@@ -66,7 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-W8GRGZX');</script>
 <!-- End Google Tag Manager -->
-
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=592c008ede4761001225d34c&product=sop' async='async'></script>
 </head>
 
 <body>
@@ -177,6 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })
     </script>
     @yield('script')
+
 
 
     <!-- Google Code for Remarketing Tag -->

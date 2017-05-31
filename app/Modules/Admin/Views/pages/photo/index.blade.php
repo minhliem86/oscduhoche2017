@@ -39,7 +39,7 @@
 						<tr>
 							<td >{!!$item->id!!}</td>
 							<td><img src="{!!$item->img_url!!}" width="200" alt=""></td>
-							<td>{!!$item->albums->title!!}</td>
+							<td>{!!count($item->albums) > 0 ? $item->albums->title : ''!!} </td>
 							<td>
 							<a href="{!!route('admin.photo.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a>
 							{!!Form::open(array('route'=>array('admin.photo.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}

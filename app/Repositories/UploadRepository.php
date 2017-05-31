@@ -172,7 +172,7 @@ class UploadRepository
     }
 
     public function getAll(){
-      return $this->image->with('albums')->select('title','img_url','status','id','album_id')->orderBy('id','DESC')->get();
+      return $this->image->with('albums')->select('title', 'img_url', 'status', 'id', 'album_id')->orderBy('id','DESC')->get();
     }
 
     public function getFindID($id){

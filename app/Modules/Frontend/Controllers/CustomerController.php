@@ -1,5 +1,6 @@
 <?php namespace App\Modules\Frontend\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
@@ -79,16 +80,16 @@ class CustomerController extends Controller {
   {
     try {
         $title_album = $this->album->where('slug', $slug_album)->first()->title;
-				$tour_id = $this->auth->get()->tour_id;
-				$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
-				$country_name = $this->tour->find($tour_id)->country()->first()->name;
+		$tour_id = $this->auth->get()->tour_id;
+		$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
+		$country_name = $this->tour->find($tour_id)->country()->first()->name;
 
-				$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
-				$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
+		$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
+		$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
     } catch (Exception $e) {
       return redirect()->back();
     }
-    $image = $this->album->where('slug', $slug_album)->first()->photos()->get();
+    $image = $this->album->where('slug', $slug_album)->first()->photos()->orderBy('order', 'ASC')->get();
     if($request->ajax()){
       return view('Frontend::ajax.paginatePhoto', compact('image'))->render();
     }
@@ -122,19 +123,30 @@ class CustomerController extends Controller {
 	}
 
 	public function getSuperPhotoByAlbum(Request $request,$tour_id , $slug_album)
-  {
-    try {
-        $title_album = $this->album->where('slug', $slug_album)->first()->title;
-				$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
-				$country_name = $this->tour->find($tour_id)->country()->first()->name;
-    } catch (Exception $e) {
-      return redirect()->back();
-    }
-		$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
-		$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
-    $image = $this->album->where('slug', $slug_album)->first()->photos()->get();
+	  {
+	    try {
+	        $title_album = $this->album->where('slug', $slug_album)->first()->title;
+					$img_banner = $this->tour->find($tour_id)->country()->first()->images()->where('type', 'banner_country')->first()->img_url;
+					$country_name = $this->tour->find($tour_id)->country()->first()->name;
+	    } catch (Exception $e) {
+	      return redirect()->back();
+	    }
+			$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
+			$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
+	    $image = $this->album->where('slug', $slug_album)->first()->photos()->orderBy('order', 'ASC')->get();
 
-		return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name', 'banner_mobile', 'banner_desk'));
-	}
+			return view('Frontend::users.course.photo', compact('title_album', 'image', 'img_banner', 'country_name', 'banner_mobile', 'banner_desk'));
+		}
+
+		public function getHinhanhDetail($id)
+		{
+			try {
+				$img = $this->photo->findOrFail($id);
+				return view('Frontend::users.course.photo-detail', compact('img'));
+			} catch (ModelNotFoundException $e) {
+				abort(404);
+			}
+
+		}
 
 }

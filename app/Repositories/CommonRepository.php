@@ -2,8 +2,6 @@
 namespace App\Repositories;
 
 use Illuminate\Http\Request;
-use Validator;
-use Notification;
 
 class CommonRepository{
   public function uploadImage($request, $file, $path, $resize = true, $width = null, $height = null){

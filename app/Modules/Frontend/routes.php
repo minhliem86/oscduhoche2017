@@ -37,6 +37,7 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::get('/thu-vien-hinh-anh', ['middleware'=>'customer_login_not_yet', 'as' =>'f.album', 'uses' => 'CustomerController@getAlbum']);
 	Route::get('/get-Album', ['middleware'=>'customer_login_not_yet',  'as' =>'f.ajaxAlbum', 'uses' => 'CustomerController@ajaxLoadAlbum']);
 	Route::get('thu-vien-hinh-anh/{slug_album}/photo', ['middleware'=>'customer_login_not_yet', 'as' => 'f.photo', 'uses' => 'CustomerController@getPhotoByAlbum'])->where('slug_album','[0-9A-Za-z._\-]+');
+	Route::get('/travel-blog/hinh-anh-{id}',['as' =>'f.hinhanh', 'uses' => 'CustomerController@getHinhanhDetail'])->where('id','[0-9]+');
 
 	Route::group(['middleware'=>'check_super_user'], function(){
 			Route::get('/super-user-thu-vien-hinh-anh', ['as' => 'f.superAlbum', 'uses'=>'CustomerController@getAlbumSuper']);

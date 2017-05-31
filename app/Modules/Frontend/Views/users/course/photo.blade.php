@@ -2,6 +2,7 @@
 
 @section('title', 'ILA Du Học Hè 2017 - Thư viện hình ảnh')
 @section('css')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{!!asset('public/assets/frontend/')!!}/css/customer.min.css">
 @stop
 @section('script')
@@ -17,7 +18,17 @@
       const photoSwiper = new Swiper('#photo-swiper', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev'
-      })
+    });
+
+    // FB SHARE
+    $('body').on('click', '.btn-share', function(){
+        const title = 'ILA Du Hoc Hè';
+        const desc = $(this).data('desc');
+        const img = $(this).data('img');
+        const link = $(this).data('link');
+        postFacebook(link, title, desc, img);
+
+    })
 
       // LOAD PHOTO
       $('body').on('click','.each-all a',function(e){
@@ -46,6 +57,51 @@
         }
       })
     }
+  </script>
+
+  <script>
+      /*FB INIT*/
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '{!!env("FACEBOOK_APP_ID")!!}',
+          cookie      : true,
+        // xfbml  : true,
+          version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+       /*END*/
+
+       function postFacebook(link, title, desc, img){
+         FB.api('https://graph.facebook.com/', 'post', {
+             id: link,
+             scrape: true
+         }, function(response) {
+           FB.ui({
+             method: 'share',
+             display: 'popup',
+             title: title,
+             caption: 'ILA - Du Học Hè',
+             description: desc,
+             picture: img,
+             href : link,
+           },function(res){
+             if(typeof res !== 'undefined'){
+
+             }else{
+            //    alert('Để hoàn tất cuộc thi, bạn phải share bài viết của bạn trên status ở chế độ public!');
+             }
+           })
+         });
+       }
   </script>
 @stop
 @section('content')
