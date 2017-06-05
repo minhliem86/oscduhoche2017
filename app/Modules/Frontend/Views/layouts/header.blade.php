@@ -43,7 +43,7 @@
                                                       @if(Auth::client()->get()->super)
                                                         <li><a href="{!!route('f.superAlbum')!!}">Kiểm tra hình ảnh </a></li>
                                                       @endif
-                                                       <li><a href="{!!route('f.album')!!}">Tất cả Album</a></li>
+                                                       <li><a href="{!!route('f.album')!!}">Thư viện hình ảnh</a></li>
                                                        <li><a href="{!!route('f.getChangePass')!!}">Thay đổi mật khẩu</a></li>
                                                        <li><a href="{!!route('f.getLogoutCustomer')!!}">Đăng xuất</a></li>
                                                   </ul>

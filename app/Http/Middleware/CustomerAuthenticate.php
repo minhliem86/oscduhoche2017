@@ -42,7 +42,7 @@ class CustomerAuthenticate {
 			}
 			else
 			{
-				return redirect()->guest('/dang-nhap');
+				return redirect()->guest('/travel-blog');
 			}
 		}
 

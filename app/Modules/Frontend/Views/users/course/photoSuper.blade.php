@@ -147,7 +147,10 @@
                     <div class="wrap-photo-super">
                       <h2>{!!$title_album!!}</h2>
                       <hr class="hr">
-                      <a href="{!!route('f.album')!!}" class="btn-back">Quay lại</a>
+                      @if(Auth::client()->get()->super)
+                          <a href="{!!route('f.showAlbumBySuper',$album_id)!!}" class="btn-back">Quay lại</a>
+                      @endif
+
                     </div>
                   </center>
               </div>

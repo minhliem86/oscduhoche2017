@@ -156,7 +156,8 @@ return [
 		 'Intervention\Image\ImageServiceProvider',
 		 'Zizaco\Entrust\EntrustServiceProvider',
 		 'Maatwebsite\Excel\ExcelServiceProvider',
-		 'Codingo\Dropzoner\DropzonerServiceProvider'
+		 'Codingo\Dropzoner\DropzonerServiceProvider',
+		 'Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider'
 
 	],
 
@@ -206,14 +207,15 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form' => 'Collective\Html\FormFacade',
-  	'Html' => 'Collective\Html\HtmlFacade',
-  	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
-  	'Notification' => 'Krucas\Notification\Facades\Notification',
-  	'Debugbar' => 'Barryvdh\Debugbar\Facade',
-  	'Image' => 'Intervention\Image\Facades\Image',
-  	'Str'      => 'Illuminate\Support\Str',
+	  	'Html' => 'Collective\Html\HtmlFacade',
+	  	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
+	  	'Notification' => 'Krucas\Notification\Facades\Notification',
+	  	'Debugbar' => 'Barryvdh\Debugbar\Facade',
+	  	'Image' => 'Intervention\Image\Facades\Image',
+	  	'Str'      => 'Illuminate\Support\Str',
 		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+		'Analytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade'
 	],
 
 

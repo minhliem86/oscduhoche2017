@@ -41,8 +41,13 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 
 	Route::group(['middleware'=>'check_super_user'], function(){
 			Route::get('/super-user-thu-vien-hinh-anh', ['as' => 'f.superAlbum', 'uses'=>'CustomerController@getAlbumSuper']);
-			Route::get('/super-user-thu-vien-hinh-anh/{tour_id}/{slug_album}/photo', ['as' => 'f.superAlbumPhoto', 'uses'=>'CustomerController@getSuperPhotoByAlbum']);
+			Route::get('/super-user-thu-vien-hinh-anh/{album_id}/{slug_album}/photo', ['as' => 'f.superAlbumPhoto', 'uses'=>'CustomerController@getSuperPhotoByAlbum']);
 			Route::get('/loadAlbum', ['as' => 'f.ajaxLoadAlbum', 'uses' => 'CustomerController@ajaxGetAlbum']);
+
+			Route::get('/super-user-album-{album_id}', ['as' => 'f.showAlbumBySuper', 'uses' => 'CustomerController@getAlbumBySuper'])->where('album_id', '[0-9]+');
+
+			// GA FETCH
+			Route::get('/report', ['as'=>'f.reportBySuper', 'uses' => 'GAController@index']);
 	});
 
 	// Route::get('/create-super', function(){

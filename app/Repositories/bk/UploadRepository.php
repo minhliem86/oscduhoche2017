@@ -45,8 +45,7 @@ class UploadRepository
         $filename_with_extension = $allowed_filename .'.' . $extension;
 
         $manager = new ImageManager();
-        // $image = $manager->make( $photo )->resize(1200, 630)->save(config('dropzoner.upload-path') . $filename_with_extension );
-        $image = $manager->make( $photo )->save(config('dropzoner.upload-path') . $filename_with_extension );
+        $image = $manager->make( $photo )->resize(1200, 630)->save(config('dropzoner.upload-path') . $filename_with_extension );
 
         $img_thumb = $manager->make( $photo )->resize(400, 210)->save(config('dropzoner.thumb-path'). $filename_with_extension );
 
@@ -173,7 +172,7 @@ class UploadRepository
     }
 
     public function getAll(){
-      return $this->image->with('albums')->select('title', 'img_url', 'status', 'id', 'album_id')->orderBy('id','DESC')->get();
+      return $this->image->with('albums')->select('title','img_url','status','id','album_id')->orderBy('id','DESC')->get();
     }
 
     public function getFindID($id){

@@ -9,7 +9,7 @@
           <div class="swiper-slide">
             <div class="wrap-photo">
               <img src="{!!$item->img_url!!}" class="img-responsive" alt="">
-              <p class="caption">{!!$item->title!!}</p>
+              <p class="caption">{!!Str::words($item->title, 20)!!}</p>
               <div class="share-area text-right">
                    <button style="border-radius:5px; padding:6px 20px; color:white; border:none; background:#050d9e" class="btn-share" data-desc="{!!$item->title!!}" data-img="{!!$item->img_url!!}" data-link="{!!route('f.hinhanh',$item->id)!!}"><i class="fa fa-facebook" aria-hidden="true"></i> Share</button>
               </div>

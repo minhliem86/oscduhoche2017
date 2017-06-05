@@ -7,7 +7,7 @@
         <a href="#" data-index="{!!$k!!}">
           <img src="{!!$item->thumbnail_url!!}" class="img-responsive" alt="">
           <div class="overlay"></div>
-          <h3 class="title-album">{!!$item->title!!}</h3>
+          <h3 class="title-album">{!!Str::words($item->title, 20)!!}</h3>
         </a>
       </div>  <!--end each all -->
     </div>

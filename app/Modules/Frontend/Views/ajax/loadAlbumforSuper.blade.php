@@ -7,7 +7,7 @@
         <a href="{!!route('f.superAlbumPhoto', [$item_album->id,$item_album->slug])!!}">
           <img src="{!!$item_album->img_url!!}" class="img-responsive" alt="">
           <div class="overlay"></div>
-          <h3 class="title-album">{!!$item_album->title!!}</h3>
+          <h3 class="title-album">{!!Str::words($item_album->title, 20)!!}</h3>
         </a>
       </div>  <!--end each all -->
     </div>

@@ -29,6 +29,7 @@ class PhotoController extends Controller {
   public function index()
   {
       $photo = $this->image->getAll();
+    //   dd($photo);
       return view('Admin::pages.photo.index')->with(compact('photo'));
   }
 
@@ -63,7 +64,7 @@ public function postUpload(Request $request)
   {
     if($imgrequest->hasFile('img')){
       $common = new CommonRepository;
-      $img_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder,$resize=false,1200,630);
+      $img_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder,$resize=true,1200,630);
       $thumbnail_url = $common->uploadImage($request,$imgrequest->file('img'),$this->_upload_folder_thumb,$resize=true,400,210);
 
     }else{
