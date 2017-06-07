@@ -66,7 +66,7 @@
 		<div class="container-fluid">
       <div class="tourcode" style="margin-bottom:10px;">
         <p><b>Course</b></p>
-        {!!Form::select('tour_code',$list_tour,'',['class'=>'form-control', "id" => "tour_code"  ])!!}
+        {!!Form::select('tour_code',['' => 'Select Course'] + $list_tour,'',['class'=>'form-control', "id" => "tour_code"  ])!!}
       </div>
       <div class="album" style="margin-bottom:10px;">
         <p><b>Album</b></p>

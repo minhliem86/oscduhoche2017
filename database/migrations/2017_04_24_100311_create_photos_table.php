@@ -19,7 +19,7 @@ class CreatePhotosTable extends Migration {
 			$table->string('img_url')->nullable();
 			$table->boolean('status')->default(1)->nullable();
 			$table->integer('album_id')->unsigned();
-			$table->foreign('album_id')->references('id')->on('tours')->onDelete('cascade');
+			$table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

@@ -8,6 +8,11 @@ use App\Models\Tour;
 use App\Models\Album;
 use App\Models\Photo;
 
+use Spatie\LaravelAnalytics\LaravelAnalytics;
+use Spatie\LaravelAnalytics\Period;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
+
 
 class CustomerController extends Controller {
 
@@ -31,13 +36,15 @@ class CustomerController extends Controller {
 	public $album;
 	public $tour;
 	public $photo;
+	protected $ga;
 
 
-	public function __construct(Tour $tour, Album $album, Photo $photo){
+	public function __construct(Tour $tour, Album $album, Photo $photo, LaravelAnalytics $ga){
 		$this->tour = $tour;
 		$this->album = $album;
 		$this->photo = $photo;
-    $this->auth = Auth::client();
+		$this->ga = $ga;
+    	$this->auth = Auth::client();
     // $this->middleware('customer_login_not_yet');
 	}
 
@@ -114,7 +121,25 @@ class CustomerController extends Controller {
 		foreach($tour as  $value){
 			$list_tour[$value->id] = $value->tour_code .' - '.$value->title.'('.$value->start.')';
 		}
-		return view('Frontend::users.course.albumSuper', compact('list_tour'));
+
+		$startDate = Carbon::now()->subWeek()->startOfWeek();
+        $endDate = Carbon::now();
+        $rs = $this->ga->performQuery($startDate, $endDate, 'ga:pageviews',
+        array(
+            'filters' => 'ga:pagePath=@/duhoche2017/thu-vien-hinh-anh',
+            'dimensions' => 'ga:date',
+            'metrics' => 'ga:pageviews, ga:visits',
+        )
+        );
+        // $rs = $this->ga->performQuery($startDate, $startDate,  'ga:pageviews', ['dimensions' => 'ga:fullReferrer', 'sort' => '-ga:pageviews', 'filters' => 'ga:pagePath=@/duhoche2017/thu-vien-hinh-anh']);
+        $data_analytic = [];
+        foreach($rs->rows as $item){
+            $data_analytic [] = ['date' => Carbon::createFromFormat( 'Ymd', $item[0])->format('d-m-Y'), 'visitors' => $item[2], 'pageviews' => $item[1] ];
+        }
+        $data =  new Collection($data_analytic);
+
+
+		return view('Frontend::users.course.albumSuper', compact('list_tour', 'data'));
 	}
 
 	public function ajaxGetAlbum(Request $request)

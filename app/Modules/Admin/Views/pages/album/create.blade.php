@@ -18,7 +18,7 @@
 				</div>
         <div class="form-group">
           <label for="">Chọn Tour</label>
-          {!!Form::select('tour_id', $tour_list, old('album_id'), ['class'=>'form-control'] )!!}
+          {!!Form::select('tour_id',['' => 'Select Course']+ $tour_list, old('album_id'), ['class'=>'form-control'] )!!}
         </div>
 				<div class="form-group">
 					<label for="">Tiêu đề</label>
