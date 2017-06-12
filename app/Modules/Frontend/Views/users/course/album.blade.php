@@ -130,16 +130,20 @@
 
           <div class="container-fluid">
             <div class="row load-album">
-              @foreach($all_album as $item_all)
-              <div class="col-sm-4">
-                <div class="each-all each">
-                  <a href="{!!route('f.photo', $item_all->slug)!!}">
-                    <img src="{!!$item_all->img_url!!}" class="img-responsive" alt="">
-                    <div class="overlay"></div>
-                    <h3 class="title-album">{!!$item_all->title!!}</h3>
-                  </a>
-                </div>  <!--end each all -->
-              </div>
+              @foreach($all_album->chunk(3) as  $item_chunk)
+                  <div class="clearfix">
+                      @foreach($item_chunk as $item_all)
+                      <div class="col-sm-4">
+                        <div class="each-all each">
+                          <a href="{!!route('f.photo', $item_all->slug)!!}">
+                            <img src="{!!$item_all->img_url!!}" class="img-responsive" alt="">
+                            <div class="overlay"></div>
+                            <h3 class="title-album">{!!Str::words($item_all->title, 15)!!}</h3>
+                          </a>
+                        </div>  <!--end each all -->
+                      </div>
+                      @endforeach
+                  </div>
             @endforeach
             </div>
           </div>
