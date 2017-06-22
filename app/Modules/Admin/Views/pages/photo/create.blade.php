@@ -174,10 +174,8 @@
 
           myDropzone.on("addedfile",function(file){
             var uni_field_id = new Date().getTime();
-
             var title = file.title == undefined ? "" : file.title;
             var description = file.description == undefined ? "" : file.description;
-
             file._title = Dropzone.createElement('<input type="text" value="'+title+'" id="'+uni_field_id+'" name="title" placeholder="Title..." class="form-control" />');
              file.previewElement.querySelector('.title').appendChild(file._title);
           });
@@ -187,7 +185,6 @@
               description = file.previewElement.querySelector("textarea[name='description'");
               formData.append("text_title",$(title).val());
               formData.append("album_id",$('select[name="album_id"]').val());
-
               document.querySelector(".start").setAttribute("disabled", "disabled");
           });
 

@@ -26,12 +26,10 @@ class ImportController extends Controller {
 	public function postImportUser(Request $request)
 	{
 		$file = $request->file('file');
-		try {
-			$data = $this->import->importUser($file);
-		} catch (Exception $e) {
-			return $e->getMessage();
-		}
-		return "done";
+		$data = $this->import->importUser($file);
+		if($data){
+			return redirect()->back();
+		}		
 	}
 
 

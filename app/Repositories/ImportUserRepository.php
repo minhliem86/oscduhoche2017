@@ -71,7 +71,7 @@ class ImportUserRepository{
           });
         })->export('xlsx');
       }
-      return "done";
+      return true;
     }else{
       return "File rỗng";
     }
