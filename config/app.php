@@ -208,7 +208,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form' => 'Collective\Html\FormFacade',
 	  	'Html' => 'Collective\Html\HtmlFacade',
-	  	'Datatables' => 'Yajra\Datatables\Facades\Datatables',
+	  	'Datatables' => 'yajra\Datatables\Datatables',
 	  	'Notification' => 'Krucas\Notification\Facades\Notification',
 	  	'Debugbar' => 'Barryvdh\Debugbar\Facade',
 	  	'Image' => 'Intervention\Image\Facades\Image',

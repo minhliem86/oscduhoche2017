@@ -85,7 +85,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			Route::resource('/customer','CustomerController');
 
 			Route::get('/resetpass', function(){
-					$user = App\Models\Customer::find(335);
+					$user = App\Models\Customer::find(423);
 					$user->password = bcrypt('abc123456');
 					$user->save();
 					return "done";
@@ -100,6 +100,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		Route::post('/uploadPhoto', [ 'as' => 'admin.photo.postUpload', 'uses'=>'PhotoController@postUpload']);
 		Route::post('/photo/deleteall',['as'=>'admin.photo.deleteall','uses'=>'PhotoController@deleteAll']);
 		Route::get('/photo/ajaxAlbum', ['as' => 'admin.photo.ajaxAlbum', 'uses'=>'PhotoController@loadAlbum']);
+		Route::get('/photo/getData', ['as' => 'admin.photo.getData', 'uses' =>'PhotoController@anyData']);
 		Route::resource('/photo', 'PhotoController');
 
 		/*CHANGE PASS*/

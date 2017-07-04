@@ -22,42 +22,19 @@
 	              </div>
 	            </div>
 	            <!-- /.box-header -->
-	            @if($photo->count() != 0)
 				<div class="box-body">
 
 				  <table id="table-post" class="table table-bordered table-striped">
 				    <thead>
 					    <tr>
-							<th>ID</th>
-							<th data-width="20%">Image</th>
-							<th>Album</th>
+							<th data-width="10%">ID</th>
+							<th data-width="20%" >Image</th>
+							<th >Album</th>
 							<th>Action</th>
 						</tr>
 				    </thead>
-				    <tbody>
-					    @foreach($photo as $item)
-						<tr>
-							<td >{!!$item->id!!}</td>
-							<td><img src="{!!$item->img_url!!}" width="200" alt=""></td>
-							<td>{!!count($item->albums) > 0 ? $item->albums->title : ''!!} </td>
-							<td>
-							<a href="{!!route('admin.photo.edit', array($item->id) )!!}" class="btn btn-info btn-xs"> Edit </a>
-							{!!Form::open(array('route'=>array('admin.photo.destroy',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
-							<button class="btn  btn-danger btn-xs remove-btn" type="button" attrid="{!!$item->id!!}" onclick="confirm_remove(this);"   > Remove </button>
-							{!!Form::close()!!}
-							</td>
-						</tr>
-						@endforeach
-				    </tbody>
-				    <tfoot>
-
-				    </tfoot>
-
 				  </table>
 				</div>
-				@else
-					<h2 class="text-center">No Data</h2>
-				@endif
             <!-- /.box-body -->
 			</div>
 			</div>	<!-- end ajax-table-->
@@ -79,39 +56,54 @@
 			{!! Notification::showError('alertify.error(":message");') !!}
 
 			var table = $('#table-post').DataTable({
-				'ordering': false,
-				"bLengthChange": false,
-				"bFilter" : false,
+                processing: true,
+                serverSide: true,
+                ajax:{
+                    url:  '{!! route('admin.photo.getData') !!}',
+                    data: function(d){
+                        d.name = $('input[type="search"]').val();
+                    }
+                },
+                columns: [
+                   {data: 'photo_id', name: '.photos.id'},
+                   {data: 'img_url', name: 'photos.img_url'},
+                   {data: 'title', name: 'title'},
+                   {data: 'action', name: 'action'}
+               ],
+               initComplete: function(){
+                    var table_api = this.api();
+                    var data = [];
+                    $('#btn-count').click( function () {
+                        var rows = table_api.rows('.selected').data();
+                        rows.each(function(index, e){
+                            data.push(index.photo_id);
+                        })
+                        console.log(data);
+                    	alertify.confirm('You can not undo this action. Are you sure ?', function(e){
+                    		if(e){
+                    			$.ajax({
+                    				'url':"{!!route('admin.photo.deleteall')!!}",
+                    				'data' : {arr: data,_token:$('meta[name="csrf-token"]').attr('content')},
+                    				'type': "POST",
+                    				'success':function(result){
+                    					if(result.msg = 'ok'){
+                    						table.rows('.selected').remove();
+                    						table.draw();
+                    						alertify.success('The data is removed!');
+                                            location.reload();
+                    					}
+                    				}
+                    			});
+                    		}
+                        })
+                    })
+               }
 			});
 			/*SELECT ROW*/
 			$('#table-post tbody').on('click','tr',function(){
 				$(this).toggleClass('selected');
-			})
+			});
 
-			/*REMOVE SELECTED*/
-			$('#btn-count').click( function () {
-				var data = [];
-				table.rows('.selected').data().each(function(index, e){
-					// console.log(index)[0];
-					data.push(index[0]);
-				});
-				alertify.confirm('You can not undo this action. Are you sure ?', function(e){
-					if(e){
-						$.ajax({
-							'url':"{!!route('admin.photo.deleteall')!!}",
-							'data' : {arr: data,_token:$('meta[name="csrf-token"]').attr('content')},
-							'type': "POST",
-							'success':function(result){
-								if(result.msg = 'ok'){
-									table.rows('.selected').remove();
-									table.draw();
-									alertify.success('The data is removed!');
-								}
-							}
-						});
-					}
-				})
-		    });
 		})
 
 		function confirm_remove(a){
