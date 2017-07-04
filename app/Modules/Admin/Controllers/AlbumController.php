@@ -48,7 +48,10 @@ class AlbumController extends Controller {
       'tour_id' => $request->input('tour_id'),
       'img_url' => $img_url
     ];
-    // dd($data);
+    if($this->album->getFirstByWhere('slug',  \Unicode::make($request->input('title')) )){
+        Notification::error('Album already exists !');
+        return redirect()->back()->withInput();
+    }
     $this->album->createItem($data);
 
     Notification::success('Create Successfull.');

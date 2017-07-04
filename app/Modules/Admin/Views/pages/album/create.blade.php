@@ -43,6 +43,9 @@
 
 @section('script')
 <script>
-
+    $(document).ready(function(){
+        {!! Notification::showSuccess('alertify.success(":message");') !!}
+        {!! Notification::showError('alertify.error(":message");') !!}
+    })
 </script>
 @stop
