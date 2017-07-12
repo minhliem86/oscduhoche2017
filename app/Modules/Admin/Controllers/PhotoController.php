@@ -149,4 +149,41 @@ public function postUpload(Request $request)
     }
   }
 
+  public function getQuickEditPhoto()
+  {
+      $album = $this->album->lists('title', 'id');
+      return view('Admin::pages.photo.quickEdit', compact('album'));
+  }
+
+  public function postAjaxGetPhoto(Request $request)
+  {
+      if(!$request->ajax())
+      {
+          abort('404', 'Not Access');
+      }else{
+          $album_id = $request->input('data');
+          $photo = $this->photo->where('album_id', $album_id)->select('id', 'title', 'img_url')->get();
+          $view = view('Admin::ajax.loadPhotoQuickEdit', compact('photo'))->render();
+          return response()->json(['msg' => $album_id, 'code' => 200], 200);
+      }
+  }
+
+  public function postAjaxEditPhoto(Request $request)
+  {
+      if(!$request->ajax())
+      {
+          abort('404', 'Not Access');
+      }else{
+          $data = $request->input('data');
+          foreach($data as $k => $v){
+              $upt  =  [
+                  'title' => $v,
+              ];
+              $obj = $this->photo->find($k);
+              $obj->update($upt);
+          }
+          return response()->json(['msg' => 'ok', 'code'=>200], 200);
+      }
+  }
+
 }

@@ -66,6 +66,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 			Route::post('image/deleteall',['as'=>'admin.image.deleteall','uses'=>'ImageController@deleteAll']);
 			Route::resource('image','ImageController');
 
+
 			/*Tour*/
 			Route::post('/course/deleteall',['as'=>'admin.course.deleteall','uses'=>'CourseController@deleteAll']);
 			// Route::post('tour/addSchedule',['as'=>'admin.tour.addSchedule','uses'=>'TourController@addSchedule']);
@@ -101,6 +102,9 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		Route::post('/photo/deleteall',['as'=>'admin.photo.deleteall','uses'=>'PhotoController@deleteAll']);
 		Route::get('/photo/ajaxAlbum', ['as' => 'admin.photo.ajaxAlbum', 'uses'=>'PhotoController@loadAlbum']);
 		Route::get('/photo/getData', ['as' => 'admin.photo.getData', 'uses' =>'PhotoController@anyData']);
+		Route::get('/photo/quickEdit' , ['as' => 'admin.photo.getQuickEditPhoto', 'uses' => 'PhotoController@getQuickEditPhoto']);
+		Route::post('/photo/postAjaxGetPhoto' , ['as' => 'admin.photo.postAjaxGetPhoto', 'uses' => 'PhotoController@postAjaxGetPhoto']);
+		Route::post('/photo/postAjaxEditPhoto' , ['as' => 'admin.photo.postAjaxEditPhoto', 'uses' => 'PhotoController@postAjaxEditPhoto']);
 		Route::resource('/photo', 'PhotoController');
 
 		/*CHANGE PASS*/

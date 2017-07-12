@@ -21,7 +21,8 @@
 
          @endif
          <li class="{!!Active::setActive(2,'album')!!}"><a href="{!!route('admin.album.index')!!}"><i class="fa fa-file-image-o"></i> <span>Album</span></a></li>
-         <li class="{!!Active::setActive(2,'Upload Photo')!!}"><a href="{!!route('admin.photo.index')!!}"><i class="fa fa-photo"></i> <span>Upload Photo</span></a></li>
+         <li class="{!!Active::setActive(2,'photo')!!}"><a href="{!!route('admin.photo.index')!!}"><i class="fa fa-photo"></i> <span>Upload Photo</span></a></li>
+         <li class="{!!Active::setActive(2,'Upload Photo')!!}"><a href="{!!route('admin.photo.getQuickEditPhoto')!!}"><i class="fa fa-photo"></i> <span>Quick Edit Photo</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
