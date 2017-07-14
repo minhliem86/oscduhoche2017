@@ -107,6 +107,7 @@
               <span class="preview">
                 <img data-dz-thumbnail />
                 <div class="title form-group" style="margin-top:10px"></div>
+                <div class="order form-group" style="margin-top:10px"></div>
                 <div class="description form-group"></div>
               </span>
           </div>
@@ -176,14 +177,19 @@
             var uni_field_id = new Date().getTime();
             var title = file.title == undefined ? "" : file.title;
             var description = file.description == undefined ? "" : file.description;
+            var order = file.order == undefined ? "" : file.order;
             file._title = Dropzone.createElement('<input type="text" value="'+title+'" id="'+uni_field_id+'" name="title" placeholder="Title..." class="form-control" />');
+            // file._order = Dropzone.createElement('<input type="text" value="'+order+'" id="'+uni_field_id+'" name="order" placeholder="Order..." class="form-control" />');
              file.previewElement.querySelector('.title').appendChild(file._title);
+            //  file.previewElement.querySelector('.order').appendChild(file._order);
           });
 
           myDropzone.on("sending",function(file, xhr, formData){
               title = file.previewElement.querySelector("input[name='title'");
-              description = file.previewElement.querySelector("textarea[name='description'");
+            //   order = file.previewElement.querySelector("input[name='order'");
+            //   description = file.previewElement.querySelector("textarea[name='description'");
               formData.append("text_title",$(title).val());
+            //   formData.append("text_order",$(order).val());
               formData.append("album_id",$('select[name="album_id"]').val());
               document.querySelector(".start").setAttribute("disabled", "disabled");
           });

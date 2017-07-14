@@ -105,6 +105,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		Route::get('/photo/quickEdit' , ['as' => 'admin.photo.getQuickEditPhoto', 'uses' => 'PhotoController@getQuickEditPhoto']);
 		Route::post('/photo/postAjaxGetPhoto' , ['as' => 'admin.photo.postAjaxGetPhoto', 'uses' => 'PhotoController@postAjaxGetPhoto']);
 		Route::post('/photo/postAjaxEditPhoto' , ['as' => 'admin.photo.postAjaxEditPhoto', 'uses' => 'PhotoController@postAjaxEditPhoto']);
+		Route::post('/photo/postAjaxUpdateOrder', ['as' => 'admin.photo.postAjaxUpdateOrder', 'uses' => 'PhotoController@postAjaxUpdateOrder']);
 		Route::resource('/photo', 'PhotoController');
 
 		/*CHANGE PASS*/

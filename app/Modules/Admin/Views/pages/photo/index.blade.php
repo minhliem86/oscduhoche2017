@@ -19,6 +19,7 @@
 	              <div class="pull-right">
 	              	<a href="{!!route('admin.photo.create')!!}" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 		               <button class="btn btn-danger btn-xs" id="btn-count">Remove data selected</button>
+                        <button type="button" id="btn-updateOrder" class="btn btn-warning btn-xs">Update Order</button>
 	              </div>
 	            </div>
 	            <!-- /.box-header -->
@@ -29,6 +30,7 @@
 					    <tr>
 							<th data-width="10%">ID</th>
 							<th data-width="20%" >Image</th>
+                            <th data-width="10%">Order</th>
 							<th >Album</th>
 							<th>Action</th>
 						</tr>
@@ -67,18 +69,19 @@
                 columns: [
                    {data: 'photo_id', name: '.photos.id'},
                    {data: 'img_url', name: 'photos.img_url'},
+                   {data: 'updateOrder', name: 'updateOrder'},
                    {data: 'title', name: 'title'},
                    {data: 'action', name: 'action'}
                ],
                initComplete: function(){
                     var table_api = this.api();
                     var data = [];
+                    var data_order = {};
                     $('#btn-count').click( function () {
                         var rows = table_api.rows('.selected').data();
                         rows.each(function(index, e){
                             data.push(index.photo_id);
                         })
-                        console.log(data);
                     	alertify.confirm('You can not undo this action. Are you sure ?', function(e){
                     		if(e){
                     			$.ajax({
@@ -95,6 +98,25 @@
                     				}
                     			});
                     		}
+                        })
+                    })
+
+                    $('#btn-updateOrder').click(function(){
+                        var rows_order = table_api.rows().data();
+                        rows_order.each(function(index){
+                            // data_order.push(index.photo_id);
+                            data_order[index.photo_id] =  ;
+                        })
+                        $.ajax({
+                            url: '{{route("admin.photo.postAjaxUpdateOrder")}}',
+                            type:'POST',
+                            data: {data: data_order,  _token:$('meta[name="csrf-token"]').attr('content') },
+                            success: function(rs){
+                                if(rs.code == 200){
+                                    // location.reload(true);
+                                    console.log(rs.msg);
+                                }
+                            }
                         })
                     })
                }

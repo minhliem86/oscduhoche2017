@@ -21,10 +21,11 @@ class PhotoController extends Controller {
   protected $_upload_folder = 'public/upload/image';
   protected $_upload_folder_thumb = 'public/upload/image/thumbs';
 
-  public function __construct(UploadRepository $image, Tour $tour, Album $album){
+  public function __construct(UploadRepository $image, Tour $tour, Album $album, Photo $photo){
       $this->image = $image;
       $this->tour = $tour;
       $this->album = $album;
+      $this->photo = $photo;
   }
 
   public function index()
@@ -37,14 +38,17 @@ class PhotoController extends Controller {
     //   $photo = Photo::with('albums')->select('photos.*');
       $photo = \DB::table('albums')
       ->join('photos', 'photos.album_id' , '=','albums.id')
-      ->select([ 'photos.id AS photo_id', 'photos.img_url', 'albums.title' ]);
-      return Datatables::of($photo)->addColumn('action',  function($photo) {
+      ->select([ 'photos.id AS photo_id', 'photos.img_url','photos.order', 'albums.title' ]);
+      return Datatables::of($photo)
+      ->addColumn('action',  function($photo) {
           return '<a href="'.route('admin.photo.edit', $photo->photo_id).'" class="btn btn-info btn-xs"> Edit </a>
           <form method="POST" action=" '.route('admin.photo.destroy', $photo->photo_id).' " accept-charset="UTF-8" class="inline">
               <input name="_method" type="hidden" value="DELETE">
               <input name="_token" type="hidden" value="'.csrf_token().'">
 							<button class="btn  btn-danger btn-xs remove-btn" type="button" attrid=" '.route('admin.photo.destroy', $photo->photo_id).' " onclick="confirm_remove(this);" > Remove </button>
 			</form>' ;
+      })->addColumn('updateOrder', function ($photo){
+          return "<input type='text' class='form-control' data-id= '".$photo->photo_id."' value= '".$photo->order."' />";
       })->editColumn('img_url', function($photo){
           return '<img src=" '.$photo->img_url. ' " class="img-responsive" width="150" /> ';
       })->filter(function($query) use ($request){
@@ -161,10 +165,15 @@ public function postUpload(Request $request)
       {
           abort('404', 'Not Access');
       }else{
-          $album_id = $request->input('data');
+          $album_id = $request->data;
           $photo = $this->photo->where('album_id', $album_id)->select('id', 'title', 'img_url')->get();
-          $view = view('Admin::ajax.loadPhotoQuickEdit', compact('photo'))->render();
-          return response()->json(['msg' => $album_id, 'code' => 200], 200);
+          if(!$photo->isEmpty()){
+              $view = view('Admin::ajax.loadPhotoQuickEdit', compact('photo'))->render();
+              return response()->json(['msg' => $view, 'code' => 200], 200);
+          }else{
+              return response()->json(['msg' => 'Không có hình ảnh trong Album', 'code' => 500], 200);
+          }
+
       }
   }
 
@@ -183,6 +192,24 @@ public function postUpload(Request $request)
               $obj->update($upt);
           }
           return response()->json(['msg' => 'ok', 'code'=>200], 200);
+      }
+  }
+
+  public function postAjaxUpdateOrder(Request $request)
+  {
+      if(!$request->ajax())
+      {
+          abort('404', 'Not Access');
+      }else{
+          $data = $request->input('data');
+          foreach($data as $k => $v){
+              $upt  =  [
+                  'order' => $v,
+              ];
+              $obj = $this->photo->find($k);
+              $obj->update($upt);
+          }
+          return response()->json(['msg' => $data, 'code'=>200], 200);
       }
   }
 
