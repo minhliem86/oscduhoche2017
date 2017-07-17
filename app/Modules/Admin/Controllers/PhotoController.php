@@ -48,7 +48,7 @@ class PhotoController extends Controller {
 							<button class="btn  btn-danger btn-xs remove-btn" type="button" attrid=" '.route('admin.photo.destroy', $photo->photo_id).' " onclick="confirm_remove(this);" > Remove </button>
 			</form>' ;
       })->addColumn('updateOrder', function ($photo){
-          return "<input type='text' class='form-control' data-id= '".$photo->photo_id."' value= '".$photo->order."' />";
+          return "<input type='text' name='order' class='form-control' data-id= '".$photo->photo_id."' value= '".$photo->order."' />";
       })->editColumn('img_url', function($photo){
           return '<img src=" '.$photo->img_url. ' " class="img-responsive" width="150" /> ';
       })->filter(function($query) use ($request){
@@ -209,7 +209,7 @@ public function postUpload(Request $request)
               $obj = $this->photo->find($k);
               $obj->update($upt);
           }
-          return response()->json(['msg' => $data, 'code'=>200], 200);
+          return response()->json(['msg' =>'ok', 'code'=>200], 200);
       }
   }
 

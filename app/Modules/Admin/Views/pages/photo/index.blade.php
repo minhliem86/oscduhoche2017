@@ -103,18 +103,20 @@
 
                     $('#btn-updateOrder').click(function(){
                         var rows_order = table_api.rows().data();
-                        rows_order.each(function(index){
-                            // data_order.push(index.photo_id);
-                            data_order[index.photo_id] =  ;
-                        })
+                        var data_order = {};
+                        $('input[name="order"]').each(function(index){
+                            var id = $(this).data('id');
+                            var va = $(this).val();
+                            data_order[id] = va;
+                        });
                         $.ajax({
                             url: '{{route("admin.photo.postAjaxUpdateOrder")}}',
                             type:'POST',
                             data: {data: data_order,  _token:$('meta[name="csrf-token"]').attr('content') },
                             success: function(rs){
                                 if(rs.code == 200){
-                                    // location.reload(true);
-                                    console.log(rs.msg);
+                                    location.reload(true);
+                                    // console.log(rs.msg);
                                 }
                             }
                         })
