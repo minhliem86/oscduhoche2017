@@ -6,11 +6,11 @@ class Video extends Model {
 
 	public $table = 'videos';
 
-    protected $fillable = ['title', 'status', 'video_url', 'img_url'];
+    protected $fillable = ['title', 'status', 'video_url', 'img_url','order','album_id'];
 
     public function albums()
     {
-        return $this->belongsTo('App\Models\Album');
+        return $this->belongsTo('App\Models\Album', 'album_id');
     }
 
 }

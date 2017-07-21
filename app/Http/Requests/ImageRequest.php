@@ -22,7 +22,12 @@ class ImageRequest extends Request {
 	public function rules()
 	{
 		return [
-			'img' =>'mimes:jpeg,bmp,png'
+			'img' =>'mimes:jpeg,bmp,png|max:1000'
+		];
+	}
+	public function messages(){
+		return [
+			'img.max' => 'File size must below 1mb',
 		];
 	}
 

@@ -18,11 +18,11 @@
         <li class="{!!Active::setActive(2,'testimonial')!!}"><a href="{!!route('admin.testimonial.index')!!}"><i class="fa fa-photo"></i> <span>Testimonials</span></a></li>
          <li class="{!!Active::setActive(2,'image')!!}"><a href="{!!route('admin.image.index')!!}"><i class="fa fa-photo"></i> <span>Images</span></a></li>
          <li class="{!!Active::setActive(2,'course')!!}"><a href="{!!route('admin.course.index')!!}"><i class="fa fa-photo"></i> <span>Courses</span></a></li>
-
          @endif
          <li class="{!!Active::setActive(2,'album')!!}"><a href="{!!route('admin.album.index')!!}"><i class="fa fa-file-image-o"></i> <span>Album</span></a></li>
          <li class="{!!Active::setActive(2,'photo')!!}"><a href="{!!route('admin.photo.index')!!}"><i class="fa fa-photo"></i> <span>Upload Photo</span></a></li>
-         <li class="{!!Active::setActive(2,'Upload Photo')!!}"><a href="{!!route('admin.photo.getQuickEditPhoto')!!}"><i class="fa fa-photo"></i> <span>Quick Edit Photo</span></a></li>
+         <li class="{!!Active::setActive(2,'photo')!!}"><a href="{!!route('admin.photo.getQuickEditPhoto')!!}"><i class="fa fa-photo"></i> <span>Quick Edit Photo</span></a></li>
+         <li class="{!!Active::setActive(2,'video')!!}"><a href="{!!route('admin.video.index')!!}"><i class="fa fa-photo"></i> <span>Videos</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

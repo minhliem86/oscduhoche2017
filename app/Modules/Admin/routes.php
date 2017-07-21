@@ -108,6 +108,10 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		Route::post('/photo/postAjaxUpdateOrder', ['as' => 'admin.photo.postAjaxUpdateOrder', 'uses' => 'PhotoController@postAjaxUpdateOrder']);
 		Route::resource('/photo', 'PhotoController');
 
+		/*VIDEO*/
+		Route::post('video/postAjaxGetAlbum', ['as' => 'admin.video.postAjaxGetAlbum', 'uses' => 'VideoController@postAjaxGetAlbum']);
+		Route::resource('/video', 'VideoController');
+
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
 		Route::post('password',['as'=>'admin.postChangePass','uses'=>'AdminController@postChangePass']);

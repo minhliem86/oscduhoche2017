@@ -19,4 +19,5 @@ class Album extends Model{
   public function videos(){
     return $this->hasMany('App\Models\Video');
   }
+
 }

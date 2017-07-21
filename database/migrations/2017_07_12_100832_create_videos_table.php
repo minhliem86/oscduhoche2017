@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration {
 			$table->string('title')->nullable();
 			$table->string('img_url')->nullable();
 			$table->string('video_url')->nullable();
+			$table->integer('order')->nullable();
 			$table->boolean('status')->default(1)->nullable();
 			$table->integer('album_id')->unsigned();
 			$table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
