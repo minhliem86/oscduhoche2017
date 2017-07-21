@@ -28,4 +28,8 @@ class Tour extends Model {
 		return $this->hasMany('App\Models\Album');
 	}
 
+	public function videos(){
+		return $this->hasManyThrough('App\Models\Video','App\Models\Album');
+	}
+
 }

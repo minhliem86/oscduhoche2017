@@ -35,7 +35,6 @@
 					{!!Form::submit('Save',array('class'=>'btn btn-primary'))!!}
 					<a href="{!!URL::previous()!!}" class="btn btn-primary">Back</a>
 				</div>
-
 			{!!Form::close()!!}
 		</div>
 	</div>

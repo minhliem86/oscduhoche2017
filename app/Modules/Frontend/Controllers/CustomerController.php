@@ -57,13 +57,15 @@ class CustomerController extends Controller {
 			$banner_desk =  $this->tour->find($tour_id)->banner_desktop;
 			$banner_mobile =  $this->tour->find($tour_id)->banner_mobile;
 			try {
+					$tour = $this->tour->find($tour_id);
+					$video = $tour->videos()->get();
 					$tour_album = $this->tour->select('id', 'title')->with('albums')->find($tour_id);
 			        $lastest_album = $tour_album->albums()->orderBy('id', 'DESC')->take(2)->get();
 			        $all_album = $tour_album->albums()->orderBy('id', 'ASC')->take(6)->get();
 			} catch (Exception $e) {
 					return redirect()->back();
 			}
-	    	return view('Frontend::users.course.album', compact('lastest_album', 'all_album', 'img_banner', 'country_name', 'banner_desk', 'banner_mobile','tour_name'));
+	    	return view('Frontend::users.course.album', compact('lastest_album', 'all_album', 'img_banner', 'country_name', 'banner_desk', 'banner_mobile','tour_name','video'));
 	  }
 
 	public function ajaxLoadAlbum(Request $request)

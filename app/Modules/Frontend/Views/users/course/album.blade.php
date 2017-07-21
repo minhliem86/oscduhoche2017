@@ -18,6 +18,9 @@
     </script>
 @stop
 @section('script')
+    <link rel="stylesheet" href="{!!asset('public/assets/frontend/js/video/plyr.css')!!}">
+    <script src="{!!asset('public/assets/frontend/js/video/plyr.js')!!}"></script>
+
   <script>
     $(document).ready(function(){
       $(document).on('click', '.btn-showall', function(e){
@@ -31,9 +34,12 @@
             }
             $('.load-album').html(data.msg);
           }
-
         })
       })
+
+    //   VIDEO
+    plyr.setup();
+
     })
   </script>
 @stop
@@ -87,6 +93,28 @@
       </div>
   </section>
   <!-- **************** /Wellcome ****************-->
+@if(!$video->isEmpty())
+  <section class="lastest-album section-show">
+    <div class="container">
+      <div class="row">
+        <div class="inner-section bg-yellow">
+          <h2 class="title-page">Video Clip - Du học hè - {!!$tour_name!!}</h2>
+          <div class="container-fluid">
+            <div class="row">
+              @foreach($video as $item_video)
+                  <div class="col-sm-4">
+                    <div class="each-lastest each">
+                        <div data-type="youtube" data-video-id="{!!$item_video->video_url!!}"></div>
+                    </div>  <!-- each lastest -->
+                  </div>
+                @endforeach
+            </div>
+          </div>
+        </div>  <!-- end inner-section -->
+      </div>
+    </div>
+  </section>   <!-- end lastes album -->
+  @endif
 
   <section class="lastest-album section-show">
     <div class="container">
@@ -152,4 +180,6 @@
     </div>
   </section>  <!-- end all-album -->
   @endif
+
+
 @stop

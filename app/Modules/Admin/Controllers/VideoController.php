@@ -152,13 +152,13 @@ class VideoController extends Controller {
 			$tour_id = $request->input('tour_id');
 			$album = $this->album->where('status', 1)->where('tour_id', $tour_id)->lists('title', 'id');
 			$view = view('Admin::ajax.getAlbumVideo', compact('album'))->render();
-			return response()->jo(['rs' => $view, 'code' => 200], 200);
+			return response()->json(['rs' => $view, 'code' => 200], 200);
 		}
 	}
 
 	public function deleteAll(Request $request)
 	{
-		
+
 	}
 
 }
