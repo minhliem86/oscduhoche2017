@@ -13,6 +13,9 @@
 
   <script src="{!!asset('/public/assets/frontend/js/Chart.js') !!}"></script>
 
+  <link rel="stylesheet" href="{!!asset('public/assets/frontend/js/video/plyr.css')!!}">
+  <script src="{!!asset('public/assets/frontend/js/video/plyr.js')!!}"></script>
+
   <script>
     $(document).ready(function(){
       // SEARCH
@@ -29,7 +32,10 @@
               $('.title-album').text(data.title);
             }else{
                 $('.title-album').text(data.title);
-                $('.load-photo').html(data.msg)
+                // console.log(data.msg);
+                $('.load-photo').html(data.msg.photo)
+                $('.load-video').html(data.msg.video);
+                // console.log(data.msg.video);
             }
           },
           error: function(jqXHR , status, err){
@@ -84,6 +90,9 @@
                 },
             }
         });
+
+        // VIDEO
+
     })
 
 
@@ -125,6 +134,17 @@
     </div>
   </div>
 </section>
+<section class="all-album">
+  <div class="container">
+    <div class="row">
+      <div class="inner-section">
+        <div class="load-video">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  <!-- end all-album -->
   <section class="all-album">
     <div class="container">
       <div class="row">

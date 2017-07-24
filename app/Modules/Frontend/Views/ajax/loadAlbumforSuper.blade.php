@@ -1,4 +1,5 @@
 @if(!$album->isEmpty())
+    <h2 class="title-page text-center">Hình ảnh</h2>
 <div class="container-fluid">
   <div class="row">
     @foreach($album as $k => $item_album)

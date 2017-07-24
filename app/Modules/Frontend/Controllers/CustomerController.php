@@ -155,11 +155,13 @@ class CustomerController extends Controller {
 			}
 			$tour_name = $tour->title;
 			$album = $tour->albums()->get();
+			$video = $tour->videos()->get();
 			if($album->isEmpty()){
 				return response()->json(['error'=> true, 'msg' => 'Hiện chưa có hình ảnh' , 'title' => $tour_name], 200);
 			}
 			$view = view('Frontend::ajax.loadAlbumforSuper', compact('album'))->render();
-			return response()->json(['error' => false, 'msg' => $view, 'title' =>$tour_name], 200);
+			$video_view = view('Frontend::ajax.loadVideoforSuper', compact('video'))->render();
+			return response()->json(['error' => false, 'msg' => ['photo'=>$view, 'video'=> $video_view], 'title' =>$tour_name], 200);
 		}
 	}
 
