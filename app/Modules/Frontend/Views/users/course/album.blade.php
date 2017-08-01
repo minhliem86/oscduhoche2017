@@ -103,8 +103,11 @@
             <div class="row">
               @foreach($video as $item_video)
                   <div class="col-sm-4">
-                    <div class="each-lastest each">
-                        <div data-type="youtube" data-video-id="{!!$item_video->video_url!!}"></div>
+                    <div class="each-lastest each" style="margin-bottom:10px">
+                        <div class="video-wrap" style="margin-bottom:10px;">
+                            <div data-type="youtube" data-video-id="{!!$item_video->video_url!!}"></div>
+                        </div>
+                        <p class="title-video" style="text-align:center; font-weight:600">{!!$item_video->title!!}</p>
                     </div>  <!-- each lastest -->
                   </div>
                 @endforeach
