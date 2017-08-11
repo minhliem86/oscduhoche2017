@@ -103,6 +103,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		Route::get('/photo/ajaxAlbum', ['as' => 'admin.photo.ajaxAlbum', 'uses'=>'PhotoController@loadAlbum']);
 		Route::get('/photo/getData', ['as' => 'admin.photo.getData', 'uses' =>'PhotoController@anyData']);
 		Route::get('/photo/quickEdit' , ['as' => 'admin.photo.getQuickEditPhoto', 'uses' => 'PhotoController@getQuickEditPhoto']);
+		Route::post('/photo/postAjaxGetAlbum' , ['as' => 'admin.photo.postAjaxGetAlbum', 'uses' => 'PhotoController@postAjaxGetAlbum']);
 		Route::post('/photo/postAjaxGetPhoto' , ['as' => 'admin.photo.postAjaxGetPhoto', 'uses' => 'PhotoController@postAjaxGetPhoto']);
 		Route::post('/photo/postAjaxEditPhoto' , ['as' => 'admin.photo.postAjaxEditPhoto', 'uses' => 'PhotoController@postAjaxEditPhoto']);
 		Route::post('/photo/postAjaxUpdateOrder', ['as' => 'admin.photo.postAjaxUpdateOrder', 'uses' => 'PhotoController@postAjaxUpdateOrder']);

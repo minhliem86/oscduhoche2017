@@ -155,8 +155,27 @@ public function postUpload(Request $request)
 
   public function getQuickEditPhoto()
   {
-      $album = $this->album->lists('title', 'id');
-      return view('Admin::pages.photo.quickEdit', compact('album'));
+    //   $album = $this->album->lists('title', 'id');
+      $tour = $this->tour->where('status',1)->lists('tour_code','id');
+      return view('Admin::pages.photo.quickEdit', compact('tour'));
+  }
+
+  public function postAjaxGetAlbum(Request $request)
+  {
+       if(!$request->ajax()){
+          abort('404', 'Not Access');
+       }else{
+           $tour_id = $request->data_tour;
+
+           $album = $this->album->where('tour_id', $tour_id)->lists('title','id');
+           if(count($album) > 0){
+               $view = view('Admin::ajax.loadAlbumOption', compact('album'))->render();
+               return response()->json(['msg' => $view, 'code' => 200], 200);
+           }else{
+               return response()->json(['msg' => 'Chưa có Album trong Tour', 'code' => 500], 200);
+           }
+
+       }
   }
 
   public function postAjaxGetPhoto(Request $request)
